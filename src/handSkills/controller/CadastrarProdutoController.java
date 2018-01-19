@@ -16,7 +16,7 @@ public class CadastrarProdutoController {
 
 	@RequestMapping("/exibirInserirProduto")
 	public String exibirInserirProduto() {
-		return "produto/inserirParticipante";
+		return "produto/CadastrarProduto";
 	}
 
 	@RequestMapping("/exibirListagemProduto")
