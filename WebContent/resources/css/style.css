@@ -1,0 +1,13 @@
+.imagem-pessoa {
+	background-image: url(../img/img5.jpg);
+	background-repeat: no-repeat;
+	background-size: 100%;
+}
+
+.meu-carrosel{
+	margin: 20px 0 60px 0;
+}
+
+.imagem-item{
+	height: 410px;
+}
