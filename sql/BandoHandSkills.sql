@@ -1,5 +1,5 @@
-create database HandSkills;
-use HandSkills
+create database handskills;
+use handskills
 
 create table Produto (
 
@@ -11,7 +11,7 @@ coresDisponiveis varchar (20) not null,
 materialFeito varchar (30) not null,
 precoVenda float not null,
 quantidadeDisponivel int not null,
-imagem varchar(20) not null,
+imagem varchar(200) not null,
 primary key (id)
 
 );
