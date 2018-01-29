@@ -12,6 +12,10 @@ import handSkills.model.Produto;
 import handSkills.model.ProdutoDAO;
 import handSkills.util.Util;
 
+
+
+
+
 @Controller
 public class ProdutoController {
 
@@ -20,6 +24,7 @@ public class ProdutoController {
 
 		return "produto/CadastrarProduto";
 	}
+	
 
 	@RequestMapping("/CadastrarProduto")
 	public String CadastrarProduto(Produto produto, @RequestParam("file") MultipartFile imagem, Model model) {

@@ -15,10 +15,6 @@
 		<center><div>${mensagem}</div></center>
 		<form action="CadastrarProduto" method="post" enctype="multipart/form-data">
 		<p>
-		Código: <br />
-		<input type="text" name="codigo" />
-		</p>
-		<p>
 		Nome do produto: <br />
 		<input type="text" name="nomeProduto" />
 		</p>

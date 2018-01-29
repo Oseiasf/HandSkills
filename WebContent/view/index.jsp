@@ -9,7 +9,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>handskills</title>
+<title>HandSkills</title>
 
 <!-- Bootstrap core CSS -->
 <link href="./resources/vendor/bootstrap/css/bootstrap.min.css"
@@ -22,11 +22,40 @@
 </head>
 
 <body>
+	
 
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Login</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+	  <div class="modal-body">
+	  <form>
+		  <div class="form-group">
+		    <label for="exampleInputLogin">Login</label>
+		    <input type="text" class="form-control" id="exampleInputLogin" aria-describedby="loginHelp" placeholder="Entre com seu email">
+		    <small id="loginHelp" class="form-text text-muted">Para acessar, use o e-mail cadastrado.</small>
+		  </div>
+		  <div class="form-group">
+		    <label for="exampleInputPassword1">Senha</label>
+		    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha">
+		  </div>
+	  	  <center><button type="submit" class="btn btn-primary">Entrar</button></center>
+	  </form>  
+	  </div>
+    </div>
+  </div>
+</div>
+	
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-info fixed-top">
 		<div class="container">
-			<a class="navbar-brand" href="#">Handskills</a>
+			<a class="navbar-brand" href="/">Handskills</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarResponsive" aria-controls="navbarResponsive"
 				aria-expanded="false" aria-label="Toggle navigation">
@@ -34,13 +63,13 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item active"><a class="nav-link" href="#">Home
+					<li class="nav-item active"><a class="nav-link" href="">Home
 							<span class="sr-only">(current)</span>
 					</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">Login</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">Cadastro</a>
+					<li class="nav-item"><a class="nav-link" href="#" data-toggle="modal" data-target="#exampleModalCenter">Login</a></li>
+					<li class="nav-item"><a class="nav-link" href="#" data-toggle="modal" data-target="#exampleModalCenter">Cadastro</a>
 					</li>
-					<li class="nav-item"><a class="nav-link" href="#">Produtos</a>
+					<li class="nav-item"><a class="nav-link" href="listarProduto">Produtos</a>
 					</li>
 				</ul>
 			</div>

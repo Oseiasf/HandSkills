@@ -4,7 +4,6 @@ package handSkills.model;
 public class Produto {
 	
 	private int id;
-	private String codigo;
 	private	String nomeProduto;
 	private	String localOrigemProduto;
 	private	String coresDisponiveis;
@@ -18,12 +17,6 @@ public class Produto {
 	}
 	public void setId(int id) {
 		this.id = id;
-	}
-	public String getCodigo() {
-		return codigo;
-	}
-	public void setCodigo(String codigo) {
-		this.codigo = codigo;
 	}
 	public String getNomeProduto() {
 		return nomeProduto;

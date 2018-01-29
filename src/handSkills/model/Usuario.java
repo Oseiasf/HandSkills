@@ -8,13 +8,22 @@ public class Usuario {
 	private String rg;
 	private String email;
 	private String senha;
-	private String rua;
+	private String endereco;
 	private String bairro;
 	private String cidade;
+	private String estado;
 	private String cep;
-	private String tipoUsuario;
+	private String sexo;
 	private String telefone;
+	private String whatapp;
+	private String tipoUsuario;
 	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public String getNomeCompleto() {
 		return nomeCompleto;
 	}
@@ -45,11 +54,11 @@ public class Usuario {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	public String getRua() {
-		return rua;
+	public String getEndereco() {
+		return endereco;
 	}
-	public void setRua(String rua) {
-		this.rua = rua;
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
 	}
 	public String getBairro() {
 		return bairro;
@@ -63,17 +72,23 @@ public class Usuario {
 	public void setCidade(String cidade) {
 		this.cidade = cidade;
 	}
+	public String getEstado() {
+		return estado;
+	}
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
 	public String getCep() {
 		return cep;
 	}
 	public void setCep(String cep) {
 		this.cep = cep;
 	}
-	public String getTipoUsuario() {
-		return tipoUsuario;
+	public String getSexo() {
+		return sexo;
 	}
-	public void setTipoUsuario(String tipoUsuario) {
-		this.tipoUsuario = tipoUsuario;
+	public void setSexo(String sexo) {
+		this.sexo = sexo;
 	}
 	public String getTelefone() {
 		return telefone;
@@ -81,11 +96,18 @@ public class Usuario {
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
-	public int getId() {
-		return id;
+	public String getWhatapp() {
+		return whatapp;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setWhatapp(String whatapp) {
+		this.whatapp = whatapp;
 	}
+	public String getTipoUsuario() {
+		return tipoUsuario;
+	}
+	public void setTipoUsuario(String tipoUsuario) {
+		this.tipoUsuario = tipoUsuario;
+	}
+	
 	
 }

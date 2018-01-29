@@ -23,21 +23,21 @@ public class ProdutoDAO {
 
 	public void CadastrarProduto(Produto produto) {
 
-		String sql = "INSERT INTO Produto (codigo, nomeProduto, localOrigemProduto, coresDisponiveis," +
-		"materialFeito, precoVenda, quantidadeDisponivel, imagem) VALUES (?,?,?,?,?,?,?,?)";
+		String sql = "INSERT INTO Produto  nomeProduto, localOrigemProduto, coresDisponiveis," +
+		"materialFeito, precoVenda, quantidadeDisponivel, imagem) VALUES (?,?,?,?,?,?,?)";
 		PreparedStatement stmt;
 		try {
 
 			stmt = connection.prepareStatement(sql);
 
-			stmt.setString(1, produto.getCodigo());
-			stmt.setString(2, produto.getNomeProduto());
-			stmt.setString(3, produto.getLocalOrigemProduto());
-			stmt.setString(4, produto.getCoresDisponiveis());
-			stmt.setString(5, produto.getMaterialFeito()); 
-			stmt.setDouble(6, produto.getPrecoVenda());
-			stmt.setInt(7, produto.getQuantidadeDisponivel());
-			stmt.setString(8, produto.getImagem());
+			
+			stmt.setString(1, produto.getNomeProduto());
+			stmt.setString(2, produto.getLocalOrigemProduto());
+			stmt.setString(3, produto.getCoresDisponiveis());
+			stmt.setString(4, produto.getMaterialFeito()); 
+			stmt.setDouble(5, produto.getPrecoVenda());
+			stmt.setInt(6, produto.getQuantidadeDisponivel());
+			stmt.setString(7, produto.getImagem());
 
 			stmt.execute();
 			connection.close();
@@ -60,7 +60,6 @@ public class ProdutoDAO {
 				Produto produto = new Produto();
 
 				produto.setId(rs.getInt("id"));
-				produto.setCodigo(rs.getString("codigo"));
 				produto.setNomeProduto(rs.getString("nomeProduto"));
 				produto.setLocalOrigemProduto(rs.getString("localOrigemProduto"));
 				produto.setCoresDisponiveis(rs.getString("coresDisponiveis"));
@@ -103,21 +102,20 @@ public class ProdutoDAO {
 
 	public void alterarProduto(Produto produto) {
 
-		String sql = "UPDATE Produto SET codigo = ?, nomeProduto = ?, localOrigemProduto = ?, coresDisponiveis = ?, materialFeito = ?, precoVenda = ?, quantidadeDisponivel = ? WHERE id = ?";
+		String sql = "UPDATE Produto SET nomeProduto = ?, localOrigemProduto = ?, coresDisponiveis = ?, materialFeito = ?, precoVenda = ?, quantidadeDisponivel = ? WHERE id = ?";
 		PreparedStatement stmt;
 		try {
 
 			stmt = connection.prepareStatement(sql);
 
 			
-			stmt.setString(1, produto.getCodigo());
-			stmt.setString(2, produto.getNomeProduto());
-			stmt.setString(3, produto.getLocalOrigemProduto());
-			stmt.setString(4, produto.getCoresDisponiveis());
-			stmt.setString(5, produto.getMaterialFeito()); 
-			stmt.setDouble(6, produto.getPrecoVenda());
-			stmt.setInt(7, produto.getQuantidadeDisponivel());
-			stmt.setInt(8, produto.getId());
+			stmt.setString(1, produto.getNomeProduto());
+			stmt.setString(2, produto.getLocalOrigemProduto());
+			stmt.setString(3, produto.getCoresDisponiveis());
+			stmt.setString(4, produto.getMaterialFeito()); 
+			stmt.setDouble(5, produto.getPrecoVenda());
+			stmt.setInt(6, produto.getQuantidadeDisponivel());
+			stmt.setInt(7, produto.getId());
 
 			stmt.execute();
 			connection.close();
@@ -144,7 +142,6 @@ public class ProdutoDAO {
 			while (rs.next()) {
 
 				produto.setId(rs.getInt("id"));
-				produto.setCodigo(rs.getString("codigo"));
 				produto.setNomeProduto(rs.getString("nomeProduto"));
 				produto.setLocalOrigemProduto(rs.getString("localOrigemProduto"));
 				produto.setCoresDisponiveis(rs.getString("coresDisponiveis"));

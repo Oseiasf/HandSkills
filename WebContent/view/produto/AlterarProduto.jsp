@@ -17,12 +17,8 @@
 	
 	<form action="alterarProduto" method="post">
 
-		<div class="form-group">
-			<input type="hidden" name="id" value="${p.id}">
-			<label for="inputCodigo">Código</label>
-			<input type="text" id="inputCodigo" class="form-control" name="codigo" value="${p.codigo}" style="width: 100px;" maxlength="100">
-			
-		</div>
+		
+		<input type="hidden" name="id" value="${p.id}">
 		
 		<p>
 		Nome do produto: <br />
