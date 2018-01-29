@@ -18,9 +18,14 @@
 <!-- Custom styles for this template -->
 <link href="./resources/css/heroic-features.css" rel="stylesheet">
 <link href="./resources/css/style.css" rel="stylesheet">
-
+	<style>
+		#corpo {
+		background: #EEE9E9;
+		}
+	</style>
 </head>
 
+<<<<<<< HEAD
 <body>
 	
 
@@ -52,6 +57,11 @@
   </div>
 </div>
 	
+=======
+<body id="corpo">
+	
+
+>>>>>>> c9fab0f43e097a85197059a53aa73ef681687512
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-info fixed-top">
 		<div class="container">
@@ -123,10 +133,10 @@
 					<img class="card-img-top" src="./resources/img/img1.jpg" alt="">
 					<div class="card-body">
 						<h4 class="card-title">Bonecas de barro.</h4>
-						<p class="card-text">R$19,99.</p>
+						<p class="card-text">R$19,99</p>
 					</div>
 					<div class="card-footer">
-						<a href="#" class="btn btn-info">Comprar!</a>
+						<a href="#" class="btn btn-info">Comprar</a>
 					</div>
 				</div>
 			</div>
@@ -136,10 +146,10 @@
 					<img class="card-img-top" src="./resources/img/img2.jpg" alt="">
 					<div class="card-body">
 						<h4 class="card-title">Jarro de capim dourado</h4>
-						<p class="card-text">R$15,99.</p>
+						<p class="card-text">R$15,99</p>
 					</div>
 					<div class="card-footer">
-						<a href="#" class="btn btn-info">Comprar!</a>
+						<a href="#" class="btn btn-info">Comprar</a>
 					</div>
 				</div>
 			</div>
@@ -149,10 +159,10 @@
 					<img class="card-img-top" src="./resources/img/img3.jpg" alt="">
 					<div class="card-body">
 						<h4 class="card-title">Vazo decorado com tecido</h4>
-						<p class="card-text">R$9,99.</p>
+						<p class="card-text">R$9,99</p>
 					</div>
 					<div class="card-footer">
-						<a href="#" class="btn btn-info">Comprar!</a>
+						<a href="#" class="btn btn-info">Comprar</a>
 					</div>
 				</div>
 			</div>
@@ -162,10 +172,10 @@
 					<img class="card-img-top" src="./resources/img/img4.jpg" alt="">
 					<div class="card-body">
 						<h4 class="card-title">Boneca de Pernambuco com lantejoulas</h4>
-						<p class="card-text">R$9,99.</p>
+						<p class="card-text">R$9,99</p>
 					</div>
 					<div class="card-footer">
-						<a href="#" class="btn btn-info">Comprar!</a>
+						<a href="#" class="btn btn-info">Comprar</a>
 					</div>
 				</div>
 			</div>
