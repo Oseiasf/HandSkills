@@ -68,7 +68,7 @@ public class ProdutoController {
 		return "forward:ListarProduto";
 	}
 
-	@RequestMapping("/exibirAlterarProduto")
+	@RequestMapping("/exibirAtualizarProduto")
 	public String exibirAlterarProduto(Produto produto, Model model) {
 
 		ProdutoDAO dao = new ProdutoDAO();

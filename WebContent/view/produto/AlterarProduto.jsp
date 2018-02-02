@@ -11,7 +11,7 @@
 <title>Alterar produto</title>
 </head>
 <body>
-	
+	<c:import url="/view/comum/menu.jsp" />
 	
 	
 	
@@ -34,7 +34,7 @@
 		</p>
 		<p>
 		Material feito: <br>
-		<input type="text" name="materialFeito" value="${p.materialFeito}">
+		<input type="text" name="materialDoProduto" value="${p.materialDoProduto}">
 		</p>
 		<p>
 		Preço de venda: <br>

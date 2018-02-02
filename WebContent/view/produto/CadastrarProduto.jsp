@@ -12,38 +12,10 @@
 <link href="./resources/vendor/bootstrap/css/bootstrap.min.css"
 	rel="stylesheet">
 <link href="./resources/css/style.css" rel="stylesheet">
-<title>Insert title here</title>
+<title>Cadastrar Produtos</title>
 </head>
 <body>
-	<br>
-	<br>
-	<br>
-	<br>
-	<nav class="navbar navbar-expand-lg navbar-dark bg-info fixed-top">
-	<div class="container">
-		<a class="navbar-brand" href="/">Handskills</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse"
-			data-target="#navbarResponsive" aria-controls="navbarResponsive"
-			aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarResponsive">
-			<ul class="navbar-nav ml-auto">
-				<li class="nav-item active"><a class="nav-link" href="">Home
-						<span class="sr-only">(current)</span>
-				</a></li>
-				<li class="nav-item"><a class="nav-link" href="#"
-					data-toggle="modal" data-target="#exampleModalCenter">Login</a></li>
-				<li class="nav-item"><a class="nav-link" href="#"
-					data-toggle="modal" data-target="#exampleModalCenter">Cadastro</a>
-				</li>
-				<li class="nav-item"><a class="nav-link" href="listarProduto">Produtos</a>
-				</li>
-			</ul>
-		</div>
-	</div>
-	</nav>
-
+		<c:import url="/view/comum/menu.jsp" />
 	<h3 class=" cor-fonte  col-5 offset-5">Incluir Produto</h3>
 	<br>
 	<br>
