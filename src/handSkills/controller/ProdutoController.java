@@ -12,10 +12,6 @@ import handSkills.model.Produto;
 import handSkills.model.ProdutoDAO;
 import handSkills.util.Util;
 
-
-
-
-
 @Controller
 public class ProdutoController {
 

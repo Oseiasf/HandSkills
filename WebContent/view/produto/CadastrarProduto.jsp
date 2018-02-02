@@ -50,32 +50,26 @@
 	<center>
 		<div>${mensagem}</div>
 	</center>
-	<form action="CadastrarProduto" method="post"
-		enctype="multipart/form-data ">
+	<form action="CadastrarProduto" method="post" enctype="multipart/form-data">
 		<div class="col-4 offset-4">
 			<p class="cor-fonte">
-				Nome do produto:<input type="text" name="nomeProduto"
-					class="style-form" />
+				Nome do produto:<input type="text" name="nomeProduto" class="style-form" />
 			</p>
 			<p class="cor-fonte">
 				Local de Origem do Produto: <input type="text"
 					name="localOrigemProduto" class="style-form">
 			</p>
 			<p class="cor-fonte">
-				Cor disponivel: <input type="text" name="coresDisponiveis"
-					class="style-form">
+				Cor disponivel: <input type="text" name="coresDisponiveis" class="style-form">
 			</p>
 			<p class="cor-fonte">
-				Material do produto : <input type="text" name="materialDoProduto"
-					class="style-form">
+				Material do produto : <input type="text" name="materialDoProduto" class="style-form">
 			</p>
 			<p class="cor-fonte">
-				Preço de venda: <input type="text" name="precoVenda"
-					class="style-form">
+				Preço de venda: <input type="text" name="precoVenda" class="style-form">
 			</p>
 			<p class="cor-fonte">
-				Quantidade disponivel: <input type="text"
-					name="quantidadeDisponivel" class="style-form">
+				Quantidade disponivel: <input type="text" name="quantidadeDisponivel" class="style-form">
 			</p>
 			<p class="cor-fonte">
 				Imagem: <input type="file" name="file" class="style-form">
