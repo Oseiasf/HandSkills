@@ -24,7 +24,7 @@ public class UsuarioController {
 
 		model.addAttribute("mensagem", "Usuario cadastrado com sucesso!");
 
-		return "usuario/cadastrarUsuario";
+		return "index";
 	}
 
 }

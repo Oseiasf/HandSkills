@@ -47,7 +47,21 @@ public class ProdutoController {
 		List<Produto> listaProduto = dao.listar();
 		model.addAttribute("listaProduto", listaProduto);
 
-		return "produto/listarProduto";
+		return "produto/ListarProduto";
+	}
+	
+	@RequestMapping("/exibirlistarProdutoIndex")
+	public String exibirlistarProdutoIndex() {
+		return "index";
+	}
+	
+	@RequestMapping("/listarProdutoIndex")
+	public String listarProdutoIndex(Model model) {
+		ProdutoDAO dao = new ProdutoDAO();
+		List<Produto> listaProdutoIndex = dao.listarIndex();
+		model.addAttribute("listaProdutoIndex", listaProdutoIndex);
+		
+		return "index";
 	}
 
 	@RequestMapping("removerProduto")
@@ -55,7 +69,7 @@ public class ProdutoController {
 		ProdutoDAO dao = new ProdutoDAO();
 		dao.remover(produto);
 		model.addAttribute("mensagem", "Produto Removido com Sucesso");
-		return "forward:listarProduto";
+		return "forward:ListarProduto";
 	}
 
 	@RequestMapping("/exibirAlterarProduto")

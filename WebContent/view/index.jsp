@@ -1,3 +1,5 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -69,7 +71,7 @@
 		  <div class="modal-body">
   			<form action="CadastrarUsuario" method="post">
 
-				<center><div>${mensagem}</div></center>
+				
 		 		<h1>Dados Cadastrais</h1>
 		 		<label>Nome Completo</label><input type="text" name="nomeCompleto">
 		 		<label>CPF</label><input type="text" name="cpf">
@@ -107,6 +109,7 @@
 	    </div>
 	  </div>
 	</div>
+	<h1><center><div>${mensagem}</div></center></h1>
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-info fixed-top">
 		<div class="container">
@@ -169,67 +172,28 @@
 			</a>
 		</div>
 
+				<%-- <jsp:useBean id="dao" class="handSkills.model.ProdutoDAO" /> --%>
 
 		<!-- Page Features -->
 		<div class="row text-center">
 
-			<div class="col-lg-3 col-md-6 mb-4">
-				<div class="card">
-					<img class="card-img-top" src="./resources/img/img1.jpg" alt="">
-					<div class="card-body">
-						<h4 class="card-title">Bonecas de barro.</h4>
-						<p class="card-text">R$19,99</p>
-					</div>
-					<div class="card-footer">
-						<a href="#" class="btn btn-info">Comprar</a>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-lg-3 col-md-6 mb-4">
-				<div class="card">
-					<img class="card-img-top" src="./resources/img/img2.jpg" alt="">
-					<div class="card-body">
-						<h4 class="card-title">Jarro de capim dourado</h4>
-						<p class="card-text">R$15,99</p>
-					</div>
-					<div class="card-footer">
-						<a href="#" class="btn btn-info">Comprar</a>
+			<c:forEach var="p" items="${listaProdutoIndex}">
+				<div class="col-md-3 col-sm-6 hero-feature">
+					<div class="thumbnail">
+						<img src="view/img/${p.imagem}" width="525" height="525">
+						<div class="caption">
+							<h3>${p.nomeProduto}</h3>
+							<p>${p.precoVenda}</p>
+							<p>
+								<a href="#" class="btn btn-primary">Comprar</a>
+								 <a href="#" class="btn btn-default">Saiba Mais</a>
+							</p>
+						</div>
 					</div>
 				</div>
-			</div>
-
-			<div class="col-lg-3 col-md-6 mb-4">
-				<div class="card">
-					<img class="card-img-top" src="./resources/img/img3.jpg" alt="">
-					<div class="card-body">
-						<h4 class="card-title">Vazo decorado com tecido</h4>
-						<p class="card-text">R$9,99</p>
-					</div>
-					<div class="card-footer">
-						<a href="#" class="btn btn-info">Comprar</a>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-lg-3 col-md-6 mb-4">
-				<div class="card">
-					<img class="card-img-top" src="./resources/img/img4.jpg" alt="">
-					<div class="card-body">
-						<h4 class="card-title">Boneca de Pernambuco com lantejoulas</h4>
-						<p class="card-text">R$9,99</p>
-					</div>
-					<div class="card-footer">
-						<a href="#" class="btn btn-info">Comprar</a>
-					</div>
-				</div>
-			</div>
-
+			</c:forEach>
 		</div>
-		<!-- /.row -->
-
-	</div>
-	<!-- /.container -->
+		
 
 	<!-- Footer -->
 	<footer class="py-5 bg-info">
