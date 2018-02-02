@@ -77,14 +77,14 @@
 	</div>
 
 
-	<%-- <c:import url="/view/comum/menu.jsp" /> --%>
+	 
 	<div>${mensagem}</div>
 
 	<div class="row text-center">
 		<c:forEach var="p" items="${listaProduto}">
 			<div class="col-lg-3 col-md-6 mb-4">
 				<div class="card">
-					<img class="card-img-top" src="${p.imagem}" alt="">
+					<img class="card-img-top" src="view/img${p.imagem}" alt="">
 					<div class="card-body">
 						<h4 class="card-title">${p.nomeProduto}</h4>
 						<ul>
