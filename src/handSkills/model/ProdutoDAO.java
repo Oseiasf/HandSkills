@@ -23,7 +23,7 @@ public class ProdutoDAO {
 
 	public void CadastrarProduto(Produto produto) {
 
-		String sql = "INSERT INTO Produto  (nomeProduto, localOrigemProduto, coresDisponiveis,materialFeito, precoVenda, quantidadeDisponivel, imagem) VALUES (?,?,?,?,?,?,?)";
+		String sql = "INSERT INTO Produto  (nomeProduto, localOrigemProduto, coresDisponiveis,materialDoProduto, precoVenda, quantidadeDisponivel, imagem) VALUES (?,?,?,?,?,?,?)";
 		PreparedStatement stmt;
 		try {
 
@@ -33,7 +33,7 @@ public class ProdutoDAO {
 			stmt.setString(1, produto.getNomeProduto());
 			stmt.setString(2, produto.getLocalOrigemProduto());
 			stmt.setString(3, produto.getCoresDisponiveis());
-			stmt.setString(4, produto.getMaterialFeito()); 
+			stmt.setString(4, produto.getMaterialDoProduto()); 
 			stmt.setDouble(5, produto.getPrecoVenda());
 			stmt.setInt(6, produto.getQuantidadeDisponivel());
 			stmt.setString(7, produto.getImagem());
@@ -62,7 +62,7 @@ public class ProdutoDAO {
 				produto.setNomeProduto(rs.getString("nomeProduto"));
 				produto.setLocalOrigemProduto(rs.getString("localOrigemProduto"));
 				produto.setCoresDisponiveis(rs.getString("coresDisponiveis"));
-				produto.setMaterialFeito(rs.getString("materialFeito"));
+				produto.setMaterialDoProduto(rs.getString("materialDoProduto"));
 				produto.setPrecoVenda(rs.getDouble("precoVenda"));
 				produto.setQuantidadeDisponivel(rs.getInt("quantidadeDisponivel"));
 				produto.setImagem(rs.getString("imagem"));
@@ -97,7 +97,7 @@ public class ProdutoDAO {
 				produto.setNomeProduto(rs.getString("nomeProduto"));
 				produto.setLocalOrigemProduto(rs.getString("localOrigemProduto"));
 				produto.setCoresDisponiveis(rs.getString("coresDisponiveis"));
-				produto.setMaterialFeito(rs.getString("materialFeito"));
+				produto.setMaterialDoProduto(rs.getString("materialDoProduto"));
 				produto.setPrecoVenda(rs.getDouble("precoVenda"));
 				produto.setQuantidadeDisponivel(rs.getInt("quantidadeDisponivel"));
 				produto.setImagem(rs.getString("imagem"));
@@ -138,7 +138,7 @@ public class ProdutoDAO {
 
 	public void alterarProduto(Produto produto) {
 
-		String sql = "UPDATE Produto SET nomeProduto = ?, localOrigemProduto = ?, coresDisponiveis = ?, materialFeito = ?, precoVenda = ?, quantidadeDisponivel = ? WHERE id = ?";
+		String sql = "UPDATE Produto SET nomeProduto = ?, localOrigemProduto = ?, coresDisponiveis = ?, materialDoProduto = ?, precoVenda = ?, quantidadeDisponivel = ? WHERE id = ?";
 		PreparedStatement stmt;
 		try {
 
@@ -148,7 +148,7 @@ public class ProdutoDAO {
 			stmt.setString(1, produto.getNomeProduto());
 			stmt.setString(2, produto.getLocalOrigemProduto());
 			stmt.setString(3, produto.getCoresDisponiveis());
-			stmt.setString(4, produto.getMaterialFeito()); 
+			stmt.setString(4, produto.getMaterialDoProduto()); 
 			stmt.setDouble(5, produto.getPrecoVenda());
 			stmt.setInt(6, produto.getQuantidadeDisponivel());
 			stmt.setInt(7, produto.getId());
@@ -181,7 +181,7 @@ public class ProdutoDAO {
 				produto.setNomeProduto(rs.getString("nomeProduto"));
 				produto.setLocalOrigemProduto(rs.getString("localOrigemProduto"));
 				produto.setCoresDisponiveis(rs.getString("coresDisponiveis"));
-				produto.setMaterialFeito(rs.getString("materialFeito"));
+				produto.setMaterialDoProduto(rs.getString("materialDoProduto"));
 				produto.setPrecoVenda(rs.getDouble("precoVenda"));
 				produto.setQuantidadeDisponivel(rs.getInt("quantidadeDisponivel"));
 				produto.setImagem(rs.getString("imagem"));

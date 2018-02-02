@@ -27,16 +27,16 @@ public class ProdutoController {
 	
 
 	@RequestMapping("/CadastrarProduto")
-	public String CadastrarProduto(Produto produto, @RequestParam("file") MultipartFile imagem, Model model) {
+	public String CadastrarProduto(Produto produto) {
 
-		if (Util.fazerUploadImagem(imagem)) {
-			produto.setImagem(Util.obterMomentoAtual() + " - " + imagem.getOriginalFilename());
-		}
+//		if (Util.fazerUploadImagem(imagem)) {
+//			produto.setImagem(Util.obterMomentoAtual() + " - " + imagem.getOriginalFilename());
+//		}
 
 		ProdutoDAO dao = new ProdutoDAO();
 		dao.CadastrarProduto(produto);
 
-		model.addAttribute("mensagem", "Produto cadastrado com sucesso");
+//		model.addAttribute("mensagem", "Produto cadastrado com sucesso");
 
 		return "produto/CadastrarProduto";
 	}
