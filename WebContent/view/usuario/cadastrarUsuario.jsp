@@ -17,34 +17,9 @@
 
 </head>
 <body>
-	<nav class="navbar navbar-expand-lg navbar-dark bg-info fixed-top">
-	<div class="container">
-		<a class="navbar-brand" href="/">Handskills</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse"
-			data-target="#navbarResponsive" aria-controls="navbarResponsive"
-			aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarResponsive">
-			<ul class="navbar-nav ml-auto">
-				<li class="nav-item active"><a class="nav-link" href="">Home
-						<span class="sr-only">(current)</span>
-				</a></li>
-				<li class="nav-item"><a class="nav-link" href="#"
-					data-toggle="modal" data-target="#exampleModalCenter">Login</a></li>
-				<li class="nav-item"><a class="nav-link" href="#"
-					data-toggle="modal" data-target="#exampleModalCenter">Cadastro</a>
-				</li>
-				<li class="nav-item"><a class="nav-link" href="listarProduto">Produtos</a>
-				</li>
-			</ul>
-		</div>
-	</div>
-	</nav>
-	<br>
-	<br>
+	<c:import url="/view/comum/menu.jsp" />
 	
-	<form action="CadastrarUsuario" method="post">
+	
 
 		<center>
 			<div>${mensagem}</div>
@@ -52,6 +27,7 @@
 		
 		<h3 class="col-5 offset-5 cor-fonte">Dados Cadastrais</h3>
 		<br>
+		<form action="CadastrarUsuario" method="post">
 		<div class="col-4 offset-4">
 		<label class="cor-fonte">Nome Completo</label><input type="text" name="nomeCompleto" class="style-form">
 		<br><br>
@@ -88,7 +64,7 @@
 		<br>
 		<label class="cor-fonte">Telefone</label><input type="text" name="telefone" class="style-form">
 		<br>
-		<label class="cor-fonte">Whatapp</label><input type="text" name="whatapp" class="style-form">
+		<label class="cor-fonte">Whatsapp</label><input type="text" name="whatsapp" class="style-form">
 		<br> 
 		<label class="cor-fonte">Email</label>
 		<input type="email" name="email" class="style-form">

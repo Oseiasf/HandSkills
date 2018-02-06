@@ -15,7 +15,7 @@ public class Usuario {
 	private String cep;
 	private String sexo;
 	private String telefone;
-	private String whatapp;
+	private String whatsapp;
 	private String tipoUsuario;
 	
 	public int getId() {
@@ -96,11 +96,11 @@ public class Usuario {
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
-	public String getWhatapp() {
-		return whatapp;
+	public String getWhatsapp() {
+		return whatsapp;
 	}
-	public void setWhatapp(String whatapp) {
-		this.whatapp = whatapp;
+	public void setWhatsapp(String whatsapp) {
+		this.whatsapp = whatsapp;
 	}
 	public String getTipoUsuario() {
 		return tipoUsuario;
