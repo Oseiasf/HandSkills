@@ -31,7 +31,7 @@ cep varchar(20) not null,
 sexo varchar(10),
 tipoUsuario varchar(10) not null,
 telefone varchar(30) not null,
-whatapp varchar(30),
+whatsapp varchar(30),
 primary key(id)
 
 );
