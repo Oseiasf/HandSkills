@@ -83,6 +83,7 @@
 					<div class="card-body">
 						<h4 class="card-title">Bonecas de barro.</h4>
 						<p class="card-text">R$19,99</p>
+						
 					</div>
 					<div class="card-footer">
 						<a href="#" class="btn btn-info">Comprar</a>
