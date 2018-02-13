@@ -22,27 +22,27 @@
 		
 		<p>
 		Nome do produto: <br />
-		<input type="text" name="nomeProduto" value="${p.nomeProduto}">
+		<input type="text" name="nomeProduto" value="${p.nomeProduto}" maxlength="50">
 		</p>
 		<p>
 		Local de Origem do Produto: <br>
-		<input type="text" name="localOrigemProduto" value="${p.localOrigemProduto}" >
+		<input type="text" name="localOrigemProduto" value="${p.localOrigemProduto}" maxlength="50">
 		</p>
 		<p>
 		Cor disponivel: <br>
-		<input type="text" name="coresDisponiveis" value="${p.coresDisponiveis}" >
+		<input type="text" name="coresDisponiveis" value="${p.coresDisponiveis}" maxlength="50" >
 		</p>
 		<p>
 		Material feito: <br>
-		<input type="text" name="materialDoProduto" value="${p.materialDoProduto}">
+		<input type="text" name="materialDoProduto" value="${p.materialDoProduto}" maxlength="60">
 		</p>
 		<p>
 		Preço de venda: <br>
-		<input type="text" name="precoVenda" value="${p.precoVenda}">
+		<input type="text" name="precoVenda" value="${p.precoVenda}" maxlength="50">
 		</p>
 		<p>
 		Quantidade disponivel: <br>
-		<input type="text" name="quantidadeDisponivel" value="${p.quantidadeDisponivel}">
+		<input type="text" name="quantidadeDisponivel" value="${p.quantidadeDisponivel}" maxlength="20">
 		</p>
 		<p> 
 			<input type="submit" class="btn btn-primary" value="Atualizar">

@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Cadastrar usuário</title>
 <!-- Bootstrap core CSS -->
 <link href="./resources/vendor/bootstrap/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -29,11 +29,11 @@
 		<br>
 		<form action="CadastrarUsuario" method="post">
 		<div class="col-4 offset-4">
-		<label class="cor-fonte">Nome Completo</label><input type="text" name="nomeCompleto" class="style-form">
+		<label class="cor-fonte">Nome Completo</label><input type="text" name="nomeCompleto" class="style-form" maxlength="50">
 		<br><br>
-		<label class="cor-fonte">CPF</label><input type="text" name="cpf" class="style-form"> 
+		<label class="cor-fonte">CPF</label><input type="text" name="cpf" class="style-form" maxlength="15"> 
 		<br> 
-		<label class="cor-fonte">RG</label><input type="text" name="rg" class="style-form">
+		<label class="cor-fonte">RG</label><input type="text" name="rg" class="style-form" maxlength="15">
 		<br> <br>
 		<label class="cor-fonte">Sexo</label>
 		<select name="sexo" class="form-control style-form ">
@@ -43,7 +43,7 @@
 		
 		<br> <br>
 		<label class="cor-fonte">Endereço</label>
-		<input type="text" name="endereco" class="style-form">
+		<input type="text" name="endereco" class="style-form" maxlength="100">
 		<br><br>
 		<label class="cor-fonte">Estado</label> 
 		<select name="estado" class="form-control style-form">
@@ -57,19 +57,19 @@
 		</select>
 		<br> <br>
 		
-		<label class="cor-fonte">Bairro</label><input type="text" name="bairro" class="style-form"> 
+		<label class="cor-fonte">Bairro</label><input type="text" name="bairro" class="style-form" maxlength="100"> 
 		<br>
-		<label class="cor-fonte">CEP</label><input type="text" name="cep" class="style-form">
+		<label class="cor-fonte">CEP</label><input type="text" name="cep" class="style-form" maxlength="20">
 		<br> 
 		<br>
-		<label class="cor-fonte">Telefone</label><input type="text" name="telefone" class="style-form">
+		<label class="cor-fonte">Telefone</label><input type="text" name="telefone" class="style-form" maxlength="30">
 		<br>
-		<label class="cor-fonte">Whatsapp</label><input type="text" name="whatsapp" class="style-form">
+		<label class="cor-fonte">Whatsapp</label><input type="text" name="whatsapp" class="style-form" maxlength="30">
 		<br> 
 		<label class="cor-fonte">Email</label>
-		<input type="email" name="email" class="style-form">
+		<input type="email" name="email" class="style-form" maxlength="50">
 		<br>
-		 <label class="cor-fonte">Senha</label><input type="password" name="senha" class="style-form">
+		 <label class="cor-fonte">Senha</label><input type="password" name="senha" class="style-form" maxlength="200">
 		 <br> 
 			<label class="cor-fonte"><br>Nesse site, você vai querer</label> 
 			<select name="tipoUsuario" class="form-control style-form"><br>
