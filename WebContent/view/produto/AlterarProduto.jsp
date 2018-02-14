@@ -1,53 +1,137 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+
+<!DOCTYPE html>
 <html>
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-
+<meta charset="UTF-8">
 <title>Alterar produto</title>
+<link
+	href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"
+	rel="stylesheet">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<link href="./resources/css/styleform.css" rel="stylesheet">
+<link href="./resources/css/style.css" rel="stylesheet">
+
+
 </head>
+
+<body>
 <body>
 	<c:import url="/view/comum/menu.jsp" />
-	
-	
-	
 	<form action="alterarProduto" method="post">
+		<h1 class="cor-cadastrar">Alterar produto</h1>
 
-		
-		<input type="hidden" name="id" value="${p.id}">
-		
-		<p>
-		Nome do produto: <br />
-		<input type="text" name="nomeProduto" value="${p.nomeProduto}" maxlength="50">
-		</p>
-		<p>
-		Local de Origem do Produto: <br>
-		<input type="text" name="localOrigemProduto" value="${p.localOrigemProduto}" maxlength="50">
-		</p>
-		<p>
-		Cor disponivel: <br>
-		<input type="text" name="coresDisponiveis" value="${p.coresDisponiveis}" maxlength="50" >
-		</p>
-		<p>
-		Material feito: <br>
-		<input type="text" name="materialDoProduto" value="${p.materialDoProduto}" maxlength="60">
-		</p>
-		<p>
-		Preço de venda: <br>
-		<input type="text" name="precoVenda" value="${p.precoVenda}" maxlength="50">
-		</p>
-		<p>
-		Quantidade disponivel: <br>
-		<input type="text" name="quantidadeDisponivel" value="${p.quantidadeDisponivel}" maxlength="20">
-		</p>
-		<p> 
-			<input type="submit" class="btn btn-primary" value="Atualizar">
-		</p>
+		<div class="contentform">
+
+
+
+			<div class="leftcontact">
+				<div class="form-group">
+
+					<input type="hidden" name="id" value="${p.id}">
+
+					<p>
+						Nome do produto<span>*</span>
+					</p>
+					<span class="icon-case"><i class="fa fa-align-left"></i></span> <input
+						type="text" name="nomeProduto" value="${p.nomeProduto}"
+						maxlength="50" />
+
+				</div>
+
+
+
+				<div class="form-group">
+					<p>
+						Local de origem do produto <span>*</span>
+					</p>
+					<span class="icon-case"><i class="fa fa-fighter-jet"></i></span> <input
+						type="text" name="localOrigemProduto" value="${p.localOrigemProduto}"
+						 maxlength="20" />
+
+				</div>
+
+				<div class="form-group">
+					<p>
+						Cores disponíveis <span>*</span>
+					</p>
+					<span class="icon-case"><i class="fa fa-circle-o"></i></span> <input
+						type="text" name="coresDisponiveis" value="${p.coresDisponiveis}" maxlength="20" />
+
+				</div>
+
+
+
+
+
+
+
+			</div>
+
+			<div class="rightcontact">
+
+				<div class="form-group">
+					<p>
+						Material do produto <span>*</span>
+					</p>
+					<span class="icon-case"><i class="fa fa-wrench"></i></span> <input
+						type="text" name="materialDoProduto" value="${p.materialDoProduto}" maxlength="30" />
+
+				</div>
+
+
+
+				<div class="form-group">
+					<p>
+						Preço de venda <span>*</span>
+					</p>
+					<span class="icon-case"><i class="fa fa-dollar"></i></span> <input
+						type="text" name="precoVenda" value="${p.precoVenda}" maxlength="20" />
+
+				</div>
+
+				<div class="form-group">
+					<p>
+						Quantidade disponível <span>*</span>
+					</p>
+					<span class="icon-case"><i class="fa fa-bar-chart-o"></i></span> <input
+						type="text" name="quantidadeDisponivel" value="${p.quantidadeDisponivel}" maxlength="10" />
+
+				</div>
+
+
+			</div>
+		</div>
+		<button type="submit" class="bouton-contact btn-info">Atualizar</button>
+
 	</form>
 
+	<script src="./resources/js/index.js"></script>
+
+	<footer class="py-5 bg-info">
+		<div class="container">
+			<p class="m-0 text-center text-white">Copyright &copy; Your
+				Website 2018</p>
+		</div>
+		<!-- /.container -->
+	</footer>
+
 </body>
+</html>
+
+
+
+
+
+
+
+</body>
+
 </html>

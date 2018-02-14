@@ -4,31 +4,41 @@
 	background-size: 100%;
 }
 
-.meu-carrosel{
+.meu-carrosel {
 	margin: 20px 0 60px 0;
 }
 
-.imagem-item{
+.imagem-item {
 	height: 410px;
 }
 
-.style-form{
+.style-form {
 	color: ffffff;
-	 width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border: 2px solid red;
-    border-radius: 4px;
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	box-sizing: border-box;
+	border: 2px solid red;
+	border-radius: 4px;
 }
-.cor-fonte{
+
+.cor-fonte {
 	color: #17a2b8;
 }
 
-.cor-cadastrar{
+.cor-cadastrar {
 	background: #828282;
+	text-align: center;
 }
 
-.cor-botao{
-	
+#style-select {
+	width: 75%;
+}
+
+.cor-login {
+	color: white;
+}
+
+.cor-barralogin{
+	background: #828282;
 }

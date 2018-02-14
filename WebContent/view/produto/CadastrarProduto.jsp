@@ -29,7 +29,7 @@
 		<h1 class="cor-cadastrar">Cadastrar produto</h1>
 
 		<div class="contentform">
-			
+
 
 
 			<div class="leftcontact">
@@ -38,8 +38,8 @@
 						Nome do produto<span>*</span>
 					</p>
 					<span class="icon-case"><i class="fa fa-align-left"></i></span> <input
-						type="text" name="nomeProduto" maxlength="50"/>
-					
+						type="text" name="nomeProduto" maxlength="50" />
+
 				</div>
 
 
@@ -48,9 +48,12 @@
 					<p>
 						Local de origem do produto <span>*</span>
 					</p>
-					<span class="icon-case"><i class="fa fa-fighter-jet"></i></span> <input
-						type="text" name="localOrigemProduto" maxlength="50" />
-					
+					<span class="icon-case"><i class="fa fa-fighter-jet"></i></span> 
+					<select class="form-control" id="style-select">
+						<option value="localOrigemProduto">Pernambuco</option>
+						<option value="localOrigemProduto">Rio de Janeiro</option>
+					</select>
+
 				</div>
 
 				<div class="form-group">
@@ -59,8 +62,8 @@
 					</p>
 					<span class="icon-case"><i class="fa fa-circle-o"></i></span> <input
 						type="text" name="coresDisponiveis 
-						" maxlength="20"/>
-					
+						" maxlength="20" />
+
 				</div>
 
 
@@ -78,8 +81,8 @@
 						Material do produto <span>*</span>
 					</p>
 					<span class="icon-case"><i class="fa fa-wrench"></i></span> <input
-						type="text" name="materialDoProduto" maxlength="30"/>
-					
+						type="text" name="materialDoProduto" maxlength="30" />
+
 				</div>
 
 
@@ -89,8 +92,8 @@
 						Preço de venda <span>*</span>
 					</p>
 					<span class="icon-case"><i class="fa fa-dollar"></i></span> <input
-						type="text" name="fonction" maxlength="20"/>
-					
+						type="text" name="precoVenda" maxlength="20" />
+
 				</div>
 
 				<div class="form-group">
@@ -98,8 +101,8 @@
 						Quantidade disponível <span>*</span>
 					</p>
 					<span class="icon-case"><i class="fa fa-bar-chart-o"></i></span> <input
-						type="text" name="quantidadeDisponivel" maxlength="10"/>
-					
+						type="text" name="quantidadeDisponivel" maxlength="10" />
+
 				</div>
 
 
