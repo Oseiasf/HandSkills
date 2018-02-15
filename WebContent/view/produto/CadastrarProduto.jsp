@@ -74,7 +74,7 @@
 					<p>
 						Imagem do Produto <span>*</span>
 					</p>
-					<input type="file" name="file"/>
+					<input type="file" name="file" required/>
 				</div>
 				<button type="submit" class="bouton-contact btn-info">Cadastrar</button>
 	</form>
