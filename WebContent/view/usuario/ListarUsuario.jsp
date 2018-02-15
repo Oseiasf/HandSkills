@@ -15,11 +15,33 @@
 			<tr>
 				<th>Nome</th>
 				<th>CPF</th>
+				<th>RG</th>
+				<th>Email</th>
+				<th>Endereço</th>
+				<th>Bairro</th>
+				<th>Cidade</th>
+				<th>Estado</th>
+				<th>Sexo</th>
+				<th>Telefone</th>
+				<th>Ações</th>
 			</tr>
 		<c:forEach items="${listarUsuario}" var="usu" >
 			<tr>
 				<td>${usu.nomeCompleto}</td>
 				<td>${usu.cpf}</td>
+				<td>${usu.rg}</td>
+				<td>${usu.email }</td>
+				<td>${usu.endereco }</td>
+				<td>${usu.cidade }</td>
+				<td>${usu.bairro }</td>
+				<td>${usu.estado}</td>
+				<td>${usu.sexo }</td>
+				<td>${usu.telefone }</td>
+				<td>
+					<div class="card-footer">
+					<a href="exibirAtualizarUsuario?id=${usu.id}" class="btn btn-info">Alterar</a>
+					</div>
+				</td>
 			</tr>
 		</c:forEach>
 		</table>

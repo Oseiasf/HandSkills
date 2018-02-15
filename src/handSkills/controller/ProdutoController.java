@@ -88,4 +88,15 @@ public class ProdutoController {
 
 		return "forward:listarProduto";
 	}
+	
+	@RequestMapping("/pesquisar")
+	public String pesquisarProduto(Produto produto, Model model) {
+		ProdutoDAO dao = new ProdutoDAO();
+		List<Produto> pesquisa = dao.pesquisar(produto);
+		model.addAttribute("pesquisa", pesquisa);
+		model.addAttribute("descricaoAtual", produto.getLocalOrigemProduto());
+		model.addAttribute("codigoAtual", produto.getNomeProduto());
+
+		return "produto/pesquisa";
+	}
 }
