@@ -144,7 +144,8 @@
 					</p>
 					<span class="icon-case"><i class="fa fa-circle-o"></i></span> <select
 						class="form-control" id="style-select" name="sexo">
-						<option value="">Selecione seu sexo</option>
+						<option value="">Selecione </option>
+						<option value="Outros">Outros</option>
 						<option value="Feminino">Feminino</option>
 						<option value="Masculino">Masculino</option>
 					</select>
@@ -157,7 +158,7 @@
 					</p>
 					<span class="icon-case"><i class="fa fa-group"></i></span> <select
 						class="form-control" id="style-select" name="tipoUsuario">
-						<option value="">Selecione um tipo</option>
+						<option value="">Selecione</option>
 						<option value="Artesão">Artesão</option>
 						<option value="ADM">ADM</option>
 						<option value="Cliente">Cliente</option>
