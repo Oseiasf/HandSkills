@@ -36,6 +36,7 @@
 						</span>
 						<input type="text" name="senha" maxlength="50" required/>
 					</div>
+					<a href="exibirCadastrarUsuario" >Cadastrer-se</a>
 					<button type="submit" class="col-4 offset-4 btn btn-info">Entrar</button>
 				</form>
 			</div>

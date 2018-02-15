@@ -4,7 +4,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Cadastrar usuário</title>
+		<title>Cadastrar usuï¿½rio</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<meta name="description" content="">
 		<meta name="author" content="">
@@ -13,7 +13,7 @@
 		<!-- Navigation -->
 		<c:import url="/view/comum/menu.jsp" />
 		<form action="CadastrarUsuario" method="post">
-			<h1 class="cor-cadastrar">Cadastrar usuário</h1>
+			<h1 class="cor-cadastrar">Cadastrar usuï¿½rio</h1>
 			<div class="contentform">
 				<div class="leftcontact">
 					<div class="form-group">
@@ -43,7 +43,7 @@
 							<i class="fa fa-envelope-o"></i>
 						</span>
 						<input type="email" name="email" id="email" data-rule="email" 
-						data-msg="Vérifiez votre saisie sur les champs : Le champ 'E-mail' est obligatoire. " 
+						data-msg="Vï¿½rifiez votre saisie sur les champs : Le champ 'E-mail' est obligatoire. " 
 						maxlength="50" required/>
 						<div class="validation"></div>
 					</div>
@@ -54,7 +54,7 @@
 						</span> <input type="password" name="senha" maxlength="200" required/>
 					</div>
 					<div class="form-group">
-						<p>Endereço <span>*</span></p>
+						<p>Endereï¿½o <span>*</span></p>
 						<span class="icon-case">
 							<i class="fa fa-map-marker"></i></span>
 							<input type="text" name="endereco" maxlength="100" required/>
@@ -103,13 +103,13 @@
 						</select>
 					</div>
 					<div class="form-group">
-						<p>Tipo de usuário<span>*</span></p>
+						<p>Tipo de usuï¿½rio<span>*</span></p>
 						<span class="icon-case">
 							<i class="fa fa-group"></i>
 						</span>
 						<select class="form-control" id="style-select" name="tipoUsuario" required>
 							<option value="">Selecione um tipo</option>
-							<option value="Artesão">Artesão</option>
+							<option value="Artesï¿½o">Artesï¿½o</option>
 							<option value="ADM">ADM</option>
 							<option value="Cliente">Cliente</option>
 						</select>
@@ -135,6 +135,7 @@
 		<footer class="py-5 bg-info">
 			<div class="container">
 				<p class="m-0 text-center text-white">Copyright &copy; Your Website 2018</p>
+
 			</div>
 			<!-- /.container -->
 		</footer>
