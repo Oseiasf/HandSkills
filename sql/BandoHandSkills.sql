@@ -29,7 +29,7 @@ cidade varchar(100) not null,
 estado varchar(100) not null,
 cep varchar(20) not null,
 sexo varchar(10),
-tipoUsuario varchar(10) not null,
+tipoUsuario varchar(20) not null,
 telefone varchar(30) not null,
 whatsapp varchar(30),
 primary key(id)

@@ -9,7 +9,7 @@
 
 <head>
 <meta charset="UTF-8">
-<title>Cadastrar usuårio</title>
+<title>Alterar usuário</title>
 <link
 	href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"
 	rel="stylesheet">
@@ -23,11 +23,10 @@
 </head>
 
 <body>
-<body>
 	<c:import url="/view/comum/menu.jsp" />
-	<form action="CadastrarUsuario" method="post">
-		<h1 class="cor-cadastrar">Cadastrar usuário</h1>
-
+	<form action="alterarUsuario" method="post">
+		<h1 class="cor-cadastrar">Alterar usuário</h1>
+	<input type="hidden" name="id" value="${u.id}">
 		<div class="contentform">
 
 
@@ -38,7 +37,7 @@
 						Nome completo<span>*</span>
 					</p>
 					<span class="icon-case"><i class="fa fa-user"></i></span> <input
-						type="text" name="nomeCompleto" maxlength="50" />
+						type="text" name="nomeCompleto" maxlength="50"  value="${u.nomeCompleto }"/>
 
 				</div>
 
@@ -49,7 +48,7 @@
 						CPF <span>*</span>
 					</p>
 					<span class="icon-case"><i class="fa fa-credit-card"></i></span> <input
-						type="text" name="cpf" maxlength="15" />
+						type="text" name="cpf" maxlength="15" value="${u.cpf}"/>
 
 				</div>
 
@@ -58,7 +57,7 @@
 						RG <span>*</span>
 					</p>
 					<span class="icon-case"><i class="fa fa-keyboard-o"></i></span> <input
-						type="text" name="rg" maxlength="15" />
+						type="text" name="rg" maxlength="15" value="${u.rg }"/>
 
 				</div>
 
@@ -69,7 +68,7 @@
 					<span class="icon-case"><i class="fa fa-envelope-o"></i></span> <input
 						type="email" name="email" id="email" data-rule="email"
 						data-msg="Vérifiez votre saisie sur les champs : Le champ 'E-mail' est obligatoire. "
-						maxlength="50" />
+						maxlength="50" value="${u.email }"/>
 					<div class="validation"></div>
 
 
@@ -80,7 +79,7 @@
 						Senha <span>*</span>
 					</p>
 					<span class="icon-case"><i class="fa fa-building-o"></i></span> <input
-						type="password" name="senha" maxlength="200" />
+						type="password" name="senha" maxlength="200" value="${u.senha }"/>
 
 				</div>
 
@@ -89,7 +88,7 @@
 						Endereço <span>*</span>
 					</p>
 					<span class="icon-case"><i class="fa fa-map-marker"></i></span> <input
-						type="text" name="endereco" maxlength="100" />
+						type="text" name="endereco" maxlength="100" value="${u.endereco }"/>
 
 				</div>
 
@@ -98,7 +97,7 @@
 						Bairro <span>*</span>
 					</p>
 					<span class="icon-case"><i class="fa fa-map-marker"></i></span> <input
-						type="text" name="bairro" maxlength="100" />
+						type="text" name="bairro" maxlength="100" value="${u.bairro}" />
 
 				</div>
 
@@ -111,7 +110,7 @@
 						Cidade <span>*</span>
 					</p>
 					<span class="icon-case"><i class="fa fa-map-marker"></i></span> <input
-						type="text" name="cidade" maxlength="100" />
+						type="text" name="cidade" maxlength="100" value="${u.cidade}"/>
 
 				</div>
 
@@ -123,8 +122,9 @@
 					</p>
 					<span class="icon-case"><i class="fa fa-map-marker"></i></span> <select
 						class="form-control" id="style-select" name="estado">
-						<option value="PE">Pernambuco</option>
-						<option value="RJ">Rio de Janeiro</option>
+						<option value="${u.estado}">${u.estado}</option>
+						<option value="RJ">RJ</option>
+						<option value="SP">SP</option>
 					</select>
 
 				</div>
@@ -134,7 +134,7 @@
 						CEP <span>*</span>
 					</p>
 					<span class="icon-case"><i class="fa fa-map-marker"></i></span> <input
-						type="text" name="cep" maxlength="20" />
+						type="text" name="cep" maxlength="20" value="${u.cep}"/>
 
 				</div>
 
@@ -144,7 +144,7 @@
 					</p>
 					<span class="icon-case"><i class="fa fa-circle-o"></i></span> <select
 						class="form-control" id="style-select" name="sexo">
-						<option value="">Selecione seu sexo</option>
+						<option value="${u.sexo}">${u.sexo}</option>
 						<option value="Feminino">Feminino</option>
 						<option value="Masculino">Masculino</option>
 					</select>
@@ -157,7 +157,7 @@
 					</p>
 					<span class="icon-case"><i class="fa fa-group"></i></span> <select
 						class="form-control" id="style-select" name="tipoUsuario">
-						<option value="">Selecione um tipo</option>
+						<option value="${u.tipoUsuario}">${u.tipoUsuario}</option>
 						<option value="Artesão">Artesão</option>
 						<option value="ADM">ADM</option>
 						<option value="Cliente">Cliente</option>
@@ -172,7 +172,7 @@
 						Telefone <span>*</span>
 					</p>
 					<span class="icon-case"><i class="fa fa-phone"></i></span> <input
-						type="text" name="telefone" maxlength="30" />
+						type="text" name="telefone" maxlength="30" value="${u.telefone}" />
 
 				</div>
 
@@ -181,13 +181,13 @@
 						Whatsapp <span>*</span>
 					</p>
 					<span class="icon-case"><i class="fa fa-phone"></i></span> <input
-						type="text" name="whatsapp" maxlength="30" />
+						type="text" name="whatsapp" maxlength="30" value="${u.whatsapp}"/>
 
 				</div>
 
 			</div>
 		</div>
-		<button type="submit" class="bouton-contact btn-info">Cadastrar</button>
+		<button type="submit" class="bouton-contact btn-info">Salvar alterações</button>
 
 	</form>
 
@@ -202,14 +202,4 @@
 	</footer>
 
 </body>
-</html>
-
-
-
-
-
-
-
-</body>
-
 </html>

@@ -1,4 +1,18 @@
 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Pesquisando Produto </title>
+
+<link rel="stylesheet" type="text/css" href="view/bootstrap/css/bootstrap.min.css" />
+<script type="text/javascript" src="view/bootstrap/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
 <!-- Bootstrap core CSS -->
 <link href="./resources/vendor/bootstrap/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -86,8 +100,8 @@
 	</div>
 	<div class="col-lg-2">
 		<div class="input-group">
-			<form action="pesquisar" method="post">
-			<input type="text" class="form-control" placeholder="Buscar" name="nomeProduto">
+			<form action="pesquisarUsuario" method="post">
+			<input type="text" class="form-control" placeholder="Buscar" name="nomeCompleto">
 			</form>
 			<span class="input-group-btn">
 				<button type="submit" class="btn btn-secondary" type="button">Buscar</button>
@@ -97,3 +111,43 @@
 </nav>
 
 <script src="./resources/js/index.js"></script>
+	
+		<%-- <c:import url="/view/comum/menu.jsp" /> --%>
+		<br><br>
+		<table border="1" style="width: 100%;">
+			<tr>
+				<td>Nome Completo</td>
+				<td>Email</td>
+				<td>Telefone</td>
+				<td>WhatsApp</td>
+				<td>Tipo de Usuario</td>
+				<td colspan="2">Ações</td>
+			</tr>
+		
+		<c:forEach var="u" items="${pesquisa}">
+
+			<tr>
+				<td> ${u.nomeCompleto} </td>
+				<td> ${u.email} </td>
+				<td> ${u.telefone} </td>
+				<td> ${u.whatsapp} </td>
+				<td> 
+					${u.tipoUsuario}
+				</td>
+				<td colspan="2">
+				 
+				 	<button class="btn" style="color: red;">
+						<a href="removerUsuario?id=${u.id}">Remover</a>
+					</button>
+					<button class="btn">
+						<a href="exibirAtualizarUsuario?id=${u.id}">Atualizar</a>
+					</button>
+				</td>
+			</tr>
+			
+		</c:forEach>
+		
+		</table>
+
+	</body>
+</html>

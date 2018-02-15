@@ -198,5 +198,69 @@ public class ProdutoDAO {
 			throw new RuntimeException(e);
 		}
 	}
+	public List<Produto> pesquisar(Produto prod) {
+
+		try {
+			List<Produto> p = new ArrayList<Produto>();
+			String sql = "";
+			PreparedStatement stmt = null;
+			
+			if ((prod.getNomeProduto() != null && !prod.getNomeProduto().equals(""))
+					&& (prod.getLocalOrigemProduto() == null || prod.getLocalOrigemProduto().equals(""))) {
+
+				sql = "SELECT * FROM Produto WHERE nomeProduto LIKE ?";
+				stmt = connection.prepareStatement(sql);
+				stmt.setString(1, "%"+ prod.getNomeProduto() +"%");
+
+			} else if ((prod.getLocalOrigemProduto() != null && !prod.getLocalOrigemProduto().equals(""))
+					&& (prod.getNomeProduto() == null || prod.getNomeProduto().equals(""))){
+				
+				sql = "SELECT * FROM Produto WHERE localOrigemProduto LIKE ?";
+				stmt = connection.prepareStatement(sql);
+				stmt.setString(1, "%"+ prod.getLocalOrigemProduto() +"%");
+				
+			} else  if ((prod.getNomeProduto() != null && !prod.getNomeProduto().equals("")) 
+					&& (prod.getLocalOrigemProduto() != null && !prod.getLocalOrigemProduto().equals(""))) {
+				
+				sql = "SELECT * FROM Produto WHERE nomeProduto LIKE ? AND localOrigemProduto LIKE ?";
+				stmt = connection.prepareStatement(sql);
+				stmt.setString(2, "%"+ prod.getLocalOrigemProduto() +"%");
+				stmt.setString(1, "%"+ prod.getNomeProduto() +"%");
+
+			} else {
+				
+				sql = "SELECT * FROM Produto";
+				stmt = connection.prepareStatement(sql);
+			}
+			
+			ResultSet rs = stmt.executeQuery();
+
+			while (rs.next()) {
+
+				Produto produto = new Produto();
+
+				produto.setId(rs.getInt("id"));
+				produto.setNomeProduto(rs.getString("nomeProduto"));
+				produto.setLocalOrigemProduto(rs.getString("localOrigemProduto"));
+				produto.setCoresDisponiveis(rs.getString("coresDisponiveis"));
+				produto.setMaterialDoProduto(rs.getString("materialDoProduto"));
+				produto.setPrecoVenda(rs.getDouble("precoVenda"));
+				produto.setQuantidadeDisponivel(rs.getInt("quantidadeDisponivel"));
+				produto.setImagem(rs.getString("imagem"));
+
+				p.add(produto);
+			}
+
+			rs.close();
+			stmt.close();
+			connection.close();
+
+			return p;
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+
+	}
 
 }
