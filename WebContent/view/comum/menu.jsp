@@ -80,7 +80,7 @@
 				<li class="nav-item"><a class="nav-link"
 					href="exibirCadastrarUsuario">Cadastrar Usuario</a></li>
 					<li class="nav-item"><a class="nav-link"
-					href="pesquisarUsuario">Encontre pessoas</a></li>
+					href="pesquisarUsuario">Encontre Pessoas</a></li>
 			</ul>
 		</div>
 	</div>
