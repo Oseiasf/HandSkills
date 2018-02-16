@@ -10,21 +10,23 @@
 	</head>
 	<body>
 		<c:import url="/view/comum/menu.jsp"/>
-		
-		<table border="2">
-			<tr>
-				<th>Nome</th>
-				<th>CPF</th>
-				<th>RG</th>
-				<th>Email</th>
-				<th>Endereço</th>
-				<th>Bairro</th>
-				<th>Cidade</th>
-				<th>Estado</th>
-				<th>Sexo</th>
-				<th>Telefone</th>
-				<th>Ações</th>
-			</tr>
+		<br><br>
+		<table border="2" class="table table-striped">
+			<thead class="thead-inverse">
+				<tr  class="table-success">
+					<th>Nome</th>
+					<th>CPF</th>
+					<th>RG</th>
+					<th>Email</th>
+					<th>Endereço</th>
+					<th>Bairro</th>
+					<th>Cidade</th>
+					<th>Estado</th>
+					<th>Sexo</th>
+					<th>Telefone</th>
+					<th>Ações</th>
+				</tr>
+			</thead>
 		<c:forEach items="${listarUsuario}" var="usu" >
 			<tr>
 				<td>${usu.nomeCompleto}</td>

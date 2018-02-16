@@ -68,10 +68,11 @@
 		<div class="input-group">
 			<form action="pesquisar" method="post">
 				<input type="text" class="form-control" placeholder="Buscar" name="nomeProduto">
+				
+				<span class="input-group-btn">
+					<button type="submit" class="btn btn-secondary" type="button">Buscar</button>
+				</span>
 			</form>
-			<span class="input-group-btn">
-				<button type="submit" class="btn btn-secondary" type="button">Buscar</button>
-			</span>
 		</div>
 	</div>
 </nav>
