@@ -1,5 +1,5 @@
 create database handskills;
-use handskills
+use handskills;
 
 create table Produto (
 
@@ -13,7 +13,7 @@ quantidadeDisponivel int not null,
 imagem varchar(200) not null,
 primary key (id)
 
-);
+)character set 'utf8';
 
 
 create table Usuario (
@@ -34,4 +34,4 @@ telefone varchar(30) not null,
 whatsapp varchar(30),
 primary key(id)
 
-);
+)character set 'utf8';
