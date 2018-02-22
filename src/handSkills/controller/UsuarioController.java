@@ -55,13 +55,12 @@ public class UsuarioController {
 
 	@RequestMapping("listarUsuarios")
 	public String listarUsuarios(Model model) {
-
 		UsuarioDAO dao = new UsuarioDAO();
 		List<Usuario> listarUsuario = new ArrayList<Usuario>();
 		listarUsuario = dao.listar();
 		model.addAttribute("listarUsuario", listarUsuario);
 
-		return "usuario/ListarUsuario";
+		return "usuario/pesquisa";
 	}
 
 	@RequestMapping("/pesquisarUsuario")

@@ -60,19 +60,19 @@
 				<li class="nav-item"><a class="nav-link" href="exibirCadastrarProduto">Cadastrar Produtos</a></li>
 				<li class="nav-item"><a class="nav-link" href="listarProduto">Listar Produtos</a></li>
 				<li class="nav-item"><a class="nav-link" href="exibirCadastrarUsuario">Cadastrar Usuario</a></li>
-				<li class="nav-item"><a class="nav-link" href="pesquisarUsuario">Encontre Pessoas</a></li>
+				<li class="nav-item"><a class="nav-link" href="listarUsuarios">Encontre Pessoas</a></li>
 			</ul>
 		</div>
 	</div>
 	<div class="col-lg-2">
 		<div class="input-group">
-			<form action="pesquisar" method="post">
+			<!-- <form action="pesquisar" method="post"> -->
 				<input type="text" class="form-control" placeholder="Buscar" name="nomeProduto">
 				
 				<span class="input-group-btn">
 					<button type="submit" class="btn btn-secondary" type="button">Buscar</button>
 				</span>
-			</form>
+			<!-- </form> -->
 		</div>
 	</div>
 </nav>

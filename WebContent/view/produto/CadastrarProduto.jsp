@@ -54,7 +54,6 @@
 						type="text" name="coresDisponiveis" maxlength="20" required />
 				</div>
 			</div>
-			<<<<<<< HEAD
 			<div class="rightcontact">
 				<div class="form-group">
 					<p>
@@ -87,6 +86,7 @@
 				</div>
 			</div>
 			<button type="submit" class="bouton-contact btn-info">Cadastrar</button>
+		</div>
 	</form>
 	<script src="./resources/js/index.js"></script>
 
@@ -98,4 +98,5 @@
 		<!-- /.container -->
 	</footer>
 </body>
+
 </html>
