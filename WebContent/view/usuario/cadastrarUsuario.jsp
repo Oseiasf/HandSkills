@@ -1,19 +1,15 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<title>Cadastrar usuï¿½rio</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<meta name="description" content="">
-		<meta name="author" content="">
-	</head>
-	<body>
-		<!-- Navigation -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Cadastrar Usuario</title>
+</head>
+<body>
 		<c:import url="/view/comum/menu.jsp" />
 		<form action="CadastrarUsuario" method="post">
-			<h1 class="cor-cadastrar">Cadastrar usuï¿½rio</h1>
+			<h1 class="cor-cadastrar">Cadastrar usuário</h1>
 			<div class="contentform">
 				<div class="leftcontact">
 					<div class="form-group">
@@ -21,7 +17,7 @@
 						<span class="icon-case">
 							<i class="fa fa-user"></i>
 						</span>
-						<input type="text" name="nomeCompleto" maxlength="50" required />
+						<input type="text" name="nomeCompleto" maxlength="50" required/>
 					</div>
 					<div class="form-group">
 						<p>CPF <span>*</span></p>
@@ -35,7 +31,7 @@
 						<span class="icon-case">
 							<i class="fa fa-keyboard-o"></i>
 						</span>
-						<input type="text" name="rg" maxlength="15" required/>
+						<input type="text" name="rg" maxlength="10" required/>
 					</div>
 					<div class="form-group">
 						<p>Email <span>*</span></p>
@@ -43,7 +39,7 @@
 							<i class="fa fa-envelope-o"></i>
 						</span>
 						<input type="email" name="email" id="email" data-rule="email" 
-						data-msg="Vï¿½rifiez votre saisie sur les champs : Le champ 'E-mail' est obligatoire. " 
+						data-msg="Preencha seu email " 
 						maxlength="50" required/>
 						<div class="validation"></div>
 					</div>
@@ -54,7 +50,7 @@
 						</span> <input type="password" name="senha" maxlength="200" required/>
 					</div>
 					<div class="form-group">
-						<p>Endereï¿½o <span>*</span></p>
+						<p>Endereço <span>*</span></p>
 						<span class="icon-case">
 							<i class="fa fa-map-marker"></i></span>
 							<input type="text" name="endereco" maxlength="100" required/>
@@ -97,20 +93,20 @@
 							<i class="fa fa-circle-o"></i>
 						</span>
 						<select class="form-control" class="style-select" name="sexo" required>
-							<option value="">Selecione seu sexo</option>
+							<option value="">Selecione</option>
+							<option value="Outros">Outros</option>
 							<option value="Feminino">Feminino</option>
 							<option value="Masculino">Masculino</option>
 						</select>
 					</div>
 					<div class="form-group">
-						<p>Tipo de usuï¿½rio<span>*</span></p>
+						<p>Tipo de Usuário<span>*</span></p>
 						<span class="icon-case">
 							<i class="fa fa-group"></i>
 						</span>
 						<select class="form-control" id="style-select" name="tipoUsuario" required>
-							<option value="">Selecione um tipo</option>
-							<option value="Artesï¿½o">Artesï¿½o</option>
-							<option value="ADM">ADM</option>
+							<option value="">Selecione</option>
+							<option value="Artesão">Artesão</option>
 							<option value="Cliente">Cliente</option>
 						</select>
 					</div>
@@ -132,12 +128,6 @@
 			</div>
 			<button type="submit" class="bouton-contact btn-info">Cadastrar</button>
 		</form>
-		<footer class="py-5 bg-info">
-			<div class="container">
-				<p class="m-0 text-center text-white">Copyright &copy; Your Website 2018</p>
-
-			</div>
-			<!-- /.container -->
-		</footer>
-	</body>
+		<c:import url="/view/comum/rodape.jsp" />
+</body>
 </html>

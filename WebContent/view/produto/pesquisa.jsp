@@ -4,17 +4,13 @@
 
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="iso-8859">
 <title>Pesquisando Produto </title>
-
-<link rel="stylesheet" type="text/css" href="view/bootstrap/css/bootstrap.min.css" />
-<script type="text/javascript" src="view/bootstrap/js/bootstrap.min.js"></script>
-
 </head>
 <body>
 	
+		<!-- Navigation -->
 		<c:import url="/view/comum/menu.jsp" />
-		
 		<div> ${mensagem} </div>
 		
 		<table border="1" style="width: 100%;">
@@ -71,6 +67,6 @@
 		</c:forEach>
 		
 		</table>
-
+	<c:import url="/view/comum/rodape.jsp" />
 	</body>
 </html>

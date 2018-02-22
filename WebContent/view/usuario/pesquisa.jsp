@@ -4,25 +4,8 @@
 
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="iso-8859">
 <title>Pesquisando Usuario</title>
-
-<!-- Bootstrap core CSS -->
-<link href="./resources/vendor/bootstrap/css/bootstrap.min.css"
-	rel="stylesheet">
-
-<!-- Custom styles for this template -->
-<link href="./resources/css/heroic-features.css" rel="stylesheet">
-<link href="./resources/css/style.css" rel="stylesheet">
-<link
-	href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"
-	rel="stylesheet">
-
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-
-<link href="./resources/css/styleform.css" rel="stylesheet">
-<link href="./resources/css/style.css" rel="stylesheet">
 </head>
 <body>
 	<!-- Navigation -->
@@ -59,12 +42,6 @@
 			</tr>
 		</c:forEach>
 	</table>
-	<footer class="py-5 bg-info">
-		<div class="container">
-			<p class="m-0 text-center text-white">Copyright &copy; HandSkills
-				2018</p>
-		</div>
-		<!-- /.container -->
-	</footer>
+<c:import url="/view/comum/rodape.jsp" />
 </body>
 </html>

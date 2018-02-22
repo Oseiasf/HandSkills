@@ -1,6 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
@@ -8,24 +5,15 @@
 <html>
 
 <head>
-<meta charset="UTF-8">
-<title>Alterar usu√°rio</title>
-<link
-	href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"
-	rel="stylesheet">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-
-<link href="./resources/css/styleform.css" rel="stylesheet">
-<link href="./resources/css/style.css" rel="stylesheet">
-
-
+<meta charset="iso-8859">
+<title>Alterar usu·rio</title>
 </head>
 
 <body>
-	<c:import url="/view/comum/menu.jsp" />
+			<!-- Navigation -->
+		<c:import url="/view/comum/menu.jsp" />
 	<form action="alterarUsuario" method="post">
-		<h1 class="cor-cadastrar">Alterar usu√°rio</h1>
+		<h1 class="cor-cadastrar">Alterar usu·rio</h1>
 	<input type="hidden" name="id" value="${u.id}">
 		<div class="contentform">
 
@@ -67,7 +55,7 @@
 					</p>
 					<span class="icon-case"><i class="fa fa-envelope-o"></i></span> <input
 						type="email" name="email" id="email" data-rule="email"
-						data-msg="V√©rifiez votre saisie sur les champs : Le champ 'E-mail' est obligatoire. "
+						data-msg="VÈrifiez votre saisie sur les champs : Le champ 'E-mail' est obligatoire. "
 						maxlength="50" value="${u.email }"/>
 					<div class="validation"></div>
 
@@ -85,7 +73,7 @@
 
 				<div class="form-group">
 					<p>
-						Endere√ßo <span>*</span>
+						EndereÁo <span>*</span>
 					</p>
 					<span class="icon-case"><i class="fa fa-map-marker"></i></span> <input
 						type="text" name="endereco" maxlength="100" value="${u.endereco }"/>
@@ -153,12 +141,12 @@
 
 				<div class="form-group">
 					<p>
-						Tipo de usu√°rio<span>*</span>
+						Tipo de usu·rio<span>*</span>
 					</p>
 					<span class="icon-case"><i class="fa fa-group"></i></span> <select
 						class="form-control" id="style-select" name="tipoUsuario">
 						<option value="${u.tipoUsuario}">${u.tipoUsuario}</option>
-						<option value="Artes√£o">Artes√£o</option>
+						<option value="Artes„o">Artes„o</option>
 						<option value="ADM">ADM</option>
 						<option value="Cliente">Cliente</option>
 					</select>
@@ -187,19 +175,12 @@
 
 			</div>
 		</div>
-		<button type="submit" class="bouton-contact btn-info">Salvar altera√ß√µes</button>
+		<button type="submit" class="bouton-contact btn-info">Salvar alteraÁıes</button>
 
 	</form>
 
 	<script src="./resources/js/index.js"></script>
-
-	<footer class="py-5 bg-info">
-		<div class="container">
-			<p class="m-0 text-center text-white">Copyright &copy; Your
-				Website 2018</p>
-		</div>
-		<!-- /.container -->
-	</footer>
+	<c:import url="/view/comum/rodape.jsp" />
 
 </body>
 </html>

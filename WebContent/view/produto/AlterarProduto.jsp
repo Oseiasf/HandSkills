@@ -1,6 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
@@ -8,18 +5,8 @@
 <html>
 
 <head>
-<meta charset="UTF-8">
+<meta charset="iso-8859">
 <title>Alterar produto</title>
-<link
-	href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"
-	rel="stylesheet">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-
-<link href="./resources/css/styleform.css" rel="stylesheet">
-<link href="./resources/css/style.css" rel="stylesheet">
-
-
 </head>
 
 <body>
@@ -60,7 +47,7 @@
 
 				<div class="form-group">
 					<p>
-						Cores disponÃ­veis <span>*</span>
+						Cores disponíveis <span>*</span>
 					</p>
 					<span class="icon-case"><i class="fa fa-circle-o"></i></span> <input
 						type="text" name="coresDisponiveis" value="${p.coresDisponiveis}" maxlength="20" />
@@ -90,7 +77,7 @@
 
 				<div class="form-group">
 					<p>
-						PreÃ§o de venda <span>*</span>
+						Preço de venda <span>*</span>
 					</p>
 					<span class="icon-case"><i class="fa fa-dollar"></i></span> <input
 						type="text" name="precoVenda" value="${p.precoVenda}" maxlength="20" />
@@ -99,7 +86,7 @@
 
 				<div class="form-group">
 					<p>
-						Quantidade disponÃ­vel <span>*</span>
+						Quantidade disponível <span>*</span>
 					</p>
 					<span class="icon-case"><i class="fa fa-bar-chart-o"></i></span> <input
 						type="text" name="quantidadeDisponivel" value="${p.quantidadeDisponivel}" maxlength="10" />
@@ -114,24 +101,7 @@
 	</form>
 
 	<script src="./resources/js/index.js"></script>
-
-	<footer class="py-5 bg-info">
-		<div class="container">
-			<p class="m-0 text-center text-white">Copyright &copy; Your
-				Website 2018</p>
-		</div>
-		<!-- /.container -->
-	</footer>
+	<c:import url="/view/comum/rodape.jsp" />
 
 </body>
-</html>
-
-
-
-
-
-
-
-</body>
-
 </html>

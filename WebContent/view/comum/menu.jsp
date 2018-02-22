@@ -1,5 +1,13 @@
+<%@ page language="java" contentType="text/html; charset=iso-8859-1"
+	pageEncoding="iso-8859-1"%>
+	
 <!-- Bootstrap core CSS -->
 <link href="./resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+
+
 
 <!-- Custom styles for this template -->
 <link href="./resources/css/heroic-features.css" rel="stylesheet">
@@ -43,7 +51,115 @@
 		</div>
 	</div>
 </div>
-<br>
+<!-- Modal CadastrarProduto -->
+<div class="modal fade" id="modalCadastroProduto" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+			<div class="modal-header cor-barralogin">
+				<h5 class="modal-title cor-cadastro" id="exampleModalLongTitle">Cadastrar Produto</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+					<div class="form-group">
+						<form action="CadastrarProduto" method="post"
+							enctype="multipart/form-data">
+							<div class="contentform">
+								<div class="leftcontact">
+									<div class="form-group">
+										<p>
+											Nome do produto<span>*</span>
+										</p>
+										<span class="icon-case"> <i class="fa fa-align-left"></i>
+										</span> <input type="text" name="nomeProduto" maxlength="50" required />
+									</div>
+									<div class="form-group">
+										<p>
+											Local de origem do produto <span>*</span>
+										</p>
+										<span class="icon-case"> <i class="fa fa-fighter-jet"></i>
+										</span> <select class="form-control" class="Menu-style-select"
+											name="localOrigemProduto" required>
+											<option value="PE">Pernambuco</option>
+											<option value="RJ">Rio de Janeiro</option>
+										</select>
+									</div>
+									<div class="form-group">
+										<p>
+											Cores disponíveis <span>*</span>
+										</p>
+										<span class="icon-case"> <i class="fa fa-circle-o"></i></span> <input
+											type="text" name="coresDisponiveis" maxlength="20" required />
+									</div>
+								</div>
+								<div class="rightcontact">
+									<div class="form-group">
+										<p>
+											Material do produto <span>*</span>
+										</p>
+										<span class="icon-case"> <i class="fa fa-wrench"></i>
+										</span> <input type="text" name="materialDoProduto" maxlength="30"
+											required />
+									</div>
+									<div class="form-group">
+										<p>
+											Preço de venda <span>*</span>
+										</p>
+										<span class="icon-case"> <i class="fa fa-dollar"></i>
+										</span> <input type="text" name="precoVenda" maxlength="20" required />
+									</div>
+									<div class="form-group">
+										<p>
+											Quantidade disponível <span>*</span>
+										</p>
+										<span class="icon-case"> <i class="fa fa-bar-chart-o"></i>
+										</span> <input type="text" name="quantidadeDisponivel" maxlength="10"
+											required />
+									</div>
+									<div>
+										<p>
+											Imagem do Produto <span>*</span>
+										</p>
+										<input type="file" name="file" required />
+									</div>
+								</div>
+								<button type="submit" class="bouton-contact btn-info">Cadastrar</button>
+							</div>
+						</form>
+					</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--  Modal Buscar Produto -->
+<div class="modal fade modalBuscarProdutos" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+     	<form action="pesquisar" method="post">
+     		<h3>Encontre Produtos</h3>
+ 			<input type="text" class="form-control" placeholder="Buscar" name="nomeProduto">
+ 			<span class="input-group-btn">
+ 				<button type="submit" class="btn btn-secondary" type="button">Buscar</button>
+ 			</span>
+		</form>
+    </div>
+  </div>
+</div>
+<!-- Buscar Pessoas -->
+<div class="modal fade modalBuscarPessoas" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+     	<form action="" method="post">
+     		<h3>Encontre Pessoas</h3>
+ 			<input type="text" class="form-control" placeholder="Buscar" name="">
+ 			<span class="input-group-btn">
+ 				<button type="submit" class="btn btn-secondary" type="button">Buscar</button>
+ 			</span>
+		</form>
+    </div>
+  </div>
+</div>
 <br>
 <nav class="navbar navbar-expand-lg navbar-dark bg-info fixed-top">
 	<div class="container">
@@ -56,26 +172,24 @@
 		<div class="collapse navbar-collapse" id="navbarResponsive">
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item active"><a class="nav-link" href="/handskills">Home <span class="sr-only">(current)</span></a></li>
+				<li class="nav-item"><a class="nav-link" href="#" data-toggle="modal" data-target="#modalCadastroProduto">Cadastro Produto</a></li>
 				<li class="nav-item"><a class="nav-link" href="#" data-toggle="modal" data-target="#modalLogin">Login</a></li>
-				<li class="nav-item"><a class="nav-link" href="exibirCadastrarProduto">Cadastrar Produtos</a></li>
-				<li class="nav-item"><a class="nav-link" href="listarProduto">Listar Produtos</a></li>
 				<li class="nav-item"><a class="nav-link" href="exibirCadastrarUsuario">Cadastrar Usuario</a></li>
-				<li class="nav-item"><a class="nav-link" href="listarUsuarios">Encontre Pessoas</a></li>
+				<li class="nav-item"><a class="nav-link" href="listarProduto">Listar Produtos</a></li>
+				<li class="nav-item"></li>
+				<li>
+					<div class="dropdown">
+					  <a class="nav-link" href="" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					  	Encontre
+					  </a>
+					  <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+					    <a class="dropdown-item" href="" data-toggle="modal" data-target=".modalBuscarPessoas">Pessoas</a>
+					    <a class="dropdown-item" href="" data-toggle="modal" data-target=".modalBuscarProdutos">Produtos</a>
+					  </div>
+					</div>
+				</li>
 			</ul>
 		</div>
 	</div>
-	<div class="col-lg-2">
-		<div class="input-group">
-			<!-- <form action="pesquisar" method="post"> -->
-				<input type="text" class="form-control" placeholder="Buscar" name="nomeProduto">
-				
-				<span class="input-group-btn">
-					<button type="submit" class="btn btn-secondary" type="button">Buscar</button>
-				</span>
-			<!-- </form> -->
-		</div>
-	</div>
 </nav>
-
 <script src="./resources/js/index.js"></script>
-
