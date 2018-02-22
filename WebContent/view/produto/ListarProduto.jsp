@@ -4,9 +4,9 @@
 <html lang="pt">
 	<head>
 		<meta charset="iso-8859">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<meta name="description" content="">
-		<meta name="author" content="">
+		<meta name="author" content=""> -->
 		<title>Listar produto</title>
 		<style>
 		#corpo {
@@ -70,7 +70,5 @@
 		</div>
 		<!-- /.container -->
 <c:import url="/view/comum/rodape.jsp" />
-		<script src="./resources/vendor/jquery/jquery.min.js"></script>
-		<script src="./resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 	</body>
 </html>

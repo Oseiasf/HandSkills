@@ -100,7 +100,7 @@
 
 	</form>
 
-	<script src="./resources/js/index.js"></script>
+
 	<c:import url="/view/comum/rodape.jsp" />
 
 </body>

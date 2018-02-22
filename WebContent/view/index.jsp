@@ -3,17 +3,11 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-
-<meta charset="iso-8859">
-
-<title>Página inicial</title>
-<style>
-#corpo {
-	background: #EEE9E9;
-}
-</style>
-</head>
+	<head>
+	
+	<meta charset="iso-8859">
+	<title>Página inicial</title>
+	</head>
 
 <body>
 
@@ -118,10 +112,6 @@
 	</div>
 	<!-- /.container -->
 <c:import url="/view/comum/rodape.jsp" />
-
-	<!-- Bootstrap core JavaScript -->
-	<script src="./resources/vendor/jquery/jquery.min.js"></script>
-	<script src="./resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 </body>
 

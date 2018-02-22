@@ -60,18 +60,18 @@ public class UsuarioController {
 		listarUsuario = dao.listar();
 		model.addAttribute("listarUsuario", listarUsuario);
 
-		return "usuario/pesquisa";
+		return "usuario/ListarUsuario";
 	}
 
 	@RequestMapping("/pesquisarUsuario")
 	public String pesquisarUsuario(Usuario usuario, Model model) {
 		UsuarioDAO dao = new UsuarioDAO();
-		List<Usuario> pesquisa = dao.pesquisarUsuario(usuario);
-		model.addAttribute("pesquisa", pesquisa);
+		List<Usuario> pesquisaUsuario = dao.pesquisarUsuario(usuario);
+		model.addAttribute("pesquisa", pesquisaUsuario);
 		model.addAttribute("nome", usuario.getNomeCompleto());
 		model.addAttribute("email", usuario.getEmail());
 
-		return "usuario/pesquisa";
+		return "usuario/pesquisaUsuario";
 	}
 
 }

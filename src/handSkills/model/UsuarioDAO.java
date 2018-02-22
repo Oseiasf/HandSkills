@@ -97,7 +97,7 @@ public class UsuarioDAO {
 	public List<Usuario> pesquisarUsuario(Usuario usuario) {
 
 		try {
-			List<Usuario> u = new ArrayList<Usuario>();
+			List<Usuario> usu = new ArrayList<Usuario>();
 			String sql = "";
 			PreparedStatement stmt = null;
 
@@ -126,14 +126,14 @@ public class UsuarioDAO {
 				usuario1.setWhatsapp(rs.getString("whatsapp"));
 				usuario1.setTipoUsuario(rs.getString("tipoUsuario"));
 				
-				u.add(usuario1);
+				usu.add(usuario1);
 			}
 
 			rs.close();
 			stmt.close();
 			connection.close();
 
-			return u;
+			return usu;
 
 		} catch (SQLException e) {
 			throw new RuntimeException(e);

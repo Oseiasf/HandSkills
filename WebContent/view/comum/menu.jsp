@@ -95,12 +95,12 @@
 								</div>
 								<div class="rightcontact">
 									<div class="form-group">
-										<p>
-											Material do produto <span>*</span>
-										</p>
-										<span class="icon-case"> <i class="fa fa-wrench"></i>
-										</span> <input type="text" name="materialDoProduto" maxlength="30"
-											required />
+										Material do Produto <span>*</span>
+										<span class="icon-case"> <i class="fa fa-fighter-jet"></i>
+										</span> <select class="form-control" class="Menu-style-select"
+											name="materialProduto" required>
+											<option value="">Selecione</option>
+										</select>
 									</div>
 									<div class="form-group">
 										<p>
@@ -136,7 +136,7 @@
 <div class="modal fade modalBuscarProdutos" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
-     	<form action="pesquisar" method="post">
+     	<form action="pesquisarProduto" method="post">
      		<h3>Encontre Produtos</h3>
  			<input type="text" class="form-control" placeholder="Buscar" name="nomeProduto">
  			<span class="input-group-btn">
@@ -150,7 +150,7 @@
 <div class="modal fade modalBuscarPessoas" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
-     	<form action="" method="post">
+     	<form action="pesquisarUsuario" method="post">
      		<h3>Encontre Pessoas</h3>
  			<input type="text" class="form-control" placeholder="Buscar" name="">
  			<span class="input-group-btn">
