@@ -36,10 +36,10 @@ form {
   overflow: hidden;
 }
 
-/* p span {
+p span {
   color: #F00;
 }
- */
+
 p {
   margin: 0px;
   font-weight: 500;
@@ -152,6 +152,7 @@ i {
   border-radius: 3px;
   box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.03);
 }
+
 
 #sendmessage.show,.show  {
   display:block;

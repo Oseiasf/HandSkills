@@ -27,15 +27,20 @@
 <body>
 	<!-- Navigation -->
 	<c:import url="/view/comum/menu.jsp" />
-	<table border="1" style="width: 100%;">
-		<tr>
-			<td>Nome Completo</td>
-			<td>Email</td>
-			<td>Telefone</td>
-			<td>WhatsApp</td>
-			<td>Tipo de Usuario</td>
-			<td colspan="2">Ações</td>
-		</tr>
+	<table border="1" style="width: 100%;" class="table">
+	
+	<thead class="thead-dark">
+    <tr class="cor-th">
+      
+      <th scope="col" id="cor-th">Nome Completo</th>
+      <th scope="col" >Email</th>
+      <th scope="col" >Telefone</th>
+      <th scope="col" >WhatsApp</th>
+      <th scope="col" >Tipo de Usuario</th>
+      <th scope="col" colspan="2">Ações</th>
+    </tr>
+  </thead>
+		
 		<c:forEach var="u" items="${listarUsuario}">
 			<tr>
 				<td>${u.nomeCompleto}</td>
@@ -54,5 +59,12 @@
 			</tr>
 		</c:forEach>
 	</table>
+	<footer class="py-5 bg-info">
+		<div class="container">
+			<p class="m-0 text-center text-white">Copyright &copy; HandSkills
+				2018</p>
+		</div>
+		<!-- /.container -->
+	</footer>
 </body>
 </html>
