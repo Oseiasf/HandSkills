@@ -63,10 +63,10 @@
 						<span class="icon-case">
 							<i class="fa fa-fighter-jet"></i>
 						</span> <select class="form-control" class="Menu-style-select"
-							name="materialProduto" required>
+							name="materialDoProduto" required>
 						<option value="">Selecione</option>
 						<c:forEach items="${listaMaterialDoProduto}" var="material">
-							<option value="${material.id}" <c:if test="${material.id eq p.materialDoProduto.id}">selected="selected"</c:if>>
+							<option value="${material.id}" <c:if test="${material.id eq p.materialDoProduto.id}">selected="selected"</c:if> >
 								${material.descricao} </option>
 						</c:forEach>
 						</select>

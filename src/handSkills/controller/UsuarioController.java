@@ -27,7 +27,7 @@ public class UsuarioController {
 
 		model.addAttribute("mensagem", "Usuario cadastrado com sucesso!");
 
-		return "index";
+		return "usuario/cadastrarUsuario";
 	}
 
 	@RequestMapping("/exibirAtualizarUsuario")

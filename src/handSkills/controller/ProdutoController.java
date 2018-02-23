@@ -38,7 +38,7 @@ public class ProdutoController {
 		dao.CadastrarProduto(produto);
 		model.addAttribute("mensagem", "Produto cadastrado com sucesso");
 
-		return "produto/CadastrarProduto";
+		return "produto/cadastrarProduto";
 	}
 
 	@RequestMapping("/listarProduto")
@@ -52,15 +52,6 @@ public class ProdutoController {
 
 	@RequestMapping("/exibirlistarProdutoIndex")
 	public String exibirlistarProdutoIndex() {
-		return "index";
-	}
-
-	@RequestMapping("/listarProdutoIndex")
-	public String listarProdutoIndex(Model model) {
-		ProdutoDAO dao = new ProdutoDAO();
-		List<Produto> listaProdutoIndex = dao.listarIndex();
-		model.addAttribute("listaProdutoIndex", listaProdutoIndex);
-
 		return "index";
 	}
 
@@ -78,6 +69,10 @@ public class ProdutoController {
 		ProdutoDAO dao = new ProdutoDAO();
 		Produto produtoCompleto = dao.buscaPorId(produto.getId());
 		model.addAttribute("p", produtoCompleto);
+
+		MaterialDoProdutoDAO dao2 = new MaterialDoProdutoDAO();
+		List<MaterialDoProduto> listaMaterialDoProduto = dao2.listarMaterialDoProduto();
+		model.addAttribute("listaMaterialDoProduto", listaMaterialDoProduto);
 
 		return "produto/AlterarProduto";
 	}

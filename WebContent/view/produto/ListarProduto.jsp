@@ -17,6 +17,7 @@
 	<body>
 		<!-- Navigation -->
 		<c:import url="/view/comum/menu.jsp" />
+		<h1>${mensagem}</h1>
 		<!-- Page Content -->
 		<div class="container">
 			<!-- Modal -->
@@ -37,6 +38,7 @@
 									<ul>
 										<li>Feito em: ${p.localOrigemProduto}</li>
 										<li>Estoque: ${p.quantidadeDisponivel}</li>
+										<li>Material: ${p.materialDoProduto.descricao}</li>
 										<li class="card-text">Valor: R$ ${p.precoVenda}</li>
 									</ul>
 									<div class="card-footer">

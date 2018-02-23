@@ -8,6 +8,7 @@
 </head>
 <body>
 	<c:import url="/view/comum/menu.jsp" />
+	<h1>${mensagem}</h1>
 					<div class="form-group">
 						<form action="CadastrarProduto" method="post"
 							enctype="multipart/form-data">
@@ -43,8 +44,7 @@
 									<div class="form-group">
 										Material do Produto <span>*</span>
 										<span class="icon-case"> <i class="fa fa-fighter-jet"></i>
-										</span> <select class="form-control" class="Menu-style-select"
-											name="materialProduto" required>
+										</span> <select class="form-control" class="Menu-style-select" name="materialDoProduto" required>
 											<option value="">Selecione</option>
 											<c:forEach items="${listaMaterialDoProduto}" var="material">
 												<option value="${material.id}"> ${material.descricao} </option>

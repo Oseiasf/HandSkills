@@ -8,6 +8,7 @@
 	</head>
 <body>
 		<c:import url="/view/comum/menu.jsp" />
+		<h1>${mensagem}</h1>
 		<form action="CadastrarUsuario" method="post">
 			<h1 class="cor-cadastrar">Cadastrar usuário</h1>
 			<div class="contentform">

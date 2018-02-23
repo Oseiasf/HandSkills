@@ -1,9 +1,10 @@
+#ALTER TABLE `suatabela` CHANGE `suacoluna` `suacoluna` INT(11) NOT NULL;
 create database handskills;
 use handskills;
 
 create table MaterialDoProduto (
 
-id int AUTO_INCREMENT,
+id int,
 descricao varchar(50),
 primary key (id)
 );
