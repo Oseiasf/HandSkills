@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import handSkills.model.MaterialDoProduto;
+import handSkills.model.MaterialDoProdutoDAO;
 import handSkills.model.Produto;
 import handSkills.model.ProdutoDAO;
 import handSkills.util.Util;
@@ -16,11 +18,14 @@ import handSkills.util.Util;
 public class ProdutoController {
 
 	@RequestMapping("/exibirCadastrarProduto")
-	public String exibirCadastrarProduto() {
+	public String exibirCadastrarProduto(Model model) {
 
-		return "produto/CadastrarProduto";
+		MaterialDoProdutoDAO dao = new MaterialDoProdutoDAO();
+		List<MaterialDoProduto> listaMaterialDoProduto = dao.listarMaterialDoProduto();
+		model.addAttribute("listaMaterialDoProduto", listaMaterialDoProduto);
+
+		return "produto/cadastrarProduto";
 	}
-	
 
 	@RequestMapping("/CadastrarProduto")
 	public String CadastrarProduto(Produto produto, @RequestParam("file") MultipartFile imagem, Model model) {
@@ -31,7 +36,6 @@ public class ProdutoController {
 
 		ProdutoDAO dao = new ProdutoDAO();
 		dao.CadastrarProduto(produto);
-
 		model.addAttribute("mensagem", "Produto cadastrado com sucesso");
 
 		return "produto/CadastrarProduto";
@@ -45,18 +49,18 @@ public class ProdutoController {
 
 		return "produto/ListarProduto";
 	}
-	
+
 	@RequestMapping("/exibirlistarProdutoIndex")
 	public String exibirlistarProdutoIndex() {
 		return "index";
 	}
-	
+
 	@RequestMapping("/listarProdutoIndex")
 	public String listarProdutoIndex(Model model) {
 		ProdutoDAO dao = new ProdutoDAO();
 		List<Produto> listaProdutoIndex = dao.listarIndex();
 		model.addAttribute("listaProdutoIndex", listaProdutoIndex);
-		
+
 		return "index";
 	}
 
@@ -88,7 +92,7 @@ public class ProdutoController {
 
 		return "forward:listarProduto";
 	}
-	
+
 	@RequestMapping("/pesquisarProduto")
 	public String pesquisarProduto(Produto produto, Model model) {
 		ProdutoDAO dao = new ProdutoDAO();

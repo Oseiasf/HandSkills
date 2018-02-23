@@ -100,6 +100,9 @@
 										</span> <select class="form-control" class="Menu-style-select"
 											name="materialProduto" required>
 											<option value="">Selecione</option>
+											<c:forEach items="${listaMaterialDoProduto}" var="material">
+												<option value="${material.id}"> ${material.descricao} </option>
+											</c:forEach>
 										</select>
 									</div>
 									<div class="form-group">

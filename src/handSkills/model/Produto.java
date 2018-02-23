@@ -7,7 +7,7 @@ public class Produto {
 	private	String nomeProduto;
 	private	String localOrigemProduto;
 	private	String coresDisponiveis;
-	private	String materialDoProduto;
+	private	MaterialDoProduto materialDoProduto;
 	private double precoVenda;
 	private int quantidadeDisponivel;
 	private String imagem;
@@ -36,12 +36,6 @@ public class Produto {
 	public void setCoresDisponiveis(String coresDisponiveis) {
 		this.coresDisponiveis = coresDisponiveis;
 	}
-	public String getMaterialDoProduto() {
-		return materialDoProduto;
-	}
-	public void setMaterialDoProduto(String materialDoProduto) {
-		this.materialDoProduto = materialDoProduto;
-	}
 	public double getPrecoVenda() {
 		return precoVenda;
 	}
@@ -60,6 +54,12 @@ public class Produto {
 	}
 	public void setImagem(String imagem) {
 		this.imagem = imagem;
+	}
+	public MaterialDoProduto getMaterialDoProduto() {
+		return materialDoProduto;
+	}
+	public void setMaterialDoProduto(MaterialDoProduto materialDoProduto) {
+		this.materialDoProduto = materialDoProduto;
 	}
 		
 }

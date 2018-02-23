@@ -54,26 +54,22 @@
 
 				</div>
 
-
-
-
-
-
-
 			</div>
 
 			<div class="rightcontact">
 
 				<div class="form-group">
-					<p>
-						Material do produto <span>*</span>
-					</p>
-					<span class="icon-case"><i class="fa fa-wrench"></i></span> <input
-						type="text" name="materialDoProduto" value="${p.materialDoProduto}" maxlength="30" />
-
+					Material do Produto <span>*</span>
+						<span class="icon-case"> <i class="fa fa-fighter-jet"></i>
+						</span> <select class="form-control" class="Menu-style-select"
+							name="materialProduto" required>
+						<option value="">Selecione</option>
+						<c:forEach items="${listaMaterialDoProduto}" var="material">
+							<option value="${material.id}" <c:if test="${material.id eq p.materialDoProduto.id}">selected="selected"</c:if>>
+								${material.descricao} </option>
+						</c:forEach>
+						</select>
 				</div>
-
-
 
 				<div class="form-group">
 					<p>

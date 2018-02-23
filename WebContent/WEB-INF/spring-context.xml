@@ -12,11 +12,19 @@
 						http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
 	<context:component-scan base-package="handSkills" />
-   	<mvc:annotation-driven />
+   	<mvc:annotation-driven conversion-service="conversionService" />
    	
    	<!-- A linha abaixo é necessária para poder carregar nos JSP os arquivos CSS, imagens, JavaScript e etc -->
 	<mvc:default-servlet-handler/> 
-
+	
+	<bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+		<property name="converters">
+		<list>
+		<bean class="handSkills.controller.MaterialDoProdutoConverter" />
+		</list>
+		</property>
+	</bean>
+	
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/view/" />
 		<property name="suffix" value=".jsp" />

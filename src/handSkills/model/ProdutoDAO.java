@@ -29,11 +29,10 @@ public class ProdutoDAO {
 
 			stmt = connection.prepareStatement(sql);
 
-			
 			stmt.setString(1, produto.getNomeProduto());
 			stmt.setString(2, produto.getLocalOrigemProduto());
 			stmt.setString(3, produto.getCoresDisponiveis());
-			stmt.setString(4, produto.getMaterialDoProduto()); 
+			stmt.setInt(4, produto.getMaterialDoProduto().getId());
 			stmt.setDouble(5, produto.getPrecoVenda());
 			stmt.setInt(6, produto.getQuantidadeDisponivel());
 			stmt.setString(7, produto.getImagem());
@@ -58,11 +57,15 @@ public class ProdutoDAO {
 
 				Produto produto = new Produto();
 
+				int idMaterialDoProduto = rs.getInt("id");
+				MaterialDoProdutoDAO dao = new MaterialDoProdutoDAO();
+				MaterialDoProduto mdp = dao.buscarPorId(idMaterialDoProduto);
+				produto.setMaterialDoProduto(mdp);
+
 				produto.setId(rs.getInt("id"));
 				produto.setNomeProduto(rs.getString("nomeProduto"));
 				produto.setLocalOrigemProduto(rs.getString("localOrigemProduto"));
 				produto.setCoresDisponiveis(rs.getString("coresDisponiveis"));
-				produto.setMaterialDoProduto(rs.getString("materialDoProduto"));
 				produto.setPrecoVenda(rs.getDouble("precoVenda"));
 				produto.setQuantidadeDisponivel(rs.getInt("quantidadeDisponivel"));
 				produto.setImagem(rs.getString("imagem"));
@@ -80,7 +83,7 @@ public class ProdutoDAO {
 			throw new RuntimeException(e);
 		}
 	}
-	
+
 	public List<Produto> listarIndex() {
 
 		try {
@@ -92,12 +95,18 @@ public class ProdutoDAO {
 			while (rs.next()) {
 
 				Produto produto = new Produto();
-
+				
+				
 				produto.setId(rs.getInt("id"));
 				produto.setNomeProduto(rs.getString("nomeProduto"));
 				produto.setLocalOrigemProduto(rs.getString("localOrigemProduto"));
 				produto.setCoresDisponiveis(rs.getString("coresDisponiveis"));
-				produto.setMaterialDoProduto(rs.getString("materialDoProduto"));
+
+				int idMaterialDoProduto = rs.getInt("id");
+				MaterialDoProdutoDAO dao = new MaterialDoProdutoDAO();
+				MaterialDoProduto mdp = dao.buscarPorId(idMaterialDoProduto);
+				produto.setMaterialDoProduto(mdp);
+				
 				produto.setPrecoVenda(rs.getDouble("precoVenda"));
 				produto.setQuantidadeDisponivel(rs.getInt("quantidadeDisponivel"));
 				produto.setImagem(rs.getString("imagem"));
@@ -115,8 +124,6 @@ public class ProdutoDAO {
 			throw new RuntimeException(e);
 		}
 	}
-	
-	
 
 	public void remover(Produto produto) {
 
@@ -125,7 +132,7 @@ public class ProdutoDAO {
 		try {
 
 			stmt = connection.prepareStatement(sql);
-			
+
 			stmt.setInt(1, produto.getId());
 
 			stmt.execute();
@@ -144,11 +151,10 @@ public class ProdutoDAO {
 
 			stmt = connection.prepareStatement(sql);
 
-			
 			stmt.setString(1, produto.getNomeProduto());
 			stmt.setString(2, produto.getLocalOrigemProduto());
 			stmt.setString(3, produto.getCoresDisponiveis());
-			stmt.setString(4, produto.getMaterialDoProduto()); 
+			stmt.setInt(4, produto.getMaterialDoProduto().getId());
 			stmt.setDouble(5, produto.getPrecoVenda());
 			stmt.setInt(6, produto.getQuantidadeDisponivel());
 			stmt.setInt(7, produto.getId());
@@ -181,7 +187,12 @@ public class ProdutoDAO {
 				produto.setNomeProduto(rs.getString("nomeProduto"));
 				produto.setLocalOrigemProduto(rs.getString("localOrigemProduto"));
 				produto.setCoresDisponiveis(rs.getString("coresDisponiveis"));
-				produto.setMaterialDoProduto(rs.getString("materialDoProduto"));
+				
+				int idMaterialDoProduto = rs.getInt("id");
+				MaterialDoProdutoDAO dao = new MaterialDoProdutoDAO();
+				MaterialDoProduto mdp = dao.buscarPorId(idMaterialDoProduto);
+				produto.setMaterialDoProduto(mdp);
+				
 				produto.setPrecoVenda(rs.getDouble("precoVenda"));
 				produto.setQuantidadeDisponivel(rs.getInt("quantidadeDisponivel"));
 				produto.setImagem(rs.getString("imagem"));
@@ -198,41 +209,42 @@ public class ProdutoDAO {
 			throw new RuntimeException(e);
 		}
 	}
+
 	public List<Produto> pesquisar(Produto prod) {
 
 		try {
 			List<Produto> p = new ArrayList<Produto>();
 			String sql = "";
 			PreparedStatement stmt = null;
-			
+
 			if ((prod.getNomeProduto() != null && !prod.getNomeProduto().equals(""))
 					&& (prod.getLocalOrigemProduto() == null || prod.getLocalOrigemProduto().equals(""))) {
 
 				sql = "SELECT * FROM Produto WHERE nomeProduto LIKE ?";
 				stmt = connection.prepareStatement(sql);
-				stmt.setString(1, "%"+ prod.getNomeProduto() +"%");
+				stmt.setString(1, "%" + prod.getNomeProduto() + "%");
 
 			} else if ((prod.getLocalOrigemProduto() != null && !prod.getLocalOrigemProduto().equals(""))
-					&& (prod.getNomeProduto() == null || prod.getNomeProduto().equals(""))){
-				
+					&& (prod.getNomeProduto() == null || prod.getNomeProduto().equals(""))) {
+
 				sql = "SELECT * FROM Produto WHERE localOrigemProduto LIKE ?";
 				stmt = connection.prepareStatement(sql);
-				stmt.setString(1, "%"+ prod.getLocalOrigemProduto() +"%");
-				
-			} else  if ((prod.getNomeProduto() != null && !prod.getNomeProduto().equals("")) 
+				stmt.setString(1, "%" + prod.getLocalOrigemProduto() + "%");
+
+			} else if ((prod.getNomeProduto() != null && !prod.getNomeProduto().equals(""))
 					&& (prod.getLocalOrigemProduto() != null && !prod.getLocalOrigemProduto().equals(""))) {
-				
+
 				sql = "SELECT * FROM Produto WHERE nomeProduto LIKE ? AND localOrigemProduto LIKE ?";
 				stmt = connection.prepareStatement(sql);
-				stmt.setString(2, "%"+ prod.getLocalOrigemProduto() +"%");
-				stmt.setString(1, "%"+ prod.getNomeProduto() +"%");
+				stmt.setString(2, "%" + prod.getLocalOrigemProduto() + "%");
+				stmt.setString(1, "%" + prod.getNomeProduto() + "%");
 
 			} else {
-				
+
 				sql = "SELECT * FROM Produto";
 				stmt = connection.prepareStatement(sql);
 			}
-			
+
 			ResultSet rs = stmt.executeQuery();
 
 			while (rs.next()) {
@@ -243,7 +255,12 @@ public class ProdutoDAO {
 				produto.setNomeProduto(rs.getString("nomeProduto"));
 				produto.setLocalOrigemProduto(rs.getString("localOrigemProduto"));
 				produto.setCoresDisponiveis(rs.getString("coresDisponiveis"));
-				produto.setMaterialDoProduto(rs.getString("materialDoProduto"));
+				
+				int idMaterialDoProduto = rs.getInt("id");
+				MaterialDoProdutoDAO dao = new MaterialDoProdutoDAO();
+				MaterialDoProduto mdp = dao.buscarPorId(idMaterialDoProduto);
+				produto.setMaterialDoProduto(mdp);
+				
 				produto.setPrecoVenda(rs.getDouble("precoVenda"));
 				produto.setQuantidadeDisponivel(rs.getInt("quantidadeDisponivel"));
 				produto.setImagem(rs.getString("imagem"));
