@@ -60,7 +60,8 @@
 
 				<div class="form-group">
 					Material do Produto <span>*</span>
-						<span class="icon-case"> <i class="fa fa-fighter-jet"></i>
+						<span class="icon-case">
+							<i class="fa fa-fighter-jet"></i>
 						</span> <select class="form-control" class="Menu-style-select"
 							name="materialProduto" required>
 						<option value="">Selecione</option>
