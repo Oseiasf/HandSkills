@@ -16,10 +16,11 @@
 		
 		<script type="text/javascript">
 		
-			function preencherModal(nomeProduto, localOrigemProduto) {
+			function preencherModal(nomeProduto, localOrigemProduto, materialDoProduto) {
 				
 				document.getElementById('nomeProduto').innerHTML = nomeProduto;
 				document.getElementById('localOrigemProduto').innerHTML = localOrigemProduto;
+				document.getElementById('materialDoProduto').innerHTML = materialDoProduto;
 			}
 		
 		</script>
@@ -47,7 +48,7 @@
 									<ul>
 										<li>Feito em: <label id="localOrigemProduto"></label></li>
 										<li>Estoque: ${prod.quantidadeDisponivel}</li>
-										<li>Material: ${prod.materialDoProduto.descricao}</li>
+										<li>Material: <label id="materialDoProduto"></label></li>
 										<li class="card-text">Valor: R$ ${prod.precoVenda}</li>
 									</ul>
 									<div class="card-footer">
@@ -70,7 +71,7 @@
 							<div class="card-footer">
 								<a href="#" class="btn btn-info">Comprar</a> 
 								<a href="exibirAtualizarProduto?id=${p.id}" class="btn btn-info">Alterar</a>
-								<a href="#" onclick="preencherModal('${p.nomeProduto}','${p.localOrigemProduto}');" data-toggle="modal" data-target="#verMais" class="btn btn-info">Mais Informações</a>
+								<a href="#" onclick="preencherModal('${p.nomeProduto}','${p.localOrigemProduto}', '${p.materialDoProduto.descricao}');" data-toggle="modal" data-target="#verMais" class="btn btn-info">Mais Informações</a>
 							</div>
 						</div>
 					</div>
