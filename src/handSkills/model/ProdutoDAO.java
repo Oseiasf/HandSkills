@@ -57,7 +57,7 @@ public class ProdutoDAO {
 
 				Produto produto = new Produto();
 
-				int idMaterialDoProduto = rs.getInt("id");
+				int idMaterialDoProduto = rs.getInt("materialDoProduto");
 				MaterialDoProdutoDAO dao = new MaterialDoProdutoDAO();
 				MaterialDoProduto mdp = dao.buscarPorId(idMaterialDoProduto);
 				produto.setMaterialDoProduto(mdp);
@@ -148,7 +148,7 @@ public class ProdutoDAO {
 				produto.setLocalOrigemProduto(rs.getString("localOrigemProduto"));
 				produto.setCoresDisponiveis(rs.getString("coresDisponiveis"));
 				
-				int idMaterialDoProduto = rs.getInt("id");
+				int idMaterialDoProduto = rs.getInt("materialDoProduto");
 				MaterialDoProdutoDAO dao = new MaterialDoProdutoDAO();
 				MaterialDoProduto mdp = dao.buscarPorId(idMaterialDoProduto);
 				produto.setMaterialDoProduto(mdp);

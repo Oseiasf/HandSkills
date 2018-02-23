@@ -77,6 +77,16 @@ public class ProdutoController {
 		return "produto/AlterarProduto";
 	}
 
+	@RequestMapping("/exibirInformacoesProduto")
+	public String exibirInformacoesProduto(Produto produto, Model model) {
+
+		ProdutoDAO dao = new ProdutoDAO();
+		Produto produtoCompleto = dao.buscaPorId(produto.getId());
+		model.addAttribute("prod", produtoCompleto);
+
+		return "forward:listarProduto";
+	}
+
 	@RequestMapping("/alterarProduto")
 	public String alterarProduto(Produto produto, Model model) {
 
@@ -93,8 +103,8 @@ public class ProdutoController {
 		ProdutoDAO dao = new ProdutoDAO();
 		List<Produto> pesquisa = dao.pesquisar(produto);
 		model.addAttribute("pesquisa", pesquisa);
-		model.addAttribute("descricaoAtual", produto.getLocalOrigemProduto());
-		model.addAttribute("codigoAtual", produto.getNomeProduto());
+		model.addAttribute("localOrigem", produto.getLocalOrigemProduto());
+		model.addAttribute("nomeProduto", produto.getNomeProduto());
 
 		return "produto/pesquisaProduto";
 	}
