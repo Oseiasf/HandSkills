@@ -42,10 +42,11 @@
 						<span class="icon-case">
 							<i class="fa fa-user"></i>
 						</span>
-						<input type="text" name="senha" maxlength="50" required/>
+						<input type="text" name="senha" maxlength="50" placeholder="Digite sua senha" required/>
 					</div>
-					<a href="exibirCadastrarUsuario" >Cadastrer-se</a>
-					<button type="submit" class="col-4 offset-4 btn btn-info">Entrar</button>
+					
+					<button type="submit" class="col-4 offset-4 btn btn-info">Entrar</button> <br><br>
+					<span class="col-4 offset-4"><a href="exibirCadastrarUsuario" class="cor-cadastre cadastre-login">Cadastre-se</a></span>
 				</form>
 			</div>
 		</div>
@@ -137,11 +138,18 @@
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
      	<form action="pesquisarProduto" method="post">
-     		<h3>Encontre Produtos</h3>
- 			<input type="text" class="form-control" placeholder="Buscar" name="nomeProduto">
- 			<span class="input-group-btn">
- 				<button type="submit" class="btn btn-secondary" type="button">Buscar</button>
- 			</span>
+     		<h5 class="alinhamento-encontre">Encontre Produtos</h5>
+     		<br>
+ 			<div class="form-group">
+						
+						<span class="icon-case">
+							<i class="fa fa-search"></i>
+						</span>
+						<input type="text" name="buscar" maxlength="50" placeholder="Buscar" required/>
+					</div>
+ 			<div class="input-group-btn">
+ 				<button type="submit" class="btn btn-secondary alinhamento-botao-buscar cor-botao" type="button">Buscar</button>
+ 			</div>
 		</form>
     </div>
   </div>
@@ -151,11 +159,18 @@
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
      	<form action="pesquisarUsuario" method="post">
-     		<h3>Encontre Pessoas</h3>
- 			<input type="text" class="form-control" placeholder="Buscar" name="">
- 			<span class="input-group-btn">
- 				<button type="submit" class="btn btn-secondary" type="button">Buscar</button>
- 			</span>
+     		<h5 class="alinhamento-encontre ">Encontre Pessoas</h5>
+     		<br>
+ 			<div class="form-group">
+						
+						<span class="icon-case">
+							<i class="fa fa-search"></i>
+						</span>
+						<input type="text" name="buscar" maxlength="50" placeholder="Buscar" required/>
+					</div>
+ 			<div class="input-group-btn">
+ 				<button type="submit" class="btn btn-secondary alinhamento-botao-buscar cor-botao" type="button">Buscar</button>
+ 			</div>
 		</form>
     </div>
   </div>
