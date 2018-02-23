@@ -31,24 +31,37 @@
 	text-align: center;
 }
 
-.Menu-style-select {
-	width: 75%;
-=======
-
 #style-selectimg {
 	width: 47%;
 }
-
 
 .cor-login {
 	color: white;
 }
 
-.cor-barralogin{
+.cor-barralogin {
 	background: #828282;
 }
 
-
- #cor-th {
+#cor-th {
 	background-color: #81BDA4;
+}
+
+.alinhamento-encontre {
+	text-align: center;
+}
+.alinhamento-botao-buscar{
+	margin-left: 35%;
+}
+.cor-botao{
+	    background-color: #81BDA4;
+}
+.cor-cadastre{
+	color: #17a2b8;
+}
+.cadastre-login{
+	margin-left: 4%;
+}
+.cor-cadastro{
+	color: #ffffff;
 }
