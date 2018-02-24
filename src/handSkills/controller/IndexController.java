@@ -16,6 +16,11 @@ public class IndexController {
 	public String index() {
 		return "index";
 	}
+	
+	@RequestMapping("/exibirlistarProdutoIndex")
+	public String exibirlistarProdutoIndex() {
+		return "index";
+	}
 
 	@RequestMapping("/listarProdutoIndex")
 	public String listarProdutoIndex(Model model) {

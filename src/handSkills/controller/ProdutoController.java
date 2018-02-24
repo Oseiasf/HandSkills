@@ -50,11 +50,6 @@ public class ProdutoController {
 		return "produto/ListarProduto";
 	}
 
-	@RequestMapping("/exibirlistarProdutoIndex")
-	public String exibirlistarProdutoIndex() {
-		return "index";
-	}
-
 	@RequestMapping("removerProduto")
 	public String removerProduto(Produto produto, Model model) {
 		ProdutoDAO dao = new ProdutoDAO();

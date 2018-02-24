@@ -12,7 +12,7 @@
 		<!-- Navigation -->
 		<c:import url="/view/comum/menu.jsp" />
 		<div> ${mensagem} </div>
-		
+		<div> O numrero de produtos encontrados foi ${pesquisa.size()}</div>
 		<table border="1" style="width: 100%;">
 			<tr>
 				<td>Nome do Produto</td>
@@ -24,9 +24,6 @@
 				<td>Imagem</td>
 				<td colspan="2"><center> Ações </center> </td>
 			</tr>
-		
-		
-		<div> <p> O numrero de produtos encontrados foi ${pesquisa.size()} </p></div>
 		
 		<c:forEach var="p" items="${pesquisa}">
 

@@ -52,90 +52,7 @@
 		</div>
 	</div>
 </div>
-<!-- Modal CadastrarProduto -->
-<div class="modal fade" id="modalCadastroProduto" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered" role="document">
-		<div class="modal-content">
-			<div class="modal-header cor-barralogin">
-				<h5 class="modal-title cor-cadastro" id="exampleModalLongTitle">Cadastrar Produto</h5>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-			</div>
-			<div class="modal-body">
-					<div class="form-group">
-						<form action="CadastrarProduto" method="post"
-							enctype="multipart/form-data">
-							<div class="contentform">
-								<div class="leftcontact">
-									<div class="form-group">
-										<p>
-											Nome do produto<span>*</span>
-										</p>
-										<span class="icon-case"> <i class="fa fa-align-left"></i>
-										</span> <input type="text" name="nomeProduto" maxlength="50" required />
-									</div>
-									<div class="form-group">
-										<p>
-											Local de origem do produto <span>*</span>
-										</p>
-										<span class="icon-case"> <i class="fa fa-fighter-jet"></i>
-										</span> <select class="form-control" class="Menu-style-select"
-											name="localOrigemProduto" required>
-											<option value="PE">Pernambuco</option>
-											<option value="RJ">Rio de Janeiro</option>
-										</select>
-									</div>
-									<div class="form-group">
-										<p>
-											Cores disponíveis <span>*</span>
-										</p>
-										<span class="icon-case"> <i class="fa fa-circle-o"></i></span> <input
-											type="text" name="coresDisponiveis" maxlength="20" required />
-									</div>
-								</div>
-								<div class="rightcontact">
-									<div class="form-group">
-										Material do Produto <span>*</span>
-										<span class="icon-case"> <i class="fa fa-fighter-jet"></i>
-										</span> <select class="form-control" class="Menu-style-select"
-											name="materialProduto" required>
-											<option value="">Selecione</option>
-											<c:forEach items="${listaMaterialDoProduto}" var="material">
-												<option value="${material.id}"> ${material.descricao} </option>
-											</c:forEach>
-										</select>
-									</div>
-									<div class="form-group">
-										<p>
-											Preço de venda <span>*</span>
-										</p>
-										<span class="icon-case"> <i class="fa fa-dollar"></i>
-										</span> <input type="text" name="precoVenda" maxlength="20" required />
-									</div>
-									<div class="form-group">
-										<p>
-											Quantidade disponível <span>*</span>
-										</p>
-										<span class="icon-case"> <i class="fa fa-bar-chart-o"></i>
-										</span> <input type="text" name="quantidadeDisponivel" maxlength="10"
-											required />
-									</div>
-									<div>
-										<p>
-											Imagem do Produto <span>*</span>
-										</p>
-										<input type="file" name="file" required />
-									</div>
-								</div>
-								<button type="submit" class="bouton-contact btn-info">Cadastrar</button>
-							</div>
-						</form>
-					</div>
-			</div>
-		</div>
-	</div>
-</div>
+
 <!--  Modal Buscar Produto -->
 <div class="modal fade modalBuscarProdutos" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-sm">
@@ -190,11 +107,11 @@
 		<div class="collapse navbar-collapse" id="navbarResponsive">
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item active"><a class="nav-link" href="/handskills">Home <span class="sr-only">(current)</span></a></li>
-				<li class="nav-item"><a class="nav-link" href="#" data-toggle="modal" data-target="#modalCadastroProduto">Cadastro Produto</a></li>
+				<li class="nav-item"><a class="nav-link" href="exibirCadastrarProduto">Cadastro Produto</a></li>
 				<li class="nav-item"><a class="nav-link" href="#" data-toggle="modal" data-target="#modalLogin">Login</a></li>
 				<li class="nav-item"><a class="nav-link" href="exibirCadastrarUsuario">Cadastrar Usuario</a></li>
 				<li class="nav-item"><a class="nav-link" href="listarProduto">Listar Produtos</a></li>
-				<li class="nav-item"></li>
+				<li class="nav-item"><a class="nav-link" href="listarUsuarios">Listar Usuarios</a></li>
 				<li>
 					<div class="dropdown">
 					  <a class="nav-link" href="" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

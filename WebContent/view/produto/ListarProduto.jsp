@@ -4,9 +4,6 @@
 <html lang="pt">
 	<head>
 		<meta charset="iso-8859">
-		<!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<meta name="description" content="">
-		<meta name="author" content=""> -->
 		<title>Listar produto</title>
 		<style>
 		#corpo {
@@ -16,11 +13,13 @@
 		
 		<script type="text/javascript">
 		
-			function preencherModal(nomeProduto, localOrigemProduto, materialDoProduto) {
+			function preencherModal(nomeProduto, localOrigemProduto, materialDoProduto, quantidadeDisponivel, precoVenda) {
 				
 				document.getElementById('nomeProduto').innerHTML = nomeProduto;
 				document.getElementById('localOrigemProduto').innerHTML = localOrigemProduto;
 				document.getElementById('materialDoProduto').innerHTML = materialDoProduto;
+				document.getElementById('quantidadeDisponivel').innerHTML = quantidadeDisponivel;
+				document.getElementById('precoVenda').innerHTML = precoVenda;
 			}
 		
 		</script>
@@ -31,7 +30,7 @@
 		<h1>${mensagem}</h1>
 		<!-- Page Content -->
 		<div class="container">
-			<!-- Modal -->
+			<!-- Modal Ver informações-->
 			<div class="modal fade" id="verMais" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 			
 				<div class="modal-dialog modal-dialog-centered" role="document">
@@ -45,15 +44,17 @@
 							</div>
 							<div class="modal-body">
 								<h4 class="card-title"><label id="nomeProduto"></label></h4>
-									<ul>
-										<li>Feito em: <label id="localOrigemProduto"></label></li>
-										<li>Estoque: ${prod.quantidadeDisponivel}</li>
-										<li>Material: <label id="materialDoProduto"></label></li>
-										<li class="card-text">Valor: R$ ${prod.precoVenda}</li>
-									</ul>
-									<div class="card-footer">
-										<center><a href="#" class="btn btn-info">Comprar</a></center>
-									</div>
+									<form action="efetuarPedido" method="post">
+										<ul>
+											<li>Feito em: <label id="localOrigemProduto"></label></li>
+											<li>Estoque: <label id="quantidadeDisponivel"></label></li>
+											<li>Material: <label id="materialDoProduto"></label></li>
+											<li class="card-text">Valor: <label id="precoVenda"></label></li>
+										</ul>
+										<div class="card-footer">
+											<center><button type="submit" class="btn btn-info">Comprar</button></center>
+										</div>
+									</form>
 							</div>
 						</div>
 					</div>
@@ -71,7 +72,7 @@
 							<div class="card-footer">
 								<a href="#" class="btn btn-info">Comprar</a> 
 								<a href="exibirAtualizarProduto?id=${p.id}" class="btn btn-info">Alterar</a>
-								<a href="#" onclick="preencherModal('${p.nomeProduto}','${p.localOrigemProduto}', '${p.materialDoProduto.descricao}');" data-toggle="modal" data-target="#verMais" class="btn btn-info">Mais Informações</a>
+								<a href="#" onclick="preencherModal('${p.nomeProduto}','${p.localOrigemProduto}', '${p.materialDoProduto.descricao}', '${p.quantidadeDisponivel}', '${p.precoVenda}');" data-toggle="modal" data-target="#verMais" class="btn btn-info">Mais Informações</a>
 							</div>
 						</div>
 					</div>
