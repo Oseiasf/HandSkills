@@ -30,7 +30,8 @@
 				</button>
 			</div>
 			<div class="modal-body">
-				<form>
+			<div style="color: red;" align="center"> <h3> ${msg} </h3> </div>
+				<form action="efetuarLogin" method="post">
 					<div class="form-group">
 						<p>
 							Login<span>*</span>
@@ -38,13 +39,14 @@
 						<span class="icon-case"><i class="fa fa-user"></i></span> <input type="text" name="email" maxlength="80" placeholder="Entre com o email cadastrado no sistema." required/>
 					</div>
 					<div class="form-group">
-						<p>Senha<span>*</span></p>
+						<p>
+							Senha<span>*</span>
+						</p>
 						<span class="icon-case">
 							<i class="fa fa-user"></i>
 						</span>
 						<input type="text" name="senha" maxlength="50" placeholder="Digite sua senha" required/>
 					</div>
-					
 					<button type="submit" class="col-4 offset-4 btn btn-info">Entrar</button> <br><br>
 					<span class="col-4 offset-4"><a href="exibirCadastrarUsuario" class="cor-cadastre cadastre-login">Cadastre-se</a></span>
 				</form>
@@ -82,12 +84,11 @@
      		<h5 class="alinhamento-encontre ">Encontre Pessoas</h5>
      		<br>
  			<div class="form-group">
-						
-						<span class="icon-case">
-							<i class="fa fa-search"></i>
-						</span>
-						<input type="text" name="buscar" maxlength="50" placeholder="Buscar" required/>
-					</div>
+				<span class="icon-case">
+					<i class="fa fa-search"></i>
+				</span>
+				<input type="text" name="nomeCompleto" maxlength="50" placeholder="Buscar" required/>
+			</div>
  			<div class="input-group-btn">
  				<button type="submit" class="btn btn-secondary alinhamento-botao-buscar cor-botao" type="button">Buscar</button>
  			</div>
@@ -123,6 +124,8 @@
 					  </div>
 					</div>
 				</li>
+				<li class="nav-item"><a class="nav-link">Bem vindo, ${usuarioLogado.nomeCompleto}</a></li>
+				<li class="nav-item"><a class="nav-link" href="logout">LogOut</a></li>
 			</ul>
 		</div>
 	</div>

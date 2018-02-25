@@ -170,7 +170,7 @@ public class ProdutoDAO {
 		}
 	}
 
-	public List<Produto> pesquisar(Produto prod) {
+	public List<Produto> pesquisarProduto(Produto prod) {
 
 		try {
 			List<Produto> p = new ArrayList<Produto>();

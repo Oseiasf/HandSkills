@@ -3,6 +3,8 @@ package handSkills.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,8 +27,8 @@ public class UsuarioController {
 		UsuarioDAO dao = new UsuarioDAO();
 		dao.CadastrarUsuario(usuario);
 
-		model.addAttribute("mensagem", "Usuario cadastrado com sucesso!");
-
+		model.addAttribute("mensagem", "O usuario " + usuario.getNomeCompleto() + " cadastrado com sucesso!");
+		
 		return "usuario/cadastrarUsuario";
 	}
 
@@ -62,16 +64,45 @@ public class UsuarioController {
 
 		return "usuario/ListarUsuario";
 	}
+	
+	@RequestMapping("removerUsuario")
+	public String removerUsuario(Usuario usuario, Model model) {
 
+		UsuarioDAO dao = new UsuarioDAO();
+		dao.remover(usuario);
+		model.addAttribute("msg", "Usuário Removido com Sucesso !");
+
+		return "forward:ListarUsuario";
+	}
+	
 	@RequestMapping("/pesquisarUsuario")
 	public String pesquisarUsuario(Usuario usuario, Model model) {
 		UsuarioDAO dao = new UsuarioDAO();
-		List<Usuario> pesquisaUsuario = dao.pesquisarUsuario(usuario);
-		model.addAttribute("pesquisa", pesquisaUsuario);
-		model.addAttribute("nome", usuario.getNomeCompleto());
-		model.addAttribute("email", usuario.getEmail());
+		 model.addAttribute("usuario", dao.pesquisarUsuario(usuario));
+		 if (usuario.getNomeCompleto() == null || usuario.getNomeCompleto().equals("") || usuario == null) {
+			 
+		 }
+		 model.addAttribute("msg" , "Não existe usuários com esse nome");
 
 		return "usuario/pesquisaUsuario";
+	}
+
+	@RequestMapping("efetuarLogin")
+	public String efetuarLogin(Usuario usuario, HttpSession session, Model model) {
+		UsuarioDAO dao = new UsuarioDAO();
+		Usuario usuarioLogado = dao.buscarUsuario(usuario);
+		if (usuarioLogado != null) {
+			session.setAttribute("usuarioLogado", usuarioLogado);
+			return "home";
+		}
+		model.addAttribute("msg", "Não foi encontrado um usuário com o login e senha informados.");
+		return "index";
+	}
+	
+	@RequestMapping("logout")
+	public String logout(HttpSession session) {
+	session.invalidate();
+	return "index";
 	}
 
 }
