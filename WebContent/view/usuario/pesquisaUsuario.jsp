@@ -7,41 +7,71 @@
 <meta charset="iso-8859">
 <title>Pesquisando Usuario</title>
 </head>
-<body>
+</body>
 	<!-- Navigation -->
 	<c:import url="/view/comum/menu.jsp" />
-	<table border="1" style="width: 100%;" class="table">
+	<div align="center">
 	
-	<thead class="thead-dark">
-	    <tr class="cor-th">
-	      
-	      <th scope="col" id="cor-th">Nome Completo</th>
-	      <th scope="col" >Email</th>
-	      <th scope="col" >Telefone</th>
-	      <th scope="col" >WhatsApp</th>
-	      <th scope="col" >Tipo de Usuario</th>
-	      <th scope="col" colspan="2">Ações</th>
-	    </tr>
-	</thead>
+		<div align="left" style="color: #6E6E6E; width: 70%;">
 		
-		<c:forEach var="usu" items="${pesquisaUsuario}">
-			<tr>
-				<td>${usu.nomeCompleto}</td>
-				<td>${usu.email}</td>
-				<td>${usu.telefone}</td>
-				<td>${usu.whatsapp}</td>
-				<td>${usu.tipoUsuario}</td>
-				<td colspan="2">
-					<button class="btn" style="color: red;">
-						<a href="removerUsuario?id=${usu.id}">Remover</a>
-					</button>
-					<button class="btn">
-						<a href="exibirAtualizarUsuario?id=${usu.id}">Atualizar</a>
-					</button>
-				</td>
-			</tr>
-		</c:forEach>
-	</table>
-<c:import url="/view/comum/rodape.jsp" />
+			<c:if test="${msg ne null}">
+				<div class="alert alert-success" style="width: 100%;">
+					<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+					${msg}
+				</div>
+			</c:if>
+			
+			<hr />
+			
+			<p>
+				<table style="width: 100%">
+					<tr>
+						<td style="float: left; font-size: 24px;"> Listagem de <strong>Usuários</strong> </td>
+						<td style="float: right;"> <a href="exibirCadastrarUsuario" class="btn btn-primary" role="button">Novo</a> </td>
+					</tr>
+				</table>
+			</p>
+			
+			<hr />
+			
+			<table class="table table-striped table-bordered">
+				<thead>
+					<tr>
+						
+						<th style="width: 20%; vertical-align: middle;">Nome</th>
+						<th style="width: 20%; vertical-align: middle;">E-mail</th>
+						<th style="width: 30%; vertical-align: middle;">Cidade</th>
+						<th style="width: 30%; vertical-align: middle;">Telefone</th>
+						<th style="width: 30%; vertical-align: middle;">WhatSapp</th>
+						<th style="width: 30%; vertical-align: middle;">Tipo de Usuário</th>
+						<th style="width: 20%; vertical-align: middle; text-align: center;">Ações</th>
+					</tr>
+				</thead>
+				<c:forEach items="${pesquisaUsuario}" var="usuario">
+					<tr>
+						<td style="vertical-align: middle;">${usuario.nomeCompleto}</td>
+						<td style="vertical-align: middle;">${usuario.email}</td>
+						<td style="vertical-align: middle;">${usuario.cidade}</td>
+						<td style="vertical-align: middle;">${usuario.telefone}</td>
+						<td style="vertical-align: middle;">${usuario.whatsapp}</td>
+						<td style="vertical-align: middle;">${usuario.tipoUsuario}</td>
+						<td style="vertical-align: middle; text-align: center;">
+							<a href="exibirAtualizarUsuario?id=${usuario.id}" class="btn btn-warning" role="button">E</a> &nbsp;
+							<a href="removerUsuario?id=${usuario.id}" class="btn btn-danger" role="button">R</a>
+						</td>
+					</tr>
+				</c:forEach>
+			</table>
+		</div>
+			
+	</div>
+	
+	<br />
+	
+	<hr class="linhaSeparador">
+	
+	
+		<c:import url="/view/comum/rodape.jsp" />
+
 </body>
 </html>

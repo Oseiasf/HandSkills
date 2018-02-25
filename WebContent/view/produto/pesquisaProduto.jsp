@@ -35,7 +35,7 @@
 					</c:if>
 				</td>
 				<td> ${p.coresDisponiveis} </td>
-				<td> ${p.materialDoProduto} </td>
+				<td> ${p.materialDoProduto.descricao} </td>
 				<td> 
 					${p.precoVenda}
 				</td>

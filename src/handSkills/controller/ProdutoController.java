@@ -96,7 +96,7 @@ public class ProdutoController {
 	@RequestMapping("/pesquisarProduto")
 	public String pesquisarProduto(Produto produto, Model model) {
 		ProdutoDAO dao = new ProdutoDAO();
-		List<Produto> pesquisa = dao.pesquisar(produto);
+		List<Produto> pesquisa = dao.pesquisarProduto(produto);
 		model.addAttribute("pesquisa", pesquisa);
 		model.addAttribute("localOrigem", produto.getLocalOrigemProduto());
 		model.addAttribute("nomeProduto", produto.getNomeProduto());
