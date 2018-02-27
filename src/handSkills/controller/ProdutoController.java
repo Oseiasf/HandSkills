@@ -36,6 +36,9 @@ public class ProdutoController {
 
 		ProdutoDAO dao = new ProdutoDAO();
 		dao.CadastrarProduto(produto);
+		if (dao == null){
+			model.addAttribute("mensagem", "Erro ao cadastrar Produto");
+		}
 		model.addAttribute("mensagem", "Produto cadastrado com sucesso");
 
 		return "produto/cadastrarProduto";
