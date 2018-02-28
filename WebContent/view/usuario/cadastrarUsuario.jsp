@@ -107,6 +107,7 @@
 						</span>
 						<select class="form-control" id="style-select" name="tipoUsuario" required>
 							<option value="">Selecione</option>
+							<c:if test="${usuarioLogado.tipoUsuario == 'ADM' }"><option value="ADM">Administrador</option></c:if>
 							<option value="Artesão">Artesão</option>
 							<option value="Cliente">Cliente</option>
 						</select>
