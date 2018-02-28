@@ -21,6 +21,23 @@ public class MaterialDoProdutoDAO {
 		}
 	}
 	
+	public void CadastrarMaterial(MaterialDoProduto materialDoProduto) {
+
+		String sql = "INSERT INTO MaterialDoProduto (descricao) VALUES (?)";
+		PreparedStatement stmt;
+		try {
+
+			stmt = connection.prepareStatement(sql);
+
+			stmt.setString(1, materialDoProduto.getDescricao());
+			
+			stmt.execute();
+			connection.close();
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
 	public List<MaterialDoProduto> listarMaterialDoProduto() {
 
 		try {
