@@ -36,6 +36,11 @@ public class ProdutoController {
 
 		ProdutoDAO dao = new ProdutoDAO();
 		dao.CadastrarProduto(produto);
+		
+		if (produto == null){
+			model.addAttribute("mensagem", "Erro ao cadastrar Produto");
+		}
+		
 		model.addAttribute("mensagem", "Produto cadastrado com sucesso");
 
 		return "produto/cadastrarProduto";
@@ -48,6 +53,15 @@ public class ProdutoController {
 		model.addAttribute("listaProduto", listaProduto);
 
 		return "produto/ListarProduto";
+	}
+	
+	@RequestMapping("/")
+	public String listarProdutoIndex(Model model) {
+		ProdutoDAO dao = new ProdutoDAO();
+		List<Produto> listaProduto = dao.listar();
+		model.addAttribute("listaProduto", listaProduto);
+
+		return "index";
 	}
 
 	@RequestMapping("removerProduto")

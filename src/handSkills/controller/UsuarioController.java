@@ -22,12 +22,17 @@ public class UsuarioController {
 	}
 
 	@RequestMapping("/CadastrarUsuario")
-	public String CadastrarUsuario(Usuario usuario, Model model) {
+	public String CadastrarUsuario(Usuario usuario, HttpSession session, Model model) {
 
 		UsuarioDAO dao = new UsuarioDAO();
 		dao.CadastrarUsuario(usuario);
-
-		model.addAttribute("mensagem", "O usuario " + usuario.getNomeCompleto() + " cadastrado com sucesso!");
+		
+		if (usuario == null) {
+			model.addAttribute("mensagem", "Não foi possivél cadastrar o usuario, contate o Administrador!");
+			return "usuario/cadastrarUsuario";
+		}
+		
+		model.addAttribute("mensagem", "O usuario " + usuario.getNomeCompleto() + " foi cadastrado com sucesso!");
 		
 		return "usuario/cadastrarUsuario";
 	}

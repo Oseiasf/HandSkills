@@ -19,7 +19,7 @@
 											Nome do produto<span>*</span>
 										</p>
 										<span class="icon-case"> <i class="fa fa-align-left"></i>
-										</span> <input type="text" name="nomeProduto" maxlength="50" required pattern="[a-z\s]+$"/>
+										</span> <input type="text" name="nomeProduto" maxlength="50" required pattern="[Aa-Zz\s]+$"/>
 									</div>
 									<div class="form-group">
 										<p>
@@ -37,7 +37,7 @@
 											Cores disponíveis <span>*</span>
 										</p>
 										<span class="icon-case"> <i class="fa fa-circle-o"></i></span> <input
-											type="text" name="coresDisponiveis" maxlength="20" required pattern="[a-z\s]+$"/>
+											type="text" name="coresDisponiveis" maxlength="20" required pattern="[Aa-Zz\s]+$"/>
 									</div>
 								</div>
 								<div class="rightcontact">

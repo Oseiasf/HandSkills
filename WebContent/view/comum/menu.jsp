@@ -7,7 +7,19 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
+<!-- jquery -->
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<!-- bootstrap -->
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<!-- chamada da função -->
 
+<c:if test="${usuarioLogado == null }">
+	<script type="text/javascript">
+	$(window).load(function() {
+	    $('#modalLogin').modal('show');
+	});
+	</script>
+</c:if>
 
 <!-- Custom styles for this template -->
 <link href="./resources/css/heroic-features.css" rel="stylesheet">
@@ -107,25 +119,69 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarResponsive">
 			<ul class="navbar-nav ml-auto">
-				<li class="nav-item active"><a class="nav-link" href="/handskills">Home <span class="sr-only">(current)</span></a></li>
-				<li class="nav-item"><a class="nav-link" href="exibirCadastrarProduto">Cadastro Produto</a></li>
-				<li class="nav-item"><a class="nav-link" href="#" data-toggle="modal" data-target="#modalLogin">Login</a></li>
-				<li class="nav-item"><a class="nav-link" href="exibirCadastrarUsuario">Cadastrar Usuario</a></li>
-				<li class="nav-item"><a class="nav-link" href="listarProduto">Listar Produtos</a></li>
-				<li class="nav-item"><a class="nav-link" href="listarUsuarios">Listar Usuarios</a></li>
+				<li class="nav-item active">
+					<a class="nav-link" href="/handskills">
+						Home<span class="sr-only">(current)</span>
+					</a>
+				</li>
+				<c:if test="${usuarioLogado.tipoUsuario == 'Cliente' }">
+					<li class="nav-item">
+						<a class="nav-link" href="listarProduto">Listar Produtos</a>
+					</li>
+				</c:if>
+				
+				<c:if test="${usuarioLogado.tipoUsuario == 'Artesão' }">
+					<li class="nav-item">
+						<a class="nav-link" href="listarProduto">Listar Produtos</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="exibirCadastrarProduto">Cadastro Produto</a>
+					</li>
+				</c:if>
+				
+				<c:if test="${usuarioLogado.tipoUsuario == 'ADM' }">
+					<li class="nav-item">
+						<a class="nav-link" href="exibirCadastrarProduto">Cadastro Produto</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="exibirCadastrarUsuario">Cadastrar Usuario</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="listarUsuarios">Listar Usuarios</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="listarProduto">Listar Produtos</a>
+					</li>
+				</c:if>     	
+				
+				
+				<c:if test="${usuarioLogado == null}">
+					<li class="nav-item">
+						<a class="nav-link" href="#" data-toggle="modal" data-target="#modalLogin">Login</a>
+					</li>
+				</c:if>
+				
 				<li>
 					<div class="dropdown">
-					  <a class="nav-link" href="" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					  	Encontre
-					  </a>
-					  <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-					    <a class="dropdown-item" href="" data-toggle="modal" data-target=".modalBuscarPessoas">Pessoas</a>
-					    <a class="dropdown-item" href="" data-toggle="modal" data-target=".modalBuscarProdutos">Produtos</a>
-					  </div>
+						<a class="nav-link" href="" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Encontre
+						</a>
+						<div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+							<c:if test="${usuarioLogado.tipoUsuario == 'ADM' }"><a class="dropdown-item" href="" data-toggle="modal" data-target=".modalBuscarPessoas">Pessoas</a></c:if>
+							<a class="dropdown-item" href="" data-toggle="modal" data-target=".modalBuscarProdutos">Produtos</a>
+						</div>
 					</div>
 				</li>
-				<li class="nav-item"><a class="nav-link">Bem vindo, ${usuarioLogado.nomeCompleto}</a></li>
-				<li class="nav-item"><a class="nav-link" href="logout">LogOut</a></li>
+				
+				<c:if test="${usuarioLogado != null}">
+					<li class="nav-item">
+						<a class="nav-link">Bem vindo, ${usuarioLogado.nomeCompleto}</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="logout">Sair</a>
+					</li>
+				</c:if>
+				
 			</ul>
 		</div>
 	</div>
