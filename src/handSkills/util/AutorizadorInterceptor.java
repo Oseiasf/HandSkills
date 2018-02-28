@@ -16,7 +16,10 @@ public class AutorizadorInterceptor extends HandlerInterceptorAdapter {
 				uri.contains("img") ||
 				uri.contains("js")  || 
 				uri.endsWith("handskills/") || 
-				uri.endsWith("efetuarLogin")) {
+				uri.endsWith("efetuarLogin") || 
+				uri.endsWith("exibirCadastrarUsuario") || 
+				uri.endsWith("CadastrarUsuario"))
+		{
 			return true;
 		}
 		if (request.getSession().getAttribute("usuarioLogado") != null) {

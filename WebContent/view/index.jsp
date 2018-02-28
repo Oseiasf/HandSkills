@@ -52,21 +52,21 @@
 
 		<!-- Page Features -->
 		<div class="row text-center">
-
-			<div class="col-lg-3 col-md-6 mb-4">
-				<div class="card">
-					<img class="card-img-top" src="./resources/img/img1.jpg" alt="">
-					<div class="card-body">
-						<h4 class="card-title">Bonecas de barro.</h4>
-						<p class="card-text">R$19,99</p>
-						
-					</div>
-					<div class="card-footer">
-						<a href="#" class="btn btn-info">Comprar</a>
+			<c:forEach var="p" items="${listaProduto}">
+				<div class="col-lg-3 col-md-6 mb-4">
+					<div class="card">
+						<img class="card-img-top" src="view/img/${p.imagem}" alt="">
+						<div class="card-body">
+							<h4 class="card-title">${p.nomeProduto}</h4>
+							<p class="card-text">R$:${p.precoVenda}</p>
+							
+						</div>
+						<div class="card-footer">
+							<a href="#" class="btn btn-info">Comprar</a>
+						</div>
 					</div>
 				</div>
-			</div>
-
+			</c:forEach>
 			<div class="col-lg-3 col-md-6 mb-4">
 				<div class="card">
 					<img class="card-img-top" src="./resources/img/img2.jpg" alt="">
