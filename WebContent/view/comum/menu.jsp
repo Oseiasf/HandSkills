@@ -57,7 +57,7 @@
 						<span class="icon-case">
 							<i class="fa fa-user"></i>
 						</span>
-						<input type="text" name="senha" maxlength="50" placeholder="Digite sua senha" required/>
+						<input type="password" name="senha" maxlength="50" placeholder="Digite sua senha" required/>
 					</div>
 					<button type="submit" class="col-4 offset-4 btn btn-info">Entrar</button> <br><br>
 					<span class="col-4 offset-4"><a href="exibirCadastrarUsuario" class="cor-cadastre cadastre-login">Cadastre-se</a></span>
