@@ -58,7 +58,7 @@
 											Preço de venda <span>*</span>
 										</p>
 										<span class="icon-case"> <i class="fa fa-dollar"></i>
-										</span> <input type="text" name="precoVenda" maxlength="20" required pattern="[0-9]+$" class="venda" placeholder="ex:99,99"/>
+										</span> <input type="text" name="precoVenda" maxlength="20" required pattern="[0-9]+$"  placeholder="ex:99,99"/>
 									</div>
 									<div class="form-group">
 										<p>

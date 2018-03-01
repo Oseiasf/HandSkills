@@ -32,15 +32,16 @@
 			<form action="cadastrarMaterial" method="post">
 				
 				<div class="form-group">
-    				<label for="inputDescricao">Descrição</label>
-    				<input type="text" class="form-control" id="inputDescricao" name="descricao" style="width: 110px;" maxlength="50" required="required"> &nbsp;
+				<label for="inputDescricao">Descrição</label>
+    				<input type="text" class="form-control" id="inputDescricao" name="descricao" style="width: 110px;" maxlength="50" required="required"> &nbsp;	
+    				
   				</div>
 
 				<br />
-  				
-  				<button type="reset" class="btn btn-default"> &nbsp; Limpar &nbsp; </button> &nbsp;
-  				<button type="submit" class="btn btn-primary"> &nbsp; Inserir &nbsp; </button>
-  				
+  				<div class="botao-material">
+  				<button type="reset" class="btn btn-info"> &nbsp; Limpar &nbsp; </button> &nbsp;
+  				<button type="submit" class="btn btn-info"> &nbsp; Inserir &nbsp; </button>
+  				</div>
 			</form>
 		</div>
 			

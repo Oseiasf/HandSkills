@@ -77,7 +77,7 @@
 						Preço de venda <span>*</span>
 					</p>
 					<span class="icon-case"><i class="fa fa-dollar"></i></span> <input
-						type="text" name="precoVenda" value="${p.precoVenda}" maxlength="20" class="venda" placeholder="ex: 99,99" />
+						type="text" name="precoVenda" value="${p.precoVenda}" maxlength="20"  placeholder="ex: 99,99" />
 
 				</div>
 
