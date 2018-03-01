@@ -36,7 +36,7 @@
 						CPF <span>*</span>
 					</p>
 					<span class="icon-case"><i class="fa fa-credit-card"></i></span> <input
-						type="text" name="cpf" maxlength="15" value="${u.cpf}"/>
+						type="text" name="cpf" maxlength="15" value="${u.cpf}" placeholder="ex: 999.999.999-99" class="cpf"/>
 
 				</div>
 
@@ -45,7 +45,7 @@
 						RG <span>*</span>
 					</p>
 					<span class="icon-case"><i class="fa fa-keyboard-o"></i></span> <input
-						type="text" name="rg" maxlength="15" value="${u.rg }"/>
+						type="text" name="rg" maxlength="15" value="${u.rg }" placeholder="ex: 9.999.999" class="rg"/>
 
 				</div>
 
@@ -122,7 +122,7 @@
 						CEP <span>*</span>
 					</p>
 					<span class="icon-case"><i class="fa fa-map-marker"></i></span> <input
-						type="text" name="cep" maxlength="20" value="${u.cep}"/>
+						type="text" name="cep" maxlength="20" value="${u.cep}" class="cep" placeholder="ex: 99999-999"/>
 
 				</div>
 
@@ -160,16 +160,16 @@
 						Telefone <span>*</span>
 					</p>
 					<span class="icon-case"><i class="fa fa-phone"></i></span> <input
-						type="text" name="telefone" maxlength="30" value="${u.telefone}" />
+						type="text" name="telefone" maxlength="30" value="${u.telefone}" class="telefone"  placeholder="ex: (99)99999-9999" />
 
 				</div>
 
 				<div class="form-group">
 					<p>
-						Whatsapp <span>*</span>
+						WhatsApp <span>*</span>
 					</p>
 					<span class="icon-case"><i class="fa fa-phone"></i></span> <input
-						type="text" name="whatsapp" maxlength="30" value="${u.whatsapp}"/>
+						type="text" name="whatsapp" maxlength="30" value="${u.whatsapp}" class="whatsapp" placeholder="ex: (99)99999-9999"/>
 
 				</div>
 
@@ -181,6 +181,11 @@
 
 	<script src="./resources/js/index.js"></script>
 	<c:import url="/view/comum/rodape.jsp" />
+	
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+	<script type="text/javascript" src="./resources/js/mascaras.js"></script>
+	
 
 </body>
 </html>
