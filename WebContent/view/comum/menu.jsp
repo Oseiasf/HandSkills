@@ -99,7 +99,7 @@
 				<span class="icon-case">
 					<i class="fa fa-search"></i>
 				</span>
-				<input type="text" name="nomeCompleto" maxlength="50" placeholder="Buscar" required/>
+				<input type="text" name="nomeCompleto" maxlength="50" placeholder="Buscar" />
 			</div>
  			<div class="input-group-btn">
  				<button type="submit" class="btn btn-secondary alinhamento-botao-buscar cor-botao" type="button">Buscar</button>

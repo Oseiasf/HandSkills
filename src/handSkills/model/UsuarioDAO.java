@@ -94,51 +94,43 @@ public class UsuarioDAO {
 		}
 	}
 
-	public List<Usuario> pesquisarUsuario(Usuario usuario) {
+	public List<Usuario> pesquisarUsuario(Usuario usuario1) {
 
 		try {
-			List<Usuario> usu = new ArrayList<Usuario>();
-			String sql = "";
-			PreparedStatement stmt = null;
+			List<Usuario> listaUsuario = new ArrayList<Usuario>();
+			PreparedStatement stmt = this.connection.prepareStatement("SELECT * FROM Usuario WHERE nomeCompleto LIKE ?");
+		   
+		       stmt.setString(1, '%' + usuario1.getNomeCompleto() + '%');
 
-			if ((usuario.getNomeCompleto() != null && !usuario.getNomeCompleto().equals(""))) {
+		       ResultSet rs = stmt.executeQuery();
+		       while (rs.next()) {
+		    	  
+		    	   Usuario usuario = new Usuario();
+		    	   
+		    	   	usuario.setId(rs.getInt("id"));
+					usuario.setNomeCompleto(rs.getString("nomeCompleto"));
+					usuario.setCpf(rs.getString("cpf"));
+					usuario.setRg(rs.getString("rg"));
+					usuario.setEmail(rs.getString("email"));
+					usuario.setSenha(rs.getString("senha"));
+					usuario.setEndereco(rs.getString("endereco"));
+					usuario.setBairro(rs.getString("bairro"));
+					usuario.setCidade(rs.getString("cidade"));
+					usuario.setEstado(rs.getString("estado"));
+					usuario.setCep(rs.getString("cep"));
+					usuario.setSexo(rs.getString("sexo"));
+					usuario.setTipoUsuario(rs.getString("tipoUsuario"));
+					usuario.setTelefone(rs.getString("telefone"));
+					usuario.setWhatsapp(rs.getString("whatsapp"));
 
-				sql = "SELECT id, nomeCompleto, email, telefone, whatsapp, tipoUsuario FROM Usuario WHERE nomeCompleto LIKE ?";
-				stmt = connection.prepareStatement(sql);
-				stmt.setString(1, "%" + usuario.getNomeCompleto() + "%");
-
-			} else {
-
-				sql = "SELECT * FROM Usuario";
-				stmt = connection.prepareStatement(sql);
-			}
-
-			ResultSet rs = stmt.executeQuery();
-
-			while (rs.next()) {
-
-				Usuario usuario1 = new Usuario();
-
-				usuario1.setId(rs.getInt("id"));
-				usuario1.setNomeCompleto(rs.getString("nomeCompleto"));
-				usuario1.setEmail(rs.getString("email"));
-				usuario1.setTelefone(rs.getString("telefone"));
-				usuario1.setWhatsapp(rs.getString("whatsapp"));
-				usuario1.setTipoUsuario(rs.getString("tipoUsuario"));
-
-				usu.add(usuario1);
-			}
-
-			rs.close();
-			stmt.close();
-			connection.close();
-
-			return usu;
+		    	   listaUsuario.add(usuario); 
+		       }
+		       rs.close();
+		       return listaUsuario;
 
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
-
 	}
 
 	public void alterarUsuario(Usuario usuario) {

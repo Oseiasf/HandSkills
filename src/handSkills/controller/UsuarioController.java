@@ -83,13 +83,15 @@ public class UsuarioController {
 	@RequestMapping("/pesquisarUsuario")
 	public String pesquisarUsuario(Usuario usuario, Model model) {
 		UsuarioDAO dao = new UsuarioDAO();
-		 model.addAttribute("usuario", dao.pesquisarUsuario(usuario));
-		 if (usuario.getNomeCompleto() == null || usuario.getNomeCompleto().equals("") || usuario == null) {
-			 
+		List<Usuario> listaUsuario = new ArrayList<Usuario>();
+		listaUsuario = dao.pesquisarUsuario(usuario);
+		 
+		if (usuario.getNomeCompleto() == null || usuario.getNomeCompleto().equals("") || usuario == null) {
+			 model.addAttribute("msg" , "Não existe usuários com esse nome"); 
+			 return "usuario/pesquisaUsuario";
 		 }
-		 model.addAttribute("msg" , "Não existe usuários com esse nome");
-
-		return "usuario/pesquisaUsuario";
+		  model.addAttribute("listaUsuario", listaUsuario);
+		  return "usuario/pesquisaUsuario";
 	}
 
 	@RequestMapping("efetuarLogin")
