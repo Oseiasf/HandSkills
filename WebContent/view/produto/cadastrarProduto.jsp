@@ -18,7 +18,7 @@
 										<p>
 											Nome do produto<span>*</span>
 										</p>
-										<span class="icon-case"> <i class="fa fa-align-left"></i>
+										<span class="icon-case "> <i class="fa fa-align-left"></i>
 										</span> <input type="text" name="nomeProduto" maxlength="50" required pattern="[Aa-Zz\s]+$"/>
 									</div>
 									<div class="form-group">
@@ -26,7 +26,7 @@
 											Local de origem do produto <span>*</span>
 										</p>
 										<span class="icon-case"> <i class="fa fa-fighter-jet"></i>
-										</span> <select class="form-control" class="Menu-style-select"
+										</span> <select class="form-control Menu-style-select ajuste-icone" 
 											name="localOrigemProduto" required>
 											<option value="PE">Pernambuco</option>
 											<option value="RJ">Rio de Janeiro</option>
@@ -42,9 +42,11 @@
 								</div>
 								<div class="rightcontact">
 									<div class="form-group">
+										<p>
 										Material do Produto <span>*</span>
+										<p/>
 										<span class="icon-case"> <i class="fa fa-fighter-jet"></i>
-										</span> <select class="form-control" class="Menu-style-select" name="materialDoProduto" required>
+										</span> <select class="form-control Menu-style-select ajuste-icone"  name="materialDoProduto" required>
 											<option value="">Selecione</option>
 											<c:forEach items="${listaMaterialDoProduto}" var="material">
 												<option value="${material.id}"> ${material.descricao} </option>
@@ -67,10 +69,10 @@
 											required pattern="[0-9]+$" />
 									</div>
 									<div>
-										<p>
+										<p class="ajuste-input">
 											Imagem do Produto <span>*</span>
 										</p>
-										<input type="file" name="file" required />
+										<input type="file" name="file" required class="ajuste-input" />
 									</div>
 								</div>
 								<button type="submit" class="bouton-contact btn-info">Cadastrar</button>

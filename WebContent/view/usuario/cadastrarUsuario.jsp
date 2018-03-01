@@ -77,7 +77,7 @@
 							<span class="icon-case">
 								<i class="fa fa-map-marker"></i>
 							</span>
-							<select class="form-control" class="style-select" name="estado" required>
+							<select class="form-control style-select ajuste-icone" name="estado" required>
 								<option value="PE">Pernambuco</option>
 								<option value="RJ">Rio de Janeiro</option>
 							</select>
@@ -93,7 +93,7 @@
 						<span class="icon-case">
 							<i class="fa fa-circle-o"></i>
 						</span>
-						<select class="form-control" class="style-select" name="sexo" required>
+						<select class="form-control style-select ajuste-icone" name="sexo" required>
 							<option value="">Selecione</option>
 							<option value="Outros">Outros</option>
 							<option value="Feminino">Feminino</option>
@@ -105,7 +105,7 @@
 						<span class="icon-case">
 							<i class="fa fa-group"></i>
 						</span>
-						<select class="form-control" id="style-select" name="tipoUsuario" required>
+						<select class="form-control ajuste-icone" id="style-select" name="tipoUsuario" required>
 							<option value="">Selecione</option>
 							<c:if test="${usuarioLogado.tipoUsuario == 'ADM' }"><option value="ADM">Administrador</option></c:if>
 							<option value="Artesão">Artesão</option>

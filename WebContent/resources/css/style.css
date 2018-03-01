@@ -65,3 +65,13 @@
 .cor-cadastro{
 	color: #ffffff;
 }
+.ajuste-icone{
+	width: 75%;
+}
+.ajuste-input{
+	margin-left: -41%;
+}
+
+.button-remover-alterar{
+	border: 2px solid transparent;
+}
