@@ -18,7 +18,7 @@
 						<span class="icon-case">
 							<i class="fa fa-user"></i>
 						</span>
-						<input type="text" name="nomeCompleto" maxlength="50" />
+						<input type="text" name="nomeCompleto" maxlength="50" required/>
 					</div>
 					<div class="form-group">
 						<p>CPF <span>*</span></p>
