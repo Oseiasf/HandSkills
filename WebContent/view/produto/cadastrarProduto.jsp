@@ -58,7 +58,7 @@
 											Preço de venda <span>*</span>
 										</p>
 										<span class="icon-case"> <i class="fa fa-dollar"></i>
-										</span> <input type="text" name="precoVenda" maxlength="20" required pattern="[0-9]+$"/>
+										</span> <input type="text" name="precoVenda" maxlength="20" required pattern="[0-9]+$" class="venda" placeholder="ex:99,99"/>
 									</div>
 									<div class="form-group">
 										<p>
@@ -80,6 +80,10 @@
 						</form>
 					</div>
 				<c:import url="/view/comum/rodape.jsp" />
+				
+				<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+	<script type="text/javascript" src="./resources/js/mascaras.js"></script>
 
 </body>
 </html>
