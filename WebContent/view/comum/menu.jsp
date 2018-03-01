@@ -88,18 +88,18 @@
     </div>
   </div>
 </div>
-<!-- Buscar Pessoas -->
+<!-- Buscar Usuarios -->
 <div class="modal fade modalBuscarPessoas" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
      	<form action="pesquisarUsuario" method="post">
-     		<h5 class="alinhamento-encontre ">Encontre Pessoas</h5>
+     		<h5 class="alinhamento-encontre ">Encontre Usuários</h5>
      		<br>
  			<div class="form-group">
 				<span class="icon-case">
 					<i class="fa fa-search"></i>
 				</span>
-				<input type="text" name="nomeCompleto" maxlength="50" placeholder="Buscar" />
+				<input type="text" name="nomeCompleto" maxlength="50" placeholder="Buscar Por Nome" />
 			</div>
  			<div class="input-group-btn">
  				<button type="submit" class="btn btn-secondary alinhamento-botao-buscar cor-botao" type="button">Buscar</button>
@@ -173,7 +173,7 @@
 							Encontre
 						</a>
 						<div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-							<c:if test="${usuarioLogado.tipoUsuario == 'ADM' }"><a class="dropdown-item" href="" data-toggle="modal" data-target=".modalBuscarPessoas">Pessoas</a></c:if>
+							<c:if test="${usuarioLogado.tipoUsuario == 'ADM' }"><a class="dropdown-item" href="" data-toggle="modal" data-target=".modalBuscarPessoas">Usuários</a></c:if>
 							<a class="dropdown-item" href="" data-toggle="modal" data-target=".modalBuscarProdutos">Produtos</a>
 						</div>
 					</div>

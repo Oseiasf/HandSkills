@@ -120,7 +120,7 @@
 						<input type="text" name="telefone" maxlength="25" required class="telefone" placeholder="ex: (99)99999-9999"/>
 					</div>
 					<div class="form-group">
-						<p>Whatsapp <span>*</span></p>
+						<p>WhatsApp <span>*</span></p>
 						<span class="icon-case">
 							<i class="fa fa-phone"></i>
 						</span>
