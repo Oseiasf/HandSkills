@@ -4,7 +4,7 @@ use handskills;
 
 create table MaterialDoProduto (
 
-id int,
+id int AUTO_INCREMENT,
 descricao varchar(50),
 primary key (id)
 );

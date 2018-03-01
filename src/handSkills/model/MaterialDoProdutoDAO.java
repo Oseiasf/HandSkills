@@ -90,7 +90,46 @@ public class MaterialDoProdutoDAO {
 	    throw new RuntimeException(e);
 	}
     }
+    
+    public void removerMaterial(MaterialDoProduto material) {
 
+		String sql = "DELETE FROM MaterialDoProduto WHERE id = ?";
+		PreparedStatement stmt;
+		try {
+
+			stmt = connection.prepareStatement(sql);
+
+			stmt.setInt(1, material.getId());
+
+			stmt.execute();
+			connection.close();
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+   
+
+	public void alterarMaterial(MaterialDoProduto material) {
+
+		String sql = "UPDATE MaterialDoProduto SET descricao = ? WHERE id = ?";
+		PreparedStatement stmt;
+		try {
+
+			stmt = connection.prepareStatement(sql);
+
+			stmt.setString(1, material.getDescricao());
+			
+			stmt.setInt(2, material.getId());
+
+			stmt.execute();
+			connection.close();
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+    
     private MaterialDoProduto montarObjeto(ResultSet rs) throws SQLException {
 
     	MaterialDoProduto materialDoProduto = new MaterialDoProduto();

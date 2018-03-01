@@ -1,9 +1,9 @@
-insert into MaterialDoProduto (id,descricao) values (1, "Madeira");
-insert into MaterialDoProduto (id,descricao) values (2, "Argila");
-insert into MaterialDoProduto (id,descricao) values (3, "Pano");
-insert into MaterialDoProduto (id,descricao) values (4, "Papelão");
-insert into MaterialDoProduto (id,descricao) values (5, "Gesso");
-insert into MaterialDoProduto (id,descricao) values (6, "PET");
+insert into MaterialDoProduto (descricao) values ("Madeira");
+insert into MaterialDoProduto (descricao) values ("Argila");
+insert into MaterialDoProduto (descricao) values ("Pano");
+insert into MaterialDoProduto (descricao) values ("Papelão");
+insert into MaterialDoProduto (descricao) values ("Gesso");
+insert into MaterialDoProduto (descricao) values ("PET");
 
 
 insert into Usuario (nomeCompleto, cpf, rg, email, senha, endereco, bairro, cidade, estado, cep, sexo, tipoUsuario, telefone, whatsapp)

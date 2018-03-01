@@ -4,42 +4,35 @@
 <html>
 	<head>
 		<meta charset="iso-8859">
-		<title>Cadastrar Material</title>
+		<title>Alterar Material</title>
 	</head>
 	<body id="corpoPadrao">
 		<c:import url="/view/comum/menu.jsp" />
 		<div align="center">
 			<div align="left" style="color: #6E6E6E; width: 70%; margin-top: 4%;">
-				<c:if test="${msg ne null}">
-					<div class="alert alert-error" style="width: 70%;">
-						<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-						${msg}
-					</div>
-				</c:if>
 
-			<hr />
 			
 			<p>
 				<table style="width: 100%">
 					<tr>
-						<td style="float: left; font-size: 24px;">Incluir <strong>Material</strong> </td>
+						<td style="float: left; font-size: 24px;">Alterar <strong>Material</strong> </td>
 						<td style="float: right; text-align: right;"> <img src="view/img/salvar.jpg" style="width: 14%;">  </td>
 					</tr>
 				</table>
 			
 			<hr />
 			
-			<form action="cadastrarMaterial" method="post">
-				
+			<form action="alterarMaterial" method="post">
+				<input type="hidden" value="${material.id}" name="id">
 				<div class="form-group">
     				<label for="inputDescricao">Descrição</label>
-    				<input type="text" class="form-control" id="inputDescricao" name="descricao" style="width: 110px;" maxlength="50" required="required"> &nbsp;
+    				<input type="text" class="form-control" id="inputDescricao" name="descricao" style="width: 110px;" maxlength="50" required="required" value="${material.descricao }"> &nbsp;
   				</div>
 
 				<br />
   				
   				<button type="reset" class="btn btn-default"> &nbsp; Limpar &nbsp; </button> &nbsp;
-  				<button type="submit" class="btn btn-primary"> &nbsp; Inserir &nbsp; </button>
+  				<button type="submit" class="btn btn-primary"> &nbsp; Atualizar &nbsp; </button>
   				
 			</form>
 		</div>

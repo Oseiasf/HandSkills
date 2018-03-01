@@ -117,4 +117,72 @@ public class ProdutoController {
 
 		return "produto/pesquisaProduto";
 	}
+	
+	@RequestMapping("/exibirCadastrarMaterial")
+	public String exibirCadastrarMaterial() {
+
+		return "material/cadastrarMaterial";
+	}
+
+	@RequestMapping("/cadastrarMaterial")
+	public String cadastrarMaterial(MaterialDoProduto material, Model model) {
+
+		MaterialDoProdutoDAO dao = new MaterialDoProdutoDAO();
+		dao.CadastrarMaterial(material);
+
+		if (material == null) {
+			model.addAttribute("msg", "Erro ao inserir Material novo");
+			return "material/cadastrarMaterial";
+		}
+
+		model.addAttribute("msg", "O Material" + material.getDescricao() + "cadastrado com sucesso");
+
+		return "material/cadastrarMaterial";
+	}
+	@RequestMapping("/exibirAlterarMaterial")
+	public String exibirAlterarProduto(MaterialDoProduto material, Model model) {
+		
+		MaterialDoProdutoDAO dao = new MaterialDoProdutoDAO();
+		MaterialDoProduto materialCompleto = dao.buscarPorId(material.getId());
+		model.addAttribute("material", materialCompleto);
+
+		return "material/alterarMaterial";
+	}
+	
+	@RequestMapping("/alterarMaterial")
+	public String alterarMaterial(MaterialDoProduto material, Model model) {
+
+		MaterialDoProdutoDAO dao = new MaterialDoProdutoDAO();
+		dao.alterarMaterial(material);
+		
+		model.addAttribute("mensagem", "Material Alterado com sucesso!");
+
+		return "forward:listarMaterial";
+	}
+	
+	@RequestMapping("/exibirListarMaterial")
+	public String exibirListarMaterial() {
+
+		
+		return "material/listarMaterial";
+	}
+	
+	@RequestMapping("/listarMaterial")
+	public String listarMaterial(Model model) {
+		
+		MaterialDoProdutoDAO dao = new MaterialDoProdutoDAO();
+		List<MaterialDoProduto> listarMaterial = dao.listarMaterialDoProduto();
+		model.addAttribute("listarMaterial", listarMaterial);
+		
+
+		return "material/listarMaterial";
+	}
+	
+	@RequestMapping("removerMaterial")
+	public String removerMaterial(MaterialDoProduto material, Model model) {
+		MaterialDoProdutoDAO dao = new MaterialDoProdutoDAO();
+		dao.removerMaterial(material);
+		model.addAttribute("mensagem", "Material Removido com Sucesso");
+		return "forward:ListarMaterial";
+	}
 }

@@ -144,10 +144,16 @@
 						<a class="nav-link" href="exibirCadastrarProduto">Cadastro Produto</a>
 					</li>
 					<li class="nav-item">
+						<a class="nav-link" href="exibirCadastrarMaterial">Cadastro de Material</a>
+					</li>
+					<li class="nav-item">
 						<a class="nav-link" href="exibirCadastrarUsuario">Cadastrar Usuario</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="listarUsuarios">Listar Usuarios</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="listarMaterial">Listar Materiais</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="listarProduto">Listar Produtos</a>
