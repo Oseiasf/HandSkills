@@ -135,7 +135,7 @@ public class ProdutoController {
 			return "material/cadastrarMaterial";
 		}
 
-		model.addAttribute("msg", "O Material" + material.getDescricao() + "cadastrado com sucesso");
+		model.addAttribute("msg", "O Material " + material.getDescricao() + " cadastrado com sucesso");
 
 		return "material/cadastrarMaterial";
 	}

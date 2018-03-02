@@ -29,7 +29,7 @@
 					</p>
 					<span class="icon-case"><i class="fa fa-align-left"></i></span> <input
 						type="text" name="nomeProduto" value="${p.nomeProduto}"
-						maxlength="50" pattern="[a-z\s]+$"/>
+						maxlength="50" pattern="[Aa-Zz\s]+$"/>
 
 				</div>
 

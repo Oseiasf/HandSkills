@@ -11,7 +11,7 @@
 	<c:import url="/view/comum/menu.jsp" />
 	<div align="center">
 	
-		<div align="left" style="color: #6E6E6E; width: 70%;">
+		<div align="left" style="color: #6E6E6E; width: 90%;">
 			
 			<hr />
 			
@@ -31,12 +31,12 @@
 					<tr>
 						
 						<th style="width: 20%; vertical-align: middle;">Nome</th>
-						<th style="width: 20%; vertical-align: middle;">E-mail</th>
-						<th style="width: 30%; vertical-align: middle;">Cidade</th>
-						<th style="width: 30%; vertical-align: middle;">Telefone</th>
-						<th style="width: 10%; vertical-align: middle;">WhatsApp</th>
-						<th style="width: 20%; vertical-align: middle;">Tipo de Usuário</th>
-						<th style="width: 10%; vertical-align: middle; text-align: center;">Ações</th>
+						<th style="width: 13%; vertical-align: middle;">E-mail</th>
+						<th style="width: 20%; vertical-align: middle;">Cidade</th>
+						<th style="width: 13%; vertical-align: middle;">Telefone</th>
+						<th style="width: 13%; vertical-align: middle;">WhatsApp</th>
+						<th style="width: 12%; vertical-align: middle;">Tipo de Usuário</th>
+						<th style="width: 20%; vertical-align: middle; text-align: center;">Ações</th>
 					</tr>
 				</thead>
 				<c:forEach items="${listarUsuario}" var="usuario">
@@ -47,7 +47,7 @@
 						<td style="vertical-align: middle;">${usuario.telefone}</td>
 						<td style="vertical-align: middle;">${usuario.whatsapp}</td>
 						<td style="vertical-align: middle;">${usuario.tipoUsuario}</td>
-						<td style="vertical-align: middle; text-align: center;">
+						<td style="vertical-align: middle;">
 							<a href="exibirAtualizarUsuario?id=${usuario.id}" class="btn btn-info" role="button "><span class="fa fa-check"></span></a> &nbsp;
 							<a href="removerUsuario?id=${usuario.id}" class="btn btn-danger button-remover-alterar" role="button"><span class="fa fa-trash-o"></span></a>
 						</td>
