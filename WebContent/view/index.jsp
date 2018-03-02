@@ -49,7 +49,6 @@
 			</a>
 		</div>
 
-
 		<!-- Page Features -->
 		<div class="row text-center">
 			<c:forEach var="p" items="${listaProduto}">
@@ -67,45 +66,6 @@
 					</div>
 				</div>
 			</c:forEach>
-			<div class="col-lg-3 col-md-6 mb-4">
-				<div class="card">
-					<img class="card-img-top" src="./resources/img/img2.jpg" alt="">
-					<div class="card-body">
-						<h4 class="card-title">Jarro de capim dourado</h4>
-						<p class="card-text">R$15,99</p>
-					</div>
-					<div class="card-footer">
-						<a href="#" class="btn btn-info">Comprar</a>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-lg-3 col-md-6 mb-4">
-				<div class="card">
-					<img class="card-img-top" src="./resources/img/img3.jpg" alt="">
-					<div class="card-body">
-						<h4 class="card-title">Vazo decorado com tecido</h4>
-						<p class="card-text">R$9,99</p>
-					</div>
-					<div class="card-footer">
-						<a href="#" class="btn btn-info">Comprar</a>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-lg-3 col-md-6 mb-4">
-				<div class="card">
-					<img class="card-img-top" src="./resources/img/img4.jpg" alt="">
-					<div class="card-body">
-						<h4 class="card-title">Boneca de Pernambuco com lantejoulas</h4>
-						<p class="card-text">R$9,99</p>
-					</div>
-					<div class="card-footer">
-						<a href="#" class="btn btn-info">Comprar</a>
-					</div>
-				</div>
-			</div>
-
 		</div>
 		<!-- /.row -->
 

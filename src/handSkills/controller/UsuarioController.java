@@ -9,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import handSkills.model.Produto;
+import handSkills.model.ProdutoDAO;
 import handSkills.model.Usuario;
 import handSkills.model.UsuarioDAO;
 
@@ -23,17 +25,24 @@ public class UsuarioController {
 
 	@RequestMapping("/CadastrarUsuario")
 	public String CadastrarUsuario(Usuario usuario, HttpSession session, Model model) {
-
-		UsuarioDAO dao = new UsuarioDAO();
-		dao.CadastrarUsuario(usuario);
 		
-		if (usuario == null) {
+		try {
+			
+			UsuarioDAO dao2 = new UsuarioDAO();
+			
+			if (dao2.verificaExisteUsuarioPorEmail(usuario.getEmail())) {
+				model.addAttribute("emailExiste", "O email já existe, por favor tente outro.");
+				return "forward:exibirCadastrarUsuario";
+			}
+			
+			UsuarioDAO dao = new UsuarioDAO();
+			dao.CadastrarUsuario(usuario);
+		} catch (Exception e) {
 			model.addAttribute("mensagem", "Não foi possivél cadastrar o usuario, contate o Administrador!");
-			return "usuario/cadastrarUsuario";
+			return "forward:exibirCadastrarUsuario";
 		}
 		
 		model.addAttribute("mensagem", "O usuario " + usuario.getNomeCompleto() + " foi cadastrado com sucesso!");
-		
 		return "usuario/cadastrarUsuario";
 	}
 
@@ -100,15 +109,25 @@ public class UsuarioController {
 		Usuario usuarioLogado = dao.buscarUsuario(usuario);
 		if (usuarioLogado != null) {
 			session.setAttribute("usuarioLogado", usuarioLogado);
-			return "home";
+			
+			ProdutoDAO dao2 = new ProdutoDAO();
+			List<Produto> listaProduto = dao2.listar();
+			model.addAttribute("listaProduto", listaProduto);
+			
+			return "index";
 		}
 		model.addAttribute("msg", "Não foi encontrado um usuário com o login e senha informados.");
 		return "index";
 	}
 	
 	@RequestMapping("logout")
-	public String logout(HttpSession session) {
+	public String logout(HttpSession session, Model model) {
 	session.invalidate();
+	
+	ProdutoDAO dao = new ProdutoDAO();
+	List<Produto> listaProduto = dao.listar();
+	model.addAttribute("listaProduto", listaProduto);
+	
 	return "index";
 	}
 

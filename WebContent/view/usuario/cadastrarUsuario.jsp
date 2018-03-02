@@ -39,9 +39,9 @@
 						<span class="icon-case">
 							<i class="fa fa-envelope-o"></i>
 						</span>
-						<input type="email" name="email" id="email" data-rule="email" 
-						data-msg="Preencha seu email " 
-						maxlength="50" required/>
+						<input type="email" name="email" id="email" data-rule="email" data-msg="Preencha seu email " 
+						maxlength="50" required/><br>
+						<span>${emailExiste}</span>
 						<div class="validation"></div>
 					</div>
 					<div class="form-group">

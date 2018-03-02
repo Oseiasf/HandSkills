@@ -111,7 +111,7 @@
 <br>
 <nav class="navbar navbar-expand-lg navbar-dark bg-info fixed-top">
 	<div class="container">
-		<a class="navbar-brand" href="/handskills">Handskills</a>
+		<a class="navbar-brand" href="exibirPrimeiraPagina">Handskills</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarResponsive" aria-controls="navbarResponsive"
 			aria-expanded="false" aria-label="Toggle navigation">
@@ -119,11 +119,6 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarResponsive">
 			<ul class="navbar-nav ml-auto">
-				<li class="nav-item active">
-					<a class="nav-link" href="/handskills">
-						Home<span class="sr-only">(current)</span>
-					</a>
-				</li>
 				<c:if test="${usuarioLogado.tipoUsuario == 'Cliente' }">
 					<li class="nav-item">
 						<a class="nav-link" href="listarProduto">Listar Produtos</a>

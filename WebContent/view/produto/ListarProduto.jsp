@@ -20,6 +20,7 @@
 				document.getElementById('materialDoProduto').innerHTML = materialDoProduto;
 				document.getElementById('quantidadeDisponivel').innerHTML = quantidadeDisponivel;
 				document.getElementById('precoVenda').innerHTML = precoVenda;
+				
 			}
 		
 		</script>
@@ -70,9 +71,9 @@
 								<h4 class="card-title">${p.nomeProduto}</h4>
 							</div>
 							<div class="card-footer">
-								<a href="#" class="btn btn-info">Comprar</a> 
-								<a href="exibirAtualizarProduto?id=${p.id}" class="btn btn-info">Alterar</a>
-								<a href="#" onclick="preencherModal('${p.nomeProduto}','${p.localOrigemProduto}', '${p.materialDoProduto.descricao}', '${p.quantidadeDisponivel}', '${p.precoVenda}');" data-toggle="modal" data-target="#verMais" class="btn btn-info">Mais Informações</a>
+								<a href="#" class="btn btn-info">Comprar</a>
+								<c:if test="${usuarioLogado.tipoUsuario == 'ADM'}"><a href="exibirAtualizarProduto?id=${p.id}" class="btn btn-info">Alterar</a></c:if>
+								<br><a href="#" onclick="preencherModal('${p.nomeProduto}','${p.localOrigemProduto}', '${p.materialDoProduto.descricao}', '${p.quantidadeDisponivel}', '${p.precoVenda}');" data-toggle="modal" data-target="#verMais" class="btn btn-info">Mais Informações</a>
 							</div>
 						</div>
 					</div>

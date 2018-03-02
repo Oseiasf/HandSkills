@@ -193,7 +193,8 @@ public class UsuarioDAO {
 			ResultSet rs = stmt.executeQuery();
 
 			while (rs.next()) {
-
+				
+				
 				usuario.setId(rs.getInt("id"));
 				usuario.setNomeCompleto(rs.getString("nomeCompleto"));
 				usuario.setCpf(rs.getString("cpf"));
@@ -222,6 +223,39 @@ public class UsuarioDAO {
 			throw new RuntimeException(e);
 		}
 	}
+	
+	public boolean verificaExisteUsuarioPorEmail(String email) {
+
+		boolean existe = false;
+
+		try {
+
+			String sql = "SELECT email FROM Usuario WHERE email = ?";
+			PreparedStatement stmt = this.connection.prepareStatement(sql);
+			stmt = connection.prepareStatement(sql);
+
+			stmt.setString(1, email);
+
+			ResultSet rs = stmt.executeQuery();
+
+			while (rs.next()) {
+				
+				existe = true;
+				break;
+								
+			}
+
+			rs.close();
+			stmt.close();
+			connection.close();
+
+			return existe;
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
 
 	public Usuario buscarUsuario(Usuario usuario) {
 		try {
