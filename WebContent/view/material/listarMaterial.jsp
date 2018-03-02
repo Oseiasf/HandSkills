@@ -31,12 +31,14 @@
 			
 			<hr />
 			
-			<table class="table table-striped table-bordered">
+			<table class="table table-striped ">
 				<thead>
 					<tr>
 						
-						<th style="width: 20%; vertical-align: middle;">Nome do Material</th>
-						<th style="width: 10%; vertical-align: middle; text-align: center;">Ações</th>
+						<th style="width: 50%; vertical-align: middle;">Nome do Material</th>
+						<th style="width: 50%; vertical-align: middle; text-align: center;">Ações</th>
+						
+						
 					</tr>
 				</thead>
 				<c:forEach items="${listarMaterial}" var="material">
