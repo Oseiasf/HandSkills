@@ -138,4 +138,37 @@ public class MaterialDoProdutoDAO {
 
     	return materialDoProduto;
         }
+    
+	public boolean verificaExisteNomeProduto(String nomeProduto) {
+
+		boolean existe = false;
+
+		try {
+
+			String sql = "SELECT descricao FROM MaterialDoProduto WHERE descricao = ?";
+			PreparedStatement stmt = this.connection.prepareStatement(sql);
+			stmt = connection.prepareStatement(sql);
+
+			stmt.setString(1, nomeProduto);
+
+			ResultSet rs = stmt.executeQuery();
+
+			while (rs.next()) {
+				
+				existe = true;
+				break;
+								
+			}
+
+			rs.close();
+			stmt.close();
+			connection.close();
+
+			return existe;
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
 }

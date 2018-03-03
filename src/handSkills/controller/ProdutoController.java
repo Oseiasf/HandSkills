@@ -34,14 +34,16 @@ public class ProdutoController {
 			produto.setImagem(Util.obterMomentoAtual() + " - " + imagem.getOriginalFilename());
 		}
 
-		ProdutoDAO dao = new ProdutoDAO();
-		dao.CadastrarProduto(produto);
-		
-		if (produto == null){
-			model.addAttribute("mensagem", "Erro ao cadastrar Produto");
+		try {
+
+			ProdutoDAO dao = new ProdutoDAO();
+			dao.CadastrarProduto(produto);
+			model.addAttribute("mensagem", "O produto " + produto.getNomeProduto() + " cadastrado com sucesso");
+
+		} catch (Exception e) {
+			model.addAttribute("mensagem", "Não foi possivél cadastrar o produto, contate o Administrador!");
+			return "forward:exibirCadastrarProduto";
 		}
-		
-		model.addAttribute("mensagem", "Produto cadastrado com sucesso");
 
 		return "produto/cadastrarProduto";
 	}
@@ -54,7 +56,7 @@ public class ProdutoController {
 
 		return "produto/ListarProduto";
 	}
-	
+
 	@RequestMapping("/handskills")
 	public String exibirPrimeiraPaginaTeste(Model model) {
 		ProdutoDAO dao = new ProdutoDAO();
@@ -63,7 +65,7 @@ public class ProdutoController {
 
 		return "index";
 	}
-	
+
 	@RequestMapping("/exibirPrimeiraPagina")
 	public String exibirPrimeiraPagina(Model model) {
 		ProdutoDAO dao = new ProdutoDAO();
@@ -125,73 +127,5 @@ public class ProdutoController {
 		model.addAttribute("nomeProduto", produto.getNomeProduto());
 
 		return "produto/pesquisaProduto";
-	}
-	
-	@RequestMapping("/exibirCadastrarMaterial")
-	public String exibirCadastrarMaterial() {
-
-		return "material/cadastrarMaterial";
-	}
-
-	@RequestMapping("/cadastrarMaterial")
-	public String cadastrarMaterial(MaterialDoProduto material, Model model) {
-
-		MaterialDoProdutoDAO dao = new MaterialDoProdutoDAO();
-		dao.CadastrarMaterial(material);
-
-		if (material == null) {
-			model.addAttribute("msg", "Erro ao inserir Material novo");
-			return "material/cadastrarMaterial";
-		}
-
-		model.addAttribute("msg", "O Material " + material.getDescricao() + " cadastrado com sucesso");
-
-		return "material/cadastrarMaterial";
-	}
-	@RequestMapping("/exibirAlterarMaterial")
-	public String exibirAlterarProduto(MaterialDoProduto material, Model model) {
-		
-		MaterialDoProdutoDAO dao = new MaterialDoProdutoDAO();
-		MaterialDoProduto materialCompleto = dao.buscarPorId(material.getId());
-		model.addAttribute("material", materialCompleto);
-
-		return "material/alterarMaterial";
-	}
-	
-	@RequestMapping("/alterarMaterial")
-	public String alterarMaterial(MaterialDoProduto material, Model model) {
-
-		MaterialDoProdutoDAO dao = new MaterialDoProdutoDAO();
-		dao.alterarMaterial(material);
-		
-		model.addAttribute("mensagem", "Material Alterado com sucesso!");
-
-		return "forward:listarMaterial";
-	}
-	
-	@RequestMapping("/exibirListarMaterial")
-	public String exibirListarMaterial() {
-
-		
-		return "material/listarMaterial";
-	}
-	
-	@RequestMapping("/listarMaterial")
-	public String listarMaterial(Model model) {
-		
-		MaterialDoProdutoDAO dao = new MaterialDoProdutoDAO();
-		List<MaterialDoProduto> listarMaterial = dao.listarMaterialDoProduto();
-		model.addAttribute("listarMaterial", listarMaterial);
-		
-
-		return "material/listarMaterial";
-	}
-	
-	@RequestMapping("removerMaterial")
-	public String removerMaterial(MaterialDoProduto material, Model model) {
-		MaterialDoProdutoDAO dao = new MaterialDoProdutoDAO();
-		dao.removerMaterial(material);
-		model.addAttribute("mensagem", "Material Removido com Sucesso");
-		return "forward:ListarMaterial";
 	}
 }

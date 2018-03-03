@@ -34,7 +34,7 @@
 				<div class="form-group">
 				<label for="inputDescricao">Descrição</label>
     				<input type="text" class="form-control" id="inputDescricao" name="descricao" style="width: 110px;" maxlength="50" required="required"> &nbsp;	
-    				
+    				<span>${nomeMaterialProdutoExiste}</span>
   				</div>
 
 				<br />
