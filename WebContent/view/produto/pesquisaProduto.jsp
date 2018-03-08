@@ -22,7 +22,9 @@
 				<td>Preço</td>
 				<td>Estoque</td>
 				<td>Imagem</td>
+			<c:if test="${usuarioLogado.tipoUsuario == 'ADM' }">
 				<td colspan="2"><center> Ações </center> </td>
+			</c:if>
 			</tr>
 		
 		<c:forEach var="p" items="${pesquisa}">
@@ -50,15 +52,12 @@
 						</c:otherwise>
 					</c:choose>
 				 </td>
+				 <c:if test="${usuarioLogado.tipoUsuario == 'ADM' || usuarioLogado.tipoUsuario == 'Artesão' }">
 				 <td colspan="2">
-				 
-				 	<button class="btn" style="color: red;">
-						<a href="removerProduto?id=${p.id}">Remover</a>
-					</button>
-					<button class="btn">
-						<a href="exibirAtualizarProduto?id=${p.id}">Atualizar</a>
-					</button>
+					<a href="removerProduto?id=${p.id}" class="btn btn-info"">Remover</a>
+					<a href="exibirAtualizarProduto?id=${p.id}" class="btn btn-info">Atualizar</a>
 				</td>
+				</c:if>
 			</tr>
 			
 		</c:forEach>

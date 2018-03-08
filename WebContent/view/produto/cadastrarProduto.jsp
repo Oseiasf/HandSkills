@@ -5,6 +5,23 @@
 <head>
 <meta charset="iso-8859">
 <title>Cadastrar Produto</title>
+<style>
+	input[type='file'] {
+  display: none
+}
+
+.input-wrapper label {
+  background-color: #3498db;
+  border-radius: 5px;
+  color: #fff;
+  margin: 10px;
+  padding: 6px 20px
+}
+
+.input-wrapper label:hover {
+  background-color: #2980b9
+}
+</style>
 </head>
 <body>
 	<c:import url="/view/comum/menu.jsp" />
@@ -40,6 +57,16 @@
 										<span class="icon-case"> <i class="fa fa-circle-o"></i></span> <input
 											type="text" name="coresDisponiveis" maxlength="20" required pattern="[Aa-Zz\s]+$"/>
 									</div>
+									<div class='input-wrapper'>
+										<p>
+											Imagem do produto <span>*</span>
+										</p>
+									  <label for='input-file'>
+									    Selecione uma imagem
+									  </label>
+									  <input id='input-file' type='file' value='' />
+									  <span id='file-name'></span>
+									</div>
 								</div>
 								<div class="rightcontact">
 									<div class="form-group">
@@ -69,12 +96,7 @@
 										</span> <input type="text" name="quantidadeDisponivel" maxlength="10"
 											required pattern="[0-9]+$" />
 									</div>
-									<div>
-										<p class="ajuste-input">
-											Imagem do Produto <span>*</span>
-										</p>
-										<input type="file" name="file" required class="ajuste-input" />
-									</div>
+									
 								</div>
 								<button type="submit" class="bouton-contact btn-info">Cadastrar</button>
 							</div>
