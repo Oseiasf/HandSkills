@@ -35,8 +35,8 @@
 				<thead>
 					<tr>
 						
-						<th style="width: 50%; vertical-align: middle;">Nome do Material</th>
-						<th style="width: 50%; vertical-align: middle; text-align: center;">Ações</th>
+						<th style="width: 85%; vertical-align: middle;">Nome do Material</th>
+						<th style="width: 15%; vertical-align: middle; text-align: center;">Ações</th>
 						
 						
 					</tr>

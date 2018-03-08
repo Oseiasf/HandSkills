@@ -31,12 +31,12 @@
 					<tr>
 						
 						<th style="width: 20%; vertical-align: middle;">Nome</th>
-						<th style="width: 13%; vertical-align: middle;">E-mail</th>
-						<th style="width: 20%; vertical-align: middle;">Cidade</th>
-						<th style="width: 13%; vertical-align: middle;">Telefone</th>
-						<th style="width: 13%; vertical-align: middle;">WhatsApp</th>
-						<th style="width: 12%; vertical-align: middle;">Tipo de Usuário</th>
-						<th style="width: 20%; vertical-align: middle; text-align: center;">Ações</th>
+						<th style="width: 20%; vertical-align: middle;">E-mail</th>
+						<th style="width: 10%; vertical-align: middle;">Cidade</th>
+						<th style="width: 15%; vertical-align: middle;">Telefone</th>
+						<th style="width: 15%; vertical-align: middle;">WhatsApp</th>
+						<th style="width: 10%; vertical-align: middle;">Tipo de Usuário</th>
+						<th style="width: 10%; vertical-align: middle; text-align: center;">Ações</th>
 					</tr>
 				</thead>
 				<c:forEach items="${listarUsuario}" var="usuario">
