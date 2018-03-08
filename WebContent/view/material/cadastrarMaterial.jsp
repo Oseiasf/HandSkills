@@ -23,8 +23,7 @@
 					<p class="descricao">
 						Descrição do produto<span>*</span>
 					</p>
-					<textarea rows="4" cols="50" class="tamanho-text-area"> 
-					</textarea>
+					</span> <input type="text" name="nomeProduto" maxlength="50" required pattern="[Aa-Zz\s]+$" style="width: 100%"/>
 					<span>${nomeMaterialProdutoExiste}</span>
 				</div>
 
