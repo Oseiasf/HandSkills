@@ -20,7 +20,7 @@
 				<h1 class="cor-cadastrar">Cadastrar material</h1>
 				<div class="form-group">
 
-					<p>
+					<p class="descricao">
 						Descrição do produto<span>*</span>
 					</p>
 					<textarea rows="4" cols="50" class="tamanho-text-area"> 
