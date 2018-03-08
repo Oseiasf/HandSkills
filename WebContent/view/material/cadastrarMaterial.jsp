@@ -16,30 +16,16 @@
 					${msg}
 				</div>
 			</c:if>
-
-			<hr />
-
-			<p>
-			<table style="width: 100%">
-				<tr>
-					<td style="float: left; font-size: 24px;">Incluir <strong>Material</strong>
-					</td>
-					<td style="float: right; text-align: right;"></td>
-				</tr>
-			</table>
-
-			<hr />
-
 			<form action="cadastrarMaterial" method="post">
-
+				<h1 class="cor-cadastrar">Cadastrar material</h1>
 				<div class="form-group">
-					
+
 					<p>
 						Descrição do produto<span>*</span>
 					</p>
-					<span class="icon-case "> <i class="fa fa-align-left"></i>
-					</span> <input type="text" name="nomeProduto" maxlength="200" required
-						pattern="[Aa-Zz\s]+$" /> <span>${nomeMaterialProdutoExiste}</span>
+					<textarea rows="4" cols="50" class="tamanho-text-area"> 
+					</textarea>
+					<span>${nomeMaterialProdutoExiste}</span>
 				</div>
 
 				<br />

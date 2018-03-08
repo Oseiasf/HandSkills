@@ -12,6 +12,7 @@
 					<div class="form-group">
 						<form action="CadastrarProduto" method="post"
 							enctype="multipart/form-data">
+							<h1 class="cor-cadastrar">Cadastrar produto</h1>
 							<div class="contentform">
 								<div class="leftcontact">
 									<div class="form-group">
