@@ -57,24 +57,6 @@ public class ProdutoController {
 		return "produto/ListarProduto";
 	}
 
-	@RequestMapping("/handskills")
-	public String exibirPrimeiraPaginaTeste(Model model) {
-		ProdutoDAO dao = new ProdutoDAO();
-		List<Produto> listaProduto = dao.listar();
-		model.addAttribute("listaProduto", listaProduto);
-
-		return "index";
-	}
-
-	@RequestMapping("/exibirPrimeiraPagina")
-	public String exibirPrimeiraPagina(Model model) {
-		ProdutoDAO dao = new ProdutoDAO();
-		List<Produto> listaProduto = dao.listar();
-		model.addAttribute("listaProduto", listaProduto);
-
-		return "index";
-	}
-
 	@RequestMapping("removerProduto")
 	public String removerProduto(Produto produto, Model model) {
 		ProdutoDAO dao = new ProdutoDAO();

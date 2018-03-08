@@ -15,10 +15,11 @@ public class AutorizadorInterceptor extends HandlerInterceptorAdapter {
 				uri.contains("css") ||
 				uri.contains("img") ||
 				uri.contains("js")  || 
-				uri.endsWith("handskills/") || 
 				uri.endsWith("efetuarLogin") || 
 				uri.endsWith("exibirCadastrarUsuario") || 
-				uri.endsWith("CadastrarUsuario"))
+				uri.endsWith("CadastrarUsuario") || 
+				uri.endsWith("index") || 
+				uri.endsWith("listarProduto")) 
 		{
 			return true;
 		}
@@ -26,7 +27,7 @@ public class AutorizadorInterceptor extends HandlerInterceptorAdapter {
 			return true;
 		}
 
-		response.sendRedirect("/handskills");
+		response.sendRedirect("/handskills/index");
 		return false;
 	}
 }
