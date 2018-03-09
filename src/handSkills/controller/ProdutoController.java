@@ -38,7 +38,7 @@ public class ProdutoController {
 
 			ProdutoDAO dao = new ProdutoDAO();
 			dao.CadastrarProduto(produto);
-			model.addAttribute("mensagem", "O produto " + produto.getNomeProduto() + " cadastrado com sucesso");
+			model.addAttribute("mensagem", "O produto " + produto.getNomeProduto() + " foi cadastrado com sucesso");
 
 		} catch (Exception e) {
 			model.addAttribute("mensagem", "Não foi possivél cadastrar o produto, contate o Administrador!");
@@ -61,7 +61,7 @@ public class ProdutoController {
 	public String removerProduto(Produto produto, Model model) {
 		ProdutoDAO dao = new ProdutoDAO();
 		dao.remover(produto);
-		model.addAttribute("mensagem", "Produto Removido com Sucesso");
+		model.addAttribute("mensagem", "O produto removido com sucesso");
 		return "forward:ListarProduto";
 	}
 
@@ -95,7 +95,7 @@ public class ProdutoController {
 		ProdutoDAO dao = new ProdutoDAO();
 		dao.alterarProduto(produto);
 
-		model.addAttribute("mensagem", "Produto alterado com sucesso");
+		model.addAttribute("mensagem", "O produto foi alterado com sucesso");
 
 		return "forward:listarProduto";
 	}

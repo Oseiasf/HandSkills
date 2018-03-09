@@ -12,7 +12,7 @@
 		<!-- Navigation -->
 		<c:import url="/view/comum/menu.jsp" />
 		<div> ${mensagem} </div>
-		<div> O numrero de produtos encontrados foi ${pesquisa.size()}</div>
+		<div> O númrero de produtos encontrados foram :  ${pesquisa.size()}</div>
 		<table border="1" style="width: 100%;">
 			<tr>
 				<td>Nome do Produto</td>
