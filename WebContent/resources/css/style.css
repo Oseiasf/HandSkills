@@ -83,4 +83,15 @@
 	width: 100%;
 	
 }
+.mensagem-sucesso{
+	color: #32CD32;
+	text-align: center;
+	margin-top: 4%;
+	
+}
+.mensagem-erro{
+	color: #FF0000;
+	text-align: center;
+	margin-top: 4%;
+}
 
