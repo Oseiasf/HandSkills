@@ -98,7 +98,7 @@ input[type='file'] {
 					<div class='input-wrapper'>
 						
 						<label for='input-file'> Selecione uma imagem </label> <input
-							id='input-file' type='file' value=''/> <span id='file-name' ></span>
+							id='input-file' type='file' value='' name="file"/> <span id='file-name' ></span>
 					</div>
 				</div>
 				<button type="submit" class="bouton-contact btn-info">Cadastrar</button>

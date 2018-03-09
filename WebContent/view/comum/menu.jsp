@@ -119,13 +119,13 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarResponsive">
 			<ul class="navbar-nav ml-auto">
-				<c:if test="${usuarioLogado.tipoUsuario == 'Cliente' }">
+				<c:if test="${usuarioLogado.tipoUsuario == 'CLIENTE' }">
 					<li class="nav-item">
 						<a class="nav-link" href="listarProduto">Listar Produtos</a>
 					</li>
 				</c:if>
 				
-				<c:if test="${usuarioLogado.tipoUsuario == 'Artesão' }">
+				<c:if test="${usuarioLogado.tipoUsuario == 'ARTESAO' }">
 					<li class="nav-item">
 						<a class="nav-link" href="listarProduto">Listar Produtos</a>
 					</li>

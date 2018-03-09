@@ -23,6 +23,7 @@
 		<property name="converters">
 		<list>
 		<bean class="handSkills.controller.MaterialDoProdutoConverter" />
+		<bean class="handSkills.controller.UsuarioConverter" />
 		</list>
 		</property>
 	</bean>

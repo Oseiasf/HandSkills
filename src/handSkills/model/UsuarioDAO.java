@@ -40,7 +40,7 @@ public class UsuarioDAO {
 			stmt.setString(9, usuario.getEstado());
 			stmt.setString(10, usuario.getCep());
 			stmt.setString(11, usuario.getSexo());
-			stmt.setString(12, usuario.getTipoUsuario());
+			stmt.setString(12, usuario.getTipoUsuario().toString());
 			stmt.setString(13, usuario.getTelefone());
 			stmt.setString(14, usuario.getWhatsapp());
 
@@ -64,21 +64,7 @@ public class UsuarioDAO {
 
 				Usuario usuario = new Usuario();
 
-				usuario.setId(rs.getInt("id"));
-				usuario.setNomeCompleto(rs.getString("nomeCompleto"));
-				usuario.setCpf(rs.getString("cpf"));
-				usuario.setRg(rs.getString("rg"));
-				usuario.setEmail(rs.getString("email"));
-				usuario.setSenha(rs.getString("senha"));
-				usuario.setEndereco(rs.getString("endereco"));
-				usuario.setBairro(rs.getString("bairro"));
-				usuario.setCidade(rs.getString("cidade"));
-				usuario.setEstado(rs.getString("estado"));
-				usuario.setCep(rs.getString("cep"));
-				usuario.setSexo(rs.getString("sexo"));
-				usuario.setTipoUsuario(rs.getString("tipoUsuario"));
-				usuario.setTelefone(rs.getString("telefone"));
-				usuario.setWhatsapp(rs.getString("whatsapp"));
+				usuario = montarObjeto(rs);
 
 				listaUsuario.add(usuario);
 			}
@@ -107,21 +93,7 @@ public class UsuarioDAO {
 		    	  
 		    	   Usuario usuario = new Usuario();
 		    	   
-		    	   	usuario.setId(rs.getInt("id"));
-					usuario.setNomeCompleto(rs.getString("nomeCompleto"));
-					usuario.setCpf(rs.getString("cpf"));
-					usuario.setRg(rs.getString("rg"));
-					usuario.setEmail(rs.getString("email"));
-					usuario.setSenha(rs.getString("senha"));
-					usuario.setEndereco(rs.getString("endereco"));
-					usuario.setBairro(rs.getString("bairro"));
-					usuario.setCidade(rs.getString("cidade"));
-					usuario.setEstado(rs.getString("estado"));
-					usuario.setCep(rs.getString("cep"));
-					usuario.setSexo(rs.getString("sexo"));
-					usuario.setTipoUsuario(rs.getString("tipoUsuario"));
-					usuario.setTelefone(rs.getString("telefone"));
-					usuario.setWhatsapp(rs.getString("whatsapp"));
+		    	   usuario = montarObjeto(rs);
 
 		    	   listaUsuario.add(usuario); 
 		       }
@@ -152,7 +124,7 @@ public class UsuarioDAO {
 			stmt.setString(9, usuario.getEstado());
 			stmt.setString(10, usuario.getCep());
 			stmt.setString(11, usuario.getSexo());
-			stmt.setString(12, usuario.getTipoUsuario());
+			stmt.setString(12, usuario.getTipoUsuario().toString());
 			stmt.setString(13, usuario.getTelefone());
 			stmt.setString(14, usuario.getWhatsapp());
 			stmt.setInt(15, usuario.getId());
@@ -195,21 +167,7 @@ public class UsuarioDAO {
 			while (rs.next()) {
 				
 				
-				usuario.setId(rs.getInt("id"));
-				usuario.setNomeCompleto(rs.getString("nomeCompleto"));
-				usuario.setCpf(rs.getString("cpf"));
-				usuario.setRg(rs.getString("rg"));
-				usuario.setEmail(rs.getString("email"));
-				usuario.setSenha(rs.getString("senha"));
-				usuario.setEndereco(rs.getString("endereco"));
-				usuario.setBairro(rs.getString("bairro"));
-				usuario.setCidade(rs.getString("cidade"));
-				usuario.setEstado(rs.getString("estado"));
-				usuario.setCep(rs.getString("cep"));
-				usuario.setSexo(rs.getString("sexo"));
-				usuario.setTipoUsuario(rs.getString("tipoUsuario"));
-				usuario.setTelefone(rs.getString("telefone"));
-				usuario.setWhatsapp(rs.getString("whatsapp"));
+				usuario = montarObjeto(rs);
 
 			}
 
@@ -292,7 +250,7 @@ public class UsuarioDAO {
 		usuario.setEstado(rs.getString("estado"));
 		usuario.setCep(rs.getString("cep"));
 		usuario.setSexo(rs.getString("sexo"));
-		usuario.setTipoUsuario(rs.getString("tipoUsuario"));
+		usuario.setTipoUsuario(TipoUsuario.valueOf(rs.getString("tipoUsuario")));
 		usuario.setTelefone(rs.getString("telefone"));
 		usuario.setWhatsapp(rs.getString("whatsapp"));
 

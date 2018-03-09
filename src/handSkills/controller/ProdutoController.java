@@ -2,6 +2,8 @@ package handSkills.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +14,7 @@ import handSkills.model.MaterialDoProduto;
 import handSkills.model.MaterialDoProdutoDAO;
 import handSkills.model.Produto;
 import handSkills.model.ProdutoDAO;
+import handSkills.model.Usuario;
 import handSkills.util.Util;
 
 @Controller
@@ -28,14 +31,16 @@ public class ProdutoController {
 	}
 
 	@RequestMapping("/CadastrarProduto")
-	public String CadastrarProduto(Produto produto, @RequestParam("file") MultipartFile imagem, Model model) {
+	public String CadastrarProduto(Produto produto, HttpSession session, @RequestParam("file") MultipartFile imagem, Model model) {
 
 		if (Util.fazerUploadImagem(imagem)) {
 			produto.setImagem(Util.obterMomentoAtual() + " - " + imagem.getOriginalFilename());
 		}
 
 		try {
-
+			
+			Usuario usuarioArtesao = (Usuario) session.getAttribute("usuarioLogado");
+			produto.setUsuarioArtesao(usuarioArtesao);
 			ProdutoDAO dao = new ProdutoDAO();
 			dao.CadastrarProduto(produto);
 			model.addAttribute("mensagem", "O produto " + produto.getNomeProduto() + " foi cadastrado com sucesso");

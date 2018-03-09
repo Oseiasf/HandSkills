@@ -32,7 +32,7 @@ primary key(id)
 create table Produto (
 
 id int AUTO_INCREMENT,
-#id_usuario int not null,
+id_usuArtesao int not null,
 nomeProduto varchar(50) not null,
 localOrigemProduto varchar(50) not null,
 coresDisponiveis varchar (20) not null,
@@ -41,7 +41,7 @@ precoVenda float not null,
 quantidadeDisponivel int not null,
 imagem varchar(200) not null,
 primary key (id),
-#foreign key (id_usuario) references Usuario (id),
+foreign key (id_usuArtesao) references Usuario (id),
 foreign key (materialDoProduto) references MaterialDoProduto (id)
 );
 
@@ -50,6 +50,7 @@ id int AUTO_INCREMENT,
 id_usu int,
 id_prod int,
 situacao tinyint(1),
+data_pedido date,
 primary key (id),
 foreign key (id_usu) references Usuario (id),
 foreign key (id_prod) references Produto (id)

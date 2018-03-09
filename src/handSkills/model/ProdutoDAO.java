@@ -23,19 +23,20 @@ public class ProdutoDAO {
 
 	public void CadastrarProduto(Produto produto) {
 
-		String sql = "INSERT INTO Produto (nomeProduto, localOrigemProduto, coresDisponiveis, materialDoProduto, precoVenda, quantidadeDisponivel, imagem) VALUES (?,?,?,?,?,?,?)";
+		String sql = "INSERT INTO Produto (id_usuArtesao, nomeProduto, localOrigemProduto, coresDisponiveis, materialDoProduto, precoVenda, quantidadeDisponivel, imagem) VALUES (?,?,?,?,?,?,?,?)";
 		PreparedStatement stmt;
 		try {
 
 			stmt = connection.prepareStatement(sql);
-
-			stmt.setString(1, produto.getNomeProduto());
-			stmt.setString(2, produto.getLocalOrigemProduto());
-			stmt.setString(3, produto.getCoresDisponiveis());
-			stmt.setInt(4, produto.getMaterialDoProduto().getId());
-			stmt.setDouble(5, produto.getPrecoVenda());
-			stmt.setInt(6, produto.getQuantidadeDisponivel());
-			stmt.setString(7, produto.getImagem());
+			
+			stmt.setInt(1, produto.getUsuarioArtesao().getId());
+			stmt.setString(2, produto.getNomeProduto());
+			stmt.setString(3, produto.getLocalOrigemProduto());
+			stmt.setString(4, produto.getCoresDisponiveis());
+			stmt.setInt(5, produto.getMaterialDoProduto().getId());
+			stmt.setDouble(6, produto.getPrecoVenda());
+			stmt.setInt(7, produto.getQuantidadeDisponivel());
+			stmt.setString(8, produto.getImagem());
 
 			stmt.execute();
 			connection.close();

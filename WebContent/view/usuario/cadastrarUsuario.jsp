@@ -105,11 +105,11 @@
 						<span class="icon-case">
 							<i class="fa fa-group"></i>
 						</span>
-						<select class="form-control ajuste-icone" id="style-select" name="tipoUsuario" required>
+						<select class="form-control ajuste-icone" id="style-select" name="TipoUsuarioStr" required>
 							<option value="">Selecione</option>
 							<c:if test="${usuarioLogado.tipoUsuario == 'ADM' }"><option value="ADM">Administrador</option></c:if>
-							<option value="Artesão">Artesão</option>
-							<option value="Cliente">Cliente</option>
+							<option value="ARTESAO">Artesão</option>
+							<option value="CLIENTE">Cliente</option>
 						</select>
 					</div>
 					<div class="form-group">
