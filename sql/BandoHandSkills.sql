@@ -1,4 +1,5 @@
 #ALTER TABLE `suatabela` CHANGE `suacoluna` `suacoluna` INT(11) NOT NULL;
+#ALTER TABLE dbo.doc_exa ADD column_b VARCHAR(20) NULL, column_c INT NULL ;
 create database handskills;
 use handskills;
 
@@ -42,4 +43,14 @@ imagem varchar(200) not null,
 primary key (id),
 #foreign key (id_usuario) references Usuario (id),
 foreign key (materialDoProduto) references MaterialDoProduto (id)
+);
+
+create table PedidosRealizados (
+id int AUTO_INCREMENT,
+id_usu int,
+id_prod int,
+situacao tinyint(1),
+primary key (id),
+foreign key (id_usu) references Usuario (id),
+foreign key (id_prod) references Produto (id)
 );
