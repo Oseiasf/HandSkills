@@ -26,6 +26,7 @@
 							<i class="fa fa-credit-card"></i>
 						</span>
 						<input type="text" name="cpf" maxlength="15" required placeholder="ex: 999.999.999-99" class="cpf"/>
+						<h7 class="mensagem-erro">${cpfExiste}</h7>
 					</div>
 					<div class="form-group">
 						<p>RG <span>*</span></p>
@@ -40,8 +41,10 @@
 							<i class="fa fa-envelope-o"></i>
 						</span>
 						<input type="email" name="email" id="email" data-rule="email" data-msg="Preencha seu email " 
-						maxlength="50" required/><br>
-						<span>${emailExiste}</span>
+						maxlength="50" required/>
+						<br>
+						<br>
+						<h7 class="mensagem-erro">${emailExiste}</h7>
 						<div class="validation"></div>
 					</div>
 					<div class="form-group">
