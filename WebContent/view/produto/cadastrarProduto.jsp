@@ -11,7 +11,7 @@ input[type='file'] {
 }
 
 .input-wrapper label {
-	background-color: #81BDA4;
+	background-color: #17a2b8;
 	border-radius: 5px;
 	color: #fff;
 	margin: 10px;
@@ -94,11 +94,9 @@ input[type='file'] {
 					</div>
 
 				</div>
-				<div >
+				<div class="col-md-6 offset-md-3" style="margin-top: 48%;">
 					<div class='input-wrapper'>
-						<p>
-							Imagem do produto <span>*</span>
-						</p>
+						
 						<label for='input-file'> Selecione uma imagem </label> <input
 							id='input-file' type='file' value=''/> <span id='file-name' ></span>
 					</div>
