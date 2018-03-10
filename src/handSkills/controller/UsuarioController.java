@@ -31,9 +31,14 @@ public class UsuarioController {
 			UsuarioDAO dao2 = new UsuarioDAO();
 			
 			if (dao2.verificaExisteUsuarioPorEmail(usuario.getEmail())) {
-				model.addAttribute("emailExiste", "O email já existe, por favor tente outro.");
+				model.addAttribute("emailExiste", "Email existente, por favor tente outro.");
 				return "forward:exibirCadastrarUsuario";
 			}
+			if (dao2.verificaExisteUsuarioPorCpf(usuario.getCpf())) {
+				model.addAttribute("cpflExiste", "Cpf existente, por favor tente outro.");
+				return "forward:exibirCadastrarUsuario";
+			}
+			
 			
 			UsuarioDAO dao = new UsuarioDAO();
 			dao.CadastrarUsuario(usuario);
@@ -86,7 +91,7 @@ public class UsuarioController {
 		dao.remover(usuario);
 		model.addAttribute("msg", "Usuário Removido com Sucesso !");
 
-		return "forward:ListarUsuario";
+		return "usuario/ListarUsuario";
 	}
 	
 	@RequestMapping("/pesquisarUsuario")
