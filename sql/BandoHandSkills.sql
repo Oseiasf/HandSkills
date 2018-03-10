@@ -1,5 +1,6 @@
 #ALTER TABLE `suatabela` CHANGE `suacoluna` `suacoluna` INT(11) NOT NULL;
 #ALTER TABLE dbo.doc_exa ADD column_b VARCHAR(20) NULL, column_c INT NULL ;
+#drop database handskills;
 create database handskills;
 use handskills;
 
@@ -12,7 +13,7 @@ primary key (id)
 
 create table Usuario (
 id int AUTO_INCREMENT not null,
-nomeCompleto varchar(50) not null,
+nome_completo varchar(50) not null,
 cpf varchar(15) not null,
 rg varchar(15) not null,
 email varchar(50) not null,
@@ -23,7 +24,7 @@ cidade varchar(100) not null,
 estado varchar(100) not null,
 cep varchar(20) not null,
 sexo varchar(10),
-tipoUsuario varchar(20) not null,
+tipo_usuario varchar(20) not null,
 telefone varchar(30) not null,
 whatsapp varchar(30),
 primary key(id)
@@ -32,17 +33,17 @@ primary key(id)
 create table Produto (
 
 id int AUTO_INCREMENT,
-id_usuArtesao int not null,
-nomeProduto varchar(50) not null,
-localOrigemProduto varchar(50) not null,
-coresDisponiveis varchar (20) not null,
-materialDoProduto int not null,
-precoVenda float not null,
-quantidadeDisponivel int not null,
+id_usu_artesao int not null,
+nome_produto varchar(50) not null,
+local_origem_produto varchar(50) not null,
+cores_disponiveis varchar (20) not null,
+material_produto int not null,
+preco_venda float not null,
+quantidade_disponivel int not null,
 imagem varchar(200) not null,
 primary key (id),
-foreign key (id_usuArtesao) references Usuario (id),
-foreign key (materialDoProduto) references MaterialDoProduto (id)
+foreign key (id_usu_artesao) references Usuario (id),
+foreign key (material_produto) references MaterialDoProduto (id)
 );
 
 create table PedidosRealizados (

@@ -130,6 +130,9 @@
 						<a class="nav-link" href="listarProduto">Listar Produtos</a>
 					</li>
 					<li class="nav-item">
+						<a class="nav-link" href="meusProdutos">Meus Produtos</a>
+					</li>
+					<li class="nav-item">
 						<a class="nav-link" href="exibirCadastrarProduto">Cadastro Produto</a>
 					</li>
 				</c:if>
@@ -152,6 +155,9 @@
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="listarProduto">Listar Produtos</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="meusProdutos">Meus Produtos</a>
 					</li>
 				</c:if>     	
 				

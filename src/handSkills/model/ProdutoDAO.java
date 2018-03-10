@@ -21,15 +21,15 @@ public class ProdutoDAO {
 		}
 	}
 
-	public void CadastrarProduto(Produto produto) {
+	public void CadastrarProduto(Produto produto, Usuario id) {
 
-		String sql = "INSERT INTO Produto (id_usuArtesao, nomeProduto, localOrigemProduto, coresDisponiveis, materialDoProduto, precoVenda, quantidadeDisponivel, imagem) VALUES (?,?,?,?,?,?,?,?)";
+		String sql = "INSERT INTO Produto (id_usu_artesao, nome_produto, local_origem_produto, cores_disponiveis, material_produto, preco_venda, quantidade_disponivel, imagem) VALUES (?,?,?,?,?,?,?,?)";
 		PreparedStatement stmt;
 		try {
 
 			stmt = connection.prepareStatement(sql);
 			
-			stmt.setInt(1, produto.getUsuarioArtesao().getId());
+			stmt.setInt(1, id.getId());
 			stmt.setString(2, produto.getNomeProduto());
 			stmt.setString(3, produto.getLocalOrigemProduto());
 			stmt.setString(4, produto.getCoresDisponiveis());
@@ -50,7 +50,7 @@ public class ProdutoDAO {
 
 		try {
 			List<Produto> listaProduto = new ArrayList<Produto>();
-			PreparedStatement stmt = this.connection.prepareStatement("SELECT * FROM Produto ORDER BY nomeProduto");
+			PreparedStatement stmt = this.connection.prepareStatement("SELECT * FROM Produto ORDER BY nome_produto");
 
 			ResultSet rs = stmt.executeQuery();
 
@@ -58,17 +58,71 @@ public class ProdutoDAO {
 
 				Produto produto = new Produto();
 
-				int idMaterialDoProduto = rs.getInt("materialDoProduto");
+				int idMaterialDoProduto = rs.getInt("material_produto");
 				MaterialDoProdutoDAO dao = new MaterialDoProdutoDAO();
 				MaterialDoProduto mdp = dao.buscarPorId(idMaterialDoProduto);
 				produto.setMaterialDoProduto(mdp);
+				
+				
+				int idUsuario = rs.getInt("id_usu_artesao");
+				UsuarioDAO dao2 = new UsuarioDAO();
+				Usuario mdp2 = dao2.buscaPorId(idUsuario);
+				produto.setUsuarioArtesao(mdp2);
 
 				produto.setId(rs.getInt("id"));
-				produto.setNomeProduto(rs.getString("nomeProduto"));
-				produto.setLocalOrigemProduto(rs.getString("localOrigemProduto"));
-				produto.setCoresDisponiveis(rs.getString("coresDisponiveis"));
-				produto.setPrecoVenda(rs.getDouble("precoVenda"));
-				produto.setQuantidadeDisponivel(rs.getInt("quantidadeDisponivel"));
+				produto.setNomeProduto(rs.getString("nome_produto"));
+				produto.setLocalOrigemProduto(rs.getString("local_origem_produto"));
+				produto.setCoresDisponiveis(rs.getString("cores_disponiveis"));
+				produto.setPrecoVenda(rs.getDouble("preco_venda"));
+				produto.setQuantidadeDisponivel(rs.getInt("quantidade_disponivel"));
+				produto.setImagem(rs.getString("imagem"));
+
+				listaProduto.add(produto);
+			}
+
+			rs.close();
+			stmt.close();
+			connection.close();
+
+			return listaProduto;
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
+	public List<Produto> listarMeusProdutos(Usuario id) {
+
+		try {
+			List<Produto> listaProduto = new ArrayList<Produto>();
+			PreparedStatement stmt = this.connection.prepareStatement("SELECT * FROM Produto as p join Usuario as u on  (u.id = p.id_usu_artesao) where u.id = ? ORDER BY nome_produto;");
+			
+			
+			stmt.setInt(1, id.getId());
+			
+			ResultSet rs = stmt.executeQuery();
+
+			while (rs.next()) {
+
+				Produto produto = new Produto();
+
+				int idMaterialDoProduto = rs.getInt("material_produto");
+				MaterialDoProdutoDAO dao = new MaterialDoProdutoDAO();
+				MaterialDoProduto mdp = dao.buscarPorId(idMaterialDoProduto);
+				produto.setMaterialDoProduto(mdp);
+				
+				
+				int idUsuario = rs.getInt("id_usu_artesao");
+				UsuarioDAO dao2 = new UsuarioDAO();
+				Usuario mdp2 = dao2.buscaPorId(idUsuario);
+				produto.setUsuarioArtesao(mdp2);
+
+				produto.setId(rs.getInt("id"));
+				produto.setNomeProduto(rs.getString("nome_produto"));
+				produto.setLocalOrigemProduto(rs.getString("local_origem_produto"));
+				produto.setCoresDisponiveis(rs.getString("cores_disponiveis"));
+				produto.setPrecoVenda(rs.getDouble("preco_venda"));
+				produto.setQuantidadeDisponivel(rs.getInt("quantidade_disponivel"));
 				produto.setImagem(rs.getString("imagem"));
 
 				listaProduto.add(produto);
@@ -106,7 +160,7 @@ public class ProdutoDAO {
 
 	public void alterarProduto(Produto produto) {
 
-		String sql = "UPDATE Produto SET nomeProduto = ?, localOrigemProduto = ?, coresDisponiveis = ?, materialDoProduto = ?, precoVenda = ?, quantidadeDisponivel = ? WHERE id = ?";
+		String sql = "UPDATE Produto SET nome_produto = ?, local_origem_produto = ?, cores_disponiveis = ?, material_produto = ?, preco_venda = ?, quantidade_disponivel = ? WHERE id = ?";
 		PreparedStatement stmt;
 		try {
 
@@ -145,17 +199,22 @@ public class ProdutoDAO {
 			while (rs.next()) {
 
 				produto.setId(rs.getInt("id"));
-				produto.setNomeProduto(rs.getString("nomeProduto"));
-				produto.setLocalOrigemProduto(rs.getString("localOrigemProduto"));
-				produto.setCoresDisponiveis(rs.getString("coresDisponiveis"));
+				produto.setNomeProduto(rs.getString("nome_produto"));
+				produto.setLocalOrigemProduto(rs.getString("local_origem_produto"));
+				produto.setCoresDisponiveis(rs.getString("cores_disponiveis"));
 				
-				int idMaterialDoProduto = rs.getInt("materialDoProduto");
+				int idMaterialDoProduto = rs.getInt("material_produto");
 				MaterialDoProdutoDAO dao = new MaterialDoProdutoDAO();
 				MaterialDoProduto mdp = dao.buscarPorId(idMaterialDoProduto);
 				produto.setMaterialDoProduto(mdp);
 				
-				produto.setPrecoVenda(rs.getDouble("precoVenda"));
-				produto.setQuantidadeDisponivel(rs.getInt("quantidadeDisponivel"));
+				int idUsuario = rs.getInt("id_usu_artesao");
+				UsuarioDAO dao2 = new UsuarioDAO();
+				Usuario mdp2 = dao2.buscaPorId(idUsuario);
+				produto.setUsuarioArtesao(mdp2);
+				
+				produto.setPrecoVenda(rs.getDouble("preco_venda"));
+				produto.setQuantidadeDisponivel(rs.getInt("quantidade_disponivel"));
 				produto.setImagem(rs.getString("imagem"));
 
 			}
@@ -181,21 +240,21 @@ public class ProdutoDAO {
 			if ((prod.getNomeProduto() != null && !prod.getNomeProduto().equals(""))
 					&& (prod.getLocalOrigemProduto() == null || prod.getLocalOrigemProduto().equals(""))) {
 
-				sql = "SELECT * FROM Produto WHERE nomeProduto LIKE ?";
+				sql = "SELECT * FROM Produto WHERE nome_produto LIKE ?";
 				stmt = connection.prepareStatement(sql);
 				stmt.setString(1, "%" + prod.getNomeProduto() + "%");
 
 			} else if ((prod.getLocalOrigemProduto() != null && !prod.getLocalOrigemProduto().equals(""))
 					&& (prod.getNomeProduto() == null || prod.getNomeProduto().equals(""))) {
 
-				sql = "SELECT * FROM Produto WHERE localOrigemProduto LIKE ?";
+				sql = "SELECT * FROM Produto WHERE local_origem_produto LIKE ?";
 				stmt = connection.prepareStatement(sql);
 				stmt.setString(1, "%" + prod.getLocalOrigemProduto() + "%");
 
 			} else if ((prod.getNomeProduto() != null && !prod.getNomeProduto().equals(""))
 					&& (prod.getLocalOrigemProduto() != null && !prod.getLocalOrigemProduto().equals(""))) {
 
-				sql = "SELECT * FROM Produto WHERE nomeProduto LIKE ? AND localOrigemProduto LIKE ?";
+				sql = "SELECT * FROM Produto WHERE nome_produto LIKE ? AND local_origem_produto LIKE ?";
 				stmt = connection.prepareStatement(sql);
 				stmt.setString(2, "%" + prod.getLocalOrigemProduto() + "%");
 				stmt.setString(1, "%" + prod.getNomeProduto() + "%");
@@ -213,17 +272,22 @@ public class ProdutoDAO {
 				Produto produto = new Produto();
 
 				produto.setId(rs.getInt("id"));
-				produto.setNomeProduto(rs.getString("nomeProduto"));
-				produto.setLocalOrigemProduto(rs.getString("localOrigemProduto"));
-				produto.setCoresDisponiveis(rs.getString("coresDisponiveis"));
+				produto.setNomeProduto(rs.getString("nome_produto"));
+				produto.setLocalOrigemProduto(rs.getString("local_origem_produto"));
+				produto.setCoresDisponiveis(rs.getString("cores_disponiveis"));
 				
 				int idMaterialDoProduto = rs.getInt("id");
 				MaterialDoProdutoDAO dao = new MaterialDoProdutoDAO();
 				MaterialDoProduto mdp = dao.buscarPorId(idMaterialDoProduto);
 				produto.setMaterialDoProduto(mdp);
 				
-				produto.setPrecoVenda(rs.getDouble("precoVenda"));
-				produto.setQuantidadeDisponivel(rs.getInt("quantidadeDisponivel"));
+				int idUsuario = rs.getInt("id_usu_artesao");
+				UsuarioDAO dao2 = new UsuarioDAO();
+				Usuario mdp2 = dao2.buscaPorId(idUsuario);
+				produto.setUsuarioArtesao(mdp2);
+				
+				produto.setPrecoVenda(rs.getDouble("preco_venda"));
+				produto.setQuantidadeDisponivel(rs.getInt("quantidade_disponivel"));
 				produto.setImagem(rs.getString("imagem"));
 
 				p.add(produto);

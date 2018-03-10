@@ -6,63 +6,79 @@
 <head>
 <meta charset="iso-8859">
 <title>Pesquisando Produto </title>
-</head>
-<body>
-	
+		<script type="text/javascript">
+		
+			function preencherModal(nomeProduto, localOrigemProduto, materialDoProduto, quantidadeDisponivel, precoVenda, usuarioArtesao) {
+				
+				document.getElementById('nomeProduto').innerHTML = nomeProduto;
+				document.getElementById('localOrigemProduto').innerHTML = localOrigemProduto;
+				document.getElementById('materialDoProduto').innerHTML = materialDoProduto;
+				document.getElementById('quantidadeDisponivel').innerHTML = quantidadeDisponivel;
+				document.getElementById('precoVenda').innerHTML = precoVenda;
+				document.getElementById('usuarioArtesao').innerHTML = usuarioArtesao;
+				
+			}
+		
+		</script>
+	</head>
+	<body>
 		<!-- Navigation -->
 		<c:import url="/view/comum/menu.jsp" />
-		<div> ${mensagem} </div>
-		<div> O número de produtos encontrados foram :  ${pesquisa.size()}</div>
-		<table border="1" style="width: 100%;">
-			<tr>
-				<td>Nome do Produto</td>
-				<td>Local de Origem</td>
-				<td>Disponíveis nas cores</td>
-				<td>Material do Produto</td>
-				<td>Preço</td>
-				<td>Estoque</td>
-				<td>Imagem</td>
-			<c:if test="${usuarioLogado.tipoUsuario == 'ADM' }">
-				<td colspan="2"><center> Ações </center> </td>
-			</c:if>
-			</tr>
-		
-		<c:forEach var="p" items="${pesquisa}">
-
-			<tr>
-				<td> ${p.nomeProduto} </td>
-				<td> 
-					<c:if test="${p.localOrigemProduto != ''}">
-						${p.localOrigemProduto}
-					</c:if>
-				</td>
-				<td> ${p.coresDisponiveis} </td>
-				<td> ${p.materialDoProduto.descricao} </td>
-				<td> 
-					${p.precoVenda}
-				</td>
-				<td> ${p.quantidadeDisponivel} </td>
-				<td>
-					<c:choose>
-						<c:when test="${not empty p.imagem}">
-							<img src="view/img/${p.imagem}">
-						</c:when>
-						<c:otherwise>
-							A imagem não foi carregada.
-						</c:otherwise>
-					</c:choose>
-				 </td>
-				 <c:if test="${usuarioLogado.tipoUsuario == 'ADM' || usuarioLogado.tipoUsuario == 'Artesão' }">
-				 <td colspan="2">
-					<a href="removerProduto?id=${p.id}" class="btn btn-info"">Remover</a>
-					<a href="exibirAtualizarProduto?id=${p.id}" class="btn btn-info">Atualizar</a>
-				</td>
-				</c:if>
-			</tr>
+		<h1>${mensagem}</h1>
+		<!-- Page Content -->
+		<div class="container">
+			<!-- Modal Ver informações-->
+			<div class="modal fade" id="verMais" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 			
-		</c:forEach>
-		
-		</table>
-	<c:import url="/view/comum/rodape.jsp" />
+				<div class="modal-dialog modal-dialog-centered" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLongTitle">Mais Informações</h5>
+							<button type="button" class="close" data-dismiss="modal"
+								aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+							</div>
+							<div class="modal-body">
+								<h4 class="card-title"><label id="nomeProduto"></label></h4>
+									<form action="efetuarPedido" method="post">
+										<ul>
+											<li>Feito em: <label id="localOrigemProduto"></label></li>
+											<li>Feito por: <label id="usuarioArtesao"></label></li>
+											<li>Estoque: <label id="quantidadeDisponivel"></label></li>
+											<li>Material: <label id="materialDoProduto"></label></li>
+											<li class="card-text">Valor: <label id="precoVenda"></label></li>
+										</ul>
+										<div class="card-footer">
+											<center><button type="submit" class="btn btn-info">Comprar</button></center>
+										</div>
+									</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			<br><br>
+			<!-- Page Features -->
+			<div class="row text-center">
+				<c:forEach var="p" items="${pesquisa}">
+					<div class="col-lg-3 col-md-6 mb-4">
+						<div class="card">
+							<img class="card-img-top" src="view/img/${p.imagem}" alt="">
+							<div class="card-body">
+								<h4 class="card-title">${p.nomeProduto}</h4>
+							</div>
+							<div class="card-footer">
+								<a href="#" class="btn btn-info">Comprar</a>
+								<c:if test="${usuarioLogado.tipoUsuario == 'ADM'}"><a href="exibirAtualizarProduto?id=${p.id}" class="btn btn-info">Alterar</a></c:if>
+								<br><a href="#" onclick="preencherModal('${p.nomeProduto}','${p.localOrigemProduto}', '${p.materialDoProduto.descricao}', '${p.quantidadeDisponivel}', '${p.precoVenda}','${p.usuarioArtesao.nomeCompleto}' );" data-toggle="modal" data-target="#verMais" class="btn btn-info">Mais Informações</a>
+							</div>
+						</div>
+					</div>
+				</c:forEach>
+			</div>
+			<!-- /.row -->
+		</div>
+		<!-- /.container -->
+		<c:import url="/view/comum/rodape.jsp" />
 	</body>
 </html>

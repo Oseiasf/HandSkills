@@ -23,7 +23,7 @@ public class UsuarioDAO {
 
 	public void CadastrarUsuario(Usuario usuario) {
 
-		String sql = "INSERT INTO Usuario  (nomeCompleto, cpf, rg, email, senha, endereco, bairro, cidade, estado, cep, sexo, tipoUsuario, telefone, whatsapp) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		String sql = "INSERT INTO Usuario  (nome_completo, cpf, rg, email, senha, endereco, bairro, cidade, estado, cep, sexo, tipo_usuario, telefone, whatsapp) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		PreparedStatement stmt;
 		try {
 
@@ -56,7 +56,7 @@ public class UsuarioDAO {
 
 		try {
 			List<Usuario> listaUsuario = new ArrayList<Usuario>();
-			PreparedStatement stmt = this.connection.prepareStatement("SELECT * FROM Usuario ORDER BY nomeCompleto");
+			PreparedStatement stmt = this.connection.prepareStatement("SELECT * FROM Usuario ORDER BY nome_completo");
 
 			ResultSet rs = stmt.executeQuery();
 
@@ -84,7 +84,7 @@ public class UsuarioDAO {
 
 		try {
 			List<Usuario> listaUsuario = new ArrayList<Usuario>();
-			PreparedStatement stmt = this.connection.prepareStatement("SELECT * FROM Usuario WHERE nomeCompleto LIKE ?");
+			PreparedStatement stmt = this.connection.prepareStatement("SELECT * FROM Usuario WHERE nome_completo LIKE ?");
 		   
 		       stmt.setString(1, '%' + usuario1.getNomeCompleto() + '%');
 
@@ -107,7 +107,7 @@ public class UsuarioDAO {
 
 	public void alterarUsuario(Usuario usuario) {
 
-		String sql = "UPDATE Usuario SET nomeCompleto = ?, cpf = ?, rg = ?, email = ?, senha = ?, endereco = ?, bairro = ?, cidade = ?, estado = ?, cep = ?, sexo = ?, tipoUsuario = ?, telefone = ?, whatsapp = ? WHERE id = ?";
+		String sql = "UPDATE Usuario SET nome_completo = ?, cpf = ?, rg = ?, email = ?, senha = ?, endereco = ?, bairro = ?, cidade = ?, estado = ?, cep = ?, sexo = ?, tipo_usuario = ?, telefone = ?, whatsapp = ? WHERE id = ?";
 		PreparedStatement stmt;
 		try {
 
@@ -239,7 +239,7 @@ public class UsuarioDAO {
 		Usuario usuario = new Usuario();
 
 		usuario.setId(rs.getInt("id"));
-		usuario.setNomeCompleto(rs.getString("nomeCompleto"));
+		usuario.setNomeCompleto(rs.getString("nome_completo"));
 		usuario.setCpf(rs.getString("cpf"));
 		usuario.setRg(rs.getString("rg"));
 		usuario.setEmail(rs.getString("email"));
@@ -250,7 +250,7 @@ public class UsuarioDAO {
 		usuario.setEstado(rs.getString("estado"));
 		usuario.setCep(rs.getString("cep"));
 		usuario.setSexo(rs.getString("sexo"));
-		usuario.setTipoUsuario(TipoUsuario.valueOf(rs.getString("tipoUsuario")));
+		usuario.setTipoUsuario(TipoUsuario.valueOf(rs.getString("tipo_usuario")));
 		usuario.setTelefone(rs.getString("telefone"));
 		usuario.setWhatsapp(rs.getString("whatsapp"));
 

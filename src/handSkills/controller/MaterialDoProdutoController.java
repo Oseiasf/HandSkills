@@ -85,6 +85,6 @@ public class MaterialDoProdutoController {
 		MaterialDoProdutoDAO dao = new MaterialDoProdutoDAO();
 		dao.removerMaterial(material);
 		model.addAttribute("mensagem", "Material Removido com Sucesso");
-		return "forward:ListarMaterial";
+		return "forward:listarMaterial";
 	}
 }

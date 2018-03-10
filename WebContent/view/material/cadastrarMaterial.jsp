@@ -23,7 +23,7 @@
 					<p class="descricao">
 						Descrição do produto<span>*</span>
 					</p>
-					</span> <input type="text" name="nomeProduto" maxlength="50" required pattern="[Aa-Zz\s]+$" style="width: 100%"/>
+					</span> <input type="text" name="Descricao" maxlength="50" required pattern="[Aa-Zz\s]+$" style="width: 100%"/>
 					<span>${nomeMaterialProdutoExiste}</span>
 				</div>
 
