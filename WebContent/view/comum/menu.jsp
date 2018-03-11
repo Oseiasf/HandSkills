@@ -42,7 +42,7 @@
 				</button>
 			</div>
 			<div class="modal-body">
-			<div style="color: red;" align="center"> <h3> ${msg} </h3> </div>
+			<div style="color: red;" align="center"> <h6 class="mensagem-erro"> ${msg} </h6> </div>
 				<form action="efetuarLogin" method="post">
 					<div class="form-group">
 						<p>

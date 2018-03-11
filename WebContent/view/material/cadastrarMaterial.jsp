@@ -13,7 +13,7 @@
 			<c:if test="${msg ne null}">
 				<div class="alert alert-error" style="width: 70%;">
 					<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-					${msg}
+					<h5 class="mensagem-sucesso" style="margin-left: 35%">${msg}</h5>
 				</div>
 			</c:if>
 			<form action="cadastrarMaterial" method="post">
@@ -21,10 +21,11 @@
 				<div class="form-group">
 
 					<p class="descricao">
-						Descrição do produto<span>*</span>
+						Material do produto<span>*</span>
 					</p>
-					</span> <input type="text" name="Descricao" maxlength="50" required pattern="[Aa-Zz\s]+$" style="width: 100%"/>
-					<span>${nomeMaterialProdutoExiste}</span>
+					</span> <input type="text" name="Descricao" maxlength="50" required pattern="[Aa-Zz\s]+$" style="width: 100%" placeholder="Digite o material do produto" />
+					<h6 class="mensagem-erro">${nomeMaterialProdutoExiste}</h6>
+
 				</div>
 
 				<br />

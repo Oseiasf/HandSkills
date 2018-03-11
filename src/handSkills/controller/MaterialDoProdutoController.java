@@ -32,7 +32,7 @@ public class MaterialDoProdutoController {
 
 			MaterialDoProdutoDAO dao = new MaterialDoProdutoDAO();
 			dao.CadastrarMaterial(material);
-			model.addAttribute("msg", "O Material " + material.getDescricao() + " cadastrado com sucesso");
+			model.addAttribute("msg", "O Material " + material.getDescricao() + " foi cadastrado com sucesso");
 			return "material/cadastrarMaterial";
 			
 		} catch (Exception e) {

@@ -16,7 +16,7 @@
 			<c:if test="${mensagem ne null}">
 				<div class="alert alert-error" style="width: 70%;">
 					<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-					${mensagem}
+					<h5 class="mensagem-sucesso" style="margin-left: 35%">${mensagem}</h5>
 				</div>
 			</c:if>
 			<hr />

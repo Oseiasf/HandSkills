@@ -213,6 +213,37 @@ public class UsuarioDAO {
 			throw new RuntimeException(e);
 		}
 	}
+	public boolean verificaExisteUsuarioPorCpf(String cpf) {
+
+		boolean existe = false;
+
+		try {
+
+			String sql = "SELECT cpf FROM Usuario WHERE cpf = ?";
+			PreparedStatement stmt = this.connection.prepareStatement(sql);
+			stmt = connection.prepareStatement(sql);
+
+			stmt.setString(1, cpf);
+
+			ResultSet rs = stmt.executeQuery();
+
+			while (rs.next()) {
+				
+				existe = true;
+				break;
+								
+			}
+
+			rs.close();
+			stmt.close();
+			connection.close();
+
+			return existe;
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
 
 
 	public Usuario buscarUsuario(Usuario usuario) {
