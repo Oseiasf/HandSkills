@@ -16,7 +16,7 @@ public class Usuario {
 	private String sexo;
 	private String telefone;
 	private String whatsapp;
-	private String tipoUsuario;
+	private TipoUsuario tipoUsuario;
 	
 	public int getId() {
 		return id;
@@ -102,11 +102,14 @@ public class Usuario {
 	public void setWhatsapp(String whatsapp) {
 		this.whatsapp = whatsapp;
 	}
-	public String getTipoUsuario() {
+	public TipoUsuario getTipoUsuario() {
 		return tipoUsuario;
 	}
-	public void setTipoUsuario(String tipoUsuario) {
+	public void setTipoUsuario(TipoUsuario tipoUsuario) {
 		this.tipoUsuario = tipoUsuario;
+	}
+	public void setTipoUsuarioStr(String tipo) {
+		this.tipoUsuario = TipoUsuario.valueOf(tipo);
 	}
 	
 	

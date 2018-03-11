@@ -54,7 +54,7 @@ input[type='file'] {
 					</div>
 					<div class="form-group">
 						<p>
-							Cores disponíveis <span>*</span>
+							Cores disponÃ­veis <span>*</span>
 						</p>
 						<span class="icon-case"> <i class="fa fa-circle-o"></i></span> <input
 							type="text" name="coresDisponiveis" maxlength="20" required
@@ -78,7 +78,7 @@ input[type='file'] {
 					</div>
 					<div class="form-group">
 						<p>
-							Preço de venda <span>*</span>
+							PreÃ§o de venda <span>*</span>
 						</p>
 						<span class="icon-case"> <i class="fa fa-dollar"></i>
 						</span> <input type="text" name="precoVenda" maxlength="20" required
@@ -86,7 +86,7 @@ input[type='file'] {
 					</div>
 					<div class="form-group">
 						<p>
-							Quantidade disponível <span>*</span>
+							Quantidade disponÃ­vel <span>*</span>
 						</p>
 						<span class="icon-case"> <i class="fa fa-bar-chart-o"></i>
 						</span> <input type="text" name="quantidadeDisponivel" maxlength="10"
@@ -98,7 +98,9 @@ input[type='file'] {
 					<div class='input-wrapper'>
 						
 						<label for='input-file'> Selecione uma imagem </label> <input
-							id='input-file' type='file' value='' name="file"/> <span id='file-name'  ></span>
+
+							id='input-file' type='file' value='' name="file"/> <span id='file-name' ></span>
+
 					</div>
 				</div>
 				<button type="submit" class="bouton-contact btn-info">Cadastrar</button>

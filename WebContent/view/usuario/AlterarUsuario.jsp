@@ -144,11 +144,11 @@
 						Tipo de usuário<span>*</span>
 					</p>
 					<span class="icon-case"><i class="fa fa-group"></i></span> <select
-						class="form-control" id="style-select" name="tipoUsuario">
+						class="form-control" id="style-select" name="TipoUsuarioStr">
 						<option value="${u.tipoUsuario}">${u.tipoUsuario}</option>
-						<option value="Artesão">Artesão</option>
+						<option value="ARTESAO">Artesão</option>
 						<option value="ADM">ADM</option>
-						<option value="Cliente">Cliente</option>
+						<option value="CLIENTE">Cliente</option>
 					</select>
 
 

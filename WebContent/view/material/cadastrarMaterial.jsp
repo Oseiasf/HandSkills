@@ -25,6 +25,7 @@
 					</p>
 					</span> <input type="text" name="Descricao" maxlength="50" required pattern="[Aa-Zz\s]+$" style="width: 100%" placeholder="Digite o material do produto" />
 					<h6 class="mensagem-erro">${nomeMaterialProdutoExiste}</h6>
+
 				</div>
 
 				<br />
