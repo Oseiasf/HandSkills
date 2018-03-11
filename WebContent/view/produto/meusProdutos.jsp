@@ -1,15 +1,10 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
-<html lang="pt">
+<html>
 	<head>
 		<meta charset="iso-8859">
-		<title>Listar produto</title>
-		<style>
-		#corpo {
-			background: #EEE9E9;
-		}
-		</style>
+		<title>Meus produtos</title>
 		
 		<script type="text/javascript">
 		
@@ -55,7 +50,11 @@
 											<li class="card-text">Valor: <label id="precoVenda"></label></li>
 										</ul>
 										<div class="card-footer">
-											<center><button type="submit" class="btn btn-info">Comprar</button></center>
+											<center>
+												<button type="submit" class="btn btn-info">Comprar</button>
+												<a href="removerProduto?id=${p.id}" class="btn btn-info"">Remover</a>
+												<a href="exibirAtualizarProduto?id=${p.id}" class="btn btn-info">Atualizar</a>
+											</center>
 										</div>
 									</form>
 							</div>

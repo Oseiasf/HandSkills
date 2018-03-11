@@ -4,6 +4,7 @@ package handSkills.model;
 public class Produto {
 	
 	private int id;
+	private Usuario usuarioArtesao;
 	private	String nomeProduto;
 	private	String localOrigemProduto;
 	private	String coresDisponiveis;
@@ -60,6 +61,12 @@ public class Produto {
 	}
 	public void setMaterialDoProduto(MaterialDoProduto materialDoProduto) {
 		this.materialDoProduto = materialDoProduto;
+	}
+	public Usuario getUsuarioArtesao() {
+		return usuarioArtesao;
+	}
+	public void setUsuarioArtesao(Usuario usuarioArtesao) {
+		this.usuarioArtesao = usuarioArtesao;
 	}
 		
 }

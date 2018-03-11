@@ -10,13 +10,14 @@
 	
 			<script type="text/javascript">
 		
-			function preencherModal(nomeProduto, localOrigemProduto, materialDoProduto, quantidadeDisponivel, precoVenda) {
+			function preencherModal(nomeProduto, localOrigemProduto, materialDoProduto, quantidadeDisponivel, precoVenda, usuarioArtesao) {
 				
 				document.getElementById('nomeProduto').innerHTML = nomeProduto;
 				document.getElementById('localOrigemProduto').innerHTML = localOrigemProduto;
 				document.getElementById('materialDoProduto').innerHTML = materialDoProduto;
 				document.getElementById('quantidadeDisponivel').innerHTML = quantidadeDisponivel;
 				document.getElementById('precoVenda').innerHTML = precoVenda;
+				document.getElementById('usuarioArtesao').innerHTML = usuarioArtesao;
 				
 			}
 		
@@ -42,6 +43,7 @@
 									<form action="efetuarPedido" method="post">
 										<ul>
 											<li>Feito em: <label id="localOrigemProduto"></label></li>
+											<li>Feito por: <label id="usuarioArtesao"></label></li>
 											<li>Estoque: <label id="quantidadeDisponivel"></label></li>
 											<li>Material: <label id="materialDoProduto"></label></li>
 											<li class="card-text">Valor: <label id="precoVenda"></label></li>
@@ -105,7 +107,7 @@
 						</div>
 						<div class="card-footer">
 							<a href="#" class="btn btn-info">Comprar</a>
-							<br><a href="#" onclick="preencherModal('${p.nomeProduto}','${p.localOrigemProduto}', '${p.materialDoProduto.descricao}', '${p.quantidadeDisponivel}', '${p.precoVenda}');" data-toggle="modal" data-target="#verMais" class="btn btn-info">Mais Informações</a>
+							<br><a href="#" onclick="preencherModal('${p.nomeProduto}','${p.localOrigemProduto}', '${p.materialDoProduto.descricao}', '${p.quantidadeDisponivel}', '${p.precoVenda}', '${p.usuarioArtesao.nomeCompleto}' );" data-toggle="modal" data-target="#verMais" class="btn btn-info">Mais Informações</a>
 						</div>
 					</div>
 				</div>
