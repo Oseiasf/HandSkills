@@ -21,7 +21,7 @@
 				document.getElementById('quantidadeDisponivel').innerHTML = quantidadeDisponivel;
 				document.getElementById('precoVenda').innerHTML = precoVenda;
 				document.getElementById('usuarioArtesao').innerHTML = usuarioArtesao;
-				var complemento = "class='btn btn-info' role='button'>Adicionar Ao Carrinho</a> &nbsp;"
+				var complemento = "' class='btn btn-info' role='button'>Adicionar Ao Carrinho</a> &nbsp;"
 				document.getElementById('idProduto').innerHTML = "<a href='exibirAdicionarCarrinho?id="+idProduto+complemento;
 
 				
@@ -59,7 +59,7 @@
 										</ul>
 										<div class="card-footer">
 										<button type="submit" class="btn btn-info">Comprar</button>
-										<h1 id="idProduto"></h1> 
+										<span id="idProduto"></span> 
 										
 										</div>
 									</form>
