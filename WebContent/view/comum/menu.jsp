@@ -123,6 +123,9 @@
 					<li class="nav-item">
 						<a class="nav-link" href="listarProduto">Listar Produtos</a>
 					</li>
+					<li>
+						<a class="nav-link" href="exibirCarrinho">Carrinho</a>
+					</li>
 				</c:if>
 				
 				<c:if test="${usuarioLogado.tipoUsuario == 'ARTESAO' }">
@@ -134,6 +137,9 @@
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="exibirCadastrarProduto">Cadastro Produto</a>
+					</li>
+					<li>
+						<a class="nav-link" href="exibirCarrinho">Carrinho</a>
 					</li>
 				</c:if>
 				
@@ -158,6 +164,9 @@
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="meusProdutos">Meus Produtos</a>
+					</li>
+					<li>
+						<a class="nav-link" href="exibirCarrinho">Carrinho</a>
 					</li>
 				</c:if>     	
 				
