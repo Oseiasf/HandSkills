@@ -14,15 +14,22 @@ import handSkills.model.MaterialDoProduto;
 import handSkills.model.MaterialDoProdutoDAO;
 import handSkills.model.Produto;
 import handSkills.model.ProdutoDAO;
+import handSkills.model.TipoUsuario;
 import handSkills.model.Usuario;
 import handSkills.util.Util;
 
 @Controller
 public class ProdutoController {
-
+	
 	@RequestMapping("/exibirCadastrarProduto")
-	public String exibirCadastrarProduto(Model model) {
+	public String exibirCadastrarProduto(Model model, HttpSession session) {
 
+		Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
+		
+		if (!usuario.getTipoUsuario().equals(TipoUsuario.ARTESAO) && !usuario.getTipoUsuario().equals(TipoUsuario.ADM) ) {
+			return "index";
+		}
+		
 		MaterialDoProdutoDAO dao = new MaterialDoProdutoDAO();
 		List<MaterialDoProduto> listaMaterialDoProduto = dao.listarMaterialDoProduto();
 		model.addAttribute("listaMaterialDoProduto", listaMaterialDoProduto);
@@ -32,7 +39,12 @@ public class ProdutoController {
 
 	@RequestMapping("/CadastrarProduto")
 	public String CadastrarProduto(Produto produto, HttpSession session, @RequestParam("file") MultipartFile imagem, Model model) {
-
+		Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
+		
+		if (!usuario.getTipoUsuario().equals(TipoUsuario.ARTESAO) && !usuario.getTipoUsuario().equals(TipoUsuario.ADM) ) {
+			return "index";
+		}
+		
 		if (Util.fazerUploadImagem(imagem)) {
 			produto.setImagem(Util.obterMomentoAtual() + " - " + imagem.getOriginalFilename());
 		}
@@ -64,6 +76,12 @@ public class ProdutoController {
 	
 	@RequestMapping("/meusProdutos")
 	public String meusProdutos(Model model, HttpSession session) {
+
+		Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
+		
+		if (!usuario.getTipoUsuario().equals(TipoUsuario.ARTESAO) && !usuario.getTipoUsuario().equals(TipoUsuario.ADM) ) {
+			return "index";
+		}
 		
 		Usuario usuarioArtesao = (Usuario) session.getAttribute("usuarioLogado");
 		Produto produto = new Produto();
@@ -77,6 +95,7 @@ public class ProdutoController {
 
 	@RequestMapping("removerProduto")
 	public String removerProduto(Produto produto, Model model) {
+		
 		ProdutoDAO dao = new ProdutoDAO();
 		dao.remover(produto);
 		model.addAttribute("mensagem", "O produto removido com sucesso");
@@ -84,8 +103,14 @@ public class ProdutoController {
 	}
 
 	@RequestMapping("/exibirAtualizarProduto")
-	public String exibirAlterarProduto(Produto produto, Model model) {
+	public String exibirAlterarProduto(Produto produto, Model model, HttpSession session) {
 
+		Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
+		
+		if (!usuario.getTipoUsuario().equals(TipoUsuario.ARTESAO) && !usuario.getTipoUsuario().equals(TipoUsuario.ADM) ) {
+			return "index";
+		}
+		
 		ProdutoDAO dao = new ProdutoDAO();
 		Produto produtoCompleto = dao.buscaPorId(produto.getId());
 		model.addAttribute("p", produtoCompleto);
@@ -98,8 +123,14 @@ public class ProdutoController {
 	}
 
 	@RequestMapping("/exibirInformacoesProduto")
-	public String exibirInformacoesProduto(Produto produto, Model model) {
+	public String exibirInformacoesProduto(Produto produto, Model model, HttpSession session) {
 
+		Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
+		
+		if (!usuario.getTipoUsuario().equals(TipoUsuario.ARTESAO) && !usuario.getTipoUsuario().equals(TipoUsuario.ADM) ) {
+			return "index";
+		}
+		
 		ProdutoDAO dao = new ProdutoDAO();
 		Produto produtoCompleto = dao.buscaPorId(produto.getId());
 		model.addAttribute("prod", produtoCompleto);
@@ -119,7 +150,8 @@ public class ProdutoController {
 	}
 
 	@RequestMapping("/pesquisarProduto")
-	public String pesquisarProduto(Produto produto, Model model) {
+	public String pesquisarProduto(Produto produto, Model model, HttpSession session) {
+		
 		ProdutoDAO dao = new ProdutoDAO();
 		List<Produto> pesquisa = dao.pesquisarProduto(produto);
 		model.addAttribute("pesquisa", pesquisa);

@@ -213,6 +213,7 @@ public class UsuarioDAO {
 			throw new RuntimeException(e);
 		}
 	}
+	
 	public boolean verificaExisteUsuarioPorCpf(String cpf) {
 
 		boolean existe = false;

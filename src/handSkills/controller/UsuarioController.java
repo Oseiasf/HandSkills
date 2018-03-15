@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import handSkills.model.Produto;
 import handSkills.model.ProdutoDAO;
+import handSkills.model.TipoUsuario;
 import handSkills.model.Usuario;
 import handSkills.model.UsuarioDAO;
 
@@ -18,8 +19,10 @@ import handSkills.model.UsuarioDAO;
 public class UsuarioController {
 
 	@RequestMapping("/exibirCadastrarUsuario")
-	public String exibirCadastrarUsuario() {
+	public String exibirCadastrarUsuario(HttpSession session) {
 
+		Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
+		
 		return "usuario/cadastrarUsuario";
 	}
 
@@ -34,8 +37,10 @@ public class UsuarioController {
 				model.addAttribute("emailExiste", "Email existente, por favor tente outro.");
 				return "forward:exibirCadastrarUsuario";
 			}
+			
+			dao2 = new UsuarioDAO();
 			if (dao2.verificaExisteUsuarioPorCpf(usuario.getCpf())) {
-				model.addAttribute("cpflExiste", "Cpf existente, por favor tente outro.");
+				model.addAttribute("cpfExiste", "Cpf existente, por favor tente outro.");
 				return "forward:exibirCadastrarUsuario";
 			}
 			
@@ -52,8 +57,14 @@ public class UsuarioController {
 	}
 
 	@RequestMapping("/exibirAtualizarUsuario")
-	public String exibirAlterarUsuario(Usuario usuario, Model model) {
+	public String exibirAlterarUsuario(Usuario usuario, Model model, HttpSession session) {
 
+		Usuario usuario1 = (Usuario) session.getAttribute("usuarioLogado");
+		
+		if (!usuario1.getTipoUsuario().equals(TipoUsuario.ARTESAO) && !usuario1.getTipoUsuario().equals(TipoUsuario.ADM) ) {
+			return "index";
+		}
+		
 		UsuarioDAO dao = new UsuarioDAO();
 		Usuario usuarioCompleto = dao.buscaPorId(usuario.getId());
 		model.addAttribute("u", usuarioCompleto);
@@ -62,8 +73,14 @@ public class UsuarioController {
 	}
 
 	@RequestMapping("/alterarUsuario")
-	public String alterarUsuario(Usuario usuario, Model model) {
+	public String alterarUsuario(Usuario usuario, Model model, HttpSession session) {
 
+		Usuario usuario1 = (Usuario) session.getAttribute("usuarioLogado");
+		
+		if (!usuario1.getTipoUsuario().equals(TipoUsuario.ARTESAO) && !usuario1.getTipoUsuario().equals(TipoUsuario.ADM) ) {
+			return "index";
+		}
+		
 		UsuarioDAO dao = new UsuarioDAO();
 		dao.alterarUsuario(usuario);
 		UsuarioDAO dao2 = new UsuarioDAO();
@@ -75,7 +92,13 @@ public class UsuarioController {
 	}
 
 	@RequestMapping("listarUsuarios")
-	public String listarUsuarios(Model model) {
+	public String listarUsuarios(Model model, HttpSession session) {
+
+		Usuario usuario1 = (Usuario) session.getAttribute("usuarioLogado");
+		
+		if (!usuario1.getTipoUsuario().equals(TipoUsuario.ARTESAO) && !usuario1.getTipoUsuario().equals(TipoUsuario.ADM) ) {
+			return "index";
+		}
 		UsuarioDAO dao = new UsuarioDAO();
 		List<Usuario> listarUsuario = new ArrayList<Usuario>();
 		listarUsuario = dao.listar();
@@ -95,7 +118,13 @@ public class UsuarioController {
 	}
 	
 	@RequestMapping("/pesquisarUsuario")
-	public String pesquisarUsuario(Usuario usuario, Model model) {
+	public String pesquisarUsuario(Usuario usuario, Model model, HttpSession session) {
+
+		Usuario usuario1 = (Usuario) session.getAttribute("usuarioLogado");
+		
+		if (!usuario1.getTipoUsuario().equals(TipoUsuario.ARTESAO) && !usuario1.getTipoUsuario().equals(TipoUsuario.ADM) ) {
+			return "index";
+		}
 		UsuarioDAO dao = new UsuarioDAO();
 		List<Usuario> listaUsuario = new ArrayList<Usuario>();
 		listaUsuario = dao.pesquisarUsuario(usuario);
