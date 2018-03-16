@@ -23,6 +23,8 @@ public class UsuarioController {
 
 		Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
 		
+		
+		
 		return "usuario/cadastrarUsuario";
 	}
 
@@ -62,6 +64,11 @@ public class UsuarioController {
 		Usuario usuario1 = (Usuario) session.getAttribute("usuarioLogado");
 		
 		if (!usuario1.getTipoUsuario().equals(TipoUsuario.ARTESAO) && !usuario1.getTipoUsuario().equals(TipoUsuario.ADM) ) {
+			
+			ProdutoDAO dao = new ProdutoDAO();
+			List<Produto> listaProduto = dao.listar();
+			model.addAttribute("listaProduto", listaProduto);
+			
 			return "index";
 		}
 		
@@ -78,6 +85,11 @@ public class UsuarioController {
 		Usuario usuario1 = (Usuario) session.getAttribute("usuarioLogado");
 		
 		if (!usuario1.getTipoUsuario().equals(TipoUsuario.ARTESAO) && !usuario1.getTipoUsuario().equals(TipoUsuario.ADM) ) {
+			
+			ProdutoDAO dao = new ProdutoDAO();
+			List<Produto> listaProduto = dao.listar();
+			model.addAttribute("listaProduto", listaProduto);
+			
 			return "index";
 		}
 		
@@ -97,6 +109,11 @@ public class UsuarioController {
 		Usuario usuario1 = (Usuario) session.getAttribute("usuarioLogado");
 		
 		if (!usuario1.getTipoUsuario().equals(TipoUsuario.ARTESAO) && !usuario1.getTipoUsuario().equals(TipoUsuario.ADM) ) {
+			
+			ProdutoDAO dao = new ProdutoDAO();
+			List<Produto> listaProduto = dao.listar();
+			model.addAttribute("listaProduto", listaProduto);
+			
 			return "index";
 		}
 		UsuarioDAO dao = new UsuarioDAO();
@@ -123,6 +140,11 @@ public class UsuarioController {
 		Usuario usuario1 = (Usuario) session.getAttribute("usuarioLogado");
 		
 		if (!usuario1.getTipoUsuario().equals(TipoUsuario.ARTESAO) && !usuario1.getTipoUsuario().equals(TipoUsuario.ADM) ) {
+			
+			ProdutoDAO dao = new ProdutoDAO();
+			List<Produto> listaProduto = dao.listar();
+			model.addAttribute("listaProduto", listaProduto);
+			
 			return "index";
 		}
 		UsuarioDAO dao = new UsuarioDAO();
@@ -151,7 +173,7 @@ public class UsuarioController {
 			return "index";
 		}
 		model.addAttribute("msg", "Não foi encontrado um usuário com o login e senha informados.");
-		return "index";
+		return "login";
 	}
 	
 	@RequestMapping("logout")

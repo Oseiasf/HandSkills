@@ -24,9 +24,14 @@ public class ProdutoController {
 	@RequestMapping("/exibirCadastrarProduto")
 	public String exibirCadastrarProduto(Model model, HttpSession session) {
 
-		Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
+		Usuario usuario1 = (Usuario) session.getAttribute("usuarioLogado");
 		
-		if (!usuario.getTipoUsuario().equals(TipoUsuario.ARTESAO) && !usuario.getTipoUsuario().equals(TipoUsuario.ADM) ) {
+		if (!usuario1.getTipoUsuario().equals(TipoUsuario.ARTESAO) && !usuario1.getTipoUsuario().equals(TipoUsuario.ADM) ) {
+			
+			ProdutoDAO dao = new ProdutoDAO();
+			List<Produto> listaProduto = dao.listar();
+			model.addAttribute("listaProduto", listaProduto);
+			
 			return "index";
 		}
 		
@@ -39,11 +44,6 @@ public class ProdutoController {
 
 	@RequestMapping("/CadastrarProduto")
 	public String CadastrarProduto(Produto produto, HttpSession session, @RequestParam("file") MultipartFile imagem, Model model) {
-		Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
-		
-		if (!usuario.getTipoUsuario().equals(TipoUsuario.ARTESAO) && !usuario.getTipoUsuario().equals(TipoUsuario.ADM) ) {
-			return "index";
-		}
 		
 		if (Util.fazerUploadImagem(imagem)) {
 			produto.setImagem(Util.obterMomentoAtual() + " - " + imagem.getOriginalFilename());
@@ -66,7 +66,8 @@ public class ProdutoController {
 	}
 
 	@RequestMapping("/listarProduto")
-	public String listarProduto(Model model) {
+	public String listarProduto(Model model, HttpSession session) {
+		
 		ProdutoDAO dao = new ProdutoDAO();
 		List<Produto> listaProduto = dao.listar();
 		model.addAttribute("listaProduto", listaProduto);
@@ -77,9 +78,14 @@ public class ProdutoController {
 	@RequestMapping("/meusProdutos")
 	public String meusProdutos(Model model, HttpSession session) {
 
-		Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
+		Usuario usuario1 = (Usuario) session.getAttribute("usuarioLogado");
 		
-		if (!usuario.getTipoUsuario().equals(TipoUsuario.ARTESAO) && !usuario.getTipoUsuario().equals(TipoUsuario.ADM) ) {
+		if (!usuario1.getTipoUsuario().equals(TipoUsuario.ARTESAO) && !usuario1.getTipoUsuario().equals(TipoUsuario.ADM) ) {
+			
+			ProdutoDAO dao = new ProdutoDAO();
+			List<Produto> listaProduto = dao.listar();
+			model.addAttribute("listaProduto", listaProduto);
+			
 			return "index";
 		}
 		
@@ -105,9 +111,14 @@ public class ProdutoController {
 	@RequestMapping("/exibirAtualizarProduto")
 	public String exibirAlterarProduto(Produto produto, Model model, HttpSession session) {
 
-		Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
+		Usuario usuario1 = (Usuario) session.getAttribute("usuarioLogado");
 		
-		if (!usuario.getTipoUsuario().equals(TipoUsuario.ARTESAO) && !usuario.getTipoUsuario().equals(TipoUsuario.ADM) ) {
+		if (!usuario1.getTipoUsuario().equals(TipoUsuario.ARTESAO) && !usuario1.getTipoUsuario().equals(TipoUsuario.ADM) ) {
+			
+			ProdutoDAO dao = new ProdutoDAO();
+			List<Produto> listaProduto = dao.listar();
+			model.addAttribute("listaProduto", listaProduto);
+			
 			return "index";
 		}
 		
@@ -125,9 +136,14 @@ public class ProdutoController {
 	@RequestMapping("/exibirInformacoesProduto")
 	public String exibirInformacoesProduto(Produto produto, Model model, HttpSession session) {
 
-		Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
+		Usuario usuario1 = (Usuario) session.getAttribute("usuarioLogado");
 		
-		if (!usuario.getTipoUsuario().equals(TipoUsuario.ARTESAO) && !usuario.getTipoUsuario().equals(TipoUsuario.ADM) ) {
+		if (!usuario1.getTipoUsuario().equals(TipoUsuario.ARTESAO) && !usuario1.getTipoUsuario().equals(TipoUsuario.ADM) ) {
+			
+			ProdutoDAO dao = new ProdutoDAO();
+			List<Produto> listaProduto = dao.listar();
+			model.addAttribute("listaProduto", listaProduto);
+			
 			return "index";
 		}
 		

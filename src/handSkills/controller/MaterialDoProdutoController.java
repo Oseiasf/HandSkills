@@ -2,19 +2,34 @@ package handSkills.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import handSkills.model.MaterialDoProduto;
 import handSkills.model.MaterialDoProdutoDAO;
+import handSkills.model.Produto;
+import handSkills.model.ProdutoDAO;
+import handSkills.model.TipoUsuario;
+import handSkills.model.Usuario;
 
 @Controller
 public class MaterialDoProdutoController {
 
 	@RequestMapping("/exibirCadastrarMaterial")
-	public String exibirCadastrarMaterial() {
-
+	public String exibirCadastrarMaterial(Model model, HttpSession session) {
+		Usuario usuario1 = (Usuario) session.getAttribute("usuarioLogado");
+		
+		if (!usuario1.getTipoUsuario().equals(TipoUsuario.ARTESAO) && !usuario1.getTipoUsuario().equals(TipoUsuario.ADM) ) {
+			
+			ProdutoDAO dao = new ProdutoDAO();
+			List<Produto> listaProduto = dao.listar();
+			model.addAttribute("listaProduto", listaProduto);
+			
+			return "index";
+		}
 		return "material/cadastrarMaterial";
 	}
 
@@ -44,8 +59,17 @@ public class MaterialDoProdutoController {
 	}
 
 	@RequestMapping("/exibirAlterarMaterial")
-	public String exibirAlterarProduto(MaterialDoProduto material, Model model) {
-
+	public String exibirAlterarProduto(MaterialDoProduto material, Model model, HttpSession session) {
+		Usuario usuario1 = (Usuario) session.getAttribute("usuarioLogado");
+		
+		if (!usuario1.getTipoUsuario().equals(TipoUsuario.ARTESAO) && !usuario1.getTipoUsuario().equals(TipoUsuario.ADM) ) {
+			
+			ProdutoDAO dao = new ProdutoDAO();
+			List<Produto> listaProduto = dao.listar();
+			model.addAttribute("listaProduto", listaProduto);
+			
+			return "index";
+		}
 		MaterialDoProdutoDAO dao = new MaterialDoProdutoDAO();
 		MaterialDoProduto materialCompleto = dao.buscarPorId(material.getId());
 		model.addAttribute("material", materialCompleto);
@@ -65,14 +89,32 @@ public class MaterialDoProdutoController {
 	}
 
 	@RequestMapping("/exibirListarMaterial")
-	public String exibirListarMaterial() {
-
+	public String exibirListarMaterial(Model model, HttpSession session) {
+		Usuario usuario1 = (Usuario) session.getAttribute("usuarioLogado");
+		
+		if (!usuario1.getTipoUsuario().equals(TipoUsuario.ARTESAO) && !usuario1.getTipoUsuario().equals(TipoUsuario.ADM) ) {
+			
+			ProdutoDAO dao = new ProdutoDAO();
+			List<Produto> listaProduto = dao.listar();
+			model.addAttribute("listaProduto", listaProduto);
+			
+			return "index";
+		}
 		return "material/listarMaterial";
 	}
 
 	@RequestMapping("/listarMaterial")
-	public String listarMaterial(Model model) {
-
+	public String listarMaterial(Model model, HttpSession session) {
+		Usuario usuario1 = (Usuario) session.getAttribute("usuarioLogado");
+		
+		if (!usuario1.getTipoUsuario().equals(TipoUsuario.ARTESAO) && !usuario1.getTipoUsuario().equals(TipoUsuario.ADM) ) {
+			
+			ProdutoDAO dao = new ProdutoDAO();
+			List<Produto> listaProduto = dao.listar();
+			model.addAttribute("listaProduto", listaProduto);
+			
+			return "index";
+		}
 		MaterialDoProdutoDAO dao = new MaterialDoProdutoDAO();
 		List<MaterialDoProduto> listarMaterial = dao.listarMaterialDoProduto();
 		model.addAttribute("listarMaterial", listarMaterial);

@@ -20,4 +20,10 @@ public class IndexController {
 
 		return "index";
 	}
+	
+	@RequestMapping("/login")
+	public String Login(Model model) {
+
+		return "login";
+	}
 }

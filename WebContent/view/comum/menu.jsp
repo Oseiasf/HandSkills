@@ -13,14 +13,6 @@
 <script type="text/javascript" src="js/bootstrap.js"></script>
 <!-- chamada da função -->
 
-<c:if test="${usuarioLogado == null }">
-	<script type="text/javascript">
-	$(window).load(function() {
-	    $('#modalLogin').modal('show');
-	});
-	</script>
-</c:if>
-
 <!-- Custom styles for this template -->
 <link href="./resources/css/heroic-features.css" rel="stylesheet">
 <link href="./resources/css/style.css" rel="stylesheet">
@@ -30,42 +22,6 @@
 
 <link href="./resources/css/styleform.css" rel="stylesheet">
 <link href="./resources/css/style.css" rel="stylesheet">
-
-<!-- Modal login -->
-<div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered" role="document">
-		<div class="modal-content">
-			<div class="modal-header cor-barralogin">
-				<h5 class="modal-title cor-login" id="exampleModalLongTitle">Login</h5>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-			</div>
-			<div class="modal-body">
-			<div style="color: red;" align="center"> <h6 class="mensagem-erro"> ${msg} </h6> </div>
-				<form action="efetuarLogin" method="post">
-					<div class="form-group">
-						<p>
-							Login<span>*</span>
-						</p>
-						<span class="icon-case"><i class="fa fa-user"></i></span> <input type="text" name="email" maxlength="80" placeholder="Entre com o email cadastrado no sistema." required/>
-					</div>
-					<div class="form-group">
-						<p>
-							Senha<span>*</span>
-						</p>
-						<span class="icon-case">
-							<i class="fa fa-user"></i>
-						</span>
-						<input type="password" name="senha" maxlength="50" placeholder="Digite sua senha" required/>
-					</div>
-					<button type="submit" class="col-4 offset-4 btn btn-info">Entrar</button> <br><br>
-					<span class="col-4 offset-4"><a href="exibirCadastrarUsuario" class="cor-cadastre cadastre-login">Cadastre-se</a></span>
-				</form>
-			</div>
-		</div>
-	</div>
-</div>
 
 <!--  Modal Buscar Produto -->
 <div class="modal fade modalBuscarProdutos" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
@@ -173,7 +129,7 @@
 				
 				<c:if test="${usuarioLogado == null}">
 					<li class="nav-item">
-						<a class="nav-link" href="#" data-toggle="modal" data-target="#modalLogin">Login</a>
+						<a class="nav-link" href="login" >Login</a>
 					</li>
 				</c:if>
 				
