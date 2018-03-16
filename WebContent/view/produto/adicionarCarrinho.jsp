@@ -52,28 +52,36 @@
 				<input type="hidden" name="id" value="${p.id}">
 				
   				<div class="form-group">
-					<label>Nome Produto</label> <br/> ${p.nomeProduto}
+					<label class="nomes">Nome Produto:</label>
+					<br>
+					<input value="${p.nomeProduto}" readonly>  
 				</div>
   				
   				<div class="form-group">
-					<label>Material Principal</label> <br/> ${p.materialDoProduto.descricao}
+					<label class="nomes">Material Principal:</label>
+					<br>
+					<input value="${p.materialDoProduto.descricao} " readonly>
 				</div>
 				
 				<div class="form-group">
-					<label>Valor</label> <br/> ${p.precoVenda}
+					<label class="nomes">Valor:</label>
+					<br>
+					 <input value="${p.precoVenda}" readonly>
 				</div>
 				
 				<div class="form-group">
-					<label for="inputQuantidade">Quantidade</label>
-					<input type="text" id="inputQuantidade" class="form-control" name="quantidade" style="width: 50px;" required="required" />
+					<label for="inputQuantidade" class="nomes">Quantidade</label>
+					<br>
+					<input type="text" id="inputQuantidade" class="form-control" name="quantidade" style="width: 75%;" required="required" />
 				</div>
 				
 				<br />
-  				
+				
+  				<div class="alinhar-botoes">
   				<a href="listarProduto" class="btn btn-danger" role="button">Cancelar</a> &nbsp;
   				<button type="reset" class="btn btn-default"> &nbsp; Limpar &nbsp; </button> &nbsp;
   				<button type="submit" class="btn btn-info"> &nbsp; Adicionar &nbsp; </button>
-  				
+  				</div>
 			</form>
 		</div>
 			

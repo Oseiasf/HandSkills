@@ -60,7 +60,7 @@
 	color: #17a2b8;
 }
 .cadastre-login{
-	margin-left: 4%;
+	margin-left: 8%;
 }
 .cor-cadastro{
 	color: #ffffff;
@@ -93,5 +93,8 @@
 	color: #FF0000;
 	text-align: center;
 	margin-top: 4%;
+}
+.nomes{
+	color:#343a40;
 }
 

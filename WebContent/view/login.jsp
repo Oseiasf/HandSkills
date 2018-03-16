@@ -12,17 +12,18 @@
 					<div class="">
 					<div style="color: red;" align="center"> <h6 class="mensagem-erro"> ${msg} </h6> </div>
 						<form action="efetuarLogin" method="post">
+						<h1 class="cor-cadastrar">Login</h1>
 							<div class="form-group">
-								<p>
+								<p class="centralizando-input margin-nome-login">
 									Login<span>*</span>
 								</p>
-								<span class="icon-case"><i class="fa fa-user"></i></span> <input type="text" name="email" maxlength="80" placeholder="Entre com o email cadastrado no sistema." required/>
+								<span class="icon-case centralizando-input"><i class="fa fa-user"></i></span> <input type="text" name="email" maxlength="80" placeholder="Entre com o email cadastrado no sistema." required/>
 							</div>
 							<div class="form-group">
-								<p>
+								<p class="centralizando-input">
 									Senha<span>*</span>
 								</p>
-								<span class="icon-case">
+								<span class="icon-case centralizando-input">
 									<i class="fa fa-user"></i>
 								</span>
 								<input type="password" name="senha" maxlength="50" placeholder="Digite sua senha" required/>

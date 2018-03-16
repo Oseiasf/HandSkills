@@ -161,3 +161,14 @@ i {
 .descricao{
 	margin: 14px;
 }
+
+.centralizando-input{
+	margin-left: 8%;
+}
+.margin-nome-login{
+	margin-top: 3%;
+}
+
+.alinhar-botoes{
+	text-align: center;
+}
