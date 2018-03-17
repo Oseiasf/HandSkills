@@ -18,7 +18,7 @@
 						<span class="icon-case">
 							<i class="fa fa-user"></i>
 						</span>
-						<input type="text" name="nomeCompleto" maxlength="50" required/>
+						<input type="text" name="nomeCompleto" maxlength="50" required placeholder="Digite seu nome"/>
 					</div>
 					<div class="form-group">
 						<p>CPF <span>*</span></p>
@@ -51,20 +51,20 @@
 						<p> Senha <span>*</span></p>
 						<span class="icon-case">
 							<i class="fa fa-building-o"></i>
-						</span> <input type="password" name="senha" maxlength="200" required/>
+						</span> <input type="password" name="senha"  minlength="8" maxlength="100" required placeholder="Digite sua senha"/>
 					</div>
 					<div class="form-group">
 						<p>Endereço <span>*</span></p>
 						<span class="icon-case">
 							<i class="fa fa-map-marker"></i></span>
-							<input type="text" name="endereco" maxlength="100" required/>
+							<input type="text" name="endereco" maxlength="100" required placeholder="Digite seu endereço"/>
 					</div>
 					<div class="form-group">
 						<p>Bairro <span>*</span></p>
 						<span class="icon-case">
 							<i class="fa fa-map-marker"></i>
 						</span>
-						<input type="text" name="bairro" maxlength="100" required/>
+						<input type="text" name="bairro" maxlength="100" required placeholder="Digite seu bairro"/>
 					</div>
 				</div>
 					<div class="rightcontact">
@@ -73,7 +73,7 @@
 								<span class="icon-case">
 									<i class="fa fa-map-marker"></i>
 								</span>
-								<input type="text" name="cidade" maxlength="100" required/>
+								<input type="text" name="cidade" maxlength="100" required placeholder="Digite sua cidade"/>
 						</div>
 						<div class="form-group">
 							<p>Estado <span>*</span></p>
@@ -81,6 +81,7 @@
 								<i class="fa fa-map-marker"></i>
 							</span>
 							<select class="form-control style-select ajuste-icone" name="estado" required>
+								<option value="">Selecione um estado</option>
 								<option value="PE">Pernambuco</option>
 								<option value="RJ">Rio de Janeiro</option>
 							</select>
@@ -96,9 +97,9 @@
 						<span class="icon-case">
 							<i class="fa fa-circle-o"></i>
 						</span>
-						<select class="form-control style-select ajuste-icone" name="sexo" required>
+						<select class="form-control style-select ajuste-icone" name="sexo" required >
 							<option value="">Selecione</option>
-							<option value="Outros">Outros</option>
+							<option value="Não Identificado">Não identificado</option>
 							<option value="Feminino">Feminino</option>
 							<option value="Masculino">Masculino</option>
 						</select>
