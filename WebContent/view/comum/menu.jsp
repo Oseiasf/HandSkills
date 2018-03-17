@@ -145,9 +145,25 @@
 					</div>
 				</li>
 				
-				<c:if test="${usuarioLogado != null}">
+				<c:if test="${usuarioLogado != null && usuarioLogado.tipoUsuario == 'ARTESAO'}">
 					<li class="nav-item">
-						<a class="nav-link">Bem vindo, ${usuarioLogado.nomeCompleto}</a>
+						<a class="nav-link">Bem vindo, Artesão.</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="logout">Sair</a>
+					</li>
+				</c:if>
+				<c:if test="${usuarioLogado != null && usuarioLogado.tipoUsuario == 'ADM'}">
+					<li class="nav-item">
+						<a class="nav-link">Bem vindo, Administrador.</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="logout">Sair</a>
+					</li>
+				</c:if>
+				<c:if test="${usuarioLogado != null && usuarioLogado.tipoUsuario == 'CLIENTE'}">
+					<li class="nav-item">
+						<a class="nav-link">Bem vindo, Cliente.</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="logout">Sair</a>
