@@ -1,21 +1,58 @@
 package handSkills.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Enumerated;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Usuario")
 public class Usuario {
 	
+	@Id
 	private int id;
+	
+	@Column
 	private String nomeCompleto;
+	
+	@Column
 	private	String cpf;
+	
+	@Column
 	private String rg;
+	
+	@Column
 	private String email;
+	
+	@Column
 	private String senha;
+	
+	@Column
 	private String endereco;
+	
+	@Column
 	private String bairro;
+	
+	@Column
 	private String cidade;
+	
+	@Column
 	private String estado;
+	
+	@Column
 	private String cep;
+	
+	@Column
 	private String sexo;
+	
+	@Column
 	private String telefone;
+	
+	@Column
 	private String whatsapp;
+	
+	@Enumerated
 	private TipoUsuario tipoUsuario;
 	
 	public int getId() {

@@ -1,6 +1,7 @@
 package handSkills.controller;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -11,10 +12,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import handSkills.model.ItemCarrinho;
+import handSkills.model.ItemVenda;
 import handSkills.model.Produto;
 import handSkills.model.ProdutoDAO;
 import handSkills.model.TipoUsuario;
 import handSkills.model.Usuario;
+import handSkills.model.Venda;
+import handSkills.model.VendaHibernateDAO;
 
 @Controller
 public class CarrinhoController {
@@ -95,5 +99,43 @@ public class CarrinhoController {
 	}
 
 	return "produto/listarCarrinho";
+    }
+    
+    @RequestMapping("/concluirVenda")
+    public String concluirVenda(HttpSession session, Model model) {
+
+	List<ItemCarrinho> listaCarrinho = (List<ItemCarrinho>) session.getAttribute("listaCarrinho");
+
+	if (listaCarrinho != null) {
+
+	    Venda venda = new Venda();
+	    venda.setUsuario((Usuario) session.getAttribute("usuarioLogado"));
+	    venda.setDataVenda(new Date());
+
+	    List<ItemVenda> itensVenda = new ArrayList<ItemVenda>();
+	    for (ItemCarrinho itemCarrinho : listaCarrinho) {
+
+		venda.setValorTotal(venda.getValorTotal() + (itemCarrinho.getProduto().getPrecoVenda() * itemCarrinho.getQuantidade()));
+
+		ItemVenda itemVenda = new ItemVenda();
+		itemVenda.setProduto(itemCarrinho.getProduto());
+		itemVenda.setQuantidade(itemCarrinho.getQuantidade());
+		itemVenda.setValor(itemCarrinho.getProduto().getPrecoVenda());
+		itemVenda.setVenda(venda);
+		itensVenda.add(itemVenda);
+	    }
+
+	    venda.setListaItens(itensVenda);
+
+	    VendaHibernateDAO dao = new VendaHibernateDAO();
+	    dao.inserir(venda);
+	    model.addAttribute("msg", "Compra realizada com sucesso!");
+
+	} else {
+
+	    model.addAttribute("msg", "Não há itens adicionados ao carrinho");
+	}
+
+	return "forward:listarProduto";
     }
 }
