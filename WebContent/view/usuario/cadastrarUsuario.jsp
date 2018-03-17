@@ -50,7 +50,7 @@
 					<div class="form-group">
 						<p> Senha <span>*</span></p>
 						<span class="icon-case">
-							<i class="fa fa-building-o"></i>
+							<i class="fa fa-unlock"></i>
 						</span> <input type="password" name="senha" maxlength="200" required/>
 					</div>
 					<div class="form-group">

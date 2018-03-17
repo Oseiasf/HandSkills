@@ -54,7 +54,7 @@ input[type='file'] {
 					</div>
 					<div class="form-group">
 						<p>
-							Cores dispon√≠veis <span>*</span>
+							Cores disponÌ≠veis <span>*</span>
 						</p>
 						<span class="icon-case"> <i class="fa fa-circle-o"></i></span> <input
 							type="text" name="coresDisponiveis" maxlength="20" required
@@ -78,19 +78,20 @@ input[type='file'] {
 					</div>
 					<div class="form-group">
 						<p>
-							Pre√ßo de venda <span>*</span>
+							PreÁo de venda <span>*</span>
 						</p>
 						<span class="icon-case"> <i class="fa fa-dollar"></i>
 						</span> <input type="text" name="precoVenda" maxlength="20" required
-							pattern="[0-9]+$" placeholder="ex:99,99" />
+							pattern="[0-9]+$" />
 					</div>
 					<div class="form-group">
 						<p>
 							Quantidade dispon√≠vel <span>*</span>
 						</p>
-						<span class="icon-case"> <i class="fa fa-bar-chart-o"></i>
-						</span> <input type="text" name="quantidadeDisponivel" maxlength="10"
-							required pattern="[0-9]+$" />
+						<span class="icon-case"> <i
+						class="fa fa-edit"></i>
+						</span> <input  type="text" name="quantidadeDisponivel" maxlength="10"
+							required pattern="[0-9]+$" class="quantidade" />
 					</div>
 
 				</div>
