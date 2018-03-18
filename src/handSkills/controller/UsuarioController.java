@@ -19,12 +19,8 @@ import handSkills.model.UsuarioDAO;
 public class UsuarioController {
 
 	@RequestMapping("/exibirCadastrarUsuario")
-	public String exibirCadastrarUsuario(HttpSession session) {
+	public String exibirCadastrarUsuario() {
 
-		Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
-		
-		
-		
 		return "usuario/cadastrarUsuario";
 	}
 
@@ -108,7 +104,7 @@ public class UsuarioController {
 
 		Usuario usuario1 = (Usuario) session.getAttribute("usuarioLogado");
 		
-		if (!usuario1.getTipoUsuario().equals(TipoUsuario.ARTESAO) && !usuario1.getTipoUsuario().equals(TipoUsuario.ADM) ) {
+		if (!usuario1.getTipoUsuario().equals(TipoUsuario.ADM) ) {
 			
 			ProdutoDAO dao = new ProdutoDAO();
 			List<Produto> listaProduto = dao.listar();

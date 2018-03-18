@@ -22,7 +22,7 @@ public class MaterialDoProdutoController {
 	public String exibirCadastrarMaterial(Model model, HttpSession session) {
 		Usuario usuario1 = (Usuario) session.getAttribute("usuarioLogado");
 		
-		if (!usuario1.getTipoUsuario().equals(TipoUsuario.ARTESAO) && !usuario1.getTipoUsuario().equals(TipoUsuario.ADM) ) {
+		if (!usuario1.getTipoUsuario().equals(TipoUsuario.ADM) ) {
 			
 			ProdutoDAO dao = new ProdutoDAO();
 			List<Produto> listaProduto = dao.listar();
@@ -62,7 +62,7 @@ public class MaterialDoProdutoController {
 	public String exibirAlterarProduto(MaterialDoProduto material, Model model, HttpSession session) {
 		Usuario usuario1 = (Usuario) session.getAttribute("usuarioLogado");
 		
-		if (!usuario1.getTipoUsuario().equals(TipoUsuario.ARTESAO) && !usuario1.getTipoUsuario().equals(TipoUsuario.ADM) ) {
+		if (!usuario1.getTipoUsuario().equals(TipoUsuario.ADM) ) {
 			
 			ProdutoDAO dao = new ProdutoDAO();
 			List<Produto> listaProduto = dao.listar();
@@ -92,7 +92,7 @@ public class MaterialDoProdutoController {
 	public String exibirListarMaterial(Model model, HttpSession session) {
 		Usuario usuario1 = (Usuario) session.getAttribute("usuarioLogado");
 		
-		if (!usuario1.getTipoUsuario().equals(TipoUsuario.ARTESAO) && !usuario1.getTipoUsuario().equals(TipoUsuario.ADM) ) {
+		if (!usuario1.getTipoUsuario().equals(TipoUsuario.ADM) ) {
 			
 			ProdutoDAO dao = new ProdutoDAO();
 			List<Produto> listaProduto = dao.listar();
@@ -107,7 +107,7 @@ public class MaterialDoProdutoController {
 	public String listarMaterial(Model model, HttpSession session) {
 		Usuario usuario1 = (Usuario) session.getAttribute("usuarioLogado");
 		
-		if (!usuario1.getTipoUsuario().equals(TipoUsuario.ARTESAO) && !usuario1.getTipoUsuario().equals(TipoUsuario.ADM) ) {
+		if (!usuario1.getTipoUsuario().equals(TipoUsuario.ADM) ) {
 			
 			ProdutoDAO dao = new ProdutoDAO();
 			List<Produto> listaProduto = dao.listar();

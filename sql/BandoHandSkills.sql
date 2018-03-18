@@ -1,6 +1,7 @@
 #ALTER TABLE `suatabela` CHANGE `suacoluna` `suacoluna` INT(11) NOT NULL;
 #ALTER TABLE dbo.doc_exa ADD column_b VARCHAR(20) NULL, column_c INT NULL ;
 #drop database handskills;
+#ALTER TABLE ItemVenda ADD CONSTRAINT fk_produto FOREIGN KEY (id_produto) REFERENCES Produto(id);
 create database handskills;
 use handskills;
 

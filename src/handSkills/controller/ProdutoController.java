@@ -54,9 +54,13 @@ public class ProdutoController {
 			Usuario usuarioArtesao = (Usuario) session.getAttribute("usuarioLogado");
 			produto.setUsuarioArtesao(usuarioArtesao);
 			ProdutoDAO dao = new ProdutoDAO();
+			if(produto.getImagem() == "") {
 			dao.CadastrarProduto(produto, usuarioArtesao);
 			model.addAttribute("mensagem", "O produto " + produto.getNomeProduto() + " foi cadastrado com sucesso");
-
+			} else {
+				model.addAttribute("mensagem", "Por favor, selecione uma imagem");
+				return "forward:exibirCadastrarProduto";
+			}
 		} catch (Exception e) {
 			model.addAttribute("mensagem", "Não foi possivél cadastrar o produto, contate o Administrador!");
 			return "forward:exibirCadastrarProduto";

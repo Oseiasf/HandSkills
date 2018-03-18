@@ -57,6 +57,10 @@
 			
 			Valor Parcial da Venda: ${valorTotal}
 			
+			<p>
+				<a href="concluirVenda" class="btn btn-info" role="button">Concluir Venda</a> &nbsp;
+			</p>
+			
 			<c:if test="${listaProduto.size() == 0}">
 				Não foram encontrados registros.
 			</c:if>
