@@ -50,7 +50,6 @@ foreign key (material_produto) references MaterialDoProduto (id)
 create table Venda ( 
 id int AUTO_INCREMENT,
 id_usuario int not null,
-id_usuario int not null,
 dt_venda date not null,
 valor_total float not null,
 primary key (id),
