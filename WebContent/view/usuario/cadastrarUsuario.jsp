@@ -15,8 +15,8 @@
 
         $(document).ready(function() {
 
-            function limpa_formul·rio_cep() {
-                // Limpa valores do formul·rio de cep.
+            function limpa_formul√°rio_cep() {
+                // Limpa valores do formul√°rio de cep.
                 $("#rua").val("");
                 $("#bairro").val("");
                 $("#cidade").val("");
@@ -27,13 +27,13 @@
             //Quando o campo cep perde o foco.
             $("#cep").blur(function() {
 
-                //Nova vari·vel "cep" somente com dÌgitos.
+                //Nova vari√°vel "cep" somente com d√≠gitos.
                 var cep = $(this).val().replace(/\D/g, '');
 
                 //Verifica se campo cep possui valor informado.
                 if (cep != "") {
 
-                    //Express„o regular para validar o CEP.
+                    //Express√£o regular para validar o CEP.
                     var validacep = /^[0-9]{8}$/;
 
                     //Valida o formato do CEP.
@@ -60,21 +60,21 @@
                               
                             } //end if.
                             else {
-                                //CEP pesquisado n„o foi encontrado.
-                                limpa_formul·rio_cep();
-                                alert("CEP n„o encontrado.");
+                                //CEP pesquisado n√£o foi encontrado.
+                                limpa_formul√°rio_cep();
+                                alert("CEP n√£o encontrado.");
                             }
                         });
                     } //end if.
                     else {
-                        //cep È inv·lido.
-                        limpa_formul·rio_cep();
-                        alert("Formato de CEP inv·lido.");
+                        //cep √© inv√°lido.
+                        limpa_formul√°rio_cep();
+                        alert("Formato de CEP inv√°lido.");
                     }
                 } //end if.
                 else {
-                    //cep sem valor, limpa formul·rio.
-                    limpa_formul·rio_cep();
+                    //cep sem valor, limpa formul√°rio.
+                    limpa_formul√°rio_cep();
                 }
             });
         });
@@ -85,7 +85,7 @@
 		<c:import url="/view/comum/menu.jsp" />
 		<h5 class="mensagem-sucesso">${mensagem}</h5>
 		<form action="CadastrarUsuario" method="post">
-			<h1 class="cor-cadastrar">Cadastrar usu·rio</h1>
+			<h1 class="cor-cadastrar">Cadastrar usu√°rio</h1>
 			<div class="contentform">
 				<div class="leftcontact">
 					<div class="form-group">
@@ -125,16 +125,15 @@
 					<div class="form-group">
 						<p> Senha <span>*</span></p>
 						<span class="icon-case">
-							<i class="fa fa-building-o"></i>
-						</span>
-						<input type="password" name="senha"  minlength="8" maxlength="100" required placeholder="Digite sua senha"/>
+							<i class="fa fa-unlock"></i>
+						</span> <input type="password" name="senha" maxlength="200" required/>
 					</div>
 					<div class="form-group">
-						<p>EndereÁo <span>*</span></p>
+						<p>Endere√ßo <span>*</span></p>
 						<span class="icon-case">
 							<i class="fa fa-map-marker"></i>
 						</span>
-						<input type="text" name="endereco" maxlength="100" required placeholder="Digite seu endereÁo" id="rua" value=""/>
+						<input type="text" name="endereco" maxlength="100" required placeholder="Digite seu endere√ßo" id="rua" value=""/>
 					</div>
 					<div class="form-group">
 						<p>Bairro <span>*</span></p>
@@ -177,20 +176,20 @@
 						</span>
 						<select class="form-control style-select ajuste-icone" name="sexo" required >
 							<option value="">Selecione</option>
-							<option value="N„o Identificado">N„o identificado</option>
+							<option value="N√£o Identificado">N√£o identificado</option>
 							<option value="Feminino">Feminino</option>
 							<option value="Masculino">Masculino</option>
 						</select>
 					</div>
 					<div class="form-group">
-						<p>Tipo de Usu·rio<span>*</span></p>
+						<p>Tipo de Usu√°rio<span>*</span></p>
 						<span class="icon-case">
 							<i class="fa fa-group"></i>
 						</span>
 						<select class="form-control ajuste-icone" id="style-select" name="TipoUsuarioStr" required>
 							<option value="">Selecione</option>
 							<c:if test="${usuarioLogado.tipoUsuario == 'ADM' }"><option value="ADM">Administrador</option></c:if>
-							<option value="ARTESAO">Artes„o</option>
+							<option value="ARTESAO">Artes√£o</option>
 							<option value="CLIENTE">Cliente</option>
 						</select>
 					</div>

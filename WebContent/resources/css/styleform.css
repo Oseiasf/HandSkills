@@ -172,3 +172,5 @@ i {
 .alinhar-botoes{
 	text-align: center;
 }
+
+value="${p.precoVenda}" readonly
