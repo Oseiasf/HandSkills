@@ -130,6 +130,7 @@ public class CarrinhoController {
 	    VendaHibernateDAO dao = new VendaHibernateDAO();
 	    dao.inserir(venda);
 	    model.addAttribute("msg", "Compra realizada com sucesso!");
+	    session.removeAttribute("listaCarrinho");
 
 	} else {
 
