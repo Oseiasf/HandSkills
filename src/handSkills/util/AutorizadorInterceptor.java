@@ -20,7 +20,8 @@ public class AutorizadorInterceptor extends HandlerInterceptorAdapter {
 				uri.endsWith("CadastrarUsuario") || 
 				uri.endsWith("index") || 
 				uri.endsWith("listarProduto")  || 
-		uri.endsWith("login"))
+				uri.endsWith("login") || 
+				uri.endsWith("pesquisarProduto"))
 		{
 			return true;
 		}
