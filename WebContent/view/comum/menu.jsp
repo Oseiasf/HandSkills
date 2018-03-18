@@ -65,6 +65,7 @@
   </div>
 </div>
 <br>
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-info fixed-top">
 	<div class="container">
 		<a class="navbar-brand" href="index">Handskills</a>
@@ -75,101 +76,123 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarResponsive">
 			<ul class="navbar-nav ml-auto">
-				<c:if test="${usuarioLogado.tipoUsuario == 'CLIENTE' }">
-					<li class="nav-item">
-						<a class="nav-link" href="listarProduto">Listar Produtos</a>
-					</li>
-					<li>
-						<a class="nav-link" href="exibirCarrinho">Carrinho</a>
-					</li>
-				</c:if>
-				
-				<c:if test="${usuarioLogado.tipoUsuario == 'ARTESAO' }">
-					<li class="nav-item">
-						<a class="nav-link" href="listarProduto">Listar Produtos</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="meusProdutos">Meus Produtos</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="exibirCadastrarProduto">Cadastro Produto</a>
-					</li>
-					<li>
-						<a class="nav-link" href="exibirCarrinho">Carrinho</a>
-					</li>
-				</c:if>
-				
-				<c:if test="${usuarioLogado.tipoUsuario == 'ADM' }">
-					<li class="nav-item">
-						<a class="nav-link" href="exibirCadastrarProduto">Cadastro Produto</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="exibirCadastrarMaterial">Cadastro de Material</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="exibirCadastrarUsuario">Cadastrar Usuario</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="listarUsuarios">Listar Usuarios</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="listarMaterial">Listar Materiais</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="listarProduto">Listar Produtos</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="meusProdutos">Meus Produtos</a>
-					</li>
-					<li>
-						<a class="nav-link" href="exibirCarrinho">Carrinho</a>
-					</li>
-				</c:if>     	
-				
-				
 				<c:if test="${usuarioLogado == null}">
 					<li class="nav-item">
 						<a class="nav-link" href="login" >Login</a>
 					</li>
 				</c:if>
-				
-				<li>
+				<c:if test="${usuarioLogado.tipoUsuario == 'CLIENTE' }">
+					<li class="nav-item">
+						<div class="dropdown">
+							<a class="nav-link" href="" id="dropdownProdutoCliente" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									Produtos
+							</a>
+							<div class="dropdown-menu" aria-labelledby="dropdownProdutoCliente">
+								<a class="dropdown-item" href="listarProduto">Listar Produtos</a>
+								<a class="dropdown-item" href="exibirCarrinho">Carrinho</a>
+							</div>
+						</div>
+					</li>
+				</c:if>
+				<c:if test="${usuarioLogado.tipoUsuario == 'ARTESAO' }">
+					<li class="nav-item">
+						<div class="dropdown">
+							<a class="nav-link" href="" id="dropdownProdutoArtesao" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Produtos
+							</a>
+							<div class="dropdown-menu" aria-labelledby="dropdownProdutoArtesao">
+								<a class="dropdown-item" href="exibirCadastrarProduto">Cadastro Produto</a>
+								<a class="dropdown-item" href="listarProduto">Listar Produtos</a>
+								<a class="dropdown-item" href="exibirCarrinho">Carrinho</a>
+							</div>
+						</div>
+					</li>
+				</c:if>
+				<c:if test="${usuarioLogado.tipoUsuario == 'ADM' }">
+					<li class="nav-item">
+						<div class="dropdown">
+							<a class="nav-link" href="" id="dropdownProdutoADM" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Produtos
+							</a>
+							<div class="dropdown-menu" aria-labelledby="dropdownProdutoADM">
+								<a class="dropdown-item" href="exibirCadastrarProduto">Cadastro Produto</a>
+								<a class="dropdown-item" href="listarProduto">Listar Produtos</a>
+								<a class="dropdown-item" href="exibirCarrinho">Carrinho</a>
+							</div>
+						</div>
+					</li>
+				</c:if>
+				<c:if test="${usuarioLogado.tipoUsuario == 'ADM' }">
+					<li class="nav-item">
+						<div class="dropdown">
+							<a class="nav-link" href="" id="dropdownMaterialADM" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Material
+							</a>
+							<div class="dropdown-menu" aria-labelledby="dropdownMaterialADM">
+								<a class="dropdown-item" href="listarMaterial">Listar Materiais</a>
+								<a class="dropdown-item" href="exibirCadastrarMaterial">Cadastro de Material</a>
+							</div>
+						</div>
+					</li>
+				</c:if>	
+				<li class="nav-item">
 					<div class="dropdown">
-						<a class="nav-link" href="" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<a class="nav-link" href="" id="dropdowPesquisa" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							Encontre
 						</a>
-						<div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-							<c:if test="${usuarioLogado.tipoUsuario == 'ADM' }"><a class="dropdown-item" href="" data-toggle="modal" data-target=".modalBuscarPessoas">Usuários</a></c:if>
+						<div class="dropdown-menu" aria-labelledby="dropdowPesquisa">
+							<c:if test="${usuarioLogado.tipoUsuario == 'ADM' }">
+								<a class="dropdown-item" href="" data-toggle="modal" data-target=".modalBuscarPessoas">Usuários</a>
+							</c:if>
 							<a class="dropdown-item" href="" data-toggle="modal" data-target=".modalBuscarProdutos">Produtos</a>
 						</div>
 					</div>
 				</li>
-				
 				<c:if test="${usuarioLogado != null && usuarioLogado.tipoUsuario == 'ARTESAO'}">
 					<li class="nav-item">
-						<a class="nav-link">Bem vindo, Artesão.</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="logout">Sair</a>
+						<div class="dropdown">
+							<a class="nav-link" href="" id="dropdownArtesao" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Bem vindo, Artesão
+							</a>
+							<div class="dropdown-menu" aria-labelledby="dropdownArtesao">
+								<a class="dropdown-item" href="exibirAtualizarUsuario?id=${usuarioLogado.id}">Alterar dados</a>
+								<a class="dropdown-item" href="meusProdutos">Meus Produtos</a>
+								<a class="dropdown-item" href="logout">Sair</a>
+				
+							</div>
+						</div>
 					</li>
 				</c:if>
 				<c:if test="${usuarioLogado != null && usuarioLogado.tipoUsuario == 'ADM'}">
 					<li class="nav-item">
-						<a class="nav-link">Bem vindo, Administrador.</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="logout">Sair</a>
+						<div class="dropdown">
+							<a class="nav-link" href="" id="dropdownADM" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Bem vindo, Administrador
+							</a>
+							<div class="dropdown-menu" aria-labelledby="dropdownADM">
+								<a class="dropdown-item" href="exibirAtualizarUsuario?id=${usuarioLogado.id}">Alterar dados</a>
+								<a class="dropdown-item" href="meusProdutos">Meus Produtos</a>
+								<a class="dropdown-item" href="exibirCadastrarUsuario">Cadastrar Usuario</a>
+								<a class="dropdown-item" href="listarUsuarios">Listar Usuarios</a>
+								<a class="dropdown-item" href="logout">Sair</a>
+							</div>
+						</div>
 					</li>
 				</c:if>
 				<c:if test="${usuarioLogado != null && usuarioLogado.tipoUsuario == 'CLIENTE'}">
 					<li class="nav-item">
-						<a class="nav-link">Bem vindo, Cliente.</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="logout">Sair</a>
+						<div class="dropdown">
+							<a class="nav-link" href="" id="dropdownCliente" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Bem vindo, Cliente
+							</a>
+							<div class="dropdown-menu" aria-labelledby="dropdownCliente">
+								<a class="dropdown-item" href="exibirAtualizarUsuario?id=${usuarioLogado.id}">Alterar dados</a>
+								<a class="dropdown-item" href="#">Produtos Adiquiridos</a>
+								<a class="dropdown-item" href="logout">Sair</a>
+							</div>
+						</div>
 					</li>
 				</c:if>
-				
 			</ul>
 		</div>
 	</div>
