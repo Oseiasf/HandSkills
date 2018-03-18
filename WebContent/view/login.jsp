@@ -39,7 +39,6 @@
 				href="exibirCadastrarUsuario" class="cor-cadastre cadastre-login">Cadastre-se</a></span>
 		</form>
 	</div>
-
 	<footer class="py-5 bg-info"
 		style="position: absolute; width: 100%; bottom: 0;">
 		<div class="container">
