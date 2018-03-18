@@ -1,16 +1,43 @@
 package handSkills.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "Produto")
 public class Produto {
 	
+	@Id
 	private int id;
+	
+	@ManyToOne
+    @JoinColumn(name = "id_usu_artesao")
 	private Usuario usuarioArtesao;
+	
+	@Column(name = "nome_produto")
 	private	String nomeProduto;
+	
+	@Column(name = "local_origem_produto")
 	private	String localOrigemProduto;
+	
+	@Column(name = "cores_disponiveis")
 	private	String coresDisponiveis;
+	
+	@ManyToOne
+    @JoinColumn(name = "material_produto")
 	private	MaterialDoProduto materialDoProduto;
+	
+	@Column(name = "preco_venda")
 	private double precoVenda;
+	
+	@Column(name = "quantidade_disponivel")
 	private int quantidadeDisponivel;
+	
+	@Column
 	private String imagem;
 	
 	public int getId() {
