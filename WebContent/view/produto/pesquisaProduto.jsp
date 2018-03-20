@@ -8,7 +8,7 @@
 <title>Pesquisando Produto </title>
 		<script type="text/javascript">
 		
-			function preencherModal(nomeProduto, localOrigemProduto, materialDoProduto, quantidadeDisponivel, precoVenda, usuarioArtesao) {
+			function preencherModal(nomeProduto, localOrigemProduto, materialDoProduto, quantidadeDisponivel, precoVenda, usuarioArtesao, idProduto) {
 				
 				document.getElementById('nomeProduto').innerHTML = nomeProduto;
 				document.getElementById('localOrigemProduto').innerHTML = localOrigemProduto;
@@ -16,6 +16,9 @@
 				document.getElementById('quantidadeDisponivel').innerHTML = quantidadeDisponivel;
 				document.getElementById('precoVenda').innerHTML = precoVenda;
 				document.getElementById('usuarioArtesao').innerHTML = usuarioArtesao;
+				var complemento = "' class='btn btn-info' role='button'>Adicionar Ao Carrinho</a> &nbsp;"
+				document.getElementById('idProduto').innerHTML = "<a href='exibirAdicionarCarrinho?id="+idProduto+complemento;
+
 				
 			}
 		
@@ -50,7 +53,10 @@
 											<li class="card-text">Valor: <label id="precoVenda"></label></li>
 										</ul>
 										<div class="card-footer">
-											<center><button type="submit" class="btn btn-info">Comprar</button></center>
+											<center>
+												<button type="submit" class="btn btn-info">Comprar</button>
+												<c:if test="${usuarioLogado != null }"><span id="idProduto"></span></c:if>
+											</center>
 										</div>
 									</form>
 							</div>
@@ -70,7 +76,8 @@
 							<div class="card-footer">
 								<a href="#" class="btn btn-info">Comprar</a>
 								<c:if test="${usuarioLogado.tipoUsuario == 'ADM'}"><a href="exibirAtualizarProduto?id=${p.id}" class="btn btn-info">Alterar</a></c:if>
-								<br><a href="#" onclick="preencherModal('${p.nomeProduto}','${p.localOrigemProduto}', '${p.materialDoProduto.descricao}', '${p.quantidadeDisponivel}', '${p.precoVenda}','${p.usuarioArtesao.nomeCompleto}' );" data-toggle="modal" data-target="#verMais" class="btn btn-info">Mais Informações</a>
+								<br><a href="#" onclick="preencherModal('${p.nomeProduto}','${p.localOrigemProduto}', '${p.materialDoProduto.descricao}', '${p.quantidadeDisponivel}', '${p.precoVenda}','${p.usuarioArtesao.nomeCompleto}', '${p.id}' );
+								" data-toggle="modal" data-target="#verMais" class="btn btn-info">Mais Informações</a>
 							</div>
 						</div>
 					</div>

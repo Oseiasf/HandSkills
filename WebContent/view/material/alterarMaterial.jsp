@@ -17,7 +17,7 @@
 				<div class="form-group">
 
 					<p class="descricao">
-						DescriÃ§Ã£o do produto<span>*</span>
+						Descrição do produto<span>*</span>
 					</p>
 					</span> <input type="text" class="form-control" id="inputDescricao"
 						name="descricao" maxlength="50" required="required"

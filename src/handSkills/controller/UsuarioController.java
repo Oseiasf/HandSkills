@@ -57,16 +57,6 @@ public class UsuarioController {
 	@RequestMapping("/exibirAtualizarUsuario")
 	public String exibirAlterarUsuario(Usuario usuario, Model model, HttpSession session) {
 
-		Usuario usuario1 = (Usuario) session.getAttribute("usuarioLogado");
-		
-		if (!usuario1.getTipoUsuario().equals(TipoUsuario.ARTESAO) && !usuario1.getTipoUsuario().equals(TipoUsuario.ADM) ) {
-			
-			ProdutoDAO dao = new ProdutoDAO();
-			List<Produto> listaProduto = dao.listar();
-			model.addAttribute("listaProduto", listaProduto);
-			
-			return "index";
-		}
 		
 		UsuarioDAO dao = new UsuarioDAO();
 		Usuario usuarioCompleto = dao.buscaPorId(usuario.getId());
@@ -77,17 +67,6 @@ public class UsuarioController {
 
 	@RequestMapping("/alterarUsuario")
 	public String alterarUsuario(Usuario usuario, Model model, HttpSession session) {
-
-		Usuario usuario1 = (Usuario) session.getAttribute("usuarioLogado");
-		
-		if (!usuario1.getTipoUsuario().equals(TipoUsuario.ARTESAO) && !usuario1.getTipoUsuario().equals(TipoUsuario.ADM) ) {
-			
-			ProdutoDAO dao = new ProdutoDAO();
-			List<Produto> listaProduto = dao.listar();
-			model.addAttribute("listaProduto", listaProduto);
-			
-			return "index";
-		}
 		
 		UsuarioDAO dao = new UsuarioDAO();
 		dao.alterarUsuario(usuario);
@@ -95,8 +74,10 @@ public class UsuarioController {
 		List<Usuario> listarUsuario = new ArrayList<Usuario>();
 		listarUsuario = dao2.listar();
 		model.addAttribute("listarUsuario", listarUsuario);
-
-		return "usuario/ListarUsuario";
+		
+		model.addAttribute("mensagem", "Usuario alterado com sucesso!");
+		
+		return "forward:exibirAtualizarUsuario";
 	}
 
 	@RequestMapping("listarUsuarios")

@@ -123,7 +123,13 @@ public class MaterialDoProdutoController {
 	}
 
 	@RequestMapping("removerMaterial")
-	public String removerMaterial(MaterialDoProduto material, Model model) {
+	public String removerMaterial(Produto produto, MaterialDoProduto material, Model model) {
+		
+		ProdutoDAO dao1 = new ProdutoDAO();
+		produto = dao1.buscaPorIdProduto(produto.getId());
+		dao1 = new ProdutoDAO();
+		dao1.atualizarId(produto.getId());
+		
 		MaterialDoProdutoDAO dao = new MaterialDoProdutoDAO();
 		dao.removerMaterial(material);
 		model.addAttribute("mensagem", "Material Removido com Sucesso");

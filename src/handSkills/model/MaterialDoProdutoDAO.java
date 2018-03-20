@@ -92,22 +92,17 @@ public class MaterialDoProdutoDAO {
     }
     
     public void removerMaterial(MaterialDoProduto material) {
-
-		String sql = "DELETE FROM MaterialDoProduto WHERE id = ?";
-		PreparedStatement stmt;
-		try {
-
-			stmt = connection.prepareStatement(sql);
-
-			stmt.setInt(1, material.getId());
-
-			stmt.execute();
-			connection.close();
-
-		} catch (SQLException e) {
-			throw new RuntimeException(e);
-		}
-	}
+    	  String sql = "DELETE FROM MaterialDoProduto where id =?";
+    	  try {
+    	   PreparedStatement stmt = connection.prepareStatement(sql);
+    	   stmt.setInt(1, material.getId());
+    	   stmt.execute();
+    	   stmt.close();
+    	  } catch (SQLException e) {
+    		  e.printStackTrace();
+    	   throw new RuntimeException(e);
+    	  }
+    	 }
    
 
 	public void alterarMaterial(MaterialDoProduto material) {

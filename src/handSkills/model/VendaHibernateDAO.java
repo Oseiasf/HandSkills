@@ -5,6 +5,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 public class VendaHibernateDAO {
+	
 
     private static final String PERSISTENCE_UNIT = "handskills";
 
@@ -24,5 +25,6 @@ public class VendaHibernateDAO {
 	manager.close();
 	factory.close();
     }
+    
 
 }

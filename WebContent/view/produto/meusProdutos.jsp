@@ -76,7 +76,6 @@
 							</div>
 							<div class="card-footer">
 								<a href="#" class="btn btn-info">Comprar</a>
-								<c:if test="${usuarioLogado.tipoUsuario == 'ADM'}"><a href="exibirAtualizarProduto?id=${p.id}" class="btn btn-info">Alterar</a></c:if>
 								<br><a href="#" onclick="preencherModal('${p.nomeProduto}','${p.localOrigemProduto}', '${p.materialDoProduto.descricao}', '${p.quantidadeDisponivel}', '${p.precoVenda}','${p.usuarioArtesao.nomeCompleto}', '${p.id}' );" data-toggle="modal" data-target="#verMais" class="btn btn-info">Mais Informações</a>
 							</div>
 						</div>

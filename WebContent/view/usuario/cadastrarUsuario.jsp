@@ -3,20 +3,18 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="iso-8859">
+		<meta charset="iso-8859-1">
 		<title>Cadastrar Usuario</title>
 	<!-- Adicionando JQuery -->
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
-            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-            crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 
     <!-- Adicionando Javascript -->
     <script type="text/javascript" >
 
         $(document).ready(function() {
 
-            function limpa_formul√°rio_cep() {
-                // Limpa valores do formul√°rio de cep.
+            function limpa_formulario_cep() {
+                // Limpa valores do formul·rio de cep.
                 $("#rua").val("");
                 $("#bairro").val("");
                 $("#cidade").val("");
@@ -27,13 +25,13 @@
             //Quando o campo cep perde o foco.
             $("#cep").blur(function() {
 
-                //Nova vari√°vel "cep" somente com d√≠gitos.
+                //Nova vari·vel "cep" somente com dÌ≠gitos.
                 var cep = $(this).val().replace(/\D/g, '');
 
                 //Verifica se campo cep possui valor informado.
                 if (cep != "") {
 
-                    //Express√£o regular para validar o CEP.
+                    //Express„o regular para validar o CEP.
                     var validacep = /^[0-9]{8}$/;
 
                     //Valida o formato do CEP.
@@ -60,21 +58,21 @@
                               
                             } //end if.
                             else {
-                                //CEP pesquisado n√£o foi encontrado.
-                                limpa_formul√°rio_cep();
-                                alert("CEP n√£o encontrado.");
+                                //CEP pesquisado n„o foi encontrado.
+                                limpa_formulario_cep();
+                                alert("CEP n„o encontrado.");
                             }
                         });
                     } //end if.
                     else {
-                        //cep √© inv√°lido.
-                        limpa_formul√°rio_cep();
-                        alert("Formato de CEP inv√°lido.");
+                        //cep È inv·lido.
+                        limpa_formulario_cep();
+                        alert("Formato de CEP inv·lido.");
                     }
                 } //end if.
                 else {
-                    //cep sem valor, limpa formul√°rio.
-                    limpa_formul√°rio_cep();
+                    //cep sem valor, limpa formul·rio.
+                    limpa_formulario_cep();
                 }
             });
         });
@@ -85,7 +83,7 @@
 		<c:import url="/view/comum/menu.jsp" />
 		<h5 class="mensagem-sucesso">${mensagem}</h5>
 		<form action="CadastrarUsuario" method="post">
-			<h1 class="cor-cadastrar">Cadastrar usu√°rio</h1>
+			<h1 class="cor-cadastrar">Cadastrar usu·rio</h1>
 			<div class="contentform">
 				<div class="leftcontact">
 					<div class="form-group">
@@ -108,14 +106,14 @@
 						<span class="icon-case">
 							<i class="fa fa-keyboard-o"></i>
 						</span>
-						<input type="text" name="rg" maxlength="10" required class="rg" placeholder="ex: 9.999.999"/>
+						<input type="text" name="rg" maxlength="10" required class="rg" placeholder="Digite apenas n˙meros">
 					</div>
 					<div class="form-group">
 						<p>Email <span>*</span></p>
 						<span class="icon-case">
 							<i class="fa fa-envelope-o"></i>
 						</span>
-						<input type="email" name="email" id="email" data-rule="email" data-msg="Preencha seu email " 
+						<input type="email" name="email" id="email" data-rule="email" data-msg="Preencha seu email " placeholder="Digite sua senha" 
 							maxlength="50" required/>
 						<br>
 						<br>
@@ -126,15 +124,25 @@
 						<p> Senha <span>*</span></p>
 						<span class="icon-case">
 							<i class="fa fa-unlock"></i>
-						</span> <input type="password" name="senha" maxlength="200" required/>
+						</span> <input type="password" name="senha" maxlength="200" placeholder="Digite sua senha" required/>
 					</div>
 					<div class="form-group">
-						<p>Endere√ßo <span>*</span></p>
+						<p>CEP <span>*</span></p>
 						<span class="icon-case">
 							<i class="fa fa-map-marker"></i>
 						</span>
-						<input type="text" name="endereco" maxlength="100" required placeholder="Digite seu endere√ßo" id="rua" value=""/>
+						<input type="text" name="cep" id="cep" value="" size="10"  maxlength="9" placeholder="Digite apenas n˙meros"  pattern="[0-9]+$" onblur="pesquisacep(this.value);"/><!--   -->
+				<!-- 	<button type="button" class="btn btn-primary" style="background-color: rgba(0,0,0,.5); border-color: rgba(0,0,0,.0001);" onclick="pesquisacep(getElementById('cep').value)">Pesquisar CEP</button> -->
 					</div>
+					<div class="form-group">
+						<p>EndereÁo <span>*</span></p>
+						<span class="icon-case">
+							<i class="fa fa-map-marker"></i>
+						</span>
+						<input type="text" name="endereco" maxlength="100" required placeholder="Digite seu endereÁo" id="rua" value=""/>
+					</div>
+				</div>
+				<div class="rightcontact">
 					<div class="form-group">
 						<p>Bairro <span>*</span></p>
 						<span class="icon-case">
@@ -142,8 +150,6 @@
 						</span>
 						<input id="bairro" type="text" name="bairro" maxlength="100" required placeholder="Digite seu bairro" value=""/>
 					</div>
-				</div>
-				<div class="rightcontact">
 					<div class="form-group">
 						<p>Cidade <span>*</span></p>
 							<span class="icon-case">
@@ -162,34 +168,26 @@
 						</select>
 					</div>
 					<div class="form-group">
-						<p>CEP <span>*</span></p>
-						<span class="icon-case">
-							<i class="fa fa-map-marker"></i>
-						</span>
-						<input type="text" name="cep" id="cep" value="" size="10"  maxlength="9"  pattern="[0-9]+$" /><!-- onblur="pesquisacep(this.value);"  -->
-				<!-- 	<button type="button" class="btn btn-primary" style="background-color: rgba(0,0,0,.5); border-color: rgba(0,0,0,.0001);" onclick="pesquisacep(getElementById('cep').value)">Pesquisar CEP</button> -->
-					</div>
-					<div class="form-group">
 						<p>Sexo <span>*</span></p>
 						<span class="icon-case">
 							<i class="fa fa-circle-o"></i>
 						</span>
 						<select class="form-control style-select ajuste-icone" name="sexo" required >
 							<option value="">Selecione</option>
-							<option value="N√£o Identificado">N√£o identificado</option>
+							<option value="N„o Identificado">N„o identificado</option>
 							<option value="Feminino">Feminino</option>
 							<option value="Masculino">Masculino</option>
 						</select>
 					</div>
 					<div class="form-group">
-						<p>Tipo de Usu√°rio<span>*</span></p>
+						<p>Tipo de Usu·rio<span>*</span></p>
 						<span class="icon-case">
 							<i class="fa fa-group"></i>
 						</span>
 						<select class="form-control ajuste-icone" id="style-select" name="TipoUsuarioStr" required>
 							<option value="">Selecione</option>
 							<c:if test="${usuarioLogado.tipoUsuario == 'ADM' }"><option value="ADM">Administrador</option></c:if>
-							<option value="ARTESAO">Artes√£o</option>
+							<option value="ARTESAO">Artes„o</option>
 							<option value="CLIENTE">Cliente</option>
 						</select>
 					</div>

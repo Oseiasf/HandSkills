@@ -34,11 +34,11 @@ primary key(id)
 create table Produto (
 
 id int AUTO_INCREMENT,
-id_usu_artesao int not null,
+id_usu_artesao int,
 nome_produto varchar(50) not null,
 local_origem_produto varchar(50) not null,
 cores_disponiveis varchar (20) not null,
-material_produto int not null,
+material_produto int,
 preco_venda float not null,
 quantidade_disponivel int not null,
 imagem varchar(200) not null,
@@ -49,7 +49,7 @@ foreign key (material_produto) references MaterialDoProduto (id)
 
 create table Venda ( 
 id int AUTO_INCREMENT,
-id_usuario int not null,
+id_usuario int,
 dt_venda date not null,
 valor_total float not null,
 primary key (id),
@@ -58,8 +58,8 @@ foreign key(id_usuario) references Usuario (id)
 
 create table ItemVenda (
 id int AUTO_INCREMENT,
-id_produto int not null,
-id_venda int not null,
+id_produto int,
+id_venda int,
 quantidade int not null,
 valor float not null, 
 primary key (id),

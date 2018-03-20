@@ -54,7 +54,7 @@ public class ProdutoController {
 			Usuario usuarioArtesao = (Usuario) session.getAttribute("usuarioLogado");
 			produto.setUsuarioArtesao(usuarioArtesao);
 			ProdutoDAO dao = new ProdutoDAO();
-			if(produto.getImagem() == "") {
+			if(produto.getImagem() != "") {
 			dao.CadastrarProduto(produto, usuarioArtesao);
 			model.addAttribute("mensagem", "O produto " + produto.getNomeProduto() + " foi cadastrado com sucesso");
 			} else {

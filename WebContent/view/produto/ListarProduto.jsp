@@ -33,6 +33,7 @@
 		<!-- Navigation -->
 		<c:import url="/view/comum/menu.jsp" />
 		<h1>${mensagem}</h1>
+		<h1>${msg}</h1>
 		<!-- Page Content -->
 		<div class="container">
 			<!-- Modal Ver informações-->
@@ -78,16 +79,11 @@
 								<h4 class="card-title">${p.nomeProduto}</h4>
 							</div>
 							<div class="card-footer">
-								<a href="#" style="background-color:#ffrrff">Comprar</a>
-								
-								<c:if test="${usuarioLogado.tipoUsuario == 'ADM'}">
-								
-									<a href="exibirAtualizarProduto?id=${p.id}" class="btn btn-info">Alterar</a>
-					
-								</c:if>
+								<a href="#" class="btn btn-info">Comprar</a>
+							
 								<br>
 								<br><a href="#" onclick="preencherModal('${p.nomeProduto}','${p.localOrigemProduto}', '${p.materialDoProduto.descricao}', '${p.quantidadeDisponivel}', '${p.precoVenda}','${p.usuarioArtesao.nomeCompleto}', '${p.id}' );
-								" data-toggle="modal" data-target="#verMais" class="btn btn-danger">Mais Informações</a>
+								" data-toggle="modal" data-target="#verMais" class="btn btn-info">Mais Informações</a>
 							</div>
 						</div>
 					</div>

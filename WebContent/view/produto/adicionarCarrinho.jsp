@@ -46,7 +46,7 @@
 					<p class="centralizando-input margin-nome-login">Nome do
 						produto</p>
 					<span class="icon-case centralizando-input"><i
-						class="fa fa-align-left"></i></span> <input type="text" name=""
+						class="fa fa-align-left"></i></span> <input type="text" name="nomeProduto"
 						value="${p.nomeProduto}" readonly maxlength="80" required />
 				</div>
 
@@ -54,7 +54,7 @@
 					<p class="centralizando-input margin-nome-login">Material
 						principal</p>
 					<span class="icon-case centralizando-input"><i
-						class="fa fa-align-left"></i></span> <input type="text" name=""
+						class="fa fa-align-left"></i></span> <input type="text" name="materialDoProduto"
 						value="${p.materialDoProduto.descricao} " readonly maxlength="80"
 						required />
 				</div>
@@ -63,7 +63,7 @@
 					<p class="centralizando-input margin-nome-login">valor 
 						do produto</p>
 					<span class="icon-case centralizando-input"><i
-						class="fa fa-dollar"></i></span> <input type="text" name=""
+						class="fa fa-dollar"></i></span> <input type="text" name="precoVenda"
 						value="${p.precoVenda}" readonly maxlength="80"
 						required />
 				</div>
@@ -72,7 +72,7 @@
 					<p class="centralizando-input margin-nome-login">Quantidade
 						do produto</p>
 					<span class="icon-case centralizando-input"><i
-						class="fa fa-edit"></i></span> <input type="text" name=""
+						class="fa fa-edit"></i></span> <input type="text" name="quantidade"
 						 maxlength="10"
 						required class="quantidade"/>
 				</div>

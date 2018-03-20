@@ -31,12 +31,16 @@
      		<h5 class="alinhamento-encontre">Encontre Produtos</h5>
      		<br>
  			<div class="form-group">
-						
-						<span class="icon-case">
-							<i class="fa fa-search"></i>
-						</span>
-						<input type="text" name="buscar" maxlength="50" placeholder="Buscar" required/>
-					</div>
+				<span class="icon-case">
+					<i class="fa fa-search"></i>
+				</span>
+				<input type="text" name="nomeProduto" maxlength="50" placeholder="Buscar por nome"/>
+				<br><br>
+				<span class="icon-case">
+					<i class="fa fa-search"></i>
+				</span>
+				<input type="text" name="localOrigemProduto" maxlength="50" placeholder="Buscar por localidade" />
+			</div>
  			<div class="input-group-btn">
  				<button type="submit" class="btn btn-secondary alinhamento-botao-buscar cor-botao" type="button">Buscar</button>
  			</div>
@@ -103,6 +107,7 @@
 							<div class="dropdown-menu" aria-labelledby="dropdownProdutoArtesao">
 								<a class="dropdown-item" href="exibirCadastrarProduto">Cadastro Produto</a>
 								<a class="dropdown-item" href="listarProduto">Listar Produtos</a>
+								<a class="dropdown-item" href="exibirListaCompras">Minhas compras</a>
 								<a class="dropdown-item" href="exibirCarrinho">Carrinho</a>
 							</div>
 						</div>
@@ -117,6 +122,7 @@
 							<div class="dropdown-menu" aria-labelledby="dropdownProdutoADM">
 								<a class="dropdown-item" href="exibirCadastrarProduto">Cadastro Produto</a>
 								<a class="dropdown-item" href="listarProduto">Listar Produtos</a>
+								<a class="dropdown-item" href="exibirListaCompras">Minhas compras</a>
 								<a class="dropdown-item" href="exibirCarrinho">Carrinho</a>
 							</div>
 						</div>
@@ -187,7 +193,7 @@
 							</a>
 							<div class="dropdown-menu" aria-labelledby="dropdownCliente">
 								<a class="dropdown-item" href="exibirAtualizarUsuario?id=${usuarioLogado.id}">Alterar dados</a>
-								<a class="dropdown-item" href="#">Produtos Adiquiridos</a>
+								<a class="dropdown-item" href="exibirListaCompras">Minhas compras</a>
 								<a class="dropdown-item" href="logout">Sair</a>
 							</div>
 						</div>

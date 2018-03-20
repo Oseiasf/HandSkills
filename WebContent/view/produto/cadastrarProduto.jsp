@@ -86,7 +86,7 @@ input[type='file'] {
 					</div>
 					<div class="form-group">
 						<p>
-							Quantidade disponÃ­vel <span>*</span>
+							Quantidade disponí­vel <span>*</span>
 						</p>
 						<span class="icon-case"> <i
 						class="fa fa-edit"></i>
@@ -100,7 +100,7 @@ input[type='file'] {
 						
 						<label for='input-file'> Selecione uma imagem </label> <input
 
-							id='input-file' type='file' value='' name="file"/> <span id='file-name' ></span>
+							id='input-file' type='file'  name="file"/> <span id='file-name' ></span>
 
 					</div>
 				</div>
