@@ -106,10 +106,16 @@ public class ProdutoController {
 	@RequestMapping("removerProduto")
 	public String removerProduto(Produto produto, Model model) {
 		
+		try {
 		ProdutoDAO dao = new ProdutoDAO();
 		dao.remover(produto);
 		model.addAttribute("mensagem", "O produto removido com sucesso");
-		return "forward:ListarProduto";
+		return "forward:meusProdutos";
+		
+		}catch(RuntimeException run) {
+			model.addAttribute("mensagem","Não é possível remover o produto, pois o mesmo se encontra vendido.");
+			return "forward:meusProdutos";
+		}
 	}
 
 	@RequestMapping("/exibirAtualizarProduto")

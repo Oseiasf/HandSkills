@@ -154,7 +154,7 @@ public class ProdutoDAO {
 		 }
 	
 	public void remover(Produto produto) {
-		  String sql = "delete from Produto where id =?";
+		  String sql = "delete from Produto where id = ?";
 		  try {
 		   PreparedStatement stmt = connection.prepareStatement(sql);
 		   stmt.setInt(1, produto.getId());
@@ -187,36 +187,6 @@ public class ProdutoDAO {
 
 		} catch (SQLException e) {
 			
-			throw new RuntimeException(e);
-		}
-	}
-	public Produto buscaPorIdProduto(int id) {
-
-		Produto produto = new Produto();
-
-		try {
-
-			String sql = "select material_produto from Produto where material_produto = (select id from MaterialDoProduto where id = ?);";
-			PreparedStatement stmt = this.connection.prepareStatement(sql);
-			stmt = connection.prepareStatement(sql);
-
-			stmt.setInt(1, id);
-
-			ResultSet rs = stmt.executeQuery();
-
-			while (rs.next()) {
-
-				produto.setId(rs.getInt("id"));
-
-			}
-
-			rs.close();
-			stmt.close();
-			connection.close();
-
-			return produto;
-
-		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
 	}

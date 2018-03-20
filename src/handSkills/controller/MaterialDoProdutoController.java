@@ -123,16 +123,17 @@ public class MaterialDoProdutoController {
 	}
 
 	@RequestMapping("removerMaterial")
-	public String removerMaterial(Produto produto, MaterialDoProduto material, Model model) {
+	public String removerMaterial(MaterialDoProduto material, Model model) {
 		
-		ProdutoDAO dao1 = new ProdutoDAO();
-		produto = dao1.buscaPorIdProduto(produto.getId());
-		dao1 = new ProdutoDAO();
-		dao1.atualizarId(produto.getId());
-		
+		try {
 		MaterialDoProdutoDAO dao = new MaterialDoProdutoDAO();
 		dao.removerMaterial(material);
 		model.addAttribute("mensagem", "Material Removido com Sucesso");
 		return "forward:listarMaterial";
+		
+		}catch(RuntimeException run) {
+			model.addAttribute("mensagem","Não é possível remover o material, existem produtos já relacionados.");
+			return "forward:listarMaterial";
+		}
 	}
 }

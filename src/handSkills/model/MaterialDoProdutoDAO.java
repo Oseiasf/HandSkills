@@ -92,7 +92,7 @@ public class MaterialDoProdutoDAO {
     }
     
     public void removerMaterial(MaterialDoProduto material) {
-    	  String sql = "DELETE FROM MaterialDoProduto where id =?";
+    	  String sql = "DELETE FROM MaterialDoProduto where id = ?";
     	  try {
     	   PreparedStatement stmt = connection.prepareStatement(sql);
     	   stmt.setInt(1, material.getId());
