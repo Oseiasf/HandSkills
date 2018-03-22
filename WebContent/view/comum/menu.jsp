@@ -48,6 +48,26 @@
     </div>
   </div>
 </div>
+<!--  Modal Buscar Material -->
+<div class="modal fade modalBuscarMateriais" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+     	<form action="pesquisarMaterial" method="post">
+     		<h5 class="alinhamento-encontre">Encontre Materiais</h5>
+     		<br>
+ 			<div class="form-group">
+				<span class="icon-case">
+					<i class="fa fa-search"></i>
+				</span>
+				<input type="text" name="descricao" maxlength="50" placeholder="Buscar por nome do material"/>
+			</div>
+ 			<div class="input-group-btn">
+ 				<button type="submit" class="btn btn-secondary alinhamento-botao-buscar cor-botao" type="button">Buscar</button>
+ 			</div>
+		</form>
+    </div>
+  </div>
+</div>
 <!-- Buscar Usuarios -->
 <div class="modal fade modalBuscarPessoas" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-sm">
@@ -149,6 +169,7 @@
 						<div class="dropdown-menu" aria-labelledby="dropdowPesquisa">
 							<c:if test="${usuarioLogado.tipoUsuario == 'ADM' }">
 								<a class="dropdown-item" href="" data-toggle="modal" data-target=".modalBuscarPessoas">Usuários</a>
+								<a class="dropdown-item" href="" data-toggle="modal" data-target=".modalBuscarMateriais">Material</a>
 							</c:if>
 							<a class="dropdown-item" href="" data-toggle="modal" data-target=".modalBuscarProdutos">Produtos</a>
 						</div>

@@ -15,7 +15,6 @@ import handSkills.model.ItemCarrinho;
 import handSkills.model.ItemVenda;
 import handSkills.model.Produto;
 import handSkills.model.ProdutoDAO;
-import handSkills.model.TipoUsuario;
 import handSkills.model.Usuario;
 import handSkills.model.Venda;
 import handSkills.model.VendaHibernateDAO;
@@ -121,5 +120,18 @@ public class CarrinhoController {
 	}
 
 	return "forward:listarProduto";
+    }
+    
+    @RequestMapping("/removerItemCarrinho")
+    public String removerItemCarrinho( Model model, HttpSession session) {
+    	
+    	List<ItemCarrinho> lista = (List<ItemCarrinho>) session.getAttribute("listaCarrinho");
+    	ItemCarrinho remove = new ItemCarrinho();
+    	lista.remove(remove);
+    	
+    	model.addAttribute("listaCarrinho", lista);
+    	model.addAttribute("carrinho", "Produto retirado do carrinho");
+
+	return "forward:exibirCarrinho";
     }
 }

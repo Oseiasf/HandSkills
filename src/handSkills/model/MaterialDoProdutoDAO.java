@@ -165,5 +165,30 @@ public class MaterialDoProdutoDAO {
 			throw new RuntimeException(e);
 		}
 	}
+	public List<MaterialDoProduto> pesquisarMaterial(MaterialDoProduto material) {
+
+		try {
+			List<MaterialDoProduto> listaMaterial = new ArrayList<MaterialDoProduto>();
+			PreparedStatement stmt = this.connection.prepareStatement("SELECT * FROM MaterialDoProduto WHERE descricao LIKE ?");
+		   
+		       stmt.setString(1, '%' + material.getDescricao() + '%');
+
+		       ResultSet rs = stmt.executeQuery();
+		       while (rs.next()) {
+		    	   
+		    	   MaterialDoProduto MaterialDoProduto1 = new MaterialDoProduto();
+
+					MaterialDoProduto1.setId(rs.getInt("id"));
+					MaterialDoProduto1.setDescricao(rs.getString("descricao"));
+
+					listaMaterial.add(MaterialDoProduto1); 
+		       }
+		       rs.close();
+		       return listaMaterial;
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
 
 }

@@ -1,6 +1,5 @@
 package handSkills.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -136,30 +135,5 @@ public class MaterialDoProdutoController {
 			model.addAttribute("mensagem","Não é possível remover o material, existem produtos já relacionados.");
 			return "forward:listarMaterial";
 		}
-	}
-	
-	@RequestMapping("/pesquisarMaterial")
-	public String pesquisarMaterial(MaterialDoProduto material, Model model, HttpSession session) {
-
-		Usuario usuario1 = (Usuario) session.getAttribute("usuarioLogado");
-		
-		if (!usuario1.getTipoUsuario().equals(TipoUsuario.ARTESAO) && !usuario1.getTipoUsuario().equals(TipoUsuario.ADM) ) {
-			
-			ProdutoDAO dao = new ProdutoDAO();
-			List<Produto> listaProduto = dao.listar();
-			model.addAttribute("listaProduto", listaProduto);
-			
-			return "index";
-		}
-		MaterialDoProdutoDAO dao = new MaterialDoProdutoDAO();
-		List<MaterialDoProduto> pesquisa = new ArrayList<MaterialDoProduto>();
-		pesquisa = dao.pesquisarMaterial(material);
-		 
-		if (material.getDescricao() == null || material.getDescricao().equals("") || material == null) {
-			 model.addAttribute("nomeMaterial" , "Não existe materiais com esse nome"); 
-			 return "material/pesquisaMaterial";
-		 }
-		  model.addAttribute("pesquisa", pesquisa);
-		  return "material/pesquisaMaterial";
 	}
 }

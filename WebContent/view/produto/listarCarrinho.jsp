@@ -35,7 +35,7 @@
 			</p>
 			
 			<hr />
-			
+			<h1>${carrinho}</h1>
 			<table class="table table-striped table-bordered">
 				<thead>
 					<tr>
@@ -43,6 +43,7 @@
 						<th style="width: 25%; vertical-align: middle; text-align: center;">Valor Unitário</th>
 						<th style="width: 25%; vertical-align: middle;">Quantidade</th>
 						<th style="width: 25%; vertical-align: middle; text-align: center;">Valor Total</th>
+						<th style="width: 25%; vertical-align: middle; text-align: center;">Excluir</th>
 					</tr>
 				</thead>
 				<c:forEach items="${listaCarrinho}" var="item">
@@ -51,6 +52,7 @@
 						<td style="vertical-align: middle; text-align: center;">${item.produto.precoVenda}</td>
 						<td style="vertical-align: middle; text-align: center;">${item.quantidade}</td>
 						<td style="vertical-align: middle; text-align: center;">${item.produto.precoVenda * item.quantidade}</td>
+						<td style="vertical-align: middle; text-align: center;"><a href="removerItemCarrinho">X</a></td>
 					</tr>
 				</c:forEach>
 			</table>

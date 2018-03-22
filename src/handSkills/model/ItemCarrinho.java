@@ -30,4 +30,14 @@ public class ItemCarrinho {
 	this.quantidade = quantidade;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+    	boolean retorno = false;
+    	if (obj instanceof ItemCarrinho) {
+    		if(this.id == ((ItemCarrinho) obj).getId()) {
+    			retorno = true;
+    		}
+    	}
+    	return retorno;
+    }
 }
