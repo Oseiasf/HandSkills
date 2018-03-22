@@ -113,6 +113,7 @@
 							</a>
 							<div class="dropdown-menu" aria-labelledby="dropdownProdutoCliente">
 								<a class="dropdown-item" href="listarProduto">Listar Produtos</a>
+								<a class="dropdown-item" href="exibirListaCompras">Minhas compras</a>
 								<a class="dropdown-item" href="exibirCarrinho">Carrinho</a>
 							</div>
 						</div>
@@ -214,7 +215,6 @@
 							</a>
 							<div class="dropdown-menu" aria-labelledby="dropdownCliente">
 								<a class="dropdown-item" href="exibirAtualizarUsuario?id=${usuarioLogado.id}">Alterar dados</a>
-								<a class="dropdown-item" href="exibirListaCompras">Minhas compras</a>
 								<a class="dropdown-item" href="logout">Sair</a>
 							</div>
 						</div>

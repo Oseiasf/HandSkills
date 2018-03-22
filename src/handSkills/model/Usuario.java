@@ -13,7 +13,7 @@ public class Usuario {
 	@Id
 	private int id;
 	
-	@Column
+	@Column(name= "nome_completo")
 	private String nomeCompleto;
 	
 	@Column

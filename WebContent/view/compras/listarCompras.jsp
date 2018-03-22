@@ -8,18 +8,13 @@
 		
 		<script type="text/javascript">
 		
-			function preencherModal(nomeProduto, localOrigemProduto, materialDoProduto, quantidadeDisponivel, precoVenda, usuarioArtesao, idProduto, dataVenda) {
+			function preencherModal(nomeProduto, localOrigemProduto, materialDoProduto, nomeUsuario, precoVenda, dataVenda) {
 				
 				document.getElementById('nomeProduto').innerHTML = nomeProduto;
 				document.getElementById('localOrigemProduto').innerHTML = localOrigemProduto;
 				document.getElementById('materialDoProduto').innerHTML = materialDoProduto;
-				document.getElementById('quantidadeDisponivel').innerHTML = quantidadeDisponivel;
+				document.getElementById('nomeUsuario').innerHTML = nomeUsuario;
 				document.getElementById('precoVenda').innerHTML = precoVenda;
-				document.getElementById('usuarioArtesao').innerHTML = usuarioArtesao;
-				var complemento = "' class='btn btn-info' role='button'>Atualizar</a>"
-					document.getElementById('idProduto').innerHTML = "<a href='exibirAtualizarProduto?id="+idProduto+complemento;
-				var complemento2 = "' class='btn btn-info' role='button'>Remover</a>"
-					document.getElementById('idProdutoRemover').innerHTML = "<a href='removerProduto?id="+idProduto+complemento2;
 				document.getElementById('dataVenda').innerHTML = dataVenda;
 			}
 		
@@ -48,18 +43,12 @@
 									<form action="efetuarPedido" method="post">
 										<ul>
 											<li>Feito em: <label id="localOrigemProduto"></label></li>
-											<li>Feito por: <label id="usuarioArtesao"></label></li>
-											<li>Estoque: <label id="quantidadeDisponivel"></label></li>
+											<li>Feito por: <label id="nomeUsuario"></label></li>
 											<li>Material: <label id="materialDoProduto"></label></li>
-											<li>Comprado em: <label id="dataVenda"></label></li>
 											<li class="card-text">Valor: <label id="precoVenda"></label></li>
+											<li>Comprado em: <label id="dataVenda"></label></li>
 										</ul>
 										<div class="card-footer">
-											<center>
-												<button type="submit" class="btn btn-info">Comprar</button>
-												<a id="idProdutoRemover">Remover</a>
-												<a id="idProduto">Atualizar</a>
-											</center>
 										</div>
 									</form>
 							</div>
@@ -69,17 +58,15 @@
 			<br><br>
 			<!-- Page Features -->
 			<div class="row text-center">
-				<c:forEach var="c" items="${listaItensCompra}">
+				<c:forEach var="c" items="${listaCompras}">
 					<div class="col-lg-3 col-md-6 mb-4">
 						<div class="card">
-							<img class="card-img-top" src="view/img/${c.imagem}" alt="">
+							<img class="card-img-top" src="view/img/${c.produto.imagem}" alt="">
 							<div class="card-body">
-								<h4 class="card-title">${c.nomeProduto}</h4>
+								<h4 class="card-title">${c.produto.nomeProduto}</h4>
 							</div>
 							<div class="card-footer">
-								<a href="#" class="btn btn-info">Comprar</a>
-								<c:if test="${usuarioLogado.tipoUsuario == 'ADM'}"><a href="exibirAtualizarProduto?id=${c.id}" class="btn btn-info">Alterar</a></c:if>
-								<br><a href="#" onclick="preencherModal('${c.nomeProduto}','${c.localOrigemProduto}', '${c.materialDoProduto.descricao}', '${c.quantidadeDisponivel}', '${c.precoVenda}','${c.usuarioArtesao.nomeCompleto}', '${c.id}', '${c.dataVenda}' );" data-toggle="modal" data-target="#verMais" class="btn btn-info">Mais Informações</a>
+								<br><a href="#" onclick="preencherModal('${c.produto.nomeProduto}','${c.produto.localOrigemProduto}', '${c.produto.materialDoProduto.descricao}', '${c.venda.usuario.nomeCompleto}', '${c.venda.valorTotal}', '${c.venda.dataVenda}' );" data-toggle="modal" data-target="#verMais" class="btn btn-info">Mais Informações</a>
 							</div>
 						</div>
 					</div>
