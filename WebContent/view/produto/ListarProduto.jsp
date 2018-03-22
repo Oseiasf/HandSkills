@@ -41,14 +41,13 @@
 				<tr>
 					<td style="float: left; font-size: 24px;">Listagem de <strong>Produtos</strong>
 					</td>
-					<td style="float: right;"><a href="exibirCadastrarProduto"
-						class="btn btn-info" role="button">Novo</a></td>
+					
 				</tr>
 			</table>
 			</p>
 			<hr />
 			<h1>${mensagem}</h1>
-			<h1>${msg}</h1>
+			<h5 class="mensagem-sucesso">${msg}</h5>
 			<!-- Page Content -->
 			<div class="container">
 				<!-- Modal Ver informações-->
@@ -97,7 +96,7 @@
 								<div class="card-body">
 									<h4 class="card-title">${p.nomeProduto}</h4>
 								</div>
-								<div class="card-footer">
+								<div class="card-footer alinhando-botoes">
 									<a href="#" class="btn btn-info">Comprar</a> <br> <br>
 									<a href="#"
 										onclick="preencherModal('${p.nomeProduto}','${p.localOrigemProduto}', '${p.materialDoProduto.descricao}', '${p.quantidadeDisponivel}', '${p.precoVenda}','${p.usuarioArtesao.nomeCompleto}', '${p.id}' );
