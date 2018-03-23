@@ -46,11 +46,13 @@ input[type='file'] {
 							Local de origem do produto <span>*</span>
 						</p>
 						<span class="icon-case"> <i class="fa fa-fighter-jet"></i>
-						</span> <select class="form-control Menu-style-select ajuste-icone"
-							name="localOrigemProduto" required>
-							<option value="PE">Pernambuco</option>
-							<option value="RJ">Rio de Janeiro</option>
-						</select>
+						</span> 
+							<select class="form-control Menu-style-select ajuste-icone" name="localOrigemProduto" required>
+								<option value="PE">Selecione um estado</option>
+								<c:forEach var="estado" items="${listarEstado}">
+									<option value="${estado.nome}">${estado.nome}</option>
+								</c:forEach>
+							</select>
 					</div>
 					<div class="form-group">
 						<p>

@@ -164,8 +164,10 @@
 							<i class="fa fa-map-marker"></i>
 						</span>
 						<select class="form-control style-select ajuste-icone" name="estado" required>
-							<option id="uf">Selecione um estado</option>
-							
+							<option value="${u.estado}">${u.estado}</option>
+							<c:forEach var="estado" items="${listarEstado}">
+								<option value="${estado.nome}">${estado.nome}</option>
+							</c:forEach>
 						</select>
 					</div>
 					<div class="form-group">

@@ -39,9 +39,15 @@
 					<p>
 						Local de origem do produto <span>*</span>
 					</p>
-					<span class="icon-case"><i class="fa fa-fighter-jet"></i></span> <input
-						type="text" name="localOrigemProduto" value="${p.localOrigemProduto}"
-						 maxlength="20" />
+					<span class="icon-case"><i class="fa fa-fighter-jet"></i>
+					</span> 
+					<select class="form-control" class="Menu-style-select"
+							name="localOrigemProduto" required>
+						<option value="${p.localOrigemProduto}">${p.localOrigemProduto}</option>
+						<c:forEach items="${listarEstado}" var="estado">
+							<option value="${estado.nome}">${estado.nome}</option>
+						</c:forEach>
+						</select>
 
 				</div>
 
@@ -62,7 +68,8 @@
 					Material do Produto <span>*</span>
 						<span class="icon-case">
 							<i class="fa fa-fighter-jet"></i>
-						</span> <select class="form-control" class="Menu-style-select"
+						</span>
+						<select class="form-control" class="Menu-style-select"
 							name="materialDoProduto" required>
 						<option value="">Selecione</option>
 						<c:forEach items="${listaMaterialDoProduto}" var="material">

@@ -9,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import handSkills.model.Estado;
+import handSkills.model.EstadoHibernateDAO;
 import handSkills.model.Produto;
 import handSkills.model.ProdutoDAO;
 import handSkills.model.TipoUsuario;
@@ -19,8 +21,13 @@ import handSkills.model.UsuarioDAO;
 public class UsuarioController {
 
 	@RequestMapping("/exibirCadastrarUsuario")
-	public String exibirCadastrarUsuario() {
-
+	public String exibirCadastrarUsuario(Model model) {
+		
+		EstadoHibernateDAO dao = new EstadoHibernateDAO();
+		List<Estado> listarEstados = new ArrayList<Estado>();
+		listarEstados = dao.listar();
+		model.addAttribute("listarEstado", listarEstados);
+		
 		return "usuario/cadastrarUsuario";
 	}
 
@@ -61,6 +68,12 @@ public class UsuarioController {
 		UsuarioDAO dao = new UsuarioDAO();
 		Usuario usuarioCompleto = dao.buscaPorId(usuario.getId());
 		model.addAttribute("u", usuarioCompleto);
+		
+		EstadoHibernateDAO dao2 = new EstadoHibernateDAO();
+		List<Estado> listarEstados = new ArrayList<Estado>();
+		listarEstados = dao2.listar();
+		model.addAttribute("listarEstado", listarEstados);
+		
 
 		return "usuario/AlterarUsuario";
 	}
@@ -93,6 +106,7 @@ public class UsuarioController {
 			
 			return "index";
 		}
+		
 		UsuarioDAO dao = new UsuarioDAO();
 		List<Usuario> listarUsuario = new ArrayList<Usuario>();
 		listarUsuario = dao.listar();

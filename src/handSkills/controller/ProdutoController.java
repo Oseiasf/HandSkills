@@ -1,5 +1,6 @@
 package handSkills.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -10,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import handSkills.model.Estado;
+import handSkills.model.EstadoHibernateDAO;
 import handSkills.model.MaterialDoProduto;
 import handSkills.model.MaterialDoProdutoDAO;
 import handSkills.model.Produto;
@@ -34,9 +37,13 @@ public class ProdutoController {
 			
 			return "index";
 		}
+		EstadoHibernateDAO dao = new EstadoHibernateDAO();
+		List<Estado> listarEstados = new ArrayList<Estado>();
+		listarEstados = dao.listar();
+		model.addAttribute("listarEstado", listarEstados);
 		
-		MaterialDoProdutoDAO dao = new MaterialDoProdutoDAO();
-		List<MaterialDoProduto> listaMaterialDoProduto = dao.listarMaterialDoProduto();
+		MaterialDoProdutoDAO dao2 = new MaterialDoProdutoDAO();
+		List<MaterialDoProduto> listaMaterialDoProduto = dao2.listarMaterialDoProduto();
 		model.addAttribute("listaMaterialDoProduto", listaMaterialDoProduto);
 
 		return "produto/cadastrarProduto";
@@ -131,6 +138,11 @@ public class ProdutoController {
 			
 			return "index";
 		}
+		
+		EstadoHibernateDAO dao3 = new EstadoHibernateDAO();
+		List<Estado> listarEstados = new ArrayList<Estado>();
+		listarEstados = dao3.listar();
+		model.addAttribute("listarEstado", listarEstados);
 		
 		ProdutoDAO dao = new ProdutoDAO();
 		Produto produtoCompleto = dao.buscaPorId(produto.getId());
