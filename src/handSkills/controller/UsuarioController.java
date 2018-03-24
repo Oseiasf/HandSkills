@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import handSkills.model.Estado;
@@ -21,7 +23,7 @@ import handSkills.model.UsuarioDAO;
 public class UsuarioController {
 
 	@RequestMapping("/exibirCadastrarUsuario")
-	public String exibirCadastrarUsuario(Model model) {
+	public String exibirCadastrarUsuario( Model model) {
 		
 		EstadoHibernateDAO dao = new EstadoHibernateDAO();
 		List<Estado> listarEstados = new ArrayList<Estado>();
@@ -32,9 +34,13 @@ public class UsuarioController {
 	}
 
 	@RequestMapping("/CadastrarUsuario")
-	public String CadastrarUsuario(Usuario usuario, HttpSession session, Model model) {
+	public String CadastrarUsuario(@Valid Usuario usuario, BindingResult result, HttpSession session, Model model) {
 		
 		try {
+			
+			if (result.hasErrors()) {
+				return "forward:exibirCadastrarUsuario";
+				}
 			
 			UsuarioDAO dao2 = new UsuarioDAO();
 			
@@ -79,7 +85,11 @@ public class UsuarioController {
 	}
 
 	@RequestMapping("/alterarUsuario")
-	public String alterarUsuario(Usuario usuario, Model model, HttpSession session) {
+	public String alterarUsuario(@Valid Usuario usuario, BindingResult result, Model model, HttpSession session) {
+		
+		if (result.hasErrors()) {
+			return "forward:exibirAtualizarUsuario";
+			}
 		
 		UsuarioDAO dao = new UsuarioDAO();
 		dao.alterarUsuario(usuario);

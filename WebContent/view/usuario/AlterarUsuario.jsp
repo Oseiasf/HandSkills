@@ -88,6 +88,7 @@
 			<div class="contentform">
 				<div class="leftcontact">
 					<div class="form-group">
+						<form:errors path="usuario.nomeCompleto" cssStyle="color:red" />
 						<p>Nome completo<span>*</span></p>
 						<span class="icon-case">
 							<i class="fa fa-user"></i>
@@ -95,6 +96,7 @@
 						<input type="text" name="nomeCompleto" maxlength="50" required placeholder="Digite seu nome" value="${u.nomeCompleto}"/>
 					</div>
 					<div class="form-group">
+					<form:errors path="usuario.cpf" cssStyle="color:red" />
 						<p>CPF <span>*</span></p>
 						<span class="icon-case">
 							<i class="fa fa-credit-card"></i>
@@ -103,6 +105,7 @@
 						<h7 class="mensagem-erro">${cpfExiste}</h7>
 					</div>
 					<div class="form-group">
+					<form:errors path="usuario.rg" cssStyle="color:red" />
 						<p>RG <span>*</span></p>
 						<span class="icon-case">
 							<i class="fa fa-keyboard-o"></i>
@@ -110,6 +113,7 @@
 						<input type="text" name="rg" maxlength="10" required placeholder="Digite apenas números" value="${u.rg}"/>
 					</div>
 					<div class="form-group">
+					<form:errors path="usuario.email" cssStyle="color:red" />
 						<p>Email <span>*</span></p>
 						<span class="icon-case">
 							<i class="fa fa-envelope-o"></i>
@@ -122,12 +126,14 @@
 						<div class="validation"></div>
 					</div>
 					<div class="form-group">
+					<form:errors path="usuario.senha" cssStyle="color:red" />
 						<p> Senha <span>*</span></p>
 						<span class="icon-case">
 							<i class="fa fa-unlock"></i>
 						</span> <input type="password" name="senha" maxlength="200" required placeholder="Digite sua senha" value="${u.senha}"/>
 					</div>
 					<div class="form-group">
+					<form:errors path="usuario.cep" cssStyle="color:red" />
 						<p>CEP <span>*</span></p>
 						<span class="icon-case">
 							<i class="fa fa-map-marker"></i>
@@ -195,6 +201,7 @@
 						</select>
 					</div>
 					<div class="form-group">
+					<form:errors path="usuario.telefone" cssStyle="color:red" />
 						<p>Telefone <span>*</span></p>
 						<span class="icon-case">
 							<i class="fa fa-phone"></i>
@@ -202,6 +209,7 @@
 						<input type="text" name="telefone" maxlength="25" required class="telefone" placeholder="ex: (99)99999-9999" value="${u.telefone }"/>
 					</div>
 					<div class="form-group">
+					<form:errors path="usuario.whatsapp" cssStyle="color:red" />
 						<p>WhatsApp <span>*</span></p>
 						<span class="icon-case">
 							<i class="fa fa-phone"></i>

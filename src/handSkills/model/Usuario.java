@@ -5,6 +5,9 @@ import javax.persistence.Entity;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name = "Usuario")
@@ -13,18 +16,28 @@ public class Usuario {
 	@Id
 	private int id;
 	
+	@NotEmpty(message="O nome deve ser preenchido")
+	@Size(min = 8, max = 50, message="O nome deve deve ter um tamanho de 5 caracteres, no mínimo e no máximo 50.")
 	@Column(name= "nome_completo")
 	private String nomeCompleto;
 	
+	@NotEmpty(message="O cpf deve ser preenchido")
+	@Size(max = 14, message="O CPF deve conter, no mínimo, 14 caracteres.")
 	@Column
 	private	String cpf;
 	
+	@NotEmpty(message="O RG deve ser preenchido")
+	@Size(min = 6, max = 15, message="O RG deve conter 6 caracteres, no mínimo e no máximo 15.")
 	@Column
 	private String rg;
 	
+	@NotEmpty(message="O email deve ser preenchido")
+	@Size(max = 50, message="O Email deve conter no máximo 50 caracteres.")
 	@Column
 	private String email;
 	
+	@NotEmpty(message="A senha deve ser preenchido")
+	@Size(min = 8, max = 100, message="A senha deve conter no mínimo 8 caracteres.")
 	@Column
 	private String senha;
 	
@@ -36,19 +49,25 @@ public class Usuario {
 	
 	@Column
 	private String cidade;
-	
+
 	@Column
 	private String estado;
 	
+	@NotEmpty(message="O CEP deve ser preenchido")
+	@Size(min = 8, max = 20, message="O CEP deve conter no mínimo 8 caracteres e no máximo 20.")
 	@Column
 	private String cep;
 	
 	@Column
 	private String sexo;
 	
+	@NotEmpty(message="O telefone deve ser preenchido")
+	@Size(min = 8, max = 50, message="O telefone deve conter, no mínimo 8 caracteres e no máximo 50")
 	@Column
 	private String telefone;
 	
+	@NotEmpty(message="O whatsapp deve ser preenchido")
+	@Size(min = 8, max = 50, message="O whatsapp deve conter no mínimo 8 caracteres e no máximo 50")
 	@Column
 	private String whatsapp;
 	
