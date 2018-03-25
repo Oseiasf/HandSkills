@@ -1,6 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html>
 <html>
 
@@ -23,7 +23,7 @@
 				<div class="form-group">
 
 					<input type="hidden" name="id" value="${p.id}">
-
+					<form:errors path="produto.nomeProduto" cssStyle="color:red" />
 					<p>
 						Nome do produto<span>*</span>
 					</p>
@@ -36,6 +36,7 @@
 
 
 				<div class="form-group">
+				<form:errors path="produto.localOrigemProduto" cssStyle="color:red" />
 					<p>
 						Local de origem do produto <span>*</span>
 					</p>
@@ -52,6 +53,7 @@
 				</div>
 
 				<div class="form-group">
+				<form:errors path="produto.coresDisponiveis" cssStyle="color:red" />
 					<p>
 						Cores disponíveis <span>*</span>
 					</p>

@@ -6,6 +6,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name = "Produto")
@@ -14,16 +17,23 @@ public class Produto {
 	@Id
 	private int id;
 	
+	
 	@ManyToOne
     @JoinColumn(name = "id_usu_artesao")
 	private Usuario usuarioArtesao;
 	
+	@NotEmpty(message="O nome do produto deve ser preenchido")
+	@Size(min = 8, max = 50, message="O nome do produto deve ter um tamanho de 8 caracteres, no mínimo e no máximo 50.")
 	@Column(name = "nome_produto")
 	private	String nomeProduto;
 	
+	@NotEmpty(message="A localidade do produto deve ser preenchido")
+	@Size(min = 5, max = 50, message="A localidade do produto deve ter um tamanho de 5 caracteres, no mínimo e no máximo 50.")
 	@Column(name = "local_origem_produto")
 	private	String localOrigemProduto;
 	
+	@NotEmpty(message="O nome deve ser preenchido")
+	@Size(min = 3, max = 20, message="O nome da cor deve ter um tamanho de 3 caracteres, no mínimo e no máximo 20.")
 	@Column(name = "cores_disponiveis")
 	private	String coresDisponiveis;
 	

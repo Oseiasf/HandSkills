@@ -43,5 +43,21 @@ public class VendaHibernateDAO {
 		
 		return vendas;
 	}
+	
+	public List<ItemVenda> listarVendas(int id){
+		EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);
+		EntityManager manager = factory.createEntityManager();
+
+		TypedQuery<ItemVenda> query = manager.createQuery("from ItemVenda iv where iv.produto.usuarioArtesao.id = :id)", ItemVenda.class);
+		query.setParameter("id", id);
+		List<ItemVenda> vendas = query.getResultList();
+		
+		
+
+		manager.close();
+		factory.close();
+		
+		return vendas;
+	}
 
 }

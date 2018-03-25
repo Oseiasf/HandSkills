@@ -24,7 +24,7 @@ public class CarrinhoController {
 
     @RequestMapping("/exibirAdicionarCarrinho")
     public String exibirAdicionarCarrinho(Produto produto, Model model, HttpSession session) {
-		
+    
 	ProdutoDAO dao = new ProdutoDAO();
 	Produto produtoCompleto = dao.buscaPorId(produto.getId());
 	model.addAttribute("p", produtoCompleto);
@@ -33,11 +33,18 @@ public class CarrinhoController {
     }
     
     @RequestMapping("/adicionarAoCarrinho")
-    public String adicionarAoCarrinho(@RequestParam("id") String id, @RequestParam("quantidade") String qtd, HttpSession session, Model model) {
+    public String adicionarAoCarrinho(@RequestParam("id") String id, @RequestParam("quantidade") String qtd, HttpSession session, Model model, ItemCarrinho item1) {
+    
     	
     ProdutoDAO dao = new ProdutoDAO();
 	Produto produtoCompleto = dao.buscaPorId(Integer.valueOf(id));
-
+	if(item1.getQuantidade() > produtoCompleto.getQuantidadeDisponivel()) {
+		 
+		model.addAttribute("erro", "Não possuimos tantos produtos no estoque, escolha uma quantidade menor que "+produtoCompleto.getQuantidadeDisponivel());
+		
+		return "forward:exibirAdicionarCarrinho";
+	}
+	
 	List<ItemCarrinho> listaCarrinho = (List<ItemCarrinho>) session.getAttribute("listaCarrinho");
 	if (listaCarrinho != null) {
 

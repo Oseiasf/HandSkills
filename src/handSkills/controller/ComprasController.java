@@ -27,4 +27,17 @@ public class ComprasController {
 
 		return "compras/listarCompras";
 	}
+	
+	@RequestMapping("/exibirListaVendas")
+	public String exibirListaVendas(Model model, HttpSession session) {
+		
+		Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
+		
+		VendaHibernateDAO dao = new VendaHibernateDAO();
+		List<ItemVenda> listaVendas = dao.listarVendas(usuario.getId());
+		model.addAttribute("listaVendas", listaVendas);
+
+
+		return "compras/listarVendas";
+	}
 }

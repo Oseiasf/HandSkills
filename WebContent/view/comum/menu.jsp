@@ -184,7 +184,8 @@
 							</a>
 							<div class="dropdown-menu" aria-labelledby="dropdownArtesao">
 								<a class="dropdown-item" href="exibirAtualizarUsuario?id=${usuarioLogado.id}">Alterar dados</a>
-								<a class="dropdown-item" href="meusProdutos">Meus Produtos</a>
+								<a class="dropdown-item" href="meusProdutos">Meus Produtos Cadastrados</a>
+								<a class="dropdown-item" href="exibirListaVendas">Meus Produtos Vendidos</a>
 								<a class="dropdown-item" href="logout">Sair</a>
 				
 							</div>
@@ -200,6 +201,7 @@
 							<div class="dropdown-menu" aria-labelledby="dropdownADM">
 								<a class="dropdown-item" href="exibirAtualizarUsuario?id=${usuarioLogado.id}">Alterar dados</a>
 								<a class="dropdown-item" href="meusProdutos">Meus Produtos</a>
+								<a class="dropdown-item" href="exibirListaVendas">Meus Produtos Vendidos</a>
 								<a class="dropdown-item" href="exibirCadastrarUsuario">Cadastrar Usuario</a>
 								<a class="dropdown-item" href="listarUsuarios">Listar Usuarios</a>
 								<a class="dropdown-item" href="logout">Sair</a>

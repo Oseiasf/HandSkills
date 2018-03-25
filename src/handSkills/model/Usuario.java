@@ -17,7 +17,7 @@ public class Usuario {
 	private int id;
 	
 	@NotEmpty(message="O nome deve ser preenchido")
-	@Size(min = 8, max = 50, message="O nome deve deve ter um tamanho de 5 caracteres, no mínimo e no máximo 50.")
+	@Size(min = 8, max = 50, message="O nome deve ter um tamanho de 8 caracteres, no mínimo e no máximo 50.")
 	@Column(name= "nome_completo")
 	private String nomeCompleto;
 	

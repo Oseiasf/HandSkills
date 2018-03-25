@@ -48,7 +48,7 @@
 										</ul>
 										<div class="card-footer">
 										<button type="submit" class="btn btn-info">Comprar</button>
-										<span id="idProduto"></span> 
+										<c:if test="${usuarioLogado != null }"><span id="idProduto"></span></c:if>
 										
 										</div>
 									</form>

@@ -1,5 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,6 +34,7 @@ input[type='file'] {
 			<h1 class="cor-cadastrar">Cadastrar produto</h1>
 			<div class="contentform">
 				<div class="leftcontact">
+					<form:errors path="produto.nomeProduto" cssStyle="color:red" />
 					<div class="form-group">
 						<p>
 							Nome do produto<span>*</span>
@@ -42,6 +44,7 @@ input[type='file'] {
 							pattern="[Aa-Zz\s]+$" />
 					</div>
 					<div class="form-group">
+						<form:errors path="produto.localOrigemProduto" cssStyle="color:red" />
 						<p>
 							Local de origem do produto <span>*</span>
 						</p>
@@ -55,6 +58,7 @@ input[type='file'] {
 							</select>
 					</div>
 					<div class="form-group">
+					<form:errors path="produto.coresDisponiveis" cssStyle="color:red" />
 						<p>
 							Cores disponí­veis <span>*</span>
 						</p>

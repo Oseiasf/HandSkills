@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
@@ -50,13 +52,17 @@ public class ProdutoController {
 	}
 
 	@RequestMapping("/CadastrarProduto")
-	public String CadastrarProduto(Produto produto, HttpSession session, @RequestParam("file") MultipartFile imagem, Model model) {
+	public String CadastrarProduto(@Valid Produto produto, BindingResult result , HttpSession session, @RequestParam("file") MultipartFile imagem, Model model) {
 		
 		if (Util.fazerUploadImagem(imagem)) {
 			produto.setImagem(Util.obterMomentoAtual() + " - " + imagem.getOriginalFilename());
 		}
 
 		try {
+			
+			if (result.hasErrors()) {
+				return "forward:exibirCadastrarProduto";
+				}
 			
 			Usuario usuarioArtesao = (Usuario) session.getAttribute("usuarioLogado");
 			produto.setUsuarioArtesao(usuarioArtesao);
@@ -177,8 +183,12 @@ public class ProdutoController {
 	}
 
 	@RequestMapping("/alterarProduto")
-	public String alterarProduto(Produto produto, Model model) {
-
+	public String alterarProduto(@Valid Produto produto, BindingResult result, Model model) {
+		
+		if (result.hasErrors()) {
+			return "forward:exibirAtualizarProduto";
+			}
+		
 		ProdutoDAO dao = new ProdutoDAO();
 		dao.alterarProduto(produto);
 
