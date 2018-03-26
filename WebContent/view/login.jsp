@@ -7,7 +7,7 @@
     <title>Login</title>
   </head>
   <body>
-    <c:import url="/view/comum/menu.jsp" />
+    <c:import url="/view/comum/menu.jsp"/>
     <div class="">
       <div style="color: red;" align="center">
         <h6 class="mensagem-erro">${msg}</h6>
@@ -38,6 +38,7 @@
           href="exibirCadastrarUsuario" class="cor-cadastre cadastre-login">Cadastre-se</a></span>
       </form>
     </div>
+    
     <footer class="py-5 bg-info"
       style="position: absolute; width: 100%; bottom: 0;">
       <div class="container">

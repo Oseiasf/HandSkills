@@ -38,7 +38,7 @@
 							</div>
 							<div class="modal-body">
 								<h4 class="card-title"><label id="nomeProduto"></label></h4>
-									<form action="efetuarPedido" method="post">
+									<form action="efetuarCompra" method="post">
 										<ul>
 											<li>Feito em: <label id="localOrigemProduto"></label></li>
 											<li>Feito por: <label id="usuarioArtesao"></label></li>
@@ -47,9 +47,15 @@
 											<li class="card-text">Valor: <label id="precoVenda"></label></li>
 										</ul>
 										<div class="card-footer">
-										<button type="submit" class="btn btn-info">Comprar</button>
-										<c:if test="${usuarioLogado != null }"><span id="idProduto"></span></c:if>
-										
+											<center>
+												<c:if test="${usuarioLogado == null }">
+													Gostou? Quer levar para casa? Faça um <a href="exibirCadastrarUsuario">cadastro</a> ou, se já possuir uma conta, basta apenas <a href="login">logar</a>
+												</c:if>
+												<c:if test="${usuarioLogado != null }">
+													<button type="submit" class="btn btn-info">Comprar</button>
+													<span id="idProduto"></span>
+												</c:if>
+											</center>		
 										</div>
 									</form>
 							</div>
@@ -97,7 +103,6 @@
 							<p class="card-text">R$:${p.precoVenda}</p>
 						</div>
 						<div class="card-footer">
-							<a href="#" class="btn btn-info">Comprar</a>
 							<br>
 							<a href="#" onclick="preencherModal('${p.nomeProduto}','${p.localOrigemProduto}', '${p.materialDoProduto.descricao}', '${p.quantidadeDisponivel}', '${p.precoVenda}','${p.usuarioArtesao.nomeCompleto}', '${p.id}' );
 								" data-toggle="modal" data-target="#verMais" class="btn btn-info">Mais Informações</a>

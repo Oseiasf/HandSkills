@@ -54,8 +54,13 @@
 										</ul>
 										<div class="card-footer">
 											<center>
-												<button type="submit" class="btn btn-info">Comprar</button>
-												<c:if test="${usuarioLogado != null }"><span id="idProduto"></span></c:if>
+												<c:if test="${usuarioLogado == null }">
+													Gostou? Quer levar para casa? Faça um <a href="exibirCadastrarUsuario">cadastro</a> ou, se já possuir uma conta, basta apenas <a href="login">logar</a>
+												</c:if>
+												<c:if test="${usuarioLogado != null }">
+													<button type="submit" class="btn btn-info">Comprar</button>
+													<span id="idProduto"></span>
+												</c:if>
 											</center>
 										</div>
 									</form>
@@ -74,7 +79,6 @@
 								<h4 class="card-title">${p.nomeProduto}</h4>
 							</div>
 							<div class="card-footer">
-								<a href="#" class="btn btn-info">Comprar</a>
 								<c:if test="${usuarioLogado.tipoUsuario == 'ADM'}"><a href="exibirAtualizarProduto?id=${p.id}" class="btn btn-info">Alterar</a></c:if>
 								<br><a href="#" onclick="preencherModal('${p.nomeProduto}','${p.localOrigemProduto}', '${p.materialDoProduto.descricao}', '${p.quantidadeDisponivel}', '${p.precoVenda}','${p.usuarioArtesao.nomeCompleto}', '${p.id}' );
 								" data-toggle="modal" data-target="#verMais" class="btn btn-info">Mais Informações</a>

@@ -1,5 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,7 +24,9 @@
 					<p class="descricao">
 						Material do produto<span>*</span>
 					</p>
-					</span> <input type="text" name="Descricao" maxlength="50" required pattern="[Aa-Zz\s]+$" style="width: 100%" placeholder="Digite o material do produto" />
+					</span> 
+					<input type="text" name="Descricao" maxlength="50" required pattern="[Aa-Zz\s]+$" style="width: 100%" placeholder="Digite o material do produto" />
+					<form:errors path="materialDoProduto.descricao" cssStyle="color:red" />
 					<h6 class="mensagem-erro">${nomeMaterialProdutoExiste}</h6>
 
 				</div>

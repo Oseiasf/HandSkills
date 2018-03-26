@@ -79,6 +79,18 @@
         });
 
     </script>
+    	<script>
+            function checkNumber(value) {
+                if (value.trim() !== "") {
+                    var regra = /^[0-9]+$/;
+                    if (value.match(regra)) {
+                    } 
+                    else {
+                        alert("Permitido somente números");
+                    }
+                }
+            }
+        </script>
 	</head>
 	<body>
 		<c:import url="/view/comum/menu.jsp" />
@@ -89,32 +101,31 @@
 			<div class="contentform">
 				<div class="leftcontact">
 					<div class="form-group">
-						<form:errors path="usuario.nomeCompleto" cssStyle="color:red" />
 						<p>Nome completo<span>*</span></p>
 						<span class="icon-case">
 							<i class="fa fa-user"></i>
 						</span>
 						<input type="text" name="nomeCompleto" maxlength="50" required placeholder="Digite seu nome" value="${u.nomeCompleto}"/>
+						<form:errors path="usuario.nomeCompleto" cssStyle="color:red" />
 					</div>
 					<div class="form-group">
-					<form:errors path="usuario.cpf" cssStyle="color:red" />
 						<p>CPF <span>*</span></p>
 						<span class="icon-case">
 							<i class="fa fa-credit-card"></i>
 						</span>
 						<input type="text" name="cpf" maxlength="15" required placeholder="ex: 999.999.999-99" class="cpf" value="${u.cpf}"/>
+						<form:errors path="usuario.cpf" cssStyle="color:red" />
 						<h7 class="mensagem-erro">${cpfExiste}</h7>
 					</div>
 					<div class="form-group">
-					<form:errors path="usuario.rg" cssStyle="color:red" />
 						<p>RG <span>*</span></p>
 						<span class="icon-case">
 							<i class="fa fa-keyboard-o"></i>
 						</span>
-						<input type="text" name="rg" maxlength="10" required placeholder="Digite apenas números" value="${u.rg}"/>
+						<input type="text" name="rg" maxlength="10" required placeholder="Digite apenas números" value="${u.rg}" onblur="checkNumber(this.value)"/>
+						<form:errors path="usuario.rg" cssStyle="color:red" />
 					</div>
 					<div class="form-group">
-					<form:errors path="usuario.email" cssStyle="color:red" />
 						<p>Email <span>*</span></p>
 						<span class="icon-case">
 							<i class="fa fa-envelope-o"></i>
@@ -123,23 +134,25 @@
 							maxlength="50" required value="${u.email}"/>
 						<br>
 						<br>
+						<form:errors path="usuario.email" cssStyle="color:red" />
 						<h7 class="mensagem-erro">${emailExiste}</h7>
 						<div class="validation"></div>
 					</div>
 					<div class="form-group">
-					<form:errors path="usuario.senha" cssStyle="color:red" />
 						<p> Senha <span>*</span></p>
 						<span class="icon-case">
 							<i class="fa fa-unlock"></i>
-						</span> <input type="password" name="senha" maxlength="200" required placeholder="Digite sua senha" value="${u.senha}"/>
+						</span> 
+						<input type="password" name="senha" maxlength="200" required placeholder="Digite sua senha" value="${u.senha}"/>
+						<form:errors path="usuario.senha" cssStyle="color:red" />
 					</div>
 					<div class="form-group">
-					<form:errors path="usuario.cep" cssStyle="color:red" />
 						<p>CEP <span>*</span></p>
 						<span class="icon-case">
 							<i class="fa fa-map-marker"></i>
 						</span>
 						<input type="text" name="cep" id="cep" value="${u.cep}" size="10"  maxlength="9" placeholder="Digite apenas números" pattern="[0-9]+$" onblur="pesquisacep(this.value);"/><!--   -->
+						<form:errors path="usuario.cep" cssStyle="color:red" />
 				<!-- 	<button type="button" class="btn btn-primary" style="background-color: rgba(0,0,0,.5); border-color: rgba(0,0,0,.0001);" onclick="pesquisacep(getElementById('cep').value)">Pesquisar CEP</button> -->
 					</div>
 					<div class="form-group">
@@ -202,20 +215,20 @@
 						</select>
 					</div>
 					<div class="form-group">
-					<form:errors path="usuario.telefone" cssStyle="color:red" />
 						<p>Telefone <span>*</span></p>
 						<span class="icon-case">
 							<i class="fa fa-phone"></i>
 						</span>
 						<input type="text" name="telefone" maxlength="25" required class="telefone" placeholder="ex: (99)99999-9999" value="${u.telefone }"/>
+						<form:errors path="usuario.telefone" cssStyle="color:red" />
 					</div>
 					<div class="form-group">
-					<form:errors path="usuario.whatsapp" cssStyle="color:red" />
 						<p>WhatsApp <span>*</span></p>
 						<span class="icon-case">
 							<i class="fa fa-phone"></i>
 						</span>
 						<input type="text" name="whatsapp" maxlength="25" required class="whatsapp" placeholder="ex: (99)99999-9999" value="${u.whatsapp }]"/>
+						<form:errors path="usuario.whatsapp" cssStyle="color:red" />
 					</div>
 				</div>
 			</div>

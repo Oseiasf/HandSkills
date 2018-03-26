@@ -22,7 +22,7 @@ public class Usuario {
 	private String nomeCompleto;
 	
 	@NotEmpty(message="O cpf deve ser preenchido")
-	@Size(max = 14, message="O CPF deve conter, no mínimo, 14 caracteres.")
+	@Size(max = 14, min= 14, message="O CPF deve obdecer o parão fornecido.")
 	@Column
 	private	String cpf;
 	
@@ -37,7 +37,7 @@ public class Usuario {
 	private String email;
 	
 	@NotEmpty(message="A senha deve ser preenchido")
-	@Size(min = 8, max = 100, message="A senha deve conter no mínimo 8 caracteres.")
+	@Size(min = 8, message="A senha deve conter no mínimo 8 caracteres.")
 	@Column
 	private String senha;
 	
@@ -54,7 +54,7 @@ public class Usuario {
 	private String estado;
 	
 	@NotEmpty(message="O CEP deve ser preenchido")
-	@Size(min = 8, max = 20, message="O CEP deve conter no mínimo 8 caracteres e no máximo 20.")
+	@Size(min = 8, message="O CEP deve conter no mínimo 8 caracteres.")
 	@Column
 	private String cep;
 	
@@ -62,12 +62,12 @@ public class Usuario {
 	private String sexo;
 	
 	@NotEmpty(message="O telefone deve ser preenchido")
-	@Size(min = 8, max = 50, message="O telefone deve conter, no mínimo 8 caracteres e no máximo 50")
+	@Size(min = 15, max = 50, message="O número de telefone deve atingir o padrão fornecido.")
 	@Column
 	private String telefone;
 	
 	@NotEmpty(message="O whatsapp deve ser preenchido")
-	@Size(min = 8, max = 50, message="O whatsapp deve conter no mínimo 8 caracteres e no máximo 50")
+	@Size(min = 15, message="O número de whatsapp deve atingir o padrão fornecido.")
 	@Column
 	private String whatsapp;
 	

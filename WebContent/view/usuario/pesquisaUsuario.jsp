@@ -4,7 +4,7 @@
 <html>
 	<head>
 		<meta charset="iso-8859">
-		<title>Listar usuários</title>
+		<title>Pesquisar usuários</title>
 	</head>
 	<body>
 			<!-- Navigation -->
@@ -15,7 +15,7 @@
 				<p>
 					<table style="width: 100%">
 						<tr>
-							<td style="float: left; font-size: 24px;"> Listagem de <strong>Usuários</strong> </td>
+							<td style="float: left; font-size: 24px;"> Busca de <strong>Usuários</strong> </td>
 							<td style="float: right;"> <a href="exibirCadastrarUsuario" class="btn btn-info" role="button">Novo</a> </td>
 						</tr>
 					</table>

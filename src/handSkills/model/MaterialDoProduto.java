@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 @Entity
 @Table(name = "MaterialDoProduto")
 public class MaterialDoProduto {
@@ -12,6 +14,7 @@ public class MaterialDoProduto {
 	@Id
 	private int id;
 	
+	@NotEmpty(message="O nome do mateiral dp produto deve ser preenchido")
 	@Column(name= "descricao")
 	private String Descricao;
 	

@@ -27,8 +27,6 @@ public class Produto {
 	@Column(name = "nome_produto")
 	private	String nomeProduto;
 	
-	@NotEmpty(message="A localidade do produto deve ser preenchido")
-	@Size(min = 5, max = 50, message="A localidade do produto deve ter um tamanho de 5 caracteres, no mínimo e no máximo 50.")
 	@Column(name = "local_origem_produto")
 	private	String localOrigemProduto;
 	

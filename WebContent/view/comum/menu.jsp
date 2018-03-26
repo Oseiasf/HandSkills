@@ -34,12 +34,12 @@
 				<span class="icon-case">
 					<i class="fa fa-search"></i>
 				</span>
-				<input type="text" name="nomeProduto" maxlength="50" placeholder="Buscar por nome"/>
+				<input type="text" name="nomeProduto" maxlength="50" placeholder="Buscar por nome" pattern="[Aa-Zz\s]+$" title="É permitido apenas letras"/>
 				<br><br>
 				<span class="icon-case">
 					<i class="fa fa-search"></i>
 				</span>
-				<input type="text" name="localOrigemProduto" maxlength="50" placeholder="Buscar por localidade" />
+				<input type="text" name="localOrigemProduto" maxlength="50" placeholder="Buscar por localidade" pattern="[Aa-Zz\s]+$" title="É permitido apenas letras" />
 			</div>
  			<div class="input-group-btn">
  				<button type="submit" class="btn btn-secondary alinhamento-botao-buscar cor-botao" type="button">Buscar</button>
@@ -59,7 +59,7 @@
 				<span class="icon-case">
 					<i class="fa fa-search"></i>
 				</span>
-				<input type="text" name="descricao" maxlength="50" placeholder="Buscar por nome do material"/>
+				<input type="text" name="descricao" maxlength="50" placeholder="Buscar por nome do material" pattern="[Aa-Zz\s]+$" title="É permitido apenas letras"/>
 			</div>
  			<div class="input-group-btn">
  				<button type="submit" class="btn btn-secondary alinhamento-botao-buscar cor-botao" type="button">Buscar</button>
@@ -79,7 +79,7 @@
 				<span class="icon-case">
 					<i class="fa fa-search"></i>
 				</span>
-				<input type="text" name="nomeCompleto" maxlength="50" placeholder="Buscar Por Nome" />
+				<input type="text" name="nomeCompleto" maxlength="50" placeholder="Buscar Por Nome" pattern="[Aa-Zz\s]+$" title="É permitido apenas letras" />
 			</div>
  			<div class="input-group-btn">
  				<button type="submit" class="btn btn-secondary alinhamento-botao-buscar cor-botao" type="button">Buscar</button>

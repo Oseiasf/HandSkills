@@ -1,5 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,15 +14,21 @@
 
 			<form action="alterarMaterial" method="post">
 				<h1 class="cor-cadastrar">Alterar material</h1>
+				
 				<input type="hidden" value="${material.id}" name="id">
 				<div class="form-group">
 
 					<p class="descricao">
 						Descrição do produto<span>*</span>
 					</p>
-					</span> <input type="text" class="form-control" id="inputDescricao"
+					</span> 
+					
+					<input type="text" class="form-control" id="inputDescricao"
 						name="descricao" maxlength="50" required="required"
-						style="width: 100%" value="${material.descricao }" /> <span>${nomeMaterialProdutoExiste}</span>
+						style="width: 100%" value="${material.descricao }" /> 
+						<form:errors path="materialDoProduto.descricao" cssStyle="color:red" />
+						<h6 class="mensagem-erro">${nomeMaterialProdutoExiste}</h6>
+						
 				</div>
 
 				<br />

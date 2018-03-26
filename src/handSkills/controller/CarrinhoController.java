@@ -38,11 +38,14 @@ public class CarrinhoController {
     	
     ProdutoDAO dao = new ProdutoDAO();
 	Produto produtoCompleto = dao.buscaPorId(Integer.valueOf(id));
+	
 	if(item1.getQuantidade() > produtoCompleto.getQuantidadeDisponivel()) {
 		 
 		model.addAttribute("erro", "Não possuimos tantos produtos no estoque, escolha uma quantidade menor que "+produtoCompleto.getQuantidadeDisponivel());
 		
-		return "forward:exibirAdicionarCarrinho";
+		model.addAttribute("p", produtoCompleto);
+
+		return "produto/adicionarCarrinho";
 	}
 	
 	List<ItemCarrinho> listaCarrinho = (List<ItemCarrinho>) session.getAttribute("listaCarrinho");

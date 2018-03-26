@@ -7,6 +7,23 @@
 <head>
 <meta charset="iso-8859">
 <title>Alterar produto</title>
+		<script>
+            function checkNumber(value) {
+                if (value.trim() !== "") {
+                    var regra = /^[0-9]+$/;
+                    var permitir = value.match(regra);
+                    if (permitir) {
+                    	
+                    } 
+                    else {
+                        alert("Permitido somente números");
+                       value = getElementById("qnt").focus();
+                        
+                    }
+                    return true;
+                }
+            }
+        </script>
 </head>
 
 <body>
@@ -30,6 +47,7 @@
 					<span class="icon-case"><i class="fa fa-align-left"></i></span> <input
 						type="text" name="nomeProduto" value="${p.nomeProduto}"
 						maxlength="50" pattern="[Aa-Zz\s]+$"/>
+						<form:errors path="produto.nomeProduto" cssStyle="color:red" />
 
 				</div>
 
@@ -59,7 +77,8 @@
 					</p>
 					<span class="icon-case"><i class="fa fa-circle-o"></i></span> <input
 						type="text" name="coresDisponiveis" value="${p.coresDisponiveis}" maxlength="20" />
-
+					<form:errors path="produto.coresDisponiveis" cssStyle="color:red" />
+					
 				</div>
 
 			</div>
@@ -86,7 +105,7 @@
 						Preço de venda <span>*</span>
 					</p>
 					<span class="icon-case"><i class="fa fa-dollar"></i></span> <input
-						type="text" name="precoVenda" value="${p.precoVenda}" maxlength="20"  placeholder="ex: 99,99" />
+						type="text" name="precoVenda" value="${p.precoVenda}" maxlength="20"  pattern="([0-9]{1,3}\.)?[0-9]{1,3},[0-9]{2}$" placeholder="ex: 99.99" />
 
 				</div>
 
@@ -95,7 +114,7 @@
 						Quantidade disponível <span>*</span>
 					</p>
 					<span class="icon-case"><i class="fa fa-bar-chart-o"></i></span> <input
-						type="text" name="quantidadeDisponivel" value="${p.quantidadeDisponivel}" maxlength="10" />
+						type="text" name="quantidadeDisponivel" value="${p.quantidadeDisponivel}" maxlength="10" onblur="return checkNumber(this.value)" />
 
 				</div>
 

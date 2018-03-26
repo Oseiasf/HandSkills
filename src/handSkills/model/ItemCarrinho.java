@@ -1,9 +1,12 @@
 package handSkills.model;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 public class ItemCarrinho {
 
     private int id;
     private Produto produto;
+    @NotEmpty(message="A quantidade deve ser preenchido")
     private int quantidade;
 
     public int getId() {

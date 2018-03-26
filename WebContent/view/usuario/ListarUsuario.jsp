@@ -30,7 +30,7 @@
 							<th style="width: 15%; vertical-align: middle;">Telefone</th>
 							<th style="width: 15%; vertical-align: middle;">WhatsApp</th>
 							<th style="width: 10%; vertical-align: middle;">Tipo de Usuário</th>
-							<th style="width: 10%; vertical-align: middle; text-align: center;">Ações</th>
+							<c:if test="${usuarioLogado != 'ADM'}"><th style="width: 10%; vertical-align: middle; text-align: center;">Ações</th></c:if>
 						</tr>
 					</thead>
 					<c:forEach items="${listarUsuario}" var="usuario">
@@ -41,10 +41,12 @@
 							<td style="vertical-align: middle;">${usuario.telefone}</td>
 							<td style="vertical-align: middle;">${usuario.whatsapp}</td>
 							<td style="vertical-align: middle;">${usuario.tipoUsuario}</td>
-							<td style="vertical-align: middle;">
-								<a href="exibirAtualizarUsuario?id=${usuario.id}" class="btn btn-info" role="button "><span class="fa fa-check"></span></a> &nbsp;
-								<a href="removerUsuario?id=${usuario.id}" class="btn btn-danger button-remover-alterar" role="button"><span class="fa fa-trash-o"></span></a>
-							</td>
+							<c:if test="${usuarioLogado != 'ADM'}">
+								<td style="vertical-align: middle;">
+									<a href="exibirAtualizarUsuario?id=${usuario.id}" class="btn btn-info" role="button "><span class="fa fa-check"></span></a> &nbsp;
+									<a href="removerUsuario?id=${usuario.id}" class="btn btn-danger button-remover-alterar" role="button"><span class="fa fa-trash-o"></span></a>
+								</td>
+							</c:if>
 						</tr>
 					</c:forEach>
 				</table>
@@ -52,6 +54,6 @@
 		</div>
 		<br />
 		<hr class="linhaSeparador">
-			<c:import url="/view/comum/rodape.jsp" />
+		<c:import url="/view/comum/rodape.jsp" />
 	</body>
 </html>
