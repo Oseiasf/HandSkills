@@ -14,6 +14,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 @Table(name = "Venda")
 public class Venda {
@@ -25,8 +27,10 @@ public class Venda {
 	@ManyToOne
     @JoinColumn(name = "id_usuario")
     private Usuario usuario;
+	
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	@Column(name = "dt_venda")
-    private Date dataVenda;
+	private Date dataVenda;
 	@Column(name = "valor_total")
     private double valorTotal;
 	@OneToMany(mappedBy = "venda", cascade = CascadeType.ALL)

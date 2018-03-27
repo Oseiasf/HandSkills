@@ -61,7 +61,7 @@ foreign key (material_produto) references MaterialDoProduto (id)
 create table Venda ( 
 id int AUTO_INCREMENT,
 id_usuario int,
-dt_venda date not null,
+dt_venda timestamp default current_timestamp,
 valor_total float not null,
 primary key (id),
 foreign key(id_usuario) references Usuario (id)
