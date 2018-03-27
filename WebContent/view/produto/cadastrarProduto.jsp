@@ -75,7 +75,7 @@
 						</div>
 						<div class="form-group">
 							<p>
-								Cores disponÃ­Â­veis <span>*</span>
+								Cores disponíveis <span>*</span>
 							</p>
 							<span class="icon-case"> <i class="fa fa-circle-o"></i></span> <input
 								type="text" name="coresDisponiveis" maxlength="20" required
@@ -100,7 +100,7 @@
 						</div>
 						<div class="form-group">
 							<p>
-								PreÃ§o de venda <span>*</span>
+								Preço de venda <span>*</span>
 							</p>
 							<span class="icon-case"> <i class="fa fa-dollar"></i>
 							</span> <input type="text" name="precoVenda" maxlength="20" required
@@ -108,7 +108,7 @@
 						</div>
 						<div class="form-group">
 							<p>
-								Quantidade disponÃ­Â­vel <span>*</span>
+								Quantidade disponível <span>*</span>
 							</p>
 							<span class="icon-case"> <i
 							class="fa fa-edit"></i>
