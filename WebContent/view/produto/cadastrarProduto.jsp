@@ -33,7 +33,7 @@
                     	
                     } 
                     else {
-                        alert("Permitido somente números");
+                        alert("Permitido somente nÃºmeros");
                        value = getElementById("qnt").focus();
                         
                     }
@@ -75,7 +75,7 @@
 						</div>
 						<div class="form-group">
 							<p>
-								Cores disponí­veis <span>*</span>
+								Cores disponÃ­Â­veis <span>*</span>
 							</p>
 							<span class="icon-case"> <i class="fa fa-circle-o"></i></span> <input
 								type="text" name="coresDisponiveis" maxlength="20" required
@@ -100,7 +100,7 @@
 						</div>
 						<div class="form-group">
 							<p>
-								Preço de venda <span>*</span>
+								PreÃ§o de venda <span>*</span>
 							</p>
 							<span class="icon-case"> <i class="fa fa-dollar"></i>
 							</span> <input type="text" name="precoVenda" maxlength="20" required
@@ -108,7 +108,7 @@
 						</div>
 						<div class="form-group">
 							<p>
-								Quantidade disponí­vel <span>*</span>
+								Quantidade disponÃ­Â­vel <span>*</span>
 							</p>
 							<span class="icon-case"> <i
 							class="fa fa-edit"></i>

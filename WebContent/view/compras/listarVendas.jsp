@@ -43,7 +43,7 @@
 									<form action="efetuarPedido" method="post">
 										<ul>
 											<li>Feito em: <label id="localOrigemProduto"></label></li>
-											<li>Feito por: <label id="nomeUsuario"></label></li>
+											<li>Comprado por: <label id="nomeUsuario"></label></li>
 											<li>Material: <label id="materialDoProduto"></label></li>
 											<li class="card-text">Valor: <label id="precoVenda"></label></li>
 											<li>Comprado em: <label id="dataVenda"></label></li>
