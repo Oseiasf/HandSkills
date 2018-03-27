@@ -23,6 +23,8 @@
 				document.getElementById('usuarioArtesao').innerHTML = usuarioArtesao;
 				var complemento = "' class='btn btn-info' role='button'>Adicionar Ao Carrinho</a> &nbsp;"
 				document.getElementById('idProduto').innerHTML = "<a href='exibirAdicionarCarrinho?id="+idProduto+complemento;
+				var complemento1 = "' class='btn btn-info' role='button'>Comprar</a> &nbsp;"
+				document.getElementById('idCompra').innerHTML = "<a href='exibirEfetuarCompra?id="+idProduto+complemento1;
 
 				
 			}
@@ -59,7 +61,7 @@
 											<li class="card-text">Valor: <label id="precoVenda"></label></li>
 										</ul>
 										<div class="card-footer">
-										<button type="submit" class="btn btn-info">Comprar</button>
+										<span id="idCompra"></span>
 										<span id="idProduto"></span> 
 										
 										</div>

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import handSkills.model.Estado;
 import handSkills.model.EstadoHibernateDAO;
+import handSkills.model.IndexDAO;
 import handSkills.model.Produto;
 import handSkills.model.ProdutoDAO;
 import handSkills.model.TipoUsuario;
@@ -108,11 +109,8 @@ public class UsuarioController {
 
 		if (!usuario1.getTipoUsuario().equals(TipoUsuario.ADM)) {
 
-			ProdutoDAO dao = new ProdutoDAO();
-			List<Produto> listaProduto = dao.listar();
-			model.addAttribute("listaProduto", listaProduto);
 
-			return "index";
+			return "erros/404";
 		}
 
 		UsuarioDAO dao = new UsuarioDAO();
@@ -141,11 +139,9 @@ public class UsuarioController {
 		if (!usuario1.getTipoUsuario().equals(TipoUsuario.ARTESAO)
 				&& !usuario1.getTipoUsuario().equals(TipoUsuario.ADM)) {
 
-			ProdutoDAO dao = new ProdutoDAO();
-			List<Produto> listaProduto = dao.listar();
-			model.addAttribute("listaProduto", listaProduto);
+			
 
-			return "index";
+			return "erros/404";
 		}
 		
 		UsuarioDAO dao = new UsuarioDAO();
@@ -182,11 +178,7 @@ public class UsuarioController {
 	public String logout(HttpSession session, Model model) {
 		session.invalidate();
 
-		ProdutoDAO dao = new ProdutoDAO();
-		List<Produto> listaProduto = dao.listar();
-		model.addAttribute("listaProduto", listaProduto);
-
-		return "index";
+		return "erros/404";
 	}
 
 }

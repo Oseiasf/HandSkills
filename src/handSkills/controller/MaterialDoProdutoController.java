@@ -25,11 +25,7 @@ public class MaterialDoProdutoController {
 		
 		if (!usuario1.getTipoUsuario().equals(TipoUsuario.ADM) ) {
 			
-			ProdutoDAO dao = new ProdutoDAO();
-			List<Produto> listaProduto = dao.listar();
-			model.addAttribute("listaProduto", listaProduto);
-			
-			return "index";
+			return "erros/404";
 		}
 		return "material/cadastrarMaterial";
 	}
@@ -65,11 +61,7 @@ public class MaterialDoProdutoController {
 		
 		if (!usuario1.getTipoUsuario().equals(TipoUsuario.ADM) ) {
 			
-			ProdutoDAO dao = new ProdutoDAO();
-			List<Produto> listaProduto = dao.listar();
-			model.addAttribute("listaProduto", listaProduto);
-			
-			return "index";
+			return "erros/404";
 		}
 		MaterialDoProdutoDAO dao = new MaterialDoProdutoDAO();
 		MaterialDoProduto materialCompleto = dao.buscarPorId(material.getId());
@@ -95,11 +87,7 @@ public class MaterialDoProdutoController {
 		
 		if (!usuario1.getTipoUsuario().equals(TipoUsuario.ADM) ) {
 			
-			ProdutoDAO dao = new ProdutoDAO();
-			List<Produto> listaProduto = dao.listar();
-			model.addAttribute("listaProduto", listaProduto);
-			
-			return "index";
+			return "erros/404";
 		}
 		return "material/listarMaterial";
 	}
@@ -110,11 +98,7 @@ public class MaterialDoProdutoController {
 		
 		if (!usuario1.getTipoUsuario().equals(TipoUsuario.ADM) ) {
 			
-			ProdutoDAO dao = new ProdutoDAO();
-			List<Produto> listaProduto = dao.listar();
-			model.addAttribute("listaProduto", listaProduto);
-			
-			return "index";
+			return "erros/404";
 		}
 		MaterialDoProdutoDAO dao = new MaterialDoProdutoDAO();
 		List<MaterialDoProduto> listarMaterial = dao.listarMaterialDoProduto();
@@ -145,11 +129,7 @@ public class MaterialDoProdutoController {
 		
 		if (!usuario1.getTipoUsuario().equals(TipoUsuario.ARTESAO) && !usuario1.getTipoUsuario().equals(TipoUsuario.ADM) ) {
 			
-			ProdutoDAO dao = new ProdutoDAO();
-			List<Produto> listaProduto = dao.listar();
-			model.addAttribute("listaProduto", listaProduto);
-			
-			return "index";
+			return "erros/404";
 		}
 		MaterialDoProdutoDAO dao = new MaterialDoProdutoDAO();
 		List<MaterialDoProduto> pesquisa = new ArrayList<MaterialDoProduto>();

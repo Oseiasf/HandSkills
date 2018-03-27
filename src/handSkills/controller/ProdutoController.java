@@ -53,7 +53,14 @@ public class ProdutoController {
 
 	@RequestMapping("/CadastrarProduto")
 	public String CadastrarProduto(@Valid Produto produto, BindingResult result , HttpSession session, @RequestParam("file") MultipartFile imagem, Model model) {
-		
+	
+		Usuario usuario1 = (Usuario) session.getAttribute("usuarioLogado");
+			if (!usuario1.getTipoUsuario().equals(TipoUsuario.ARTESAO) && !usuario1.getTipoUsuario().equals(TipoUsuario.ADM) ) {
+			
+			
+			return "erros/404";
+		}
+
 		if (Util.fazerUploadImagem(imagem)) {
 			produto.setImagem(Util.obterMomentoAtual() + " - " + imagem.getOriginalFilename());
 		}
@@ -99,11 +106,8 @@ public class ProdutoController {
 		
 		if (!usuario1.getTipoUsuario().equals(TipoUsuario.ARTESAO) && !usuario1.getTipoUsuario().equals(TipoUsuario.ADM) ) {
 			
-			ProdutoDAO dao = new ProdutoDAO();
-			List<Produto> listaProduto = dao.listar();
-			model.addAttribute("listaProduto", listaProduto);
 			
-			return "index";
+			return "erros/404";
 		}
 		
 		Usuario usuarioArtesao = (Usuario) session.getAttribute("usuarioLogado");
@@ -138,11 +142,8 @@ public class ProdutoController {
 		
 		if (!usuario1.getTipoUsuario().equals(TipoUsuario.ARTESAO) && !usuario1.getTipoUsuario().equals(TipoUsuario.ADM) ) {
 			
-			ProdutoDAO dao = new ProdutoDAO();
-			List<Produto> listaProduto = dao.listar();
-			model.addAttribute("listaProduto", listaProduto);
 			
-			return "index";
+			return "erros/404";
 		}
 		
 		EstadoHibernateDAO dao3 = new EstadoHibernateDAO();
@@ -168,11 +169,9 @@ public class ProdutoController {
 		
 		if (!usuario1.getTipoUsuario().equals(TipoUsuario.ARTESAO) && !usuario1.getTipoUsuario().equals(TipoUsuario.ADM) ) {
 			
-			ProdutoDAO dao = new ProdutoDAO();
-			List<Produto> listaProduto = dao.listar();
-			model.addAttribute("listaProduto", listaProduto);
+		
 			
-			return "index";
+			return "erros/404";
 		}
 		
 		ProdutoDAO dao = new ProdutoDAO();

@@ -25,12 +25,7 @@
 		</script>
 	</head>
 	<body>
-		<!-- Navigation -->
-		<c:import url="/view/comum/menu.jsp" />
-		<h1>${mensagem}</h1>
-		<!-- Page Content -->
-		<div class="container">
-			<!-- Modal Ver informações-->
+		<!-- Modal Ver informações-->
 			<div class="modal fade" id="verMais" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 			
 				<div class="modal-dialog modal-dialog-centered" role="document">
@@ -68,6 +63,12 @@
 						</div>
 					</div>
 				</div>
+		<!-- Navigation -->
+		<c:import url="/view/comum/menu.jsp" />
+		<h1>${mensagem}</h1>
+		<!-- Page Content -->
+		<div class="container">
+			
 			<br><br>
 			<!-- Page Features -->
 			<div class="row text-center">

@@ -12,7 +12,7 @@
 	
 	<div class="alert alert-success" style="width: 100%;">
 		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-		<h3>A página que você está tentando acessar não existe, ....</h3>
+		<h3>A página que você está tentando acessar não existe ....</h3>
 	</div>
 		
 	<div class="textoRodape">
