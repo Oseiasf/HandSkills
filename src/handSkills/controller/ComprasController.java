@@ -1,5 +1,6 @@
 package handSkills.controller;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -8,7 +9,9 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import handSkills.model.ItemCarrinho;
 import handSkills.model.ItemVenda;
 import handSkills.model.Produto;
 import handSkills.model.ProdutoDAO;
@@ -19,15 +22,57 @@ import handSkills.model.VendaHibernateDAO;
 @Controller
 public class ComprasController {
 	
-	@RequestMapping("/exibirEfetuarCompra")
+	@RequestMapping("/exibirAdicionarCompra")
     public String exibirAdicionarCarrinho(Produto produto, Model model, HttpSession session) {
     
 	ProdutoDAO dao = new ProdutoDAO();
 	Produto produtoCompleto = dao.buscaPorId(produto.getId());
 	model.addAttribute("p", produtoCompleto);
 
-	return "compras/efetuarCompra";
+	return "compras/AdicionarCompra";
     }
+	
+    @RequestMapping("/adicionarACompra")
+    public String adicionarACompra(@RequestParam("id") String id, @RequestParam("quantidade") String qtd, HttpSession session, Model model, ItemCarrinho item1) {
+    
+    	
+    ProdutoDAO dao = new ProdutoDAO();
+	Produto produtoCompleto = dao.buscaPorId(Integer.valueOf(id));
+	
+	if(item1.getQuantidade() > produtoCompleto.getQuantidadeDisponivel()) {
+		 
+		model.addAttribute("erro", "Não possuimos tantos produtos no estoque, escolha uma quantidade menor que "+produtoCompleto.getQuantidadeDisponivel());
+		
+		model.addAttribute("p", produtoCompleto);
+
+		return "compras/FinalizarCompra";
+	}
+	
+	List<ItemCarrinho> listaCarrinho = (List<ItemCarrinho>) session.getAttribute("listaCarrinho");
+	if (listaCarrinho != null) {
+
+	    ItemCarrinho item = new ItemCarrinho();
+	    item.setProduto(produtoCompleto);
+	    item.setQuantidade(Integer.valueOf(qtd));
+
+	    listaCarrinho.add(item);
+
+	} else {
+
+	    ItemCarrinho item = new ItemCarrinho();
+	    item.setProduto(produtoCompleto);
+	    item.setQuantidade(Integer.valueOf(qtd));
+
+	    listaCarrinho = new ArrayList<ItemCarrinho>();
+	    listaCarrinho.add(item);
+	}
+
+	session.setAttribute("listaCarrinho", listaCarrinho);
+
+	return "compras/FinalizarCompra";
+    }
+	
+	
 	@RequestMapping("/exibirListaCompras")
 	public String exibirListaCompras(Model model, HttpSession session) {
 		
@@ -53,34 +98,4 @@ public class ComprasController {
 
 		return "compras/listarVendas";
 	}
-
-	@RequestMapping("/concluirVendaUnica")
-    public String concluirVenda(Produto produto, HttpSession session, Model model) {
-
-
-
-	    Venda venda = new Venda();
-	    venda.setUsuario((Usuario) session.getAttribute("usuarioLogado"));
-	    venda.setDataVenda(new Date());
-
-
-
-		ItemVenda itemVenda = new ItemVenda();
-		itemVenda.setId(produto.getId());
-		itemVenda.setQuantidade(produto.getQuantidadeDisponivel());
-		itemVenda.setValor(produto.getPrecoVenda());
-		itemVenda.setVenda(venda);
-		
-		
-	    
-
-	    
-
-	    VendaHibernateDAO dao = new VendaHibernateDAO();
-	    dao.inserir(venda);
-	    model.addAttribute("msg", "Compra realizada com sucesso!");
-
-
-	return "forward:listarProduto";
-    }
 }

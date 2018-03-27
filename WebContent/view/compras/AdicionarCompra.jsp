@@ -43,7 +43,7 @@
 						${msg}
 					</div>
 				</c:if>
-				<form action="concluirVendaUnica" method="post" onsubmit="checkNumber()">
+				<form action="adicionarACompra" method="post" onsubmit="checkNumber()">
 					<input type="hidden" name="id" value="${p.id}">
 					<h1 class="cor-cadastrar">Finalizar Compra</h1>
 					<div class="form-group">
@@ -93,7 +93,7 @@
 						</button>
 						&nbsp;
 						<button type="submit" class="btn btn-info">&nbsp;
-							Comprar &nbsp;
+							Proximo &nbsp;
 						</button>
 					</div>
 				</form>

@@ -85,9 +85,9 @@ public class UsuarioController {
 	@RequestMapping("/alterarUsuario")
 	public String alterarUsuario(@Valid Usuario usuario, BindingResult result, Model model, HttpSession session) {
 
-		if (result.hasErrors()) {
+		/*if (result.hasErrors()) {
 			return "forward:exibirAtualizarUsuario";
-		}
+		}*/
 
 		UsuarioDAO dao = new UsuarioDAO();
 		dao.alterarUsuario(usuario);

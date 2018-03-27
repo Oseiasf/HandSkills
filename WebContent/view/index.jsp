@@ -18,6 +18,9 @@
 		var complemento = "' class='btn btn-info' role='button'>Adicionar Ao Carrinho</a> &nbsp;"
 		document.getElementById('idProduto').innerHTML = "<a href='exibirAdicionarCarrinho?id="
 				+ idProduto + complemento;
+		var complemento = "' class='btn btn-info' role='button'>Comprar</a> &nbsp;"
+			document.getElementById('idCompra').innerHTML = "<a href='exibirAdicionarCompra?id="
+					+ idProduto + complemento;
 
 	}
 </script>
@@ -42,7 +45,6 @@
 					<h4 class="card-title">
 						<label id="nomeProduto"></label>
 					</h4>
-					<form action="efetuarCompra" method="post">
 						<ul>
 							<li>Feito em: <label id="localOrigemProduto"></label></li>
 							<li>Feito por: <label id="usuarioArtesao"></label></li>
@@ -58,12 +60,12 @@
 										href="login">logar</a>
 								</c:if>
 								<c:if test="${usuarioLogado != null }">
-									<button type="submit" class="btn btn-info">Comprar</button>
+									<span id="idCompra"></span>
 									<span id="idProduto"></span>
 								</c:if>
 							</center>
 						</div>
-					</form>
+				
 				</div>
 			</div>
 		</div>

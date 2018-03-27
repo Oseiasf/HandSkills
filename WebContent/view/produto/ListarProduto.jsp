@@ -24,7 +24,7 @@
 				var complemento = "' class='btn btn-info' role='button'>Adicionar Ao Carrinho</a> &nbsp;"
 				document.getElementById('idProduto').innerHTML = "<a href='exibirAdicionarCarrinho?id="+idProduto+complemento;
 				var complemento1 = "' class='btn btn-info' role='button'>Comprar</a> &nbsp;"
-				document.getElementById('idCompra').innerHTML = "<a href='exibirEfetuarCompra?id="+idProduto+complemento1;
+				document.getElementById('idCompra').innerHTML = "<a href='exibirAdicionarCompra?id="+idProduto+complemento1;
 
 				
 			}
