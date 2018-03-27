@@ -4,6 +4,12 @@
 	background-size: 100%;
 }
 
+.teste-background-image {
+	background-image:
+		url("view/img/2018-2-27-1-6-57 - download.jpg");
+	background-size: 100% 100%;
+}
+
 .meu-carrosel {
 	margin: 20px 0 60px 0;
 }
@@ -50,53 +56,63 @@
 .alinhamento-encontre {
 	text-align: center;
 }
-.alinhamento-botao-buscar{
+
+.alinhamento-botao-buscar {
 	margin-left: 35%;
 }
-.cor-botao{
-	    background-color: #81BDA4;
+
+.cor-botao {
+	background-color: #81BDA4;
 }
-.cor-cadastre{
+
+.cor-cadastre {
 	color: #17a2b8;
 }
-.cadastre-login{
+
+.cadastre-login {
 	margin-left: 8%;
 }
-.cor-cadastro{
+
+.cor-cadastro {
 	color: #ffffff;
 }
-.ajuste-icone{
+
+.ajuste-icone {
 	width: 75%;
 }
-.ajuste-input{
+
+.ajuste-input {
 	margin-left: -41%;
 }
 
-.button-remover-alterar{
+.button-remover-alterar {
 	border: 2px solid transparent;
 }
-.botao-material{
+
+.botao-material {
 	text-align: center;
 }
 
-.tamanho-text-area{
+.tamanho-text-area {
 	width: 100%;
-	
 }
-.mensagem-sucesso{
+
+.mensagem-sucesso {
 	color: #32CD32;
 	text-align: center;
 	margin-top: 4%;
-	
 }
-.mensagem-erro{
+
+.mensagem-erro {
 	color: #FF0000;
 	text-align: center;
 	margin-top: 4%;
 }
-.nomes{
-	color:#343a40;
+
+.nomes {
+	color: #343a40;
 }
 
-
-
+.padrao-imagem-index {
+	background-size: 100% 100%;
+}
