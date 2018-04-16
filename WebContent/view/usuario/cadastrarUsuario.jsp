@@ -109,7 +109,7 @@
 		<c:import url="/view/comum/menu.jsp" />
 		<c:if test="${mensagem ne null}">
 			<div class="alert alert-error" style="width: 70%;">
-				<a href="login" class="close" data-dismiss="alert" aria-label="close">Login</a>
+				
 				<h5 class="mensagem-sucesso">${mensagem}</h5>
 			</div>
 		</c:if>
@@ -122,7 +122,7 @@
 						<span class="icon-case">
 							<i class="fa fa-user"></i>
 						</span>
-						<input id="nome" type="text" name="nomeCompleto" maxlength="50" required placeholder="Digite seu nome" />
+						<input id="nome" type="text" name="nomeCompleto" maxlength="50" required placeholder="Digite seu nome" value="${usuario.nomeCompleto}"/>
 						<form:errors path="usuario.nomeCompleto" cssStyle="color:red" />
 					</div>
 					<div class="form-group">
@@ -130,7 +130,7 @@
 						<span class="icon-case">
 							<i class="fa fa-credit-card"></i>
 						</span>
-						<input type="text" name="cpf" maxlength="14" required placeholder="Digite apenas números" class="cpf" />
+						<input type="text" name="cpf" maxlength="14" required placeholder="Digite apenas números" class="cpf" value="${usuario.cpf}"/>
 						<h7 class="mensagem-erro">${cpfExiste}</h7>
 						<form:errors path="usuario.cpf" cssStyle="color:red" />
 					</div>
@@ -139,7 +139,7 @@
 						<span class="icon-case">
 							<i class="fa fa-keyboard-o"></i>
 						</span>
-						<input type="text" name="rg" maxlength="10" required class="rg" placeholder="Digite apenas números"  onblur="checkNumber(this.value)" onKeyUp="javascript:sem_espaco(this);">
+						<input type="text" name="rg" maxlength="10" required class="rg" placeholder="Digite apenas números" value="${usuario.rg}"  onblur="checkNumber(this.value)" onKeyUp="javascript:sem_espaco(this);">
 						<form:errors path="usuario.rg" cssStyle="color:red" />
 					</div>
 					<div class="form-group">
@@ -148,7 +148,7 @@
 							<i class="fa fa-envelope-o"></i>
 						</span>
 						<input type="email" name="email" id="email" data-rule="email" data-msg="Preencha seu email " placeholder="Digite sua senha" 
-							maxlength="50" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"/>
+							maxlength="50" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" value="${usuario.email}"/>
 						<form:errors path="usuario.email" cssStyle="color:red" />
 						<br>
 						<br>
@@ -159,7 +159,7 @@
 						<p> Senha <span>*</span></p>
 						<span class="icon-case">
 							<i class="fa fa-unlock"></i>
-						</span> <input type="password" name="senha" maxlength="200" placeholder="Digite sua senha" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="A senha deve ser maior que 8 e conter, pelo menos, uma letra maiúscula e um número."/>
+						</span> <input type="password" name="senha" maxlength="200" placeholder="Digite sua senha" value="${usuario.senha}"/>
 						<form:errors path="usuario.senha" cssStyle="color:red" />
 					</div>
 					<div class="form-group">
@@ -167,7 +167,7 @@
 						<span class="icon-case">
 							<i class="fa fa-map-marker"></i>
 						</span>
-						<input type="text" name="cep" id="cep" value="" size="10"  maxlength="9" placeholder="Digite apenas números"  pattern="[0-9]+$" onblur="pesquisacep(this.value);" required/><!--   -->
+						<input type="text" name="cep" id="cep" value="" size="10" value="${usuario.cep}" maxlength="9" placeholder="Digite apenas números"  pattern="[0-9]+$" onblur="pesquisacep(this.value);" required/><!--   -->
 						<form:errors path="usuario.cep" cssStyle="color:red" />
 				<!-- 	<button type="button" class="btn btn-primary" style="background-color: rgba(0,0,0,.5); border-color: rgba(0,0,0,.0001);" onclick="pesquisacep(getElementById('cep').value)">Pesquisar CEP</button> -->
 					</div>
@@ -176,7 +176,7 @@
 						<span class="icon-case">
 							<i class="fa fa-map-marker"></i>
 						</span>
-						<input readonly="readonly" type="text" name="endereco" maxlength="100" required placeholder="Digite seu endereço" id="rua" value=""/>
+						<input readonly="readonly" type="text" value="${usuario.endereco}" name="endereco" maxlength="100" required placeholder="Digite seu endereço" id="rua" value=""/>
 					</div>
 				</div>
 				<div class="rightcontact">
@@ -185,14 +185,14 @@
 						<span class="icon-case">
 							<i class="fa fa-map-marker"></i>
 						</span>
-						<input  readonly="readonly" id="bairro" type="text" name="bairro" maxlength="100" required placeholder="Digite seu bairro" value=""/>
+						<input  readonly="readonly" value="${usuario.bairro}" id="bairro" type="text" name="bairro" maxlength="100" required placeholder="Digite seu bairro" value=""/>
 					</div>
 					<div class="form-group">
 						<p>Cidade <span>*</span></p>
 							<span class="icon-case">
 								<i class="fa fa-map-marker"></i>
 							</span>
-							<input readonly="readonly" id="cidade" type="text" name="cidade" maxlength="100" required placeholder="Digite sua cidade" value=""/>
+							<input readonly="readonly" id="cidade" value="${usuario.cidade}" type="text" name="cidade" maxlength="100" required placeholder="Digite sua cidade" value=""/>
 					</div>
 					<div class="form-group">
 						<p>Estado <span>*</span></p>
@@ -200,7 +200,7 @@
 							<i class="fa fa-map-marker"></i>
 						</span>
 						<select class="form-control style-select ajuste-icone" name="estado" required>
-							<option value="">Selecione um estado</option>
+							<option value="${usuario.estado}">Selecione um estado</option>
 							<c:forEach var="estado" items="${listarEstado}">
 								<option value="${estado.nome}">${estado.nome}</option>
 							</c:forEach>
@@ -213,7 +213,7 @@
 							<i class="fa fa-circle-o"></i>
 						</span>
 						<select class="form-control style-select ajuste-icone" name="sexo" required >
-							<option value="">Selecione</option>
+							<option value="${usuario.sexo}">Selecione</option>
 							<option value="Não Identificado">Não identificado</option>
 							<option value="Feminino">Feminino</option>
 							<option value="Masculino">Masculino</option>
@@ -236,7 +236,7 @@
 						<span class="icon-case">
 							<i class="fa fa-phone"></i>
 						</span>
-						<input type="text" name="telefone" maxlength="25" required class="telefone" placeholder="Digite o DDD seguido do número"/>
+						<input type="text" value="${usuario.telefone}" name="telefone" maxlength="25" required class="telefone" placeholder="Digite o DDD seguido do número"/>
 						<form:errors path="usuario.telefone" cssStyle="color:red" />
 					</div>
 					<div class="form-group">
@@ -244,7 +244,7 @@
 						<span class="icon-case">
 							<i class="fa fa-phone"></i>
 						</span>
-						<input type="text" name="whatsapp" maxlength="25" required class="whatsapp" placeholder="Digite o DDD seguido do número"/>
+						<input type="text" value="${usuario.whatsapp}" name="whatsapp" maxlength="25" required class="whatsapp" placeholder="Digite o DDD seguido do número"/>
 						<form:errors path="usuario.whatsapp" cssStyle="color:red" />
 					</div>
 				</div>

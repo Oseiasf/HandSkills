@@ -57,7 +57,7 @@
 							</p>
 							<span class="icon-case "> <i class="fa fa-align-left"></i>
 							</span> <input type="text" name="nomeProduto" maxlength="50" required
-								pattern="[Aa-Zz\s]+$" />
+								pattern="[Aa-Zz\s]+$" placeholder="Digite o nome do produto" />
 							<form:errors path="produto.nomeProduto" cssStyle="color:red" />
 						</div>
 						<div class="form-group">
@@ -79,7 +79,7 @@
 							</p>
 							<span class="icon-case"> <i class="fa fa-circle-o"></i></span> <input
 								type="text" name="coresDisponiveis" maxlength="20" required
-								pattern="[Aa-Zz\s]+$" />
+								pattern="[Aa-Zz\s]+$" placeholder="Digite a cor do produto"/>
 							<form:errors path="produto.coresDisponiveis" cssStyle="color:red" />
 						</div>
 	
@@ -103,7 +103,7 @@
 								Preço de venda <span>*</span>
 							</p>
 							<span class="icon-case"> <i class="fa fa-dollar"></i>
-							</span> <input type="text" name="precoVenda" maxlength="20" required
+							</span> <input type="text" placeholder="Digite o valor do produto" name="precoVenda" maxlength="20" required
 								pattern="([0-9]{1,3}\.)?[0-9]{1,3}.[0-9]{2}$" />
 						</div>
 						<div class="form-group">
@@ -113,7 +113,7 @@
 							<span class="icon-case"> <i
 							class="fa fa-edit"></i>
 							</span> <input  type="text" name="quantidadeDisponivel" maxlength="10"
-								required pattern="[0-9]+$" class="quantidade" onblur="return checkNumber(this.value)" />
+								required pattern="[0-9]+$" class="quantidade" onblur="return checkNumber(this.value)" placeholder="Digite a quantidade do produto" />
 						</div>
 	
 					</div>

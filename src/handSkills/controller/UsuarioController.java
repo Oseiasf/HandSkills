@@ -63,7 +63,7 @@ public class UsuarioController {
 			return "forward:exibirCadastrarUsuario";
 		}
 
-		model.addAttribute("mensagem", "O usuario " + usuario.getNomeCompleto() + " foi cadastrado com sucesso!, deseja fazer o login? ");
+		model.addAttribute("mensagem", "O usuario " + usuario.getNomeCompleto() + " foi cadastrado com sucesso!");
 		return "usuario/cadastrarUsuario";
 	}
 
@@ -178,7 +178,7 @@ public class UsuarioController {
 	public String logout(HttpSession session, Model model) {
 		session.invalidate();
 
-		return "erros/404";
+		return "index";
 	}
 
 }
